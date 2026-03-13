@@ -87,12 +87,16 @@ paths:
               properties:
                 item_class_code:
                   type: string
-                  description: The item class code of the item
-                  example: 99020000
+                  description: >-
+                    The item class code of the item. Refer to the [DigiTax Kenya
+                    eTIMS Item Classification Code
+                    list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
+                    for more information.
+                  example: '99020000'
                 item_type_code:
                   type: string
                   description: The item type code of the item
-                  example: 3
+                  example: '3'
                 item_name:
                   type: string
                   description: The name of the item
@@ -129,8 +133,12 @@ paths:
                   example: https://example.site/services/digitaxQueueReceiverPROXY
                 item_bar_code:
                   type: string
-                  description: The bar code of the item
-                  example: 0799439112766 (EAN-13 barcode)
+                  description: >-
+                    The bar code of the item. EAN-13 barcodes are recommended,
+                    but not required. Ideally set your internal item ID here.
+                    This comes in handy when you have done reports and are
+                    comparing data between DigiTax and your system.
+                  example: 799439112766
                 levies:
                   type: array
                   items:
@@ -2405,7 +2413,11 @@ components:
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
         item_class_code:
           type: string
-          description: The item class code of the item
+          description: >-
+            The item class code of the item. Refer to the [DigiTax Kenya eTIMS
+            Item Classification Code
+            list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
+            for more information.
           example: 99020000
         item_type_code:
           type: string
