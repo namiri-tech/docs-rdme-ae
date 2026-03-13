@@ -88,7 +88,7 @@ paths:
                 item_class_code:
                   type: string
                   description: >-
-                    The item class code of the item. \n<br>Refer to the [DigiTax
+                    The item class code of the item. <br>Refer to the [DigiTax
                     Kenya eTIMS Item Classification Code
                     list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
                     for more information.
@@ -134,10 +134,11 @@ paths:
                 item_bar_code:
                   type: string
                   description: >-
-                    The bar code of the item. EAN-13 barcodes are recommended,
-                    but not required. Ideally set your internal item ID here.
-                    This comes in handy when you have done reports and are
-                    comparing data between DigiTax and your system.
+                    The bar code of the item. <br>EAN-13 barcodes are
+                    recommended, but not required. <br>**Ideally set your
+                    internal item ID here**- It comes in handy when you have
+                    done reports and are comparing data between DigiTax and your
+                    system.
                   example: 799439112766
                 levies:
                   type: array
