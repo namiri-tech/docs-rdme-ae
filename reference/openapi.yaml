@@ -1,0 +1,3184 @@
+openapi: 3.0.1
+info:
+  title: DigiTax Kenya API
+  description: DigiTax Kenya Public API
+  version: '3'
+  termsOfService: https://digitax.tech/page/terms
+  contact:
+    name: DigiTax
+    url: https://digitax.tech
+    email: info@digitax.tech
+  license:
+    name: Apache 2.0
+servers:
+  - url: https://api.digitax.tech/ke/v2
+    description: API
+paths:
+  /etims-info:
+    get:
+      summary: Get eTIMS information on the business
+      tags:
+        - Businesses
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branch'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /branches:
+    get:
+      summary: Get a list of business branches
+      tags:
+        - Businesses
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Branch'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /items:
+    post:
+      tags:
+        - Items
+      summary: Create an item
+      description: Create an item
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - item_class_code
+                - item_type_code
+                - item_name
+                - origin_nation_code
+                - package_unit_code
+                - quantity_unit_code
+                - tax_type_code
+                - default_unit_price
+              properties:
+                item_class_code:
+                  type: string
+                  description: The item class code of the item
+                  example: 99020000
+                item_type_code:
+                  type: string
+                  description: The item type code of the item
+                  example: 3
+                item_name:
+                  type: string
+                  description: The name of the item
+                  example: DigiTax Product 01
+                origin_nation_code:
+                  type: string
+                  description: The country of origin code of the item
+                  example: KE
+                package_unit_code:
+                  type: string
+                  description: The package unit code of the item
+                  example: NT
+                quantity_unit_code:
+                  type: string
+                  description: The quantity unit code of the item
+                  example: U
+                tax_type_code:
+                  type: string
+                  description: The tax type code of the item
+                  example: D
+                default_unit_price:
+                  type: number
+                  description: The default price of the item
+                  example: 1000
+                stock_quantity:
+                  type: number
+                  description: The starting stock quantity of the item.
+                  example: 100
+                callback_url:
+                  type: string
+                  description: >-
+                    The callback url to call when we have new information about
+                    the item, usually after syncing with eTIMS
+                  example: https://example.site/services/digitaxQueueReceiverPROXY
+                item_bar_code:
+                  type: string
+                  description: The bar code of the item
+                  example: 0799439112766 (EAN-13 barcode)
+                levies:
+                  type: array
+                  items:
+                    type: string
+                    description: List of levies applied to the sale
+                    example: CTL
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Items
+      summary: Get list of items owned by the business
+      description: Get list of items owned by the business
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /items/{item_id}:
+    parameters:
+      - in: path
+        name: item_id
+        required: true
+        description: Item ID in Digitax
+        schema:
+          type: string
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+    put:
+      tags:
+        - Items
+      summary: Update an item
+      description: Update an item
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item_name:
+                  type: string
+                  description: The name of an item
+                  example: DigiTax Product 02
+                tax_type_code:
+                  type: string
+                  description: The tax type code of the item
+                  example: A
+                default_unit_price:
+                  type: number
+                  description: The default price of the item
+                  example: 1000
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Items
+      summary: Get a specific item
+      description: Get a specific item
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /customers:
+    get:
+      tags:
+        - Customers
+      summary: Get a list of business customers
+      description: Get a list of business customers
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Customer'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Customers
+      summary: Save business customer
+      description: Save business customer
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - customer_name
+                - customer_tin
+              properties:
+                customer_name:
+                  type: string
+                  description: Customer Name
+                  example: John Doe
+                customer_tin:
+                  type: string
+                  description: Customer Tax Identification Number (TIN)
+                  example: P012345678P
+                email:
+                  type: string
+                  description: Customer Email Address
+                  example: john@doe.com
+                phone:
+                  type: string
+                  description: Customer Phone Number
+                  example: 254712345678
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /customers/{customer_id}:
+    get:
+      tags:
+        - Customers
+      summary: Get a business customer
+      description: Retrieves information about a customer given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: customer_id
+          required: true
+          schema:
+            type: string
+            description: Customer ID on DigiTax
+            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    put:
+      tags:
+        - Customers
+      summary: Update a business customer
+      description: Update a business customer
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: customer_id
+          required: true
+          schema:
+            type: string
+            description: Customer ID on DigiTax
+            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - customer_name
+                - customer_tin
+              properties:
+                customer_name:
+                  type: string
+                  description: Customer Name
+                  example: John Doe
+                email:
+                  type: string
+                  description: Customer Email Address
+                  example: john@doe.com
+                phone:
+                  type: string
+                  description: Customer Phone Number
+                  example: 254712345678
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /imports:
+    get:
+      tags:
+        - Imports
+      summary: Get list of import items received from eTIMS
+      description: Get list of import items received from eTIMS
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - meta
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  meta:
+                    $ref: '#/components/schemas/FetchMeta'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Import'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /imports/{import_id}/link:
+    put:
+      tags:
+        - Imports
+      summary: Link import item to an item in Digitax
+      description: Link import item to an item in Digitax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: import_id
+          required: true
+          schema:
+            type: string
+            description: Import ID in Digitax
+            example: import_01HC3J1VVVM05YCTS61G7V3KC6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - item_id
+              properties:
+                item_id:
+                  type: string
+                  description: The id of the item in Digitax
+                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Import'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /purchases:
+    get:
+      tags:
+        - Purchases
+      summary: Get list of purchases pulled from eTIMS.
+      description: Get list of purchases pulled from eTIMS.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                  - meta
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  meta:
+                    $ref: '#/components/schemas/FetchMeta'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Purchase'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /purchases/{purchase_id}:
+    get:
+      tags:
+        - Purchases
+      summary: Get specific purchase
+      description: Get specific purchase
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: purchase_id
+          required: true
+          schema:
+            type: string
+            description: Purchase ID in Digitax
+            example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Purchase'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /purchases/{purchase_id}/link-items:
+    post:
+      tags:
+        - Purchases
+      summary: Link purchase item to item
+      description: Link purchase item to item
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: purchase_id
+          required: true
+          schema:
+            type: string
+            description: Purchase id
+            example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - purchase_item_id
+                      - item_id
+                    properties:
+                      purchase_item_id:
+                        type: string
+                        example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
+                      item_id:
+                        type: string
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Purchase'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sales:
+    post:
+      tags:
+        - Sales
+      summary: Add sale
+      description: Add sale
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - trader_invoice_number
+                - receipt_type_code
+                - payment_type_code
+                - invoice_status_code
+                - items
+                - sale_date
+              properties:
+                sale_date:
+                  type: string
+                  example: '2026-03-13'
+                customer_tin:
+                  type: string
+                  example: P123456789Y
+                customer_name:
+                  type: string
+                  example: John Doe
+                customer_id:
+                  type: string
+                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                receipt_type_code:
+                  type: string
+                  example: S
+                payment_type_code:
+                  type: string
+                  example: '07'
+                invoice_status_code:
+                  type: string
+                  example: '01'
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_auth:
+                  type: object
+                  required:
+                    - type
+                    - issuer
+                  properties:
+                    type:
+                      type: string
+                      example: REVERSE
+                    issuer:
+                      type: string
+                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
+                invoice_details:
+                  type: string
+                  example: Invoice Details
+                is_tax_exempt:
+                  type: boolean
+                  description: Indicates if the sale is tax exempt
+                  example: false
+                service_charge_rate:
+                  type: number
+                  format: double
+                  example: 0.02
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - quantity
+                      - unit_price
+                      - total_amount
+                    properties:
+                      id:
+                        type: string
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Sales
+      summary: Get sales
+      description: >-
+        List sales for a particular business. If an `end_date` is provided
+        without a `start_date`, all sales will be returned.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: query
+          name: start_date
+          required: false
+          schema:
+            type: string
+            description: >-
+              Start date (YYYY-MM-DD) - sales returned will be inclusive of this
+              date
+            example: '2026-03-13'
+        - in: query
+          name: end_date
+          required: false
+          schema:
+            type: string
+            description: >-
+              End date (YYYY-MM-DD) - sales returned will be inclusive of this
+              date
+            example: '2026-03-13'
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sales-with-items:
+    post:
+      tags:
+        - Sales
+      summary: Add sale with item information
+      description: Add sale with item information
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - trader_invoice_number
+                - receipt_type_code
+                - payment_type_code
+                - invoice_status_code
+                - items
+                - sale_date
+              properties:
+                sale_date:
+                  type: string
+                  example: '2026-03-13'
+                customer_tin:
+                  type: string
+                  example: P123456789Y
+                customer_name:
+                  type: string
+                  example: John Doe
+                customer_id:
+                  type: string
+                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                receipt_type_code:
+                  type: string
+                  example: S
+                payment_type_code:
+                  type: string
+                  example: '07'
+                invoice_status_code:
+                  type: string
+                  example: '01'
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_auth:
+                  type: object
+                  required:
+                    - type
+                    - issuer
+                  properties:
+                    type:
+                      type: string
+                      example: REVERSE
+                    issuer:
+                      type: string
+                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
+                invoice_details:
+                  type: string
+                  example: Invoice Details
+                is_tax_exempt:
+                  type: boolean
+                  description: Indicates if the sale is tax exempt
+                  example: false
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - quantity
+                      - unit_price
+                      - total_amount
+                      - item_name
+                      - item_class_code
+                      - item_bar_code
+                      - item_tax_type_code
+                    properties:
+                      item_name:
+                        type: string
+                        example: Item name
+                      item_class_code:
+                        type: string
+                        example: '99000000'
+                      item_bar_code:
+                        type: string
+                        example: '99000001'
+                      item_tax_type_code:
+                        type: string
+                        example: D
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      taxable_amount:
+                        type: number
+                        example: 3500
+                      tax_amount:
+                        type: number
+                        example: 0
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+                      is_stockable:
+                        type: boolean
+                        description: >-
+                          Indicates if the item is stockable. Stockable items
+                          are treated as FINISHED goods, whereas non-stockable
+                          items are treated as SERVICES.
+                        example: true
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /credit-notes/express:
+    post:
+      tags:
+        - Sales
+      summary: Add express credit note
+      description: Add express credit note
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - return_date
+                - sale_id
+                - trader_invoice_number
+              properties:
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                return_date:
+                  type: string
+                  example: '2026-03-13'
+                sale_id:
+                  type: string
+                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_details:
+                  type: string
+                  example: General Invoice Details
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /credit-notes-with-barcode:
+    post:
+      tags:
+        - Sales
+      summary: Add credit note with item bar codes
+      description: Add credit note with item bar codes
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - items
+                - return_date
+                - sale_id
+                - trader_invoice_number
+              properties:
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                return_date:
+                  type: string
+                  example: '2026-03-13'
+                sale_id:
+                  type: string
+                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_details:
+                  type: string
+                  example: General Invoice Details
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - item_bar_code
+                      - quantity
+                      - unit_price
+                      - total_amount
+                    properties:
+                      item_bar_code:
+                        type: string
+                        example: HC3J1VVVM05YCTS61G7V3KC6
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      taxable_amount:
+                        type: number
+                        example: 3500
+                      tax_amount:
+                        type: number
+                        example: 0
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /credit-notes:
+    post:
+      tags:
+        - Sales
+      summary: Add credit note
+      description: Add credit note
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - items
+                - return_date
+                - sale_id
+                - trader_invoice_number
+              properties:
+                return_date:
+                  type: string
+                  example: '2026-03-13'
+                sale_id:
+                  type: string
+                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_details:
+                  type: string
+                  example: General Invoice Details
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - quantity
+                      - unit_price
+                      - total_amount
+                    properties:
+                      id:
+                        type: string
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Sales
+      summary: Get credit notes
+      description: List credit notes
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sales/{sale_id}:
+    get:
+      tags:
+        - Sales
+      summary: Get sale (including credit note)
+      description: Get specific sale by ID (including credit note)
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: sale_id
+          required: true
+          schema:
+            type: string
+            description: Sale ID on DigiTax
+            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sale/{business_id}/{trader_invoice_number}:
+    get:
+      tags:
+        - Sales
+      x-visibility: internal
+      summary: Offline url for sales
+      description: >-
+        This endpoint allows you to generate a URL for offline sales and share
+        with clients to monitor sale status
+      parameters:
+        - in: path
+          name: business_id
+          required: true
+          schema:
+            type: string
+            description: Business ID on DigiTax
+            example: business_01HC3HTDAXQ50E07CWR2A2CFBD
+        - in: path
+          name: trader_invoice_number
+          required: true
+          schema:
+            type: string
+            description: Trader Invoice Number
+            example: 12345678901
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OfflineUrlSale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /stock/transfer:
+    post:
+      tags:
+        - Stock
+      summary: Transfer stock to another businesses
+      description: Transfer stock to another businesses
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - item_id
+                - business_id
+                - quantity
+                - receiving_item_id
+              properties:
+                item_id:
+                  type: string
+                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                business_id:
+                  type: string
+                  example: business_01HC3J1VVVM05YCTS61G7V3KC6
+                quantity:
+                  type: number
+                  example: 1
+                receiving_item_id:
+                  type: string
+                  example: item_01J8HJFH3NG17EGVF0N5GHMPM9
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Success'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /stock/adjust:
+    put:
+      tags:
+        - Stock
+      summary: Adjust item stock
+      description: Adjust item stock
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - item_id
+                - quantity
+                - action
+                - movement_type
+              properties:
+                item_id:
+                  type: string
+                  description: Item ID in DigiTax
+                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                quantity:
+                  type: number
+                  description: Stock quantity
+                  example: 100
+                action:
+                  type: string
+                  enum:
+                    - ADD
+                    - DEDUCT
+                  description: Adjust type
+                  example: ADD
+                movement_type:
+                  type: string
+                  description: Stock movement type code
+                  example: '01'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - id
+                  - item_code
+                  - stock_quantity
+                properties:
+                  id:
+                    type: string
+                    example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                  item_code:
+                    type: string
+                    example: KE1PD-U230411121122
+                  stock_quantity:
+                    type: integer
+                    example: 300
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /notices:
+    get:
+      summary: Get list of KRA notices for business
+      tags:
+        - Notices
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - meta
+                  - data
+                properties:
+                  meta:
+                    $ref: '#/components/schemas/FetchMeta'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Notice'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /invoice-verifications:
+    post:
+      tags:
+        - Invoice verification
+      summary: Verify an invoice
+      description: Verify an invoice
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - invoice_number
+              properties:
+                invoice_number:
+                  type: string
+                  example: KRACU0300000024/39
+                amount:
+                  type: integer
+                  example: 2000
+                supplier_pin:
+                  type: string
+                  example: P000614502H
+                reference_number:
+                  type: string
+                  example: P000614502H
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvoiceVerification'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      summary: Get invoice verifications
+      description: List invoice verifications
+      tags:
+        - Invoice verification
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InvoiceVerification'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /suppliers:
+    get:
+      tags:
+        - Suppliers
+      summary: Get a list of business suppliers
+      description: Get a list of business suppliers
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Supplier'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      tags:
+        - Suppliers
+      summary: Save business supplier
+      description: Save business supplier
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - supplier_name
+                - supplier_tin
+              properties:
+                supplier_name:
+                  type: string
+                  description: Supplier Name
+                  example: John Doe Inc.
+                supplier_tin:
+                  type: string
+                  description: Supplier Tax Identification Number (TIN)
+                  example: P012345678P
+                email:
+                  type: string
+                  description: Supplier Email Address
+                  example: accounts@johndoeinc.com
+                phone:
+                  type: string
+                  description: Supplier Phone Number
+                  example: '+254712345678'
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /suppliers/{supplier_id}:
+    get:
+      tags:
+        - Suppliers
+      summary: Get a business supplier
+      description: Retrieves information about a supplier given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: supplier_id
+          required: true
+          schema:
+            type: string
+            description: Supplier ID on DigiTax
+            example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reverse-invoices:
+    post:
+      tags:
+        - Reverse Invoices
+      summary: Add reverse invoice
+      description: Add reverse invoice
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - supplier_id
+                - items
+                - sale_date
+                - trader_invoice_number
+              properties:
+                supplier_id:
+                  type: string
+                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+                sale_date:
+                  type: string
+                  example: '2026-03-13'
+                customer_tin:
+                  type: string
+                  example: P123456789Y
+                customer_name:
+                  type: string
+                  example: John Doe
+                customer_phone:
+                  type: string
+                  example: '+254714267891'
+                customer_email:
+                  type: string
+                  example: john@doe.com
+                payment_type_code:
+                  type: string
+                  example: '07'
+                invoice_details:
+                  type: string
+                  example: Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - quantity
+                      - unit_price
+                      - discount_rate
+                      - discount_amount
+                      - total_amount
+                    properties:
+                      id:
+                        type: string
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Reverse Invoices
+      summary: Get reverse invoices
+      description: List reverse invoices
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reverse-invoices/{sale_id}:
+    get:
+      tags:
+        - Reverse Invoices
+      summary: Get reverse invoice
+      description: Get specific reverse invoice by ID
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: sale_id
+          required: true
+          schema:
+            type: string
+            description: Reverse invoice ID on DigiTax
+            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reverse-invoices-with-items:
+    post:
+      tags:
+        - Reverse Invoices
+      summary: Add reverse invoice with item information
+      description: Add reverse invoice with item information
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - supplier_id
+                - items
+                - sale_date
+                - trader_invoice_number
+              properties:
+                supplier_id:
+                  type: string
+                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+                sale_date:
+                  type: string
+                  example: '2026-03-13'
+                customer_tin:
+                  type: string
+                  example: P123456789Y
+                customer_name:
+                  type: string
+                  example: John Doe
+                customer_phone:
+                  type: string
+                  example: '+254714267891'
+                customer_email:
+                  type: string
+                  example: john@doe.com
+                payment_type_code:
+                  type: string
+                  example: '07'
+                invoice_details:
+                  type: string
+                  example: Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - quantity
+                      - unit_price
+                      - discount_rate
+                      - discount_amount
+                      - total_amount
+                      - item_name
+                      - item_class_code
+                      - item_bar_code
+                      - item_tax_type_code
+                    properties:
+                      item_name:
+                        type: string
+                        example: Item name
+                      item_class_code:
+                        type: string
+                        example: '99000000'
+                      item_bar_code:
+                        type: string
+                        example: '99000001'
+                      item_tax_type_code:
+                        type: string
+                        example: D
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      taxable_amount:
+                        type: number
+                        example: 3500
+                      tax_amount:
+                        type: number
+                        example: 0
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reverse-credit-notes-with-barcode:
+    post:
+      tags:
+        - Reverse Invoices
+      summary: Add reverse credit note with item bar codes
+      description: Add reverse credit note with item bar codes
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - items
+                - return_date
+                - sale_id
+                - trader_invoice_number
+              properties:
+                return_date:
+                  type: string
+                  example: '2026-03-13'
+                sale_id:
+                  type: string
+                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_details:
+                  type: string
+                  example: General Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - item_bar_code
+                      - quantity
+                      - unit_price
+                      - total_amount
+                    properties:
+                      item_bar_code:
+                        type: string
+                        example: HC3J1VVVM05YCTS61G7V3KC6
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      taxable_amount:
+                        type: number
+                        example: 3500
+                      tax_amount:
+                        type: number
+                        example: 0
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reverse-credit-notes:
+    post:
+      tags:
+        - Reverse Invoices
+      summary: Add reverse credit note
+      description: Add reverse credit note
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - items
+                - return_date
+                - sale_id
+                - trader_invoice_number
+              properties:
+                return_date:
+                  type: string
+                  example: '2026-03-13'
+                sale_id:
+                  type: string
+                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
+                callback_url:
+                  type: string
+                  example: https://example.com/callback
+                invoice_details:
+                  type: string
+                  example: General Invoice Details
+                trader_invoice_number:
+                  type: string
+                  example: '12345678901'
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - quantity
+                      - unit_price
+                      - total_amount
+                    properties:
+                      id:
+                        type: string
+                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+                      quantity:
+                        type: number
+                        example: 1
+                      unit_price:
+                        type: number
+                        example: 3500
+                      total_amount:
+                        type: number
+                        example: 3500
+                      package_unit_quantity:
+                        type: number
+                        example: 1
+                      discount_rate:
+                        type: number
+                        example: 0
+                      discount_amount:
+                        type: number
+                        example: 0
+                      item_description:
+                        type: string
+                        example: DigiTax Product 01
+      responses:
+        '201':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    get:
+      tags:
+        - Reverse Invoices
+      summary: Get reverse credit notes
+      description: List reverse credit notes
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - pagination
+                  - data
+                properties:
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Sale'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sales-summary:
+    get:
+      tags:
+        - Reports
+      summary: Get a summary of sales for a given date range
+      description: Retrieves a summary of sales for a specific date range
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: query
+          name: start_date
+          required: true
+          schema:
+            type: string
+            format: date
+            example: '2026-03-13'
+        - in: query
+          name: end_date
+          required: true
+          schema:
+            type: string
+            format: date
+            example: '2026-03-13'
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesSummary'
+        default:
+          description: Error response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Success:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+        - code
+      properties:
+        message:
+          type: string
+        code:
+          type: string
+        metadata:
+          type: object
+          additionalProperties:
+            type: string
+    FetchMeta:
+      type: object
+      required:
+        - last_updated
+      properties:
+        last_updated:
+          type: string
+          example: '2026-03-13T21:00:00.000Z'
+          description: Timestamp when the data was last updated from eTIMS
+    Notice:
+      type: object
+      required:
+        - id
+        - notice_number
+        - notice_date
+        - title
+        - detail
+        - by
+        - link
+      properties:
+        id:
+          type: string
+          example: notice_01HC3J1VVVM05YCTS61G7V3KC6
+          description: Notice ID in Digitax
+        notice_number:
+          type: string
+          example: 01HC3J1VVVM05YCTS61G7V3KC6
+          description: Notice number from eTIMS
+        notice_date:
+          type: string
+          example: '2026-03-13T21:00:00.000Z'
+        title:
+          type: string
+          example: Call to Action
+        detail:
+          type: string
+          example: Call to Action
+        by:
+          type: string
+          example: KENYA REVENUE AUTHORITY
+        link:
+          type: string
+          example: https://etims.kra.go.ke
+    Branch:
+      type: object
+      required:
+        - tax_pin
+        - branch_office_id
+        - branch_office_name
+        - branch_status_code
+        - county_name
+        - sub_county_name
+        - tax_locality_name
+        - location_description
+        - manager_name
+        - manager_contact
+        - manager_email
+        - business_id
+      properties:
+        id:
+          type: string
+          example: branch_01HC3J1VVVM05YCTS61G7V3KC6
+        tax_pin:
+          type: string
+          description: Branch KRA PIN
+          example: P012345678P
+        branch_office_id:
+          type: string
+          description: Branch Office ID
+          example: 0
+        branch_office_name:
+          type: string
+          description: Branch Office Name
+          example: Head Office
+        branch_status_code:
+          type: string
+          description: Branch Status Code
+          example: 1
+        county_name:
+          type: string
+          description: County Name
+          example: Nairobi
+        sub_county_name:
+          type: string
+          description: Sub County Name
+          example: Westlands
+        tax_locality_name:
+          type: string
+          description: Tax Locality Name
+          example: CBD
+        location_description:
+          type: string
+          description: Location Description
+          example: 1st Floor
+        manager_name:
+          type: string
+          description: Manager Name
+          example: John Doe
+        manager_contact:
+          type: string
+          description: Manager Contact
+          example: 712345678
+        manager_email:
+          type: string
+          description: Manager Email
+          example: manager@email.com
+        is_head_office:
+          type: boolean
+          description: Is Head Office
+          example: true
+        business_id:
+          type: string
+          description: Business ID
+          example: business_01JPAF3FHV3M85T2KVEDQQGFGJ
+    Customer:
+      type: object
+      required:
+        - id
+        - customer_tin
+        - customer_name
+        - taxpayer_type
+      properties:
+        id:
+          type: string
+          description: Customer ID
+          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+        customer_name:
+          type: string
+          description: Customer Name
+          example: John Doe
+        email:
+          type: string
+          description: Customer Email
+          example: john@doe.com
+        phone:
+          type: string
+          description: Customer Phone Number
+          example: 254712345678
+        customer_tin:
+          type: string
+          description: Customer Tax Identification Number (TIN)
+          example: P012345678P
+        taxpayer_type:
+          type: string
+          enum:
+            - INDIVIDUAL
+            - BUSINESS
+          description: Taxpayer Type
+          example: INDIVIDUAL
+    Insurance:
+      type: object
+      required:
+        - id
+        - insurance_name
+        - insurance_code
+        - premium_rate
+      properties:
+        id:
+          type: string
+          description: Insurance ID
+          example: insurance_01HC3J1VVVM05YCTS61G7V3KC6
+        insurance_name:
+          type: string
+          description: Insurance Name
+          example: Insurance Name
+        insurance_code:
+          type: string
+          description: Insurance Code
+          example: 123456
+        premium_rate:
+          type: number
+          description: Premium Rate
+          example: 10
+    Import:
+      type: object
+      required:
+        - id
+        - task_code
+        - declaration_date
+        - item_sequence
+        - declaration_number
+        - hs_code
+        - item_name
+        - origin_nation_code
+        - import_item_status_code
+        - export_nation_code
+        - package
+        - package_unit_code
+        - quantity
+        - quantity_unit_code
+        - gross_weight
+        - net_weight
+        - supplier_name
+        - agent_name
+        - invoice_foreign_currency_amount
+        - invoice_foreign_currency_code
+        - invoice_foreign_currency_rate
+        - import_item_status
+        - item_id
+        - item_class_code
+        - item_code
+      properties:
+        id:
+          type: string
+          example: import_01HC3J1VVVM05YCTS61G7V3KC6
+        task_code:
+          type: string
+          example: '202603131365045'
+        declaration_date:
+          type: string
+          example: '2026-03-13T21:00:00.000Z'
+          format: date-time
+        item_sequence:
+          type: integer
+          example: 1
+        declaration_number:
+          type: string
+          example: 23BUSIM400040606
+        hs_code:
+          type: string
+          example: '30049000'
+        item_name:
+          type: string
+          example: MEDICAMENT; NORMAL SALINE 0.9% I.V. [ NS ]; CT; 1450; 500ML;
+        origin_nation_code:
+          type: string
+          example: UG
+        import_item_status_code:
+          type: string
+          example: '2'
+        export_nation_code:
+          type: string
+          example: UG
+        package:
+          type: integer
+          example: 17
+        package_unit_code:
+          type: string
+          example: KGM
+        quantity:
+          type: integer
+          example: 23925
+        quantity_unit_code:
+          type: string
+          example: KGM
+        gross_weight:
+          type: integer
+          example: 24650
+        net_weight:
+          type: integer
+          example: 23925
+        supplier_name:
+          type: string
+          example: ABACUS PARENTERAL DRUGS LIMITED
+        agent_name:
+          type: string
+          example: Kandito International Company Kenya Limited
+        invoice_foreign_currency_amount:
+          type: integer
+          example: 14355
+        invoice_foreign_currency_code:
+          type: string
+          example: USD
+        invoice_foreign_currency_rate:
+          type: number
+          example: 124.45
+        import_item_status:
+          type: string
+          example: UPDATED
+        item_id:
+          type: string
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        item_class_code:
+          type: string
+          example: '30103604'
+        item_code:
+          type: string
+          example: KE2CRM0000015
+    Item:
+      type: object
+      required:
+        - id
+        - item_class_code
+        - item_type_code
+        - item_name
+        - origin_nation_code
+        - package_unit_code
+        - quantity_unit_code
+        - tax_type_code
+        - default_unit_price
+        - etims_item_code
+        - is_stock_item
+        - stock_quantity
+        - active
+      properties:
+        id:
+          type: string
+          description: Item ID in Digitax
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        item_class_code:
+          type: string
+          description: The item class code of the item
+          example: 99020000
+        item_type_code:
+          type: string
+          description: The item type code of the item
+          example: 3
+        item_name:
+          type: string
+          description: The name of the item
+          example: DigiTax Product 01
+        origin_nation_code:
+          type: string
+          description: The country of origin code of the item
+          example: KE
+        package_unit_code:
+          type: string
+          description: The package unit code of the item
+          example: NT
+        quantity_unit_code:
+          type: string
+          description: The quantity unit code of the item
+          example: U
+        tax_type_code:
+          type: string
+          description: The tax type code of the item
+          example: D
+        default_unit_price:
+          type: number
+          description: The default price of the item
+          example: 1000
+        etims_item_code:
+          type: string
+          description: The eTIMS item code of the item
+          example: DT-67717-E7GcGbvYDy
+        is_stock_item:
+          type: boolean
+          description: >-
+            Indicates whether the item is a stock item or not. Can either be
+            "false" or "true"
+          example: 1000
+        stock_quantity:
+          type: number
+          description: The quantity of items in stock
+          example: 1000
+        active:
+          type: boolean
+          description: Indicates whether the item is active or not
+          example: true
+        status:
+          type: string
+          enum:
+            - PENDING
+            - FAILED
+            - COMPLETE
+          description: sync status against eTIMS
+          example: COMPLETE
+        item_bar_code:
+          type: string
+          description: The bar code or unique product code(UPC) of the item
+          example: '012345678905'
+        levies:
+          type: array
+          items:
+            type: string
+    Pagination:
+      type: object
+      properties:
+        next:
+          type: string
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        previous:
+          type: string
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        page_size:
+          type: integer
+          example: 20
+    Sale:
+      type: object
+      required:
+        - id
+        - date
+        - time
+        - trader_invoice_number
+        - receipt_type_code
+        - sale_detail_url
+        - serial_number
+        - receipt_number
+        - invoice_number
+        - customer_id
+        - customer_name
+        - customer_tin
+        - internal_data
+        - receipt_signature
+        - etims_url
+        - sales_tax_summary
+      properties:
+        id:
+          type: string
+          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+        date:
+          type: string
+          example: 13/03/2026
+        time:
+          type: string
+          example: 04:16:11 pm
+        trader_invoice_number:
+          type: string
+          example: '12345678901'
+        receipt_type_code:
+          type: string
+          example: S
+        sale_detail_url:
+          type: string
+          example: https://api.digitax.tech/sales/YKSWCIiuvx
+          format: url
+        serial_number:
+          type: string
+          example: KRACU0400000001
+        receipt_number:
+          type: integer
+          example: 38
+        invoice_number:
+          type: integer
+          example: 38
+        customer_id:
+          type: string
+          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
+        customer_name:
+          type: string
+          example: John Doe
+        customer_tin:
+          type: string
+          example: P123456789P
+        customer_phone_number:
+          type: string
+          example: '+254112685368'
+        customer_email:
+          type: string
+          example: info@namiri.tech
+        internal_data:
+          type: string
+          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
+        receipt_signature:
+          type: string
+          example: 3JYZVPTPMYBGHG4A
+        etims_url:
+          type: string
+          example: >-
+            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+          format: url
+        original_sale_id:
+          type: string
+          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+        offline_url:
+          type: string
+          example: >-
+            https://receipt.dg.tax/r/business_01JGXVVP4Z3MWQBQ3XSCJ3S4JF/SAL25-204-145657411-MHARTQ
+          format: url
+        status:
+          type: string
+          enum:
+            - PENDING
+            - FAILED
+            - COMPLETED
+          description: status against KRA
+          example: completed
+        sales_tax_summary:
+          type: object
+          required:
+            - taxable_amount_a
+            - taxable_amount_b
+            - taxable_amount_c
+            - taxable_amount_d
+            - taxable_amount_e
+            - tax_rate_a
+            - tax_rate_b
+            - tax_rate_c
+            - tax_rate_d
+            - tax_rate_e
+            - tax_amount_a
+            - tax_amount_b
+            - tax_amount_c
+            - tax_amount_d
+            - tax_amount_e
+          properties:
+            taxable_amount_a:
+              type: number
+              example: 0
+            taxable_amount_b:
+              type: number
+              example: 517.24
+            taxable_amount_c:
+              type: number
+              example: 0
+            taxable_amount_d:
+              type: number
+              example: 0
+            taxable_amount_e:
+              type: number
+              example: 0
+            tax_rate_a:
+              type: integer
+              example: 0
+            tax_rate_b:
+              type: integer
+              example: 16
+            tax_rate_c:
+              type: integer
+              example: 0
+            tax_rate_d:
+              type: integer
+              example: 0
+            tax_rate_e:
+              type: integer
+              example: 8
+            catering_levy_rate:
+              type: integer
+              example: 2
+            service_charge_rate:
+              type: integer
+              example: 0
+            tax_amount_a:
+              type: number
+              example: 0
+            tax_amount_b:
+              type: number
+              example: 82.76
+            tax_amount_c:
+              type: number
+              example: 0
+            tax_amount_d:
+              type: number
+              example: 0
+            tax_amount_e:
+              type: number
+              example: 0
+            catering_levy_amount:
+              type: number
+              example: 0
+            service_charge_amount:
+              type: number
+              example: 0
+        item_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/SaleItem'
+    SaleItem:
+      type: object
+      required:
+        - id
+        - quantity
+        - unit_price
+        - total_amount
+        - taxable_amount
+        - tax_amount
+        - tax_rate
+        - tax_type_code
+        - discount_rate
+        - discount_amount
+        - etims_item_code
+        - is_stockable
+        - item_id
+      properties:
+        id:
+          type: string
+          example: saleitem_01HC3J1VVVM05YCTS61G7V3KC6
+        quantity:
+          type: number
+          example: 1
+        unit_price:
+          type: number
+          example: 600
+        total_amount:
+          type: number
+          example: 600
+        taxable_amount:
+          type: number
+          example: 517.24
+        tax_amount:
+          type: number
+          example: 82.76
+        tax_rate:
+          type: number
+          example: 16
+        tax_type_code:
+          type: string
+          example: B
+        discount_rate:
+          type: number
+          example: 0
+        discount_amount:
+          type: number
+          example: 0
+        etims_item_code:
+          type: string
+          example: KE3NTU12345678
+        is_stockable:
+          type: boolean
+          example: false
+        item_id:
+          type: string
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+    Purchase:
+      type: object
+      required:
+        - id
+        - registration_type_code
+        - invoice_number
+        - purchase_type_code
+        - receipt_type_code
+        - payment_type_code
+        - purchase_status_code
+        - purchase_date
+        - trader_invoice_number
+        - supplier_branch_id
+        - supplier_name
+        - supplier_invoice_number
+        - item_list
+      properties:
+        id:
+          type: string
+          example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
+        registration_type_code:
+          type: string
+          example: A
+        invoice_number:
+          type: integer
+          example: 4000
+        purchase_type_code:
+          type: string
+          example: 'N'
+        receipt_type_code:
+          type: string
+          example: P
+        payment_type_code:
+          type: string
+          example: '07'
+        purchase_status_code:
+          type: string
+          example: '06'
+        purchase_date:
+          type: string
+          example: '20260313'
+        trader_invoice_number:
+          type: string
+          example: '12'
+        supplier_branch_id:
+          type: string
+          example: '00'
+        supplier_name:
+          type: string
+          example: KENYA REVENUE AUTHORITY
+        supplier_invoice_number:
+          type: integer
+          example: 12
+        item_list:
+          type: array
+          items:
+            $ref: '#/components/schemas/PurchaseItem'
+    PurchaseItem:
+      type: object
+      required:
+        - id
+        - quantity
+        - price
+        - supply_amount
+        - discount_rate
+        - discount_amount
+        - item_id
+      properties:
+        id:
+          type: string
+          example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
+        quantity:
+          type: integer
+          example: 3000
+        price:
+          type: integer
+          example: 116
+        supply_amount:
+          type: integer
+          example: 348000
+        discount_rate:
+          type: integer
+          example: 0
+        discount_amount:
+          type: integer
+          example: 0
+        item_id:
+          type: string
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+    OfflineUrlSale:
+      type: object
+      required:
+        - date
+        - time
+        - trader_invoice_number
+        - invoice_number
+        - original_invoice_number
+        - digitax_id
+        - serial_number
+        - receipt_number
+        - internal_data
+        - receipt_signature
+        - etims_url
+        - sales_tax_summary
+        - status
+        - kra_receipt_url
+        - total
+        - business_details
+        - customer_details
+        - items
+        - logo_url
+      properties:
+        date:
+          type: string
+          example: '2026-03-13'
+        time:
+          type: string
+          example: '12:00:00'
+        trader_invoice_number:
+          type: string
+          example: '12345678901'
+        invoice_number:
+          type: integer
+          example: 38
+        original_invoice_number:
+          type: integer
+          example: 38
+        digitax_id:
+          type: string
+          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
+        serial_number:
+          type: string
+          example: KRACU0400000001
+        receipt_number:
+          type: integer
+          example: 38
+        internal_data:
+          type: string
+          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
+        receipt_signature:
+          type: string
+          example: 3JYZVPTPMYBGHG4A
+        etims_url:
+          type: string
+          example: >-
+            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+        sales_tax_summary:
+          type: object
+          required:
+            - taxable_amount_a
+            - taxable_amount_b
+            - taxable_amount_c
+            - taxable_amount_d
+            - taxable_amount_e
+            - tax_rate_a
+            - tax_rate_b
+            - tax_rate_c
+            - tax_rate_d
+            - tax_rate_e
+            - tax_amount_a
+            - tax_amount_b
+            - tax_amount_c
+            - tax_amount_d
+            - tax_amount_e
+          properties:
+            taxable_amount_a:
+              type: number
+              example: 0
+            taxable_amount_b:
+              type: number
+              example: 517.24
+            taxable_amount_c:
+              type: number
+              example: 0
+            taxable_amount_d:
+              type: number
+              example: 0
+            taxable_amount_e:
+              type: number
+              example: 0
+            tax_rate_a:
+              type: integer
+              example: 0
+            tax_rate_b:
+              type: integer
+              example: 16
+            tax_rate_c:
+              type: integer
+              example: 0
+            tax_rate_d:
+              type: integer
+              example: 0
+            tax_rate_e:
+              type: integer
+              example: 8
+            catering_levy_rate:
+              type: integer
+              example: 2
+            tax_amount_a:
+              type: number
+              example: 0
+            tax_amount_b:
+              type: number
+              example: 82.76
+            tax_amount_c:
+              type: number
+              example: 0
+            tax_amount_d:
+              type: number
+              example: 0
+            tax_amount_e:
+              type: number
+              example: 0
+            catering_levy_amount:
+              type: number
+              example: 0
+        status:
+          type: string
+          description: status against KRA
+          example: completed
+        kra_receipt_url:
+          type: string
+          example: >-
+            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
+        total:
+          type: number
+          example: 600
+        business_details:
+          type: object
+          required:
+            - name
+            - pin
+            - email
+            - phone
+            - location
+          properties:
+            name:
+              type: string
+              example: Business Name
+            pin:
+              type: string
+              example: P012345678P
+            email:
+              type: string
+              example: support@digitax.tech
+            phone:
+              type: string
+              example: 254712345678
+            location:
+              type: string
+              example: Nairobi
+        customer_details:
+          type: object
+          required:
+            - name
+            - pin
+            - email
+            - phone
+          properties:
+            name:
+              type: string
+              example: John Doe
+            pin:
+              type: string
+              example: P012345678P
+            email:
+              type: string
+              example: support@namiri.tech
+            phone:
+              type: string
+              example: 254712345678
+        items:
+          type: array
+          items:
+            type: object
+            required:
+              - id
+              - name
+              - price
+              - currency
+              - quantity
+            properties:
+              id:
+                type: string
+                example: item_01HC3J1VVVM05YCTS61G7V3KC6
+              name:
+                type: string
+                example: DigiTax Product 01
+              price:
+                type: integer
+                example: 600
+              currency:
+                type: string
+                example: KES
+              quantity:
+                type: integer
+                example: 1
+        logo_url:
+          type: string
+    InvoiceVerification:
+      type: object
+      required:
+        - status
+        - created_at
+        - source
+      properties:
+        status:
+          type: string
+          description: Verification status
+          example: success
+        created_at:
+          type: string
+          example: '2026-03-13T15:09:02.036Z'
+        data:
+          type: object
+          description: Invoice verification data
+          $ref: '#/components/schemas/VerificationDetail'
+        source:
+          type: string
+          enum:
+            - EXTERNAL
+            - INTERNAL
+          description: >-
+            Source of the verification. Possible values are EXTERNAL and
+            INTERNAL. EXTERNAL means the invoice is being verified for the first
+            time; so the data was verified against KRA eTIMS. The source for
+            subsequent verifications of the same invoice will be INTERNAL; since
+            data from the first attempt is saved and used for subsequent
+            validations.
+          example: EXTERNAL
+    VerificationDetail:
+      type: object
+      required:
+        - invoice_timestamp
+        - invoice_number
+        - number_of_items
+        - verification_date
+      properties:
+        invoice_timestamp:
+          type: string
+          description: Invoice timestamp
+          example: '2026-03-13T10:23:06Z'
+        number_of_items:
+          type: integer
+          description: Number of items in the invoice
+          example: 2
+        invoice_number:
+          type: string
+          description: Invoice number
+          example: KRACU0300000024/39
+        verification_date:
+          type: string
+          description: Date invoice was verified for the first time against KRA eTIMS
+          example: '2026-03-13T15:09:02.036Z'
+    Supplier:
+      type: object
+      required:
+        - id
+        - supplier_tin
+        - supplier_name
+        - taxpayer_type
+      properties:
+        id:
+          type: string
+          description: Supplier ID
+          example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+        supplier_name:
+          type: string
+          description: Supplier Name
+          example: John Doe Inc
+        email:
+          type: string
+          description: Supplier Email
+          example: accounts@johndoeinc.com
+        phone:
+          type: string
+          description: Supplier Phone Number
+          example: '+254712345678'
+        supplier_tin:
+          type: string
+          description: Supplier Tax Identification Number (TIN)
+          example: P012345678P
+        taxpayer_type:
+          type: string
+          enum:
+            - INDIVIDUAL
+            - BUSINESS
+          description: Taxpayer Type
+          example: INDIVIDUAL
+        invoicing:
+          type: object
+          required:
+            - reverse_invoice_type
+            - reverse_invoice_authorisation
+          properties:
+            reverse_invoice_type:
+              type: string
+              enum:
+                - REGULAR
+                - THIRD_PARTY
+              description: Reverse invoice type
+              example: REGULAR
+            reverse_invoice_authorisation:
+              type: string
+              enum:
+                - IMPLICIT
+                - EXPLICIT
+              description: Reverse invoice authorisation
+              example: IMPLICIT
+        status:
+          type: string
+          enum:
+            - PENDING
+            - FAILED
+            - COMPLETED
+          description: status against KRA
+    Summary:
+      type: object
+      required:
+        - total_sales_count
+        - total_sales_amount
+      properties:
+        total_sales_count:
+          type: integer
+          example: 22
+        total_sales_amount:
+          type: number
+          format: float
+          example: 456701.95
+    SalesSummary:
+      type: object
+      required:
+        - summary
+      properties:
+        summary:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Summary'
+  parameters:
+    After:
+      in: query
+      name: after
+      required: false
+      schema:
+        type: string
+        description: >-
+          When paginating results, a pointer to an ID after which we want
+          results
+        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+    Before:
+      in: query
+      name: before
+      required: false
+      schema:
+        type: string
+        description: >-
+          When paginating results, a pointer to an ID before which we want
+          results
+        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+    PageSize:
+      in: query
+      name: page_size
+      required: false
+      schema:
+        type: integer
+        maximum: 20
+        minimum: 1
+        description: The maximum number of items to return per page, defaults to 20
+        example: 20
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+tags: []

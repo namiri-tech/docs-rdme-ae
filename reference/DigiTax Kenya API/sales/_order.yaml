@@ -1,0 +1,9 @@
+- post_sales
+- get_sales
+- post_sales-with-items
+- post_credit-notes-express
+- post_credit-notes-with-barcode
+- post_credit-notes
+- get_credit-notes
+- get_sales-sale-id
+- get_sale-business-id-trader-invoice-number
