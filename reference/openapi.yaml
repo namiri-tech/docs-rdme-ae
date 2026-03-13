@@ -136,10 +136,9 @@ paths:
                   description: >-
                     The bar code of the item. <br>EAN-13 barcodes are
                     recommended, but not required. <br>**Ideally set your
-                    internal item ID here**- It comes in handy when you have
-                    done reports and are comparing data between DigiTax and your
-                    system.
-                  example: 799439112766
+                    internal item ID here**. It comes in handy when you are
+                    comparing data reports between DigiTax and your system.
+                  example: '7994391127606'
                 levies:
                   type: array
                   items:
@@ -198,7 +197,7 @@ paths:
       - in: path
         name: item_id
         required: true
-        description: Item ID in Digitax
+        description: Item ID in DigiTax
         schema:
           type: string
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
@@ -463,8 +462,8 @@ paths:
     put:
       tags:
         - Imports
-      summary: Link import item to an item in Digitax
-      description: Link import item to an item in Digitax
+      summary: Link import item to an item in DigiTax
+      description: Link import item to an item in DigiTax
       security:
         - apiKeyAuth: []
       parameters:
@@ -473,7 +472,7 @@ paths:
           required: true
           schema:
             type: string
-            description: Import ID in Digitax
+            description: Import ID in DigiTax
             example: import_01HC3J1VVVM05YCTS61G7V3KC6
       requestBody:
         required: true
@@ -486,7 +485,7 @@ paths:
               properties:
                 item_id:
                   type: string
-                  description: The id of the item in Digitax
+                  description: The id of the item in DigiTax
                   example: item_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
         '200':
@@ -553,7 +552,7 @@ paths:
           required: true
           schema:
             type: string
-            description: Purchase ID in Digitax
+            description: Purchase ID in DigiTax
             example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
         '200':
@@ -915,9 +914,9 @@ paths:
                       is_stockable:
                         type: boolean
                         description: >-
-                          Indicates if the item is stockable. Stockable items
-                          are treated as FINISHED goods, whereas non-stockable
-                          items are treated as SERVICES.
+                          Indicates if the item is stockable. <br>Stockable
+                          items are treated as FINISHED goods, whereas
+                          non-stockable items are treated as SERVICES.
                         example: true
       responses:
         '201':
@@ -2136,7 +2135,7 @@ components:
         id:
           type: string
           example: notice_01HC3J1VVVM05YCTS61G7V3KC6
-          description: Notice ID in Digitax
+          description: Notice ID in DigiTax
         notice_number:
           type: string
           example: 01HC3J1VVVM05YCTS61G7V3KC6
@@ -2410,13 +2409,13 @@ components:
       properties:
         id:
           type: string
-          description: Item ID in Digitax
+          description: Item ID in DigiTax
           example: item_01HC3J1VVVM05YCTS61G7V3KC6
         item_class_code:
           type: string
           description: >-
-            The item class code of the item. Refer to the [DigiTax Kenya eTIMS
-            Item Classification Code
+            The item class code of the item. <br>Refer to the [DigiTax Kenya
+            eTIMS Item Classification Code
             list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
             for more information.
           example: 99020000
