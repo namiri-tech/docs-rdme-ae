@@ -88,8 +88,8 @@ paths:
                 item_class_code:
                   type: string
                   description: >-
-                    The item class code of the item. Refer to the [DigiTax Kenya
-                    eTIMS Item Classification Code
+                    The item class code of the item. \n<br>Refer to the [DigiTax
+                    Kenya eTIMS Item Classification Code
                     list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
                     for more information.
                   example: '99020000'
