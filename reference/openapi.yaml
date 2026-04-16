@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: DigiTax Kenya API
-  description: DigiTax Kenya Public API
-  version: '3'
+  title: DigiTax UAE API
+  description: DigiTax UAE Public API — Peppol PINT-AE compliant e-invoicing
+  version: "3"
   termsOfService: https://digitax.tech/page/terms
   contact:
     name: DigiTax
@@ -11,62 +11,404 @@ info:
   license:
     name: Apache 2.0
 servers:
-  - url: https://api.digitax.tech/ke/v2
+  - url: https://api.digitax.tech/ae/v1
     description: API
 paths:
-  /etims-info:
+  /resources/countries:
     get:
-      summary: Get eTIMS information on the business
       tags:
-        - Businesses
+        - Resources
+      summary: Get UAE Countries
+      description: Returns the list of supported countries based on the ISO 3166-1 alpha-2 code list used in PINT-AE.
       security:
         - apiKeyAuth: []
       responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Branch'
         default:
-          description: Error response
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of countries
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-  /branches:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Country"
+
+  /resources/currencies:
     get:
-      summary: Get a list of business branches
       tags:
-        - Businesses
+        - Resources
+      summary: Get UAE Currencies
+      description: Returns the list of supported currencies based on ISO 4217.
       security:
         - apiKeyAuth: []
       responses:
-        '200':
-          description: Success
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of currencies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/tax-categories:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Tax Categories
+      description: Returns the list of VAT category codes applicable in the UAE under the PINT-AE specification.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of tax category codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TaxCategory"
+
+  /resources/invoice-types:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Invoice Types
+      description: Returns the list of invoice type codes (UN/CEFACT UNCL1001 subset) supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of invoice type codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/InvoiceType"
+
+  /resources/payment-means:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Payment Means
+      description: Returns the list of payment means codes (UN/CEFACT UNCL4461) supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of payment means codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/commodity-codes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Commodity Codes
+      description: Returns the list of item type/commodity codes supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of commodity codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/item-classification-lists:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Item Classification Lists
+      description: Returns the valid item classification list identifiers (BT-158-scheme-id) supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of item classification list codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/standard-item-schemes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Standard Item Identifier Schemes
+      description: Returns the list of standard item identifier scheme codes supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of standard item identifier scheme codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/tax-exemption-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Tax Exemption Reason Codes
+      description: Returns the list of VAT exemption reason codes applicable in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of tax exemption reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/credit-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Credit Note Reason Codes
+      description: Returns the list of valid reason codes for credit notes as specified by the UAE FTA.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of credit note reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/billing-frequencies:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Billing Frequency Codes
+      description: Returns the list of billing frequency codes used in invoice periods under PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of billing frequency codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/units-of-measure:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Units of Measure
+      description: Returns the list of UN/ECE Recommendation 20 unit of measure codes supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of unit of measure codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/allowance-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Allowance Reason Codes
+      description: Returns the list of allowance reason codes (UN/CEFACT UNCL5189) supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of allowance reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/charge-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Charge Reason Codes
+      description: Returns the list of charge reason codes (UN/CEFACT UNCL7161) supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of charge reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/goods-types:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Goods Types
+      description: Returns the list of goods type codes for items subject to reverse charge mechanism (RCM) in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of goods type codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/delivery-location-schemes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Delivery Location Schemes
+      description: Returns the list of delivery location schemes used in UAE e-invoices.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of delivery location schemes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /resources/ae-country-subentities:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Country Subentities
+      description: Returns the list of country subentities in the UAE.
+
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of AE country subentities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CommonCode"
+
+  /info:
+    get:
+      tags:
+        - Business
+      summary: Get UAE business Info
+      description: Returns information about the business as registered on DigiTax.
+      security:
+        - apiKeyAuth: []
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: Branch info
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Branch"
+
+  /parties:
+    get:
+      tags:
+        - Parties
+      summary: Get UAE Parties
+      description: Returns a paginated list of parties registered under the authenticated business.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: List of parties
           content:
             application/json:
               schema:
                 type: object
                 required:
                   - data
+                  - cursor
                 properties:
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Branch'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /items:
+                      $ref: "#/components/schemas/Party"
+                  cursor:
+                    $ref: "#/components/schemas/Pagination"
     post:
       tags:
-        - Items
-      summary: Create an item
-      description: Create an item
+        - Parties
+      summary: Create Party
+      description: Creates a new party for use in UAE e-invoices.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -76,230 +418,314 @@ paths:
             schema:
               type: object
               required:
-                - item_class_code
-                - item_type_code
-                - item_name
-                - origin_nation_code
-                - package_unit_code
-                - quantity_unit_code
-                - tax_type_code
-                - default_unit_price
+                - tax_registration_number
+                - registration_name
+                - company_id
+                - company_id_scheme_id
+                - company_id_scheme_name
+                - address
               properties:
-                item_class_code:
+                tax_registration_number:
                   type: string
-                  description: >-
-                    The item class code of the item. <br>Refer to the [DigiTax
-                    Kenya eTIMS Item Classification Code
-                    list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
-                    for more information.
-                  example: '99020000'
-                item_type_code:
+                  description: The UAE Tax Registration Number (TRN) of the party
+                  example: "100987654300003"
+                registration_name:
                   type: string
-                  description: The item type code of the item
-                  example: '3'
-                item_name:
+                  description: The full legal name of the party
+                  example: "Global Imports FZE"
+                company_id:
+                  type: string
+                  description: The party's company identifier
+                  example: "JAFZA-98765"
+                company_id_scheme_id:
+                  type: string
+                  description: The scheme identifier for the company ID
+                  example: "FREE_ZONE_LICENSE"
+                company_id_scheme_name:
+                  type: string
+                  description: The human-readable name of the company ID scheme
+                  example: "JAFZA Free Zone License"
+                address:
+                  $ref: "#/components/schemas/Address"
+                contact_name:
+                  type: string
+                  description: The name of the contact person
+                  example: "Sara Mohammed"
+                contact_phone:
+                  type: string
+                  description: The contact phone number
+                  example: "+971509876543"
+                contact_email:
+                  type: string
+                  format: email
+                  description: The contact email address
+                  example: "sara@global-imports.ae"
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "201":
+          description: Created party
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Party"
+
+  /parties/{party_id}:
+    get:
+      tags:
+        - Parties
+      summary: Get a business party
+      description: Retrieves information about a party given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: party_id
+          required: true
+          schema:
+            type: string
+            example: party_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Party"
+    put:
+      tags:
+        - Parties
+      summary: Update a business party
+      description: Updates party information given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: party_id
+          required: true
+          schema:
+            type: string
+            description: Party ID on DigiTax
+            example: party_01HC3J1VVVM05YCTS61G7V3KC6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                registration_name:
+                  type: string
+                  description: The updated full legal name of the party
+                  example: "Global Imports FZE (Updated)"
+                company_id:
+                  type: string
+                  description: The updated company identifier
+                  example: "JAFZA-98765-V2"
+                company_id_scheme_id:
+                  type: string
+                  description: The updated scheme identifier for the company ID
+                  example: "FREE_ZONE_LICENSE"
+                company_id_scheme_name:
+                  type: string
+                  description: The updated name of the company ID scheme
+                  example: "JAFZA Free Zone License"
+                address:
+                  $ref: "#/components/schemas/Address"
+                contact_name:
+                  type: string
+                  description: The updated contact person name
+                  example: "Sara Ahmed"
+                contact_phone:
+                  type: string
+                  description: The updated contact phone number
+                  example: "+971-50-111-2222"
+                contact_email:
+                  type: string
+                  format: email
+                  description: The updated contact email address
+                  example: "sara.ahmed@global-imports.ae"
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: Party updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Party"
+
+  /items:
+    get:
+      tags:
+        - Items
+      summary: Get UAE Items
+      description: Returns a paginated list of business items
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: A list of items
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Item"
+                  cursor:
+                    $ref: "#/components/schemas/Pagination"
+    post:
+      tags:
+        - Items
+      summary: Create Item
+      description: Creates a new item that can be referenced in UAE e-invoices.
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - description
+                - commodity_code
+                - item_classification_code
+                - item_classification_list_id
+                - tax_category_code
+              properties:
+                name:
                   type: string
                   description: The name of the item
-                  example: DigiTax Product 01
-                origin_nation_code:
+                  example: "Industrial Pump Model X-500"
+                description:
                   type: string
-                  description: The country of origin code of the item
-                  example: KE
-                package_unit_code:
+                  description: A description of the item
+                  example: "High-pressure centrifugal pump for industrial fluid transfer"
+                commodity_code:
                   type: string
-                  description: The package unit code of the item
-                  example: NT
-                quantity_unit_code:
+                  description: The commodity type code (G for goods, S for services, B for both)
+                  example: "G"
+                item_classification_code:
                   type: string
-                  description: The quantity unit code of the item
-                  example: U
-                tax_type_code:
+                  description: The classification code for the item
+                  example: "84137000"
+                item_classification_list_id:
                   type: string
-                  description: The tax type code of the item
-                  example: D
-                default_unit_price:
-                  type: number
-                  description: The default price of the item
-                  example: 1000
-                stock_quantity:
-                  type: number
-                  description: The starting stock quantity of the item.
-                  example: 100
-                callback_url:
+                  description: The identification scheme for the classification code
+                  example: "HS"
+                tax_category_code:
                   type: string
-                  description: >-
-                    The callback url to call when we have new information about
-                    the item, usually after syncing with eTIMS
-                  example: https://example.site/services/digitaxQueueReceiverPROXY
-                item_bar_code:
+                  description: The VAT category code for this item
+                  example: "S"
+                item_code:
                   type: string
-                  description: >-
-                    The bar code of the item. <br>EAN-13 barcodes are
-                    recommended, but not required. <br>**Ideally set your
-                    internal item ID here**. It comes in handy when you are
-                    comparing data reports between DigiTax and your system.
-                  example: '7994391127606'
-                levies:
+                  description: A unique code assigned to the item in the user's system. It will be used as the unique product identifier
+                  example: "PUMP-X500-BLK"
+                standard_item_id:
+                  type: string
+                  description: A standardised item identifier
+                  example: "09501101530003"
+                standard_item_scheme:
+                  type: string
+                  description: The scheme for the standard item identifier
+                  example: "0160"
+                origin_country_code:
+                  type: string
+                  description: The ISO 3166-1 alpha-2 code of the item's country of origin
+                  example: "DE"
+                item_properties:
                   type: array
+                  description: Additional item attributes
                   items:
-                    type: string
-                    description: List of levies applied to the sale
-                    example: CTL
+                    $ref: "#/components/schemas/ItemProperty"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Item'
         default:
-          description: Error response
+          $ref: "#/components/responses/Error"
+        "201":
+          description: Item created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-    get:
-      tags:
-        - Items
-      summary: Get list of items owned by the business
-      description: Get list of items owned by the business
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Item"
+
   /items/{item_id}:
-    parameters:
-      - in: path
-        name: item_id
-        required: true
-        description: Item ID in DigiTax
-        schema:
-          type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
-    put:
-      tags:
-        - Items
-      summary: Update an item
-      description: Update an item
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                item_name:
-                  type: string
-                  description: The name of an item
-                  example: DigiTax Product 02
-                tax_type_code:
-                  type: string
-                  description: The tax type code of the item
-                  example: A
-                default_unit_price:
-                  type: number
-                  description: The default price of the item
-                  example: 1000
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
     get:
       tags:
         - Items
-      summary: Get a specific item
-      description: Get a specific item
-      security:
-        - apiKeyAuth: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Item'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /customers:
-    get:
-      tags:
-        - Customers
-      summary: Get a list of business customers
-      description: Get a list of business customers
+      summary: Get a business item
+      description: Retrieves information about an item given its ID on DigiTax.
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - in: path
+          name: item_id
+          required: true
+          schema:
+            type: string
+            description: Item ID on DigiTax
+            example: item_01HC3J1VVVM05YCTS61G7V3KC6
       responses:
-        '200':
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
           description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Item"
+
+  /invoices:
+    get:
+      tags:
+        - Invoices
+      summary: Get UAE Invoices
+      description: Returns a paginated list of all invoices created by the business
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
+      responses:
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: A list of invoices
           content:
             application/json:
               schema:
                 type: object
                 required:
-                  - pagination
                   - data
+                  - cursor
                 properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Customer'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                      $ref: "#/components/schemas/Invoice"
+                  cursor:
+                    $ref: "#/components/schemas/Pagination"
     post:
       tags:
-        - Customers
-      summary: Save business customer
-      description: Save business customer
+        - Invoices
+      summary: Create Invoice
+      description: Creates a new PINT-AE compliant e-invoice and submits it to the Peppol network.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -309,951 +735,217 @@ paths:
             schema:
               type: object
               required:
-                - customer_name
-                - customer_tin
-              properties:
-                customer_name:
-                  type: string
-                  description: Customer Name
-                  example: John Doe
-                customer_tin:
-                  type: string
-                  description: Customer Tax Identification Number (TIN)
-                  example: P012345678P
-                email:
-                  type: string
-                  description: Customer Email Address
-                  example: john@doe.com
-                phone:
-                  type: string
-                  description: Customer Phone Number
-                  example: 254712345678
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /customers/{customer_id}:
-    get:
-      tags:
-        - Customers
-      summary: Get a business customer
-      description: Retrieves information about a customer given their ID on DigiTax
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: customer_id
-          required: true
-          schema:
-            type: string
-            description: Customer ID on DigiTax
-            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    put:
-      tags:
-        - Customers
-      summary: Update a business customer
-      description: Update a business customer
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: customer_id
-          required: true
-          schema:
-            type: string
-            description: Customer ID on DigiTax
-            example: customer_01HC3J1VVVM05YCTS61G7V3KC6
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - customer_name
-                - customer_tin
-              properties:
-                customer_name:
-                  type: string
-                  description: Customer Name
-                  example: John Doe
-                email:
-                  type: string
-                  description: Customer Email Address
-                  example: john@doe.com
-                phone:
-                  type: string
-                  description: Customer Phone Number
-                  example: 254712345678
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Customer'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /imports:
-    get:
-      tags:
-        - Imports
-      summary: Get list of import items received from eTIMS
-      description: Get list of import items received from eTIMS
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - meta
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  meta:
-                    $ref: '#/components/schemas/FetchMeta'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Import'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /imports/{import_id}/link:
-    put:
-      tags:
-        - Imports
-      summary: Link import item to an item in DigiTax
-      description: Link import item to an item in DigiTax
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: import_id
-          required: true
-          schema:
-            type: string
-            description: Import ID in DigiTax
-            example: import_01HC3J1VVVM05YCTS61G7V3KC6
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - item_id
-              properties:
-                item_id:
-                  type: string
-                  description: The id of the item in DigiTax
-                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Import'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /purchases:
-    get:
-      tags:
-        - Purchases
-      summary: Get list of purchases pulled from eTIMS.
-      description: Get list of purchases pulled from eTIMS.
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                  - meta
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  meta:
-                    $ref: '#/components/schemas/FetchMeta'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Purchase'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /purchases/{purchase_id}:
-    get:
-      tags:
-        - Purchases
-      summary: Get specific purchase
-      description: Get specific purchase
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: purchase_id
-          required: true
-          schema:
-            type: string
-            description: Purchase ID in DigiTax
-            example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Purchase'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /purchases/{purchase_id}/link-items:
-    post:
-      tags:
-        - Purchases
-      summary: Link purchase item to item
-      description: Link purchase item to item
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: purchase_id
-          required: true
-          schema:
-            type: string
-            description: Purchase id
-            example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - purchase_item_id
-                      - item_id
-                    properties:
-                      purchase_item_id:
-                        type: string
-                        example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
-                      item_id:
-                        type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Purchase'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /sales:
-    post:
-      tags:
-        - Sales
-      summary: Add sale
-      description: Add sale
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - trader_invoice_number
-                - receipt_type_code
-                - payment_type_code
-                - invoice_status_code
+                - invoice_type_code
+                - issue_date
+                - document_currency_code
+                - customer_party_id
                 - items
-                - sale_date
+                - payments
               properties:
-                sale_date:
-                  type: string
-                  example: '2026-03-13'
-                customer_tin:
-                  type: string
-                  example: P123456789Y
-                customer_name:
-                  type: string
-                  example: John Doe
-                customer_id:
-                  type: string
-                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
                 trader_invoice_number:
                   type: string
-                  example: '12345678901'
-                receipt_type_code:
+                  description: An invoice number assigned by the supplier to uniquely identify the invoice in their system
+                  example: "ACME-INV-2024-0042"
+                transaction_types:
+                  type: array
+                  description: The list of applicable PINT-AE transaction types
+                  items:
+                    type: string
+                    enum: [FREE_TRADE_ZONE, DEEMED_SUPPLY, PROFIT_MARGIN_SCHEME, SUMMARY_INVOICE, CONTINUOUS_SUPPLY, AGENT_BILLING, SUPPLY_THROUGH_ECOMMERCE, EXPORTS]
+                  example: [FREE_TRADE_ZONE, CONTINUOUS_SUPPLY]
+                invoice_type_code:
                   type: string
-                  example: S
-                payment_type_code:
+                  description: The UN/CEFACT document type code
+                  example: "380"
+                issue_date:
                   type: string
-                  example: '07'
-                invoice_status_code:
+                  format: date
+                  description: The date on which the invoice was issued (YYYY-MM-DD)
+                  example: "2026-03-20"
+                issue_time:
                   type: string
-                  example: '01'
-                callback_url:
+                  description: The invoice issue time (HH:MM:SS)
+                  example: "10:00:00"
+                due_date:
                   type: string
-                  example: https://example.com/callback
-                invoice_auth:
-                  type: object
-                  required:
-                    - type
-                    - issuer
-                  properties:
-                    type:
-                      type: string
-                      example: REVERSE
-                    issuer:
-                      type: string
-                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
-                invoice_details:
+                  format: date
+                  description: The payment due date (YYYY-MM-DD)
+                  example: "2026-04-20"
+                document_currency_code:
                   type: string
-                  example: Invoice Details
-                is_tax_exempt:
-                  type: boolean
-                  description: Indicates if the sale is tax exempt
-                  example: false
-                service_charge_rate:
+                  description: A code that specifies the currency in which the invoice is issued
+                  example: "USD"
+                tax_currency_exchange_rate:
                   type: number
                   format: double
-                  example: 0.02
+                  description: The exchange rate between document and tax currencies. This is required when the document currency code is different from the tax currency (which is AED for VAT purposes in the UAE)
+                  example: 3.67
+                customer_party_id:
+                  type: string
+                  description: The DigiTax party ID of the buyer
+                  example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+                payee_party_id:
+                  type: string
+                  description: The DigiTax party ID of the payee if different from the buyer
+                  example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+                tax_representative_party_id:
+                  type: string
+                  description: The DigiTax party ID of the seller's tax representative
+                  example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+                tax_point_date:
+                  type: string
+                  format: date
+                  description: The VAT point date (YYYY-MM-DD)
+                  example: "2026-03-20"
+                buyer_reference:
+                  type: string
+                  description: An identifier assigned by the Buyer used for internal routing purposes.
+                  example: "BR-2026-00789"
+                accounting_cost:
+                  type: string
+                  description: A textual value that specifies where to book the relevant data into the Buyer's financial accounts
+                  example: "CAPEX-2024-Q4"
+                project_reference:
+                  type: string
+                  description: A project reference
+                  example: "PROJ-JEBEL-2024"
+                note:
+                  type: string
+                  description: A free-text note on the invoice
+                  example: "General invoice details"
+                invoice_period:
+                  $ref: "#/components/schemas/InvoicePeriod"
+                order_reference:
+                  $ref: "#/components/schemas/OrderReference"
+                billing_reference:
+                  type: array
+                  description: References to preceding invoices
+                  items:
+                    $ref: "#/components/schemas/DocumentReference"
+                despatch_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                receipt_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                originator_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                contract_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                additional_documents:
+                  type: array
+                  description: Additional supporting document references
+                  items:
+                    $ref: "#/components/schemas/DocumentReference"
+                delivery:
+                  $ref: "#/components/schemas/InvoiceDelivery"
+                payment_terms_note:
+                  type: string
+                  description: Textual payment terms
+                  example: "Next 30 days"
+                allowance_charges:
+                  type: array
+                  description: Invoice-level allowances and charges
+                  items:
+                    $ref: "#/components/schemas/InvoiceAllowanceCharge"
+                payments:
+                  type: array
+                  description: Payment details for this invoice
+                  items:
+                    $ref: "#/components/schemas/CreateInvoicePaymentRequest"
                 items:
                   type: array
+                  description: The invoice line items
                   items:
-                    type: object
-                    required:
-                      - id
-                      - quantity
-                      - unit_price
-                      - total_amount
-                    properties:
-                      id:
-                        type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
+                    $ref: "#/components/schemas/CreateInvoiceItemRequest"
+                prepaid_amount:
+                  type: number
+                  format: double
+                  description: The amount already paid, to be deducted from the payable amount
+                  example: 0.00
+                payable_rounding_amount:
+                  type: number
+                  format: double
+                  description: The rounding amount
+                  example: 0.00
+                beneficiary_trn:
+                  type: string
+                  description: The TRN of the beneficiary for Free Trade Zone supplies
+                  example: "123456789098703"
+                principle_trn:
+                  type: string
+                  description: The TRN of the principal for Disclosed Agent billing
+                  example: "123456789098704"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
         default:
-          description: Error response
+          $ref: "#/components/responses/Error"
+        "201":
+          description: Invoice created
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Invoice"
+
+  /invoices/{invoice_id}:
     get:
       tags:
-        - Sales
-      summary: Get sales
-      description: >-
-        List sales for a particular business. If an `end_date` is provided
-        without a `start_date`, all sales will be returned.
+        - Invoices
+      summary: Get a business invoice
+      description: Retrieves information about an invoice given its ID on DigiTax
       security:
         - apiKeyAuth: []
       parameters:
-        - in: query
-          name: start_date
-          required: false
+        - in: path
+          name: invoice_id
+          required: true
           schema:
             type: string
-            description: >-
-              Start date (YYYY-MM-DD) - sales returned will be inclusive of this
-              date
-            example: '2026-03-13'
-        - in: query
-          name: end_date
-          required: false
-          schema:
-            type: string
-            description: >-
-              End date (YYYY-MM-DD) - sales returned will be inclusive of this
-              date
-            example: '2026-03-13'
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+            description: Invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
       responses:
-        '200':
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
           description: Success
           content:
             application/json:
               schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /sales-with-items:
-    post:
-      tags:
-        - Sales
-      summary: Add sale with item information
-      description: Add sale with item information
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - trader_invoice_number
-                - receipt_type_code
-                - payment_type_code
-                - invoice_status_code
-                - items
-                - sale_date
-              properties:
-                sale_date:
-                  type: string
-                  example: '2026-03-13'
-                customer_tin:
-                  type: string
-                  example: P123456789Y
-                customer_name:
-                  type: string
-                  example: John Doe
-                customer_id:
-                  type: string
-                  example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                receipt_type_code:
-                  type: string
-                  example: S
-                payment_type_code:
-                  type: string
-                  example: '07'
-                invoice_status_code:
-                  type: string
-                  example: '01'
-                callback_url:
-                  type: string
-                  example: https://example.com/callback
-                invoice_auth:
-                  type: object
-                  required:
-                    - type
-                    - issuer
-                  properties:
-                    type:
-                      type: string
-                      example: REVERSE
-                    issuer:
-                      type: string
-                      example: business_01HC3J1VVVM05YCTS61G7V3KC6
-                invoice_details:
-                  type: string
-                  example: Invoice Details
-                is_tax_exempt:
-                  type: boolean
-                  description: Indicates if the sale is tax exempt
-                  example: false
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - id
-                      - quantity
-                      - unit_price
-                      - total_amount
-                      - item_name
-                      - item_class_code
-                      - item_bar_code
-                      - item_tax_type_code
-                    properties:
-                      item_name:
-                        type: string
-                        example: Item name
-                      item_class_code:
-                        type: string
-                        example: '99000000'
-                      item_bar_code:
-                        type: string
-                        example: '99000001'
-                      item_tax_type_code:
-                        type: string
-                        example: D
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      taxable_amount:
-                        type: number
-                        example: 3500
-                      tax_amount:
-                        type: number
-                        example: 0
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-                      is_stockable:
-                        type: boolean
-                        description: >-
-                          Indicates if the item is stockable. <br>Stockable
-                          items are treated as FINISHED goods, whereas
-                          non-stockable items are treated as SERVICES.
-                        example: true
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /credit-notes/express:
-    post:
-      tags:
-        - Sales
-      summary: Add express credit note
-      description: Add express credit note
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - return_date
-                - sale_id
-                - trader_invoice_number
-              properties:
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                return_date:
-                  type: string
-                  example: '2026-03-13'
-                sale_id:
-                  type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
-                callback_url:
-                  type: string
-                  example: https://example.com/callback
-                invoice_details:
-                  type: string
-                  example: General Invoice Details
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /credit-notes-with-barcode:
-    post:
-      tags:
-        - Sales
-      summary: Add credit note with item bar codes
-      description: Add credit note with item bar codes
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - items
-                - return_date
-                - sale_id
-                - trader_invoice_number
-              properties:
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                return_date:
-                  type: string
-                  example: '2026-03-13'
-                sale_id:
-                  type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
-                callback_url:
-                  type: string
-                  example: https://example.com/callback
-                invoice_details:
-                  type: string
-                  example: General Invoice Details
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - item_bar_code
-                      - quantity
-                      - unit_price
-                      - total_amount
-                    properties:
-                      item_bar_code:
-                        type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      taxable_amount:
-                        type: number
-                        example: 3500
-                      tax_amount:
-                        type: number
-                        example: 0
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Invoice"
+
   /credit-notes:
-    post:
-      tags:
-        - Sales
-      summary: Add credit note
-      description: Add credit note
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - items
-                - return_date
-                - sale_id
-                - trader_invoice_number
-              properties:
-                return_date:
-                  type: string
-                  example: '2026-03-13'
-                sale_id:
-                  type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                callback_url:
-                  type: string
-                  example: https://example.com/callback
-                invoice_details:
-                  type: string
-                  example: General Invoice Details
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - id
-                      - quantity
-                      - unit_price
-                      - total_amount
-                    properties:
-                      id:
-                        type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
     get:
       tags:
-        - Sales
-      summary: Get credit notes
-      description: List credit notes
+        - Invoices
+      summary: Get UAE Credit Notes
+      description: Returns a paginated list of all credit notes created by the business
       security:
         - apiKeyAuth: []
       parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
+        - $ref: "#/components/parameters/Before"
+        - $ref: "#/components/parameters/After"
+        - $ref: "#/components/parameters/PageSize"
       responses:
-        '200':
-          description: Success
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
+          description: A list of credit notes
           content:
             application/json:
               schema:
                 type: object
                 required:
-                  - pagination
                   - data
+                  - cursor
                 properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
                   data:
                     type: array
                     items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /sales/{sale_id}:
-    get:
-      tags:
-        - Sales
-      summary: Get sale (including credit note)
-      description: Get specific sale by ID (including credit note)
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: sale_id
-          required: true
-          schema:
-            type: string
-            description: Sale ID on DigiTax
-            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /sale/{business_id}/{trader_invoice_number}:
-    get:
-      tags:
-        - Sales
-      x-visibility: internal
-      summary: Offline url for sales
-      description: >-
-        This endpoint allows you to generate a URL for offline sales and share
-        with clients to monitor sale status
-      parameters:
-        - in: path
-          name: business_id
-          required: true
-          schema:
-            type: string
-            description: Business ID on DigiTax
-            example: business_01HC3HTDAXQ50E07CWR2A2CFBD
-        - in: path
-          name: trader_invoice_number
-          required: true
-          schema:
-            type: string
-            description: Trader Invoice Number
-            example: 12345678901
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/OfflineUrlSale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /stock/transfer:
+                      $ref: "#/components/schemas/Invoice"
+                  cursor:
+                    $ref: "#/components/schemas/Pagination"
     post:
       tags:
-        - Stock
-      summary: Transfer stock to another businesses
-      description: Transfer stock to another businesses
+        - Invoices
+      summary: Create Credit Note
+      description: Creates a new PINT-AE compliant credit note
       security:
         - apiKeyAuth: []
       requestBody:
@@ -1263,1900 +955,1395 @@ paths:
             schema:
               type: object
               required:
-                - item_id
-                - business_id
-                - quantity
-                - receiving_item_id
+                - credit_note_reason_code
+                - credit_note_reason
+                - issue_date
+                - document_currency_code
+                - customer_party_id
+                - items
               properties:
-                item_id:
+                trader_invoice_number:
                   type: string
-                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                business_id:
+                  description: An invoice number assigned by the supplier to uniquely identify the invoice in their system
+                  example: "ACME-CN-2024-0003"
+                credit_note_reason_code:
                   type: string
-                  example: business_01HC3J1VVVM05YCTS61G7V3KC6
-                quantity:
+                  description: The coded reason for the credit note
+                  example: "DL8.61.1.A"
+                credit_note_reason:
+                  type: string
+                  description: The textual reason for the credit note
+                  example: "Supply was cancelled"
+                original_invoice_id:
+                  type: string
+                  description: The DigiTax ID of the original invoice this credit note relates to
+                  example: "invoice_01KMFSMEYVCDV0150T6P4WECVR"
+                issue_date:
+                  type: string
+                  format: date
+                  description: The date on which the credit note was issued (YYYY-MM-DD)
+                  example: "2026-03-24"
+                issue_time:
+                  type: string
+                  description: The credit note issue time (HH:MM:SS)
+                  example: "09:00:00"
+                due_date:
+                  type: string
+                  format: date
+                  description: The payment due date (YYYY-MM-DD)
+                  example: "2024-12-25"
+                document_currency_code:
+                  type: string
+                  description: The currency code (ISO 4217)
+                  example: "AED"
+                tax_currency_exchange_rate:
                   type: number
-                  example: 1
-                receiving_item_id:
+                  format: double
+                  description: The exchange rate between document and tax currencies This is required when the document currency code is different from the tax currency (which is AED for VAT purposes in the UAE)
+                  example: 1.0
+                customer_party_id:
                   type: string
-                  example: item_01J8HJFH3NG17EGVF0N5GHMPM9
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Success'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /stock/adjust:
-    put:
-      tags:
-        - Stock
-      summary: Adjust item stock
-      description: Adjust item stock
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - item_id
-                - quantity
-                - action
-                - movement_type
-              properties:
-                item_id:
+                  description: The DigiTax party ID of the buyer
+                  example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+                payee_party_id:
                   type: string
-                  description: Item ID in DigiTax
-                  example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                quantity:
+                  description: The DigiTax party ID of the payee (if different from buyer)
+                  example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+                tax_representative_party_id:
+                  type: string
+                  description: The DigiTax party ID of the seller's tax representative
+                  example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+                tax_point_date:
+                  type: string
+                  format: date
+                  description: The VAT point date (YYYY-MM-DD)
+                  example: "2024-11-25"
+                buyer_reference:
+                  type: string
+                  description: An identifier assigned by the Buyer used for internal routing purposes
+                  example: "BR-2024-00789"
+                accounting_cost:
+                  type: string
+                  description: A textual value that specifies where to book the relevant data into the Buyer's financial accounts
+                  example: "CAPEX-2024-Q4"
+                note:
+                  type: string
+                  description: A free-text note on the credit note
+                  example: "Credit for cancelled order"
+                invoice_period:
+                  $ref: "#/components/schemas/InvoicePeriod"
+                order_reference:
+                  $ref: "#/components/schemas/OrderReference"
+                despatch_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                receipt_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                originator_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                contract_document_reference:
+                  $ref: "#/components/schemas/DocumentReference"
+                additional_documents:
+                  type: array
+                  description: Additional supporting document references
+                  items:
+                    $ref: "#/components/schemas/DocumentReference"
+                delivery:
+                  $ref: "#/components/schemas/InvoiceDelivery"
+                payment_terms_note:
+                  type: string
+                  description: Textual payment terms
+                  example: "Next 30 days"
+                allowance_charges:
+                  type: array
+                  description: Invoice-level allowances and charges
+                  items:
+                    $ref: "#/components/schemas/InvoiceAllowanceCharge"
+                payments:
+                  type: array
+                  description: Payment means for this credit note
+                  items:
+                    $ref: "#/components/schemas/CreateInvoicePaymentRequest"
+                items:
+                  type: array
+                  description: The credit note line items
+                  items:
+                    $ref: "#/components/schemas/CreateInvoiceItemRequest"
+                prepaid_amount:
                   type: number
-                  description: Stock quantity
-                  example: 100
-                action:
-                  type: string
-                  enum:
-                    - ADD
-                    - DEDUCT
-                  description: Adjust type
-                  example: ADD
-                movement_type:
-                  type: string
-                  description: Stock movement type code
-                  example: '01'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - id
-                  - item_code
-                  - stock_quantity
-                properties:
-                  id:
+                  format: double
+                  description: The amount already paid
+                  example: 0.00
+                payable_rounding_amount:
+                  type: number
+                  format: double
+                  description: The rounding amount
+                  example: 0.00
+                transaction_types:
+                  type: array
+                  description: The list of applicable PINT-AE transaction types
+                  items:
                     type: string
-                    example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                  item_code:
-                    type: string
-                    example: KE1PD-U230411121122
-                  stock_quantity:
-                    type: integer
-                    example: 300
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /notices:
-    get:
-      summary: Get list of KRA notices for business
-      tags:
-        - Notices
-      security:
-        - apiKeyAuth: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - meta
-                  - data
-                properties:
-                  meta:
-                    $ref: '#/components/schemas/FetchMeta'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Notice'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /invoice-verifications:
-    post:
-      tags:
-        - Invoice verification
-      summary: Verify an invoice
-      description: Verify an invoice
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - invoice_number
-              properties:
-                invoice_number:
+                    enum: [FREE_TRADE_ZONE, DEEMED_SUPPLY, PROFIT_MARGIN_SCHEME, SUMMARY_INVOICE, CONTINUOUS_SUPPLY, AGENT_BILLING, SUPPLY_THROUGH_ECOMMERCE, EXPORTS]
+                  example: [EXPORTS, CONTINUOUS_SUPPLY]
+                beneficiary_trn:
                   type: string
-                  example: KRACU0300000024/39
-                amount:
-                  type: integer
-                  example: 2000
-                supplier_pin:
+                  description: The TRN of the beneficiary for Free Trade Zone supplies
+                  example: "123456789098703"
+                principle_trn:
                   type: string
-                  example: P000614502H
-                reference_number:
-                  type: string
-                  example: P000614502H
+                  description: The TRN of the principal for Disclosed Agent billing
+                  example: "123456789098703"
       responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/InvoiceVerification'
         default:
-          description: Error response
+          $ref: "#/components/responses/Error"
+        "201":
+          description: Created credit note
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
-    get:
-      summary: Get invoice verifications
-      description: List invoice verifications
-      tags:
-        - Invoice verification
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/InvoiceVerification'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /suppliers:
+                $ref: "#/components/schemas/Invoice"
+
+  /credit-notes/{credit_note_id}:
     get:
       tags:
-        - Suppliers
-      summary: Get a list of business suppliers
-      description: Get a list of business suppliers
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Supplier'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    post:
-      tags:
-        - Suppliers
-      summary: Save business supplier
-      description: Save business supplier
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - supplier_name
-                - supplier_tin
-              properties:
-                supplier_name:
-                  type: string
-                  description: Supplier Name
-                  example: John Doe Inc.
-                supplier_tin:
-                  type: string
-                  description: Supplier Tax Identification Number (TIN)
-                  example: P012345678P
-                email:
-                  type: string
-                  description: Supplier Email Address
-                  example: accounts@johndoeinc.com
-                phone:
-                  type: string
-                  description: Supplier Phone Number
-                  example: '+254712345678'
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Supplier'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /suppliers/{supplier_id}:
-    get:
-      tags:
-        - Suppliers
-      summary: Get a business supplier
-      description: Retrieves information about a supplier given their ID on DigiTax
+        - Credit Notes
+      summary: Get a business credit note
+      description: Retrieves information about a credit note given its ID on DigiTax
       security:
         - apiKeyAuth: []
       parameters:
         - in: path
-          name: supplier_id
+          name: credit_note_id
           required: true
           schema:
             type: string
-            description: Supplier ID on DigiTax
-            example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
+            description: Credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
       responses:
-        '200':
+        default:
+          $ref: "#/components/responses/Error"
+        "200":
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Supplier'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reverse-invoices:
-    post:
-      tags:
-        - Reverse Invoices
-      summary: Add reverse invoice
-      description: Add reverse invoice
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - supplier_id
-                - items
-                - sale_date
-                - trader_invoice_number
-              properties:
-                supplier_id:
-                  type: string
-                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
-                sale_date:
-                  type: string
-                  example: '2026-03-13'
-                customer_tin:
-                  type: string
-                  example: P123456789Y
-                customer_name:
-                  type: string
-                  example: John Doe
-                customer_phone:
-                  type: string
-                  example: '+254714267891'
-                customer_email:
-                  type: string
-                  example: john@doe.com
-                payment_type_code:
-                  type: string
-                  example: '07'
-                invoice_details:
-                  type: string
-                  example: Invoice Details
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - id
-                      - quantity
-                      - unit_price
-                      - discount_rate
-                      - discount_amount
-                      - total_amount
-                    properties:
-                      id:
-                        type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    get:
-      tags:
-        - Reverse Invoices
-      summary: Get reverse invoices
-      description: List reverse invoices
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reverse-invoices/{sale_id}:
-    get:
-      tags:
-        - Reverse Invoices
-      summary: Get reverse invoice
-      description: Get specific reverse invoice by ID
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: path
-          name: sale_id
-          required: true
-          schema:
-            type: string
-            description: Reverse invoice ID on DigiTax
-            example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reverse-invoices-with-items:
-    post:
-      tags:
-        - Reverse Invoices
-      summary: Add reverse invoice with item information
-      description: Add reverse invoice with item information
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - supplier_id
-                - items
-                - sale_date
-                - trader_invoice_number
-              properties:
-                supplier_id:
-                  type: string
-                  example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
-                sale_date:
-                  type: string
-                  example: '2026-03-13'
-                customer_tin:
-                  type: string
-                  example: P123456789Y
-                customer_name:
-                  type: string
-                  example: John Doe
-                customer_phone:
-                  type: string
-                  example: '+254714267891'
-                customer_email:
-                  type: string
-                  example: john@doe.com
-                payment_type_code:
-                  type: string
-                  example: '07'
-                invoice_details:
-                  type: string
-                  example: Invoice Details
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - id
-                      - quantity
-                      - unit_price
-                      - discount_rate
-                      - discount_amount
-                      - total_amount
-                      - item_name
-                      - item_class_code
-                      - item_bar_code
-                      - item_tax_type_code
-                    properties:
-                      item_name:
-                        type: string
-                        example: Item name
-                      item_class_code:
-                        type: string
-                        example: '99000000'
-                      item_bar_code:
-                        type: string
-                        example: '99000001'
-                      item_tax_type_code:
-                        type: string
-                        example: D
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      taxable_amount:
-                        type: number
-                        example: 3500
-                      tax_amount:
-                        type: number
-                        example: 0
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reverse-credit-notes-with-barcode:
-    post:
-      tags:
-        - Reverse Invoices
-      summary: Add reverse credit note with item bar codes
-      description: Add reverse credit note with item bar codes
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - items
-                - return_date
-                - sale_id
-                - trader_invoice_number
-              properties:
-                return_date:
-                  type: string
-                  example: '2026-03-13'
-                sale_id:
-                  type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
-                callback_url:
-                  type: string
-                  example: https://example.com/callback
-                invoice_details:
-                  type: string
-                  example: General Invoice Details
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - item_bar_code
-                      - quantity
-                      - unit_price
-                      - total_amount
-                    properties:
-                      item_bar_code:
-                        type: string
-                        example: HC3J1VVVM05YCTS61G7V3KC6
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      taxable_amount:
-                        type: number
-                        example: 3500
-                      tax_amount:
-                        type: number
-                        example: 0
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /reverse-credit-notes:
-    post:
-      tags:
-        - Reverse Invoices
-      summary: Add reverse credit note
-      description: Add reverse credit note
-      security:
-        - apiKeyAuth: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - items
-                - return_date
-                - sale_id
-                - trader_invoice_number
-              properties:
-                return_date:
-                  type: string
-                  example: '2026-03-13'
-                sale_id:
-                  type: string
-                  example: sale_01HC3J1VVVM05YCTS61G7V3KC6
-                callback_url:
-                  type: string
-                  example: https://example.com/callback
-                invoice_details:
-                  type: string
-                  example: General Invoice Details
-                trader_invoice_number:
-                  type: string
-                  example: '12345678901'
-                items:
-                  type: array
-                  items:
-                    type: object
-                    required:
-                      - id
-                      - quantity
-                      - unit_price
-                      - total_amount
-                    properties:
-                      id:
-                        type: string
-                        example: item_01HC3J1VVVM05YCTS61G7V3KC6
-                      quantity:
-                        type: number
-                        example: 1
-                      unit_price:
-                        type: number
-                        example: 3500
-                      total_amount:
-                        type: number
-                        example: 3500
-                      package_unit_quantity:
-                        type: number
-                        example: 1
-                      discount_rate:
-                        type: number
-                        example: 0
-                      discount_amount:
-                        type: number
-                        example: 0
-                      item_description:
-                        type: string
-                        example: DigiTax Product 01
-      responses:
-        '201':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    get:
-      tags:
-        - Reverse Invoices
-      summary: Get reverse credit notes
-      description: List reverse credit notes
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - $ref: '#/components/parameters/Before'
-        - $ref: '#/components/parameters/After'
-        - $ref: '#/components/parameters/PageSize'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - pagination
-                  - data
-                properties:
-                  pagination:
-                    $ref: '#/components/schemas/Pagination'
-                  data:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Sale'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-  /sales-summary:
-    get:
-      tags:
-        - Reports
-      summary: Get a summary of sales for a given date range
-      description: Retrieves a summary of sales for a specific date range
-      security:
-        - apiKeyAuth: []
-      parameters:
-        - in: query
-          name: start_date
-          required: true
-          schema:
-            type: string
-            format: date
-            example: '2026-03-13'
-        - in: query
-          name: end_date
-          required: true
-          schema:
-            type: string
-            format: date
-            example: '2026-03-13'
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SalesSummary'
-        default:
-          description: Error response
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+                $ref: "#/components/schemas/Invoice"
+
 components:
   schemas:
-    Success:
+    CommonCode:
       type: object
       required:
-        - message
-      properties:
-        message:
-          type: string
-    Error:
-      type: object
-      required:
-        - message
         - code
+        - name
       properties:
-        message:
-          type: string
         code:
           type: string
-        metadata:
-          type: object
-          additionalProperties:
-            type: string
-    FetchMeta:
+          description: The code identifier
+          example: "S"
+        name:
+          type: string
+          description: The human-readable name of the code
+          example: "Standard rate"
+        description:
+          type: string
+          description: An optional longer description of what this code means
+          example: "Code specifying the standard rate"
+
+    Country:
+      type: object
+      description: Represents a country based on ISO 3166-1 alpha-2
+      required:
+        - name
+        - alpha2
+      properties:
+        name:
+          type: string
+          description: The English name of the country
+          example: "United Arab Emirates"
+        alpha2:
+          type: string
+          description: The ISO 3166-1 alpha-2 country code
+          example: "AE"
+        name_nb:
+          type: string
+          description: The Norwegian Bokmål name of the country
+          example: "Sverige"
+        name_nn:
+          type: string
+          description: The Norwegian Nynorsk name of the country
+          example: "Sverige"
+
+    InvoiceType:
+      type: object
+      description: Represents a UN/CEFACT document name code (UNCL1001 subset) used as the invoice type
+      required:
+        - code
+        - name
+        - description
+        - invoice_category
+      properties:
+        code:
+          type: string
+          description: The UN/CEFACT document name code
+          example: "380"
+        name:
+          type: string
+          description: The name of the invoice type
+          example: "Commercial invoice"
+        description:
+          type: string
+          description: A description of the invoice type as defined by UN/CEFACT
+          example: "Document/message claiming payment for goods or services supplied under conditions agreed between seller and buyer."
+        invoice_category:
+          type: string
+          description: Indicates whether this code represents an invoice or a credit note
+          enum: [INVOICE, CREDIT_NOTE]
+          example: "INVOICE"
+
+    TaxCategory:
       type: object
       required:
-        - last_updated
+        - code
+        - name
+        - description
+        - has_rate
+        - tax_rate
       properties:
-        last_updated:
+        code:
           type: string
-          example: '2026-03-13T21:00:00.000Z'
-          description: Timestamp when the data was last updated from eTIMS
-    Notice:
+          description: The code identifier
+          example: "S"
+        name:
+          type: string
+          description: The human-readable name of the code
+          example: "Standard rate"
+        description:
+          type: string
+          description: An optional longer description of what this code means
+          example: "Code specifying the standard rate"
+        tax_rate:
+          type: number
+          format: double
+          example: 0.05
+          nullable: true
+          description: The tax rate(between 0 and 1) applied to the category for tax categories that have a defined rate
+        has_rate:
+          type: boolean
+          example: true
+          description: Indicates whether the tax category has a rate defined
+
+    Address:
       type: object
+      description: Postal address
       required:
-        - id
-        - notice_number
-        - notice_date
-        - title
-        - detail
-        - by
-        - link
+        - street_name
+        - city_name
+        - country_subentity
+        - country_code
       properties:
-        id:
+        street_name:
           type: string
-          example: notice_01HC3J1VVVM05YCTS61G7V3KC6
-          description: Notice ID in DigiTax
-        notice_number:
+          description: The main address line (street name, building number)
+          example: "Sheikh Zayed Road, Tower 1"
+        additional_street_name:
           type: string
-          example: 01HC3J1VVVM05YCTS61G7V3KC6
-          description: Notice number from eTIMS
-        notice_date:
+          description: An additional address line
+          example: "Floor 22"
+        city_name:
           type: string
-          example: '2026-03-13T21:00:00.000Z'
-        title:
+          description: The city of the address
+          example: "Dubai"
+        postal_zone:
           type: string
-          example: Call to Action
-        detail:
+          description: The postal zone or postcode
+          example: "00000"
+        country_subentity:
           type: string
-          example: Call to Action
-        by:
+          description: The country subdivision (emirate)
+          example: "Dubai"
+        country_code:
           type: string
-          example: KENYA REVENUE AUTHORITY
-        link:
+          description: The ISO 3166-1 alpha-2 country code
+          example: "AE"
+        address_line:
           type: string
-          example: https://etims.kra.go.ke
+          description: A free-form address line for additional details
+          example: "Near Dubai Mall"
+
     Branch:
       type: object
+      description: Represents the business details as registered on DigiTax
       required:
-        - tax_pin
-        - branch_office_id
-        - branch_office_name
-        - branch_status_code
-        - county_name
-        - sub_county_name
-        - tax_locality_name
-        - location_description
-        - manager_name
-        - manager_contact
-        - manager_email
+        - created_at
+        - updated_at
+        - active
         - business_id
+        - tax_registration_number
+        - registration_name
+        - is_test
+        - is_live
       properties:
-        id:
+        created_at:
           type: string
-          example: branch_01HC3J1VVVM05YCTS61G7V3KC6
-        tax_pin:
+          format: date-time
+          description: The timestamp when the business was created on DigiTax
+          example: "2024-01-15T08:30:00Z"
+        updated_at:
           type: string
-          description: Branch KRA PIN
-          example: P012345678P
-        branch_office_id:
-          type: string
-          description: Branch Office ID
-          example: 0
-        branch_office_name:
-          type: string
-          description: Branch Office Name
-          example: Head Office
-        branch_status_code:
-          type: string
-          description: Branch Status Code
-          example: 1
-        county_name:
-          type: string
-          description: County Name
-          example: Nairobi
-        sub_county_name:
-          type: string
-          description: Sub County Name
-          example: Westlands
-        tax_locality_name:
-          type: string
-          description: Tax Locality Name
-          example: CBD
-        location_description:
-          type: string
-          description: Location Description
-          example: 1st Floor
-        manager_name:
-          type: string
-          description: Manager Name
-          example: John Doe
-        manager_contact:
-          type: string
-          description: Manager Contact
-          example: 712345678
-        manager_email:
-          type: string
-          description: Manager Email
-          example: manager@email.com
-        is_head_office:
+          format: date-time
+          description: The timestamp when the business was last updated on DigiTax
+          example: "2024-06-20T14:45:00Z"
+        active:
           type: boolean
-          description: Is Head Office
+          description: Whether the branch is currently active on DigiTax
           example: true
         business_id:
           type: string
-          description: Business ID
-          example: business_01JPAF3FHV3M85T2KVEDQQGFGJ
-    Customer:
-      type: object
-      required:
-        - id
-        - customer_tin
-        - customer_name
-        - taxpayer_type
-      properties:
-        id:
+          description: The DigiTax business identifier associated with this business.
+          example: "business_01KMFHKF4YJBGG2MNDQASKHWE9"
+        tax_registration_number:
           type: string
-          description: Customer ID
-          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
-        customer_name:
+          description: The UAE Tax Registration Number (TRN) of the business
+          example: "100123456700003"
+        registration_name:
           type: string
-          description: Customer Name
-          example: John Doe
-        email:
+          description: The full legal name of the business as registered with the UAE FTA
+          example: "Acme Trading LLC"
+        company_id:
           type: string
-          description: Customer Email
-          example: john@doe.com
-        phone:
+          description: The company identifier (e.g. trade license number)
+          example: "TL-12345678"
+        company_id_scheme_id:
           type: string
-          description: Customer Phone Number
-          example: 254712345678
-        customer_tin:
+          description: The scheme identifier for the company ID
+          example: "TRADE_LICENSE"
+        company_id_scheme_name:
           type: string
-          description: Customer Tax Identification Number (TIN)
-          example: P012345678P
-        taxpayer_type:
+          description: The human-readable name of the company ID scheme
+          example: "UAE Trade License"
+        address:
+          $ref: "#/components/schemas/Address"
+        contact_name:
           type: string
-          enum:
-            - INDIVIDUAL
-            - BUSINESS
-          description: Taxpayer Type
-          example: INDIVIDUAL
-    Insurance:
-      type: object
-      required:
-        - id
-        - insurance_name
-        - insurance_code
-        - premium_rate
-      properties:
-        id:
+          description: The name of the contact person at the organisation
+          example: "Ahmed Al-Rashid"
+        contact_phone:
           type: string
-          description: Insurance ID
-          example: insurance_01HC3J1VVVM05YCTS61G7V3KC6
-        insurance_name:
+          description: The phone number of the contact person
+          example: "+971-4-123-4567"
+        contact_email:
           type: string
-          description: Insurance Name
-          example: Insurance Name
-        insurance_code:
-          type: string
-          description: Insurance Code
-          example: 123456
-        premium_rate:
-          type: number
-          description: Premium Rate
-          example: 10
-    Import:
-      type: object
-      required:
-        - id
-        - task_code
-        - declaration_date
-        - item_sequence
-        - declaration_number
-        - hs_code
-        - item_name
-        - origin_nation_code
-        - import_item_status_code
-        - export_nation_code
-        - package
-        - package_unit_code
-        - quantity
-        - quantity_unit_code
-        - gross_weight
-        - net_weight
-        - supplier_name
-        - agent_name
-        - invoice_foreign_currency_amount
-        - invoice_foreign_currency_code
-        - invoice_foreign_currency_rate
-        - import_item_status
-        - item_id
-        - item_class_code
-        - item_code
-      properties:
-        id:
-          type: string
-          example: import_01HC3J1VVVM05YCTS61G7V3KC6
-        task_code:
-          type: string
-          example: '202603131365045'
-        declaration_date:
-          type: string
-          example: '2026-03-13T21:00:00.000Z'
-          format: date-time
-        item_sequence:
-          type: integer
-          example: 1
-        declaration_number:
-          type: string
-          example: 23BUSIM400040606
-        hs_code:
-          type: string
-          example: '30049000'
-        item_name:
-          type: string
-          example: MEDICAMENT; NORMAL SALINE 0.9% I.V. [ NS ]; CT; 1450; 500ML;
-        origin_nation_code:
-          type: string
-          example: UG
-        import_item_status_code:
-          type: string
-          example: '2'
-        export_nation_code:
-          type: string
-          example: UG
-        package:
-          type: integer
-          example: 17
-        package_unit_code:
-          type: string
-          example: KGM
-        quantity:
-          type: integer
-          example: 23925
-        quantity_unit_code:
-          type: string
-          example: KGM
-        gross_weight:
-          type: integer
-          example: 24650
-        net_weight:
-          type: integer
-          example: 23925
-        supplier_name:
-          type: string
-          example: ABACUS PARENTERAL DRUGS LIMITED
-        agent_name:
-          type: string
-          example: Kandito International Company Kenya Limited
-        invoice_foreign_currency_amount:
-          type: integer
-          example: 14355
-        invoice_foreign_currency_code:
-          type: string
-          example: USD
-        invoice_foreign_currency_rate:
-          type: number
-          example: 124.45
-        import_item_status:
-          type: string
-          example: UPDATED
-        item_id:
-          type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
-        item_class_code:
-          type: string
-          example: '30103604'
-        item_code:
-          type: string
-          example: KE2CRM0000015
-    Item:
-      type: object
-      required:
-        - id
-        - item_class_code
-        - item_type_code
-        - item_name
-        - origin_nation_code
-        - package_unit_code
-        - quantity_unit_code
-        - tax_type_code
-        - default_unit_price
-        - etims_item_code
-        - is_stock_item
-        - stock_quantity
-        - active
-      properties:
-        id:
-          type: string
-          description: Item ID in DigiTax
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
-        item_class_code:
-          type: string
-          description: >-
-            The item class code of the item. <br>Refer to the [DigiTax Kenya
-            eTIMS Item Classification Code
-            list](https://ke.docs.digitax.tech/docs/items-item-classification-table)
-            for more information.
-          example: 99020000
-        item_type_code:
-          type: string
-          description: The item type code of the item
-          example: 3
-        item_name:
-          type: string
-          description: The name of the item
-          example: DigiTax Product 01
-        origin_nation_code:
-          type: string
-          description: The country of origin code of the item
-          example: KE
-        package_unit_code:
-          type: string
-          description: The package unit code of the item
-          example: NT
-        quantity_unit_code:
-          type: string
-          description: The quantity unit code of the item
-          example: U
-        tax_type_code:
-          type: string
-          description: The tax type code of the item
-          example: D
-        default_unit_price:
-          type: number
-          description: The default price of the item
-          example: 1000
-        etims_item_code:
-          type: string
-          description: The eTIMS item code of the item
-          example: DT-67717-E7GcGbvYDy
-        is_stock_item:
+          format: email
+          description: The email address of the contact person
+          example: "ahmed@acme-trading.ae"
+        is_test:
           type: boolean
-          description: >-
-            Indicates whether the item is a stock item or not. Can either be
-            "false" or "true"
-          example: 1000
-        stock_quantity:
-          type: number
-          description: The quantity of items in stock
-          example: 1000
+          description: Whether this branch is operating in test mode
+          example: false
+        is_live:
+          type: boolean
+          description: Whether this branch has been taken live in DigiTax
+          example: false
+
+    Party:
+      type: object
+      description: A party in a UAE e-invoice
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - tax_registration_number
+        - registration_name
+        - company_id
+        - company_id_scheme_id
+        - company_id_scheme_name
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this party
+          example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the party was created
+          example: "2024-02-10T09:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the party was last updated
+          example: "2024-07-05T11:20:00Z"
         active:
           type: boolean
-          description: Indicates whether the item is active or not
+          description: Whether the party is currently active on DigiTax
           example: true
-        status:
+        tax_registration_number:
           type: string
-          enum:
-            - PENDING
-            - FAILED
-            - COMPLETE
-          description: sync status against eTIMS
-          example: COMPLETE
-        item_bar_code:
+          description: The UAE Tax Registration Number (TRN) of the party
+          example: "100987654300003"
+        registration_name:
           type: string
-          description: The bar code or unique product code(UPC) of the item
-          example: '012345678905'
-        levies:
+          description: The full legal name of the party
+          example: "Global Imports FZE"
+        company_id:
+          type: string
+          description: The party's company identifier
+          example: "JAFZA-98765"
+        company_id_scheme_id:
+          type: string
+          description: The scheme identifier for the party's company ID
+          example: "FREE_ZONE_LICENSE"
+        company_id_scheme_name:
+          type: string
+          description: The human-readable name of the party's company ID scheme
+          example: "JAFZA Free Zone License"
+        address:
+          $ref: "#/components/schemas/Address"
+        contact_name:
+          type: string
+          description: The name of the party's contact person
+          example: "Sara Mohammed"
+        contact_phone:
+          type: string
+          description: The party's contact phone number
+          example: "+971509876543"
+        contact_email:
+          type: string
+          format: email
+          description: The party's contact email address
+          example: "sara@global-imports.ae"
+
+    ItemProperty:
+      type: object
+      description: An additional item attribute as a name/value pair
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          description: The name of the item attribute
+          example: "Colour"
+        value:
+          type: string
+          description: The value of the item attribute
+          example: "Silver"
+
+    Item:
+      type: object
+      description: Represents an item that can be referenced in UAE e-invoices
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - name
+        - description
+        - commodity_code
+        - item_classification_code
+        - item_classification_list_id
+        - tax_category_code
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this item
+          example: "item_01HC3J1VVVM05YCTS61G7V3KC6"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the item was created
+          example: "2024-03-01T07:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the item was last updated
+          example: "2024-08-12T16:30:00Z"
+        active:
+          type: boolean
+          description: Whether the item is currently active on DigiTax
+          example: true
+        name:
+          type: string
+          description: The name of the item
+          example: "Industrial Pump Model X-500"
+        description:
+          type: string
+          description: A description of the item
+          example: "High-pressure centrifugal pump for industrial fluid transfer"
+        item_code:
+          type: string
+          description: A unique code assigned to the item in the user's system. It will be used as the unique product identifier
+          example: "PUMP-X500-BLK"
+        item_number:
+          type: string
+          description: The unique item number of the item on DigiTax
+          example: "ITM26-083-120958611-VGJBR7"
+        commodity_code:
+          type: string
+          description: The item type/commodity code indicating whether the item is goods, services, or both
+          example: "G"
+        item_classification_code:
+          type: string
+          description: The classification code identifying the item
+          example: "84137000"
+        item_classification_list_id:
+          type: string
+          description: The identification scheme for the item classification code
+          example: "HS"
+        tax_category_code:
+          type: string
+          description: The default VAT category code applicable to this item. This can be overridden when creating an invoice if needed
+          example: "S"
+        standard_item_id:
+          type: string
+          description: A standardised item identifier (e.g. GTIN, EAN)
+          example: "09501101530003"
+        standard_item_scheme:
+          type: string
+          description: The scheme identifier for the standard item identifier
+          example: "0160"
+        origin_country_code:
+          type: string
+          description: The ISO 3166-1 alpha-2 code of the item's country of origin
+          example: "DE"
+        item_properties:
           type: array
+          description: Additional item attributes
+          items:
+            $ref: "#/components/schemas/ItemProperty"
+
+    OrderReference:
+      type: object
+      description: A reference to a purchase and/or sales order
+      properties:
+        purchase_order_id:
+          type: string
+          description: An identifier of a referenced purchase order, issued by the Buyer
+          example: "PO-2024-00123"
+        sales_order_id:
+          type: string
+          description: An identifier of a referenced sales order, issued by the Seller
+          example: "SO-2024-00456"
+
+    DocumentReference:
+      type: object
+      description: A reference to another document (e.g. despatch advice, receipt advice, contract)
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The identifier of the referenced document
+          example: "DA-2024-001"
+        document_type_code:
+          type: string
+          description: The UNCL1001 document type code of the referenced document
+          example: "916"
+        document_description:
+          type: string
+          description: A human-readable description of the referenced document
+          example: "Despatch Advice"
+        issue_date:
+          type: string
+          description: The issue date of the referenced document (YYYY-MM-DD)
+          example: "2026-03-20"
+
+    InvoicePeriod:
+      type: object
+      description: The period to which the invoice relates
+      properties:
+        start_date:
+          type: string
+          description: The start date of the invoice period (YYYY-MM-DD)
+          example: "2026-03-24"
+        end_date:
+          type: string
+          description: The end date of the invoice period (YYYY-MM-DD)
+          example: "2026-03-30"
+        billing_frequency_code:
+          type: string
+          description: The billing frequency code
+          example: "MTH"
+
+    InvoiceDelivery:
+      type: object
+      description: Delivery information for the items in the invoice
+      properties:
+        actual_delivery_date:
+          type: string
+          description: The actual delivery date (YYYY-MM-DD)
+          example: "2026-03-25"
+        delivery_location_id:
+          type: string
+          description: The identifier of the delivery location
+          example: "LOC-JEBEL-ALI-001"
+        delivery_location_scheme_id:
+          type: string
+          description: The scheme identifier for the delivery location ID
+          example: "0088"
+        delivery_address:
+          $ref: "#/components/schemas/Address"
+        delivery_party_name:
+          type: string
+          description: The name of the party receiving the delivery
+          example: "Global Imports FZE - Warehouse"
+        delivery_terms_id:
+          type: string
+          description: The delivery terms identifier (e.g. Incoterm)
+          example: "DAP"
+
+    InvoiceAllowanceCharge:
+      type: object
+      description: An allowance or charge at document level
+      required:
+        - charge_indicator
+        - amount
+        - reason_code
+        - reason
+        - tax_category_code
+        - tax_rate
+      properties:
+        charge_indicator:
+          type: boolean
+          description: If true, this is a charge; if false, it is an allowance
+          example: false
+        amount:
+          type: number
+          format: double
+          description: The monetary amount of the allowance or charge
+          example: 50.00
+        base_amount:
+          type: number
+          format: double
+          description: The base amount on which the allowance or charge percentage is calculated
+          example: 1000.00
+        multiplier_rate:
+          type: number
+          format: double
+          description: The rate(between 0 to 1) used to calculate the allowance/charge amount
+          example: 0.05
+          minimum: 0
+          maximum: 1
+        reason_code:
+          type: string
+          description: The coded reason for the allowance or charge
+          example: "95"
+        reason:
+          type: string
+          description: The textual reason for the allowance or charge
+          example: "Volume discount"
+        tax_category_code:
+          type: string
+          description: The VAT category code for this allowance/charge. It is required for document-level allowances/charges
+          example: "S"
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate applicable to this allowance/charge
+          example: 0.05
+          minimum: 0
+          maximum: 1
+        tax_exemption_reason_code:
+          type: string
+          description: The coded reason for VAT exemption if the allowance/charge is tax exempt
+          example: "DL8.46.1"
+        tax_exemption_reason:
+          type: string
+          description: The textual reason for VAT exemption if the allowance/charge is tax exempt
+          example: "Certain financial services"
+    InvoiceItemAllowanceCharge:
+      type: object
+      description: An allowance or charge at invoice item level
+      required:
+        - charge_indicator
+        - amount
+        - reason_code
+        - reason
+      properties:
+        charge_indicator:
+          type: boolean
+          description: If true, this is a charge; if false, it is an allowance
+          example: false
+        amount:
+          type: number
+          format: double
+          description: The monetary amount of the allowance or charge
+          example: 50.00
+        base_amount:
+          type: number
+          format: double
+          description: The base amount on which the allowance or charge percentage is calculated
+          example: 1000.00
+        multiplier_rate:
+          type: number
+          format: double
+          description: The rate(between 0 to 1) used to calculate the allowance/charge amount
+          example: 0.05
+          minimum: 0
+          maximum: 1
+        reason_code:
+          type: string
+          description: The coded reason for the allowance or charge
+          example: "95"
+        reason:
+          type: string
+          description: The textual reason for the allowance or charge
+          example: "Volume discount"
+
+    InvoicePayment:
+      type: object
+      description: Payment means information for the invoice
+      required:
+        - id
+        - payment_means_code
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this payment record
+          example: "payment_01KMFHQG90HC0H5CA6D2C1H5MK"
+        payment_means_code:
+          type: string
+          description: The UNCL4461 code identifying the payment means
+          example: "30"
+        payment_means_code_name:
+          type: string
+          description: The name of the payment means code
+          example: "Credit transfer"
+        payment_id:
+          type: string
+          description: The payment reference or remittance information
+          example: "PAY-REF-2024-001"
+        payee_account_id:
+          type: string
+          description: The payee's bank account number (IBAN)
+          example: "AE070331234567890123456"
+        payee_account_name:
+          type: string
+          description: The name of the payee's bank account
+          example: "Acme Trading LLC - Main Account"
+        payee_financial_institution_bic:
+          type: string
+          description: The BIC/SWIFT code of the payee's bank
+          example: "ADCBAEAA"
+        card_primary_account_number:
+          type: string
+          description: The last few digits of the card used for payment
+          example: "****1234"
+        card_network_id:
+          type: string
+          description: The network identifier of the payment card
+          example: "VISA"
+        card_holder_name:
+          type: string
+          description: The name of the card holder
+          example: "Ahmed Al-Rashid"
+        payment_mandate_id:
+          type: string
+          description: The mandate reference for direct debit
+          example: "MANDATE-2024-001"
+        payment_terms_note:
+          type: string
+          description: A textual description of the payment terms
+          example: "Payment due within 30 days"
+        payment_terms_due_date:
+          type: string
+          description: The due date for payment (YYYY-MM-DD)
+          example: "2024-12-15"
+
+    TaxBreakdown:
+      type: object
+      description: A breakdown of VAT by category
+      required:
+        - tax_category_code
+        - taxable_amount
+        - tax_amount
+        - currency
+        - tax_rate
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this tax breakdown record
+          example: "taxbreakdown_01KMFHQG90HC0H5CA6CZ0A93VC"
+        tax_category_code:
+          type: string
+          description: The VAT category code
+          example: "S"
+        taxable_amount:
+          type: number
+          format: double
+          description: The net amount subject to this VAT category
+          example: 10000.00
+        tax_amount:
+          type: number
+          format: double
+          description: The VAT amount for this category
+          example: 500.00
+        currency:
+          type: string
+          description: The currency code for the tax amounts
+          example: "AED"
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate(between 0 and 1)
+          example: 0.05
+          minimum: 0
+          maximum: 1
+
+    InvoiceItem:
+      type: object
+      description: A line item within an invoice
+      required:
+        - id
+        - item_id
+        - quantity
+        - unit_of_measure_code
+        - line_extension_amount
+        - price_amount
+        - tax_category_code
+        - tax_rate
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this invoice line
+          example: "invoiceitem_01KMFQN8P2CE43QQGH29FH32CT"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the line item was created
+          example: "2024-11-20T10:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the line item was last updated
+          example: "2024-11-20T10:00:00Z"
+        active:
+          type: boolean
+          description: Whether the line item is active
+          example: true
+        item_id:
+          type: string
+          description: The DigiTax item ID associated with this line
+          example: "item_01HC3J1VVVM05YCTS61G7V3KC6"
+        line_id:
+          type: integer
+          description: The sequential line identifier within the invoice
+          example: 1
+        note:
+          type: string
+          description: A free-text note on the invoice line
+          example: "Special handling required"
+        quantity:
+          type: number
+          format: double
+          description: The quantity of items on this line
+          example: 10.0
+        unit_of_measure_code:
+          type: string
+          description: The unit of measure code for the quantity and price
+          example: "EA"
+        line_extension_amount:
+          type: number
+          format: double
+          description: The net amount for this line ((quantity x price amount) - sum of allowances + sum of charges)
+          example: 5000.00
+        tax_amount:
+          type: number
+          format: double
+          description: The VAT amount for this line
+          example: 250.00
+        price_amount:
+          type: number
+          format: double
+          description: The net price per unit (excluding VAT)
+          example: 500.00
+        price_discount:
+          type: number
+          format: double
+          description: The discount applied to the gross price to arrive at the net price
+          example: 25.00
+        gross_price:
+          type: number
+          format: double
+          description: The gross price per unit before any price discount
+          example: 525.00
+        tax_category_code:
+          type: string
+          description: The VAT category code for this line
+          example: "S"
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate percentage for this line
+          example: 5.0
+        tax_exemption_reason_code:
+          type: string
+          description: The coded reason for VAT exemption on this line
+          example: "DL8.46.1"
+        tax_exemption_reason:
+          type: string
+          description: The textual reason for VAT exemption on this line
+          example: "Certain financial services"
+        accounting_cost:
+          type: string
+          description: A textual value that specifies where to book the relevant data into the Buyer's financial accounts
+          example: "CC-OPEX-001"
+        invoice_period:
+          $ref: "#/components/schemas/InvoicePeriod"
+        buyers_item_id:
+          type: string
+          description: The buyer's identifier for this item
+          example: "BUY-ITEM-9901"
+        sellers_item_id:
+          type: string
+          description: The seller's identifier for this item
+          example: "PUMP-X500-BLK"
+        allowance_charges:
+          type: array
+          description: Line-level allowances and charges
+          items:
+            $ref: "#/components/schemas/InvoiceItemAllowanceCharge"
+        allowance_total_amount:
+          type: number
+          format: double
+          description: The total amount of all line-level allowances
+          example: 25.00
+        charge_total_amount:
+          type: number
+          format: double
+          description: The total amount of all line-level charges
+          example: 0.00
+        item_nature_code:
+          type: string
+          description: The nature code of the item, required when the tax category is reverse charge (AE)
+          example: "DL8.48.8.2"
+
+    Invoice:
+      type: object
+      description: Represents a UAE PINT-AE compliant invoice or credit note created on DigiTax
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - invoice_type_code
+        - issue_date
+        - document_currency_code
+        - customer_party_id
+        - line_extension_amount
+        - tax_exclusive_amount
+        - tax_inclusive_amount
+        - payable_amount
+        - tax_amount
+        - status
+        - validated_at
+        - submitted_at
+        - reported_at
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this invoice
+          example: "invoice_01KMFSMEYVCDV0150T6P4WECVR"
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the invoice was created on DigiTax
+          example: "2024-11-20T10:00:00Z"
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the invoice was last updated on DigiTax
+          example: "2024-11-20T12:30:00Z"
+        active:
+          type: boolean
+          description: Whether this invoice record is active on DigiTax
+          example: true
+        invoice_number:
+          type: string
+          description: The sequential invoice number assigned by DigiTax
+          example: "INV-2024-00001"
+        uuid:
+          type: string
+          description: The universally unique identifier (UUID) of the invoice
+          example: "550e8400-e29b-41d4-a716-446655440000"
+        trader_invoice_number:
+          type: string
+          description: An invoice number assigned by the supplier to uniquely identify the invoice in their system
+          example: "ACME-INV-2024-0042"
+        transaction_type_code:
+          type: string
+          description: A binary code that identifies the invoice transaction types that apply to the invoice. Each digit represents a specific transaction type, in the order defined by Peppol
+          example: "00000001"
+        transaction_types:
+          type: array
+          description: The list of applicable PINT-AE transaction types
           items:
             type: string
+            enum: [FREE_TRADE_ZONE, DEEMED_SUPPLY, PROFIT_MARGIN_SCHEME, SUMMARY_INVOICE, CONTINUOUS_SUPPLY, AGENT_BILLING, SUPPLY_THROUGH_ECOMMERCE, EXPORTS]
+          example: [FREE_TRADE_ZONE, EXPORTS]
+        invoice_type_code:
+          type: string
+          description: The UN/CEFACT document type code
+          example: "380"
+        issue_date:
+          type: string
+          format: date
+          description: The date the invoice was issued (YYYY-MM-DD)
+          example: "2026-03-23"
+        issue_time:
+          type: string
+          description: The time the invoice was issued (HH:MM:SS)
+          example: "10:00:00"
+        due_date:
+          type: string
+          format: date
+          description: The payment due date (YYYY-MM-DD)
+          example: "2026-03-23"
+        tax_point_date:
+          type: string
+          format: date
+          description: The date for tax purposes (VAT point date) (YYYY-MM-DD)
+          example: "2026-03-23"
+        document_currency_code:
+          type: string
+          description: The currency of the invoice amounts
+          example: "AED"
+        tax_currency_code:
+          type: string
+          description: The tax accounting currency. It's always AED for UAE e-invoices
+          example: "AED"
+        tax_currency_exchange_rate:
+          type: number
+          format: double
+          description: The exchange rate between document currency and tax currency
+          example: 1.0
+        buyer_reference:
+          type: string
+          description: An identifier assigned by the Buyer used for internal routing purposes
+          example: "BR-2024-00789"
+        accounting_cost:
+          type: string
+          description: A textual value that specifies where to book the relevant data into the Buyer's financial accounts
+          example: "CAPEX-2024-Q4"
+        project_reference:
+          type: string
+          description: A reference to a project relating to this invoice
+          example: "PROJ-JEBEL-2024"
+        note:
+          type: string
+          description: Free-text notes on the invoice
+          example: "Thank you for your business"
+        invoice_period:
+          $ref: "#/components/schemas/InvoicePeriod"
+        order_reference:
+          $ref: "#/components/schemas/OrderReference"
+        billing_reference:
+          type: array
+          description: References to preceding invoices for credit notes
+          items:
+            $ref: "#/components/schemas/DocumentReference"
+        despatch_document_reference:
+          $ref: "#/components/schemas/DocumentReference"
+        receipt_document_reference:
+          $ref: "#/components/schemas/DocumentReference"
+        originator_document_reference:
+          $ref: "#/components/schemas/DocumentReference"
+        contract_document_reference:
+          $ref: "#/components/schemas/DocumentReference"
+        additional_documents:
+          type: array
+          description: References to additional supporting documents
+          items:
+            $ref: "#/components/schemas/DocumentReference"
+        customer_party_id:
+          type: string
+          description: The DigiTax party ID of the buyer
+          example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+        payee_party_id:
+          type: string
+          description: The DigiTax party ID of the payee (if different from buyer)
+          example: "party_01HC3J1VVVM05YCTS61G7V3KD7"
+        tax_representative_party_id:
+          type: string
+          description: The DigiTax party ID of the seller's tax representative
+          example: "party_01HC3J1VVVM05YCTS61G7V3KC6"
+        delivery:
+          $ref: "#/components/schemas/InvoiceDelivery"
+        payment_terms_note:
+          type: string
+          description: Textual description of the payment terms
+          example: "Net 30 days"
+        line_extension_amount:
+          type: number
+          format: double
+          description: The sum of all invoice line net amounts
+          example: 10000.00
+        tax_exclusive_amount:
+          type: number
+          format: double
+          description: The total amount without VAT (sum of net amounts minus document-level allowances plus document-level charges)
+          example: 9500.00
+        tax_inclusive_amount:
+          type: number
+          format: double
+          description: The total amount including VAT
+          example: 9975.00
+        payable_amount:
+          type: number
+          format: double
+          description: The amount due for payment after subtracting any prepaid amount and adding payable rounding amount
+          example: 9975.00
+        allowance_total_amount:
+          type: number
+          format: double
+          description: The sum of all document-level allowances
+          example: 500.00
+        charge_total_amount:
+          type: number
+          format: double
+          description: The sum of all document-level charges
+          example: 0.00
+        prepaid_amount:
+          type: number
+          format: double
+          description: The amount already paid to be deducted from the payable amount
+          example: 0.00
+        payable_rounding_amount:
+          type: number
+          format: double
+          description: The rounding amount added to make the payable amount a round number
+          example: 0.00
+        tax_amount:
+          type: number
+          format: double
+          description: The total VAT amount for the invoice
+          example: 475.00
+        tax_included_indicator:
+          type: boolean
+          description: Indicates whether VAT is included in the invoice line amounts
+          example: false
+        tax_amount_in_tax_currency:
+          type: number
+          format: double
+          description: The VAT amount expressed in the tax currency
+          example: 475.00
+        status:
+          type: string
+          description: The current processing status of the invoice on DigiTax
+          example: "COMPLETED"
+        allowance_charges:
+          type: array
+          description: Document-level allowances and charges
+          items:
+            $ref: "#/components/schemas/InvoiceAllowanceCharge"
+        payments:
+          type: array
+          description: Payment means for this invoice
+          items:
+            $ref: "#/components/schemas/InvoicePayment"
+        items:
+          type: array
+          description: The invoice line items
+          items:
+            $ref: "#/components/schemas/InvoiceItem"
+        taxes:
+          type: array
+          description: The VAT breakdown by category
+          items:
+            $ref: "#/components/schemas/TaxBreakdown"
+        credit_note_reason_code:
+          type: string
+          description: The code for the reason a credit note was issued
+          example: "DL8.61.1.A"
+        credit_note_reason:
+          type: string
+          description: The textual reason a credit note was issued
+          example: "Supply was cancelled"
+        original_invoice_id:
+          type: string
+          description: The DigiTax ID of the original invoice this credit note relates to
+          example: "invoice_01KMFSMEYVCDV0150T6P4WECVR"
+        beneficiary_trn:
+          type: string
+          description: The TRN of the beneficiary in case of Free Trade Zone supply
+          example: "100111222300003"
+        principle_trn:
+          type: string
+          description: The TRN of the principal in case of Disclosed Agent billing
+          example: "100333444500003"
+        reported_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-08-12T04:40:58Z"
+          description: The date and time when the invoice was sent to C5(FTA)
+        submitted_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-08-12T04:40:58Z"
+          description: The date and time when the invoice was sent to C3(buyer's Access Point) in the case of billing or C2(supplier's Access Point) in the case of self-billing
+        validated_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: "2025-08-12T04:40:58Z"
+          description: The date and time when the invoice was validated against the PINT-AE rules
+
     Pagination:
       type: object
       properties:
         next:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          description: Cursor for the next page of results.
+          example: "item_01HC3J1VVVM05YCTS61G7V3KC6"
         previous:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          description: Cursor for the previous page of results.
+          example: "item_01HC3J1VVVM05YCTS61G7V3KC6"
         page_size:
           type: integer
+          description: The number of items per page.
           example: 20
-    Sale:
+
+    CreateInvoicePaymentRequest:
       type: object
       required:
-        - id
-        - date
-        - time
-        - trader_invoice_number
-        - receipt_type_code
-        - sale_detail_url
-        - serial_number
-        - receipt_number
-        - invoice_number
-        - customer_id
-        - customer_name
-        - customer_tin
-        - internal_data
-        - receipt_signature
-        - etims_url
-        - sales_tax_summary
+        - payment_means_code
       properties:
-        id:
+        payment_means_code:
           type: string
-          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
-        date:
+          description: The UNCL4461 payment means code
+          example: "30"
+        payment_id:
           type: string
-          example: 13/03/2026
-        time:
+          description: The payment reference
+          example: "PAY-REF-2024-001"
+        payee_account_id:
           type: string
-          example: 04:16:11 pm
-        trader_invoice_number:
+          description: The payee IBAN or account number
+          example: "AE070331234567890123456"
+        payee_account_name:
           type: string
-          example: '12345678901'
-        receipt_type_code:
+          description: The payee bank account name
+          example: "Acme Trading LLC - Main Account"
+        payee_financial_institution_bic:
           type: string
-          example: S
-        sale_detail_url:
+          description: The BIC/SWIFT code of the payee's bank
+          example: "ADCBAEAA"
+        card_primary_account_number:
           type: string
-          example: https://api.digitax.tech/sales/YKSWCIiuvx
-          format: url
-        serial_number:
+          description: The primary account number of the payment card
+          example: "66541234"
+        card_network_id:
           type: string
-          example: KRACU0400000001
-        receipt_number:
-          type: integer
-          example: 38
-        invoice_number:
-          type: integer
-          example: 38
-        customer_id:
+          description: The payment card network identifier
+          example: "VISA"
+        card_holder_name:
           type: string
-          example: customer_01HC3HTDAXQ50E07CWR2A2CFBD
-        customer_name:
+          description: The name of the card holder
+          example: "Ahmed Al-Rashid"
+        payment_mandate_id:
           type: string
-          example: John Doe
-        customer_tin:
+          description: The direct debit mandate reference
+          example: "MANDATE-2024-001"
+        payment_terms_note:
           type: string
-          example: P123456789P
-        customer_phone_number:
+          description: A description of the payment terms
+          example: "Payment due within 30 days"
+        payment_terms_due_date:
           type: string
-          example: '+254112685368'
-        customer_email:
-          type: string
-          example: info@namiri.tech
-        internal_data:
-          type: string
-          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
-        receipt_signature:
-          type: string
-          example: 3JYZVPTPMYBGHG4A
-        etims_url:
-          type: string
-          example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
-          format: url
-        original_sale_id:
-          type: string
-          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
-        offline_url:
-          type: string
-          example: >-
-            https://receipt.dg.tax/r/business_01JGXVVP4Z3MWQBQ3XSCJ3S4JF/SAL25-204-145657411-MHARTQ
-          format: url
-        status:
-          type: string
-          enum:
-            - PENDING
-            - FAILED
-            - COMPLETED
-          description: status against KRA
-          example: completed
-        sales_tax_summary:
-          type: object
-          required:
-            - taxable_amount_a
-            - taxable_amount_b
-            - taxable_amount_c
-            - taxable_amount_d
-            - taxable_amount_e
-            - tax_rate_a
-            - tax_rate_b
-            - tax_rate_c
-            - tax_rate_d
-            - tax_rate_e
-            - tax_amount_a
-            - tax_amount_b
-            - tax_amount_c
-            - tax_amount_d
-            - tax_amount_e
-          properties:
-            taxable_amount_a:
-              type: number
-              example: 0
-            taxable_amount_b:
-              type: number
-              example: 517.24
-            taxable_amount_c:
-              type: number
-              example: 0
-            taxable_amount_d:
-              type: number
-              example: 0
-            taxable_amount_e:
-              type: number
-              example: 0
-            tax_rate_a:
-              type: integer
-              example: 0
-            tax_rate_b:
-              type: integer
-              example: 16
-            tax_rate_c:
-              type: integer
-              example: 0
-            tax_rate_d:
-              type: integer
-              example: 0
-            tax_rate_e:
-              type: integer
-              example: 8
-            catering_levy_rate:
-              type: integer
-              example: 2
-            service_charge_rate:
-              type: integer
-              example: 0
-            tax_amount_a:
-              type: number
-              example: 0
-            tax_amount_b:
-              type: number
-              example: 82.76
-            tax_amount_c:
-              type: number
-              example: 0
-            tax_amount_d:
-              type: number
-              example: 0
-            tax_amount_e:
-              type: number
-              example: 0
-            catering_levy_amount:
-              type: number
-              example: 0
-            service_charge_amount:
-              type: number
-              example: 0
-        item_list:
-          type: array
-          items:
-            $ref: '#/components/schemas/SaleItem'
-    SaleItem:
+          description: The payment due date (YYYY-MM-DD)
+          example: "2026-04-20"
+
+    CreateInvoiceItemRequest:
       type: object
       required:
-        - id
-        - quantity
-        - unit_price
-        - total_amount
-        - taxable_amount
-        - tax_amount
-        - tax_rate
-        - tax_type_code
-        - discount_rate
-        - discount_amount
-        - etims_item_code
-        - is_stockable
         - item_id
+        - quantity
+        - unit_of_measure_code
+        - price_amount
+        - tax_category_code
+        - tax_rate
       properties:
-        id:
+        item_id:
           type: string
-          example: saleitem_01HC3J1VVVM05YCTS61G7V3KC6
+          description: The DigiTax item ID of the item being invoiced
+          example: "item_01HC3J1VVVM05YCTS61G7V3KC6"
         quantity:
           type: number
-          example: 1
-        unit_price:
+          format: double
+          description: The number of units of the item being invoiced
+          example: 10.0
+        unit_of_measure_code:
+          type: string
+          description: The code of the unit of measure used for the invoiced quantity
+          example: "EA"
+        price_amount:
           type: number
-          example: 600
-        total_amount:
+          format: double
+          description: The net unit price (excluding VAT) for the invoiced item and in the specified unit of measure
+          example: 500.00
+        price_discount:
           type: number
-          example: 600
-        taxable_amount:
+          format: double
+          description: The discount on the gross price to arrive at the net price
+          example: 25.00
+        gross_price:
           type: number
-          example: 517.24
-        tax_amount:
-          type: number
-          example: 82.76
+          format: double
+          description: The gross unit price before discount
+          example: 525.00
+        tax_category_code:
+          type: string
+          description: The VAT category code for this invoice item
+          example: "E"
         tax_rate:
           type: number
-          example: 16
-        tax_type_code:
-          type: string
-          example: B
-        discount_rate:
-          type: number
+          format: double
+          description: The VAT rate(between 0 and 1) percentage
           example: 0
-        discount_amount:
-          type: number
-          example: 0
-        etims_item_code:
+          minimum: 0
+          maximum: 1
+        tax_exemption_reason_code:
           type: string
-          example: KE3NTU12345678
-        is_stockable:
-          type: boolean
-          example: false
-        item_id:
+          description: The coded reason for VAT exemption
+          example: "DL8.46.1"
+        tax_exemption_reason:
           type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
-    Purchase:
-      type: object
-      required:
-        - id
-        - registration_type_code
-        - invoice_number
-        - purchase_type_code
-        - receipt_type_code
-        - payment_type_code
-        - purchase_status_code
-        - purchase_date
-        - trader_invoice_number
-        - supplier_branch_id
-        - supplier_name
-        - supplier_invoice_number
-        - item_list
-      properties:
-        id:
+          description: The textual reason for VAT exemption
+          example: "Certain financial services"
+        note:
           type: string
-          example: purchase_01HC3J1VVVM05YCTS61G7V3KC6
-        registration_type_code:
+          description: A free-text note on this invoice item
+          example: "General invoice item details"
+        accounting_cost:
           type: string
-          example: A
-        invoice_number:
-          type: integer
-          example: 4000
-        purchase_type_code:
+          description: A textual value that specifies where to book the relevant data into the Buyer's financial accounts
+          example: "CC-OPEX-001"
+        invoice_period:
+          $ref: "#/components/schemas/InvoicePeriod"
+        buyers_item_id:
           type: string
-          example: 'N'
-        receipt_type_code:
+          description: The buyer's identifier for this item
+          example: "BUY-ITEM-9901"
+        sellers_item_id:
           type: string
-          example: P
-        payment_type_code:
-          type: string
-          example: '07'
-        purchase_status_code:
-          type: string
-          example: '06'
-        purchase_date:
-          type: string
-          example: '20260313'
-        trader_invoice_number:
-          type: string
-          example: '12'
-        supplier_branch_id:
-          type: string
-          example: '00'
-        supplier_name:
-          type: string
-          example: KENYA REVENUE AUTHORITY
-        supplier_invoice_number:
-          type: integer
-          example: 12
-        item_list:
+          description: The seller's identifier for this item
+          example: "PUMP-X500-BLK"
+        order_line_reference:
+          $ref: "#/components/schemas/OrderReference"
+        allowance_charges:
           type: array
+          description: Invoice item-level allowances and charges
           items:
-            $ref: '#/components/schemas/PurchaseItem'
-    PurchaseItem:
-      type: object
-      required:
-        - id
-        - quantity
-        - price
-        - supply_amount
-        - discount_rate
-        - discount_amount
-        - item_id
-      properties:
-        id:
+            $ref: "#/components/schemas/InvoiceItemAllowanceCharge"
+        item_nature_code:
           type: string
-          example: purchaseitem_01HC3J1VVVM05YCTS61G7V3KC6
-        quantity:
-          type: integer
-          example: 3000
-        price:
-          type: integer
-          example: 116
-        supply_amount:
-          type: integer
-          example: 348000
-        discount_rate:
-          type: integer
-          example: 0
-        discount_amount:
-          type: integer
-          example: 0
-        item_id:
-          type: string
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
-    OfflineUrlSale:
-      type: object
-      required:
-        - date
-        - time
-        - trader_invoice_number
-        - invoice_number
-        - original_invoice_number
-        - digitax_id
-        - serial_number
-        - receipt_number
-        - internal_data
-        - receipt_signature
-        - etims_url
-        - sales_tax_summary
-        - status
-        - kra_receipt_url
-        - total
-        - business_details
-        - customer_details
-        - items
-        - logo_url
-      properties:
-        date:
-          type: string
-          example: '2026-03-13'
-        time:
-          type: string
-          example: '12:00:00'
-        trader_invoice_number:
-          type: string
-          example: '12345678901'
-        invoice_number:
-          type: integer
-          example: 38
-        original_invoice_number:
-          type: integer
-          example: 38
-        digitax_id:
-          type: string
-          example: sale_01HC3HTDAXQ50E07CWR2A2CFBD
-        serial_number:
-          type: string
-          example: KRACU0400000001
-        receipt_number:
-          type: integer
-          example: 38
-        internal_data:
-          type: string
-          example: PB3ZSZP3RZR3AUPYBYLUTFJDIA
-        receipt_signature:
-          type: string
-          example: 3JYZVPTPMYBGHG4A
-        etims_url:
-          type: string
-          example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
-        sales_tax_summary:
-          type: object
-          required:
-            - taxable_amount_a
-            - taxable_amount_b
-            - taxable_amount_c
-            - taxable_amount_d
-            - taxable_amount_e
-            - tax_rate_a
-            - tax_rate_b
-            - tax_rate_c
-            - tax_rate_d
-            - tax_rate_e
-            - tax_amount_a
-            - tax_amount_b
-            - tax_amount_c
-            - tax_amount_d
-            - tax_amount_e
-          properties:
-            taxable_amount_a:
-              type: number
-              example: 0
-            taxable_amount_b:
-              type: number
-              example: 517.24
-            taxable_amount_c:
-              type: number
-              example: 0
-            taxable_amount_d:
-              type: number
-              example: 0
-            taxable_amount_e:
-              type: number
-              example: 0
-            tax_rate_a:
-              type: integer
-              example: 0
-            tax_rate_b:
-              type: integer
-              example: 16
-            tax_rate_c:
-              type: integer
-              example: 0
-            tax_rate_d:
-              type: integer
-              example: 0
-            tax_rate_e:
-              type: integer
-              example: 8
-            catering_levy_rate:
-              type: integer
-              example: 2
-            tax_amount_a:
-              type: number
-              example: 0
-            tax_amount_b:
-              type: number
-              example: 82.76
-            tax_amount_c:
-              type: number
-              example: 0
-            tax_amount_d:
-              type: number
-              example: 0
-            tax_amount_e:
-              type: number
-              example: 0
-            catering_levy_amount:
-              type: number
-              example: 0
-        status:
-          type: string
-          description: status against KRA
-          example: completed
-        kra_receipt_url:
-          type: string
-          example: >-
-            https://etims.kra.go.ke/common/link/etims/receipt/indexEtimsReceptData?{P053100692D+00+3JYZVPTPMYBGHG4A}
-        total:
-          type: number
-          example: 600
-        business_details:
-          type: object
-          required:
-            - name
-            - pin
-            - email
-            - phone
-            - location
-          properties:
-            name:
-              type: string
-              example: Business Name
-            pin:
-              type: string
-              example: P012345678P
-            email:
-              type: string
-              example: support@digitax.tech
-            phone:
-              type: string
-              example: 254712345678
-            location:
-              type: string
-              example: Nairobi
-        customer_details:
-          type: object
-          required:
-            - name
-            - pin
-            - email
-            - phone
-          properties:
-            name:
-              type: string
-              example: John Doe
-            pin:
-              type: string
-              example: P012345678P
-            email:
-              type: string
-              example: support@namiri.tech
-            phone:
-              type: string
-              example: 254712345678
-        items:
-          type: array
-          items:
-            type: object
-            required:
-              - id
-              - name
-              - price
-              - currency
-              - quantity
-            properties:
-              id:
-                type: string
-                example: item_01HC3J1VVVM05YCTS61G7V3KC6
-              name:
-                type: string
-                example: DigiTax Product 01
-              price:
-                type: integer
-                example: 600
-              currency:
-                type: string
-                example: KES
-              quantity:
-                type: integer
-                example: 1
-        logo_url:
-          type: string
-    InvoiceVerification:
-      type: object
-      required:
-        - status
-        - created_at
-        - source
-      properties:
-        status:
-          type: string
-          description: Verification status
-          example: success
-        created_at:
-          type: string
-          example: '2026-03-13T15:09:02.036Z'
-        data:
-          type: object
-          description: Invoice verification data
-          $ref: '#/components/schemas/VerificationDetail'
-        source:
-          type: string
-          enum:
-            - EXTERNAL
-            - INTERNAL
-          description: >-
-            Source of the verification. Possible values are EXTERNAL and
-            INTERNAL. EXTERNAL means the invoice is being verified for the first
-            time; so the data was verified against KRA eTIMS. The source for
-            subsequent verifications of the same invoice will be INTERNAL; since
-            data from the first attempt is saved and used for subsequent
-            validations.
-          example: EXTERNAL
-    VerificationDetail:
-      type: object
-      required:
-        - invoice_timestamp
-        - invoice_number
-        - number_of_items
-        - verification_date
-      properties:
-        invoice_timestamp:
-          type: string
-          description: Invoice timestamp
-          example: '2026-03-13T10:23:06Z'
-        number_of_items:
-          type: integer
-          description: Number of items in the invoice
-          example: 2
-        invoice_number:
-          type: string
-          description: Invoice number
-          example: KRACU0300000024/39
-        verification_date:
-          type: string
-          description: Date invoice was verified for the first time against KRA eTIMS
-          example: '2026-03-13T15:09:02.036Z'
-    Supplier:
-      type: object
-      required:
-        - id
-        - supplier_tin
-        - supplier_name
-        - taxpayer_type
-      properties:
-        id:
-          type: string
-          description: Supplier ID
-          example: supplier_01JS16JDB2B5ESZ8HWJ3CBYP5Y
-        supplier_name:
-          type: string
-          description: Supplier Name
-          example: John Doe Inc
-        email:
-          type: string
-          description: Supplier Email
-          example: accounts@johndoeinc.com
-        phone:
-          type: string
-          description: Supplier Phone Number
-          example: '+254712345678'
-        supplier_tin:
-          type: string
-          description: Supplier Tax Identification Number (TIN)
-          example: P012345678P
-        taxpayer_type:
-          type: string
-          enum:
-            - INDIVIDUAL
-            - BUSINESS
-          description: Taxpayer Type
-          example: INDIVIDUAL
-        invoicing:
-          type: object
-          required:
-            - reverse_invoice_type
-            - reverse_invoice_authorisation
-          properties:
-            reverse_invoice_type:
-              type: string
-              enum:
-                - REGULAR
-                - THIRD_PARTY
-              description: Reverse invoice type
-              example: REGULAR
-            reverse_invoice_authorisation:
-              type: string
-              enum:
-                - IMPLICIT
-                - EXPLICIT
-              description: Reverse invoice authorisation
-              example: IMPLICIT
-        status:
-          type: string
-          enum:
-            - PENDING
-            - FAILED
-            - COMPLETED
-          description: status against KRA
-    Summary:
-      type: object
-      required:
-        - total_sales_count
-        - total_sales_amount
-      properties:
-        total_sales_count:
-          type: integer
-          example: 22
-        total_sales_amount:
-          type: number
-          format: float
-          example: 456701.95
-    SalesSummary:
-      type: object
-      required:
-        - summary
-      properties:
-        summary:
-          type: object
-          additionalProperties:
-            $ref: '#/components/schemas/Summary'
+          description: The item nature code, required when tax category is reverse charge (AE)
+          example: "DL8.48.8.2"
+
   parameters:
     After:
       in: query
@@ -3164,9 +2351,7 @@ components:
       required: false
       schema:
         type: string
-        description: >-
-          When paginating results, a pointer to an ID after which we want
-          results
+        description: When paginating results, a pointer to an ID after which we want results
         example: item_01HC3J1VVVM05YCTS61G7V3KC6
     Before:
       in: query
@@ -3174,9 +2359,7 @@ components:
       required: false
       schema:
         type: string
-        description: >-
-          When paginating results, a pointer to an ID before which we want
-          results
+        description: When paginating results, a pointer to an ID before which we want results
         example: item_01HC3J1VVVM05YCTS61G7V3KC6
     PageSize:
       in: query
@@ -3184,13 +2367,37 @@ components:
       required: false
       schema:
         type: integer
+        description: The maximum number of items to return per page, defaults to 20
         maximum: 20
         minimum: 1
-        description: The maximum number of items to return per page, defaults to 20
         example: 20
+
+  responses:
+    default:
+      $ref: "#/components/responses/Error"
+    Error:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - message
+              - code
+            properties:
+              message:
+                type: string
+                example: "An error occurred"
+              code:
+                type: string
+                example: "400"
+              metadata:
+                type: object
+                additionalProperties:
+                  type: string
+
   securitySchemes:
     apiKeyAuth:
       type: apiKey
       in: header
       name: X-API-Key
-tags: []
