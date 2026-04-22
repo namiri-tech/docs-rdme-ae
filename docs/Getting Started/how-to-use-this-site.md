@@ -67,13 +67,13 @@ Below are examples:
 
   An example is seen in [Get invoices](https://ae.docs.digitax.tech/reference/get_invoices) endpoint
 
-<Image align="center" border={true} width="350px" src="https://files.readme.io/ed5701501c2285fdd10a25061c91929c120bfa7ba917d2dea83aa16215e43124-Screenshot_2026-04-22_at_11.01.552x.png" className="border" />
+<Image align="center" border={true} width="360px" src="https://files.readme.io/ed5701501c2285fdd10a25061c91929c120bfa7ba917d2dea83aa16215e43124-Screenshot_2026-04-22_at_11.01.552x.png" className="border" />
 
 * Body Params
 
   An example is seen in [Create an item](https://ae.docs.digitax.tech/reference/post_items) endpoint
 
-<Image align="center" border={true} width="350px" src="https://files.readme.io/097f0e019386346f995df37a8766c6a2febf82e64ef0aac4f205278d960fd79a-Screenshot_2026-04-22_at_11.02.362x.png" className="border" />
+<Image align="center" border={true} width="360px" src="https://files.readme.io/097f0e019386346f995df37a8766c6a2febf82e64ef0aac4f205278d960fd79a-Screenshot_2026-04-22_at_11.02.362x.png" className="border" />
 
 ## 💬 We're here to help
 
