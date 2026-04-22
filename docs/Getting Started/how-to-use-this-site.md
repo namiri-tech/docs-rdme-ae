@@ -1,6 +1,8 @@
 ---
 title: How to use this site
-excerpt: If you're new to here, learn how to navigate these DigiTax UAE API Hub pages below
+excerpt: >-
+  If you're new to here, learn how to navigate these DigiTax UAE API Hub pages
+  below
 deprecated: false
 hidden: false
 metadata:
@@ -17,7 +19,7 @@ Explore the guides as outlined on the left-hand menu.
 * **Table of contents** on the right-hand side (Only on Desktop)
 * **Hover to view Glossary definitions (mouseover)**: We don't want to get lost in the jargon. Words (acronyms) listed in the Glossary appear on a page as underlined with a dotted line.
 
-  Like <Glossary>API</Glossary>, hover (or click - *On Mobile*) to view the definition.
+  Like <Glossary>API</Glossary>, hover (or click - _On Mobile_) to view the definition.
 
 ## 🚦 Interactive API Docs
 
@@ -29,7 +31,7 @@ Explore the API endpoints [here](/reference).
 
 ### Code samples
 
-You can make use of up to 19 programming language code samples for requests to get you started, regardless of the language you're using.
+You can make use of up to 20 programming language code samples for requests to get you started, regardless of the language you're using.
 
 <Image align="center" width="360px" src="https://files.readme.io/18fab9d0ba74fe79ca356fbda311e278e6b92caa26dab89ba40e56e52d985db2-CleanShot_2025-02-27_at_12.19.552x.png" />
 
@@ -41,11 +43,11 @@ We support **cursor-based pagination requests** for endpoints whose **GET** requ
 
 The following are optional query parameters for paginated requests like [GET invoices](https://ae.docs.digitax.tech/reference/get_invoices).
 
-| Parameter  | Explanation                                                              |
-| :--------- | :----------------------------------------------------------------------- |
-| before     | When paginating results, a pointer to an ID before which we want results |
-| after      | When paginating results, a pointer to an ID after which we want results  |
-| page\_size | The maximum number of items to return per page, defaults to 20           |
+| Parameter | Explanation                                                              |
+| :-------- | :----------------------------------------------------------------------- |
+| before    | When paginating results, a pointer to an ID before which we want results |
+| after     | When paginating results, a pointer to an ID after which we want results  |
+| page_size | The maximum number of items to return per page, defaults to 20           |
 
 These are also explained on the API endpoint page(s).
 
@@ -65,13 +67,13 @@ Below are examples:
 
   An example is seen in [Get invoices](https://ae.docs.digitax.tech/reference/get_invoices) endpoint
 
-<Image align="center" width="360px" src="https://files.readme.io/16a38c0cbfb4c0990f3b5ab449e78b60148acb5ca707e9b0e86478682bafa5a1-CleanShot_2025-04-22_at_21.39.002x.png" />
+<Image align="center" border={true} width="350px" src="https://files.readme.io/ed5701501c2285fdd10a25061c91929c120bfa7ba917d2dea83aa16215e43124-Screenshot_2026-04-22_at_11.01.552x.png" className="border" />
 
 * Body Params
 
   An example is seen in [Create an item](https://ae.docs.digitax.tech/reference/post_items) endpoint
 
-  <Image align="center" width="360px" src="https://files.readme.io/8e46970bc75896e25ab54ffa0b83e18d62e8e9411e0382a9d0d3f4002c3c31d5-CleanShot_2025-04-22_at_21.41.282x.png" />
+<Image align="center" border={true} width="350px" src="https://files.readme.io/097f0e019386346f995df37a8766c6a2febf82e64ef0aac4f205278d960fd79a-Screenshot_2026-04-22_at_11.02.362x.png" className="border" />
 
 ## 💬 We're here to help
 
