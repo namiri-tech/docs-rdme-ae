@@ -57,15 +57,13 @@ FTA is the tax regulator of the UAE government. It is responsible for the admini
 
 Peppol is an international network that allows businesses to exchange e-invoices with each other. It is a open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol [here](https://peppol.eu/why-peppol/what-is-peppol/).
 
-> "Peppol is an international framework that sets the standard for cross-border electronic document exchange, including e-invoicing. It enables secure, standardized, and interoperable data sharing between businesses and public sector entities across different countries and IT systems."
-
 ### PINT AE
 
 PINT AE are the e-invoicing specifications for the UAE. They are based on the Peppol network, but with some modifications to meet the specific requirements of the UAE. Learn more about PINT AE [here](https://ae.docs.digitax.tech/docs/getting-started-with-pint-ae#pint-ae).
 
 ### DigiTax platform
 
-DigiTax platform, by Namiri Technology Services LLC. SOC. (the company), constitutes a suite of digital solutions crafted for effective, simple, and painless tax compliance through **electronic tax invoicing**. These solutions enable taxpayers (individuals and businesses) to generate, digitally sign, and transmit compliant invoices as per the tax authority's (UAE FTA in this case) requirements.
+DigiTax platform constitutes a suite of digital solutions crafted for effective, simple, and painless tax compliance through **electronic tax invoicing**. These solutions enable taxpayers (individuals and businesses) to generate, digitally sign, and transmit compliant invoices as per the tax authority's requirements.
 
 ## More about DigiTax
 
