@@ -76,22 +76,20 @@ The suite of digital solutions or products under DigiTax, through which one can 
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
-* _**DigiTax UAE**_ integrates you with <Glossary>FTA</Glossary> FTA (Federal Tax Authority System)
-* _**DigiTax Nigeria**_ integrates you with <Glossary>NRS</Glossary> NRS (Nigeria Revenue Service)
-* _**DigiTax Kenya**_ integrates you with <Glossary>KRA</Glossary> Kenya Revenue Authority
-* _**DigiTax Zambia**_ integrates you with <Glossary>ZRA</Glossary> ZRA (Zambia Revenue Authority System)
+* _**DigiTax UAE**_ integrates you with <Glossary>FTA</Glossary> (Federal Tax Authority System)
+* _**DigiTax Nigeria**_ integrates you with <Glossary>NRS</Glossary> (Nigeria Revenue Service)
+* _**DigiTax Kenya**_ integrates you with <Glossary>KRA</Glossary> (Kenya Revenue Authority)
+* _**DigiTax Zambia**_ integrates you with <Glossary>ZRA</Glossary> (Zambia Revenue Authority)
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
-<Image align="center" border={true} caption="DigiTax - Tax Regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" />
+<Image align="center" border={true} caption="DigiTax - Tax Regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" width="600px" />
 
 ### DigiTax API Features
 
 The DigiTax API is built with various industry standards for API platforms in mind. Read more on this [here](https://ae.docs.digitax.tech/v1.0/reference/using-the-digitax-UAE-api#digitax-api).
 
 > We invite you to use **DigiTax UAE API** to integrate your system with FTA for automation and to reduce platform-hopping
-
-***
 
 These include:
 
@@ -119,9 +117,9 @@ We comply with industry and security best practices.
 
 With DigiTax, you gain access to a streamlined invoicing system that ensures compliance and supports your business's growth. Together, DigiTax and FTA e-Invoicing are transforming how businesses in the UAE manage their tax and invoicing obligations.
 
-For us to support individuals and businesses to generate FTA eTIMS invoices, DigiTax is licensed as an FTA approved system integrator.
+For us to support individuals and businesses to generate FTA e-invoices, DigiTax is licensed as an FTA approved system integrator.
 
-The speed at which eTIMS invoices are generated is dependent on network capacity, connectivity, and responsiveness of FTA's eTIMS server and the Control Unit transmitting the network traffic.
+The speed at which FTA invoices are generated is dependent on network capacity, connectivity, and responsiveness of FTA's e-invoicing system and the Peppol network transmitting the network traffic.
 
 <Callout icon="🥇" theme="default">
   ### DigiTax is a leading FTA-approved system integrator
