@@ -35,26 +35,26 @@ You send invoice (and other document) data to DigiTax. DigiTax validates, enrich
     * Business - Retrieve context: GET [/info](https://ae.docs.digitax.tech/reference/get_info)
     * Parties - Create a party: GET [/parties](https://ae.docs.digitax.tech/reference/get_parties)
     * Parties - Retrieve multiple parties: POST [/parties](https://ae.docs.digitax.tech/reference/post_parties)
-    * Parties - Retrieve a single party: GET [/parties/{id}](https://ae.docs.digitax.tech/reference/get_parties_id)
-    * Parties - Update a party: PUT [/parties/{id}](https://ae.docs.digitax.tech/reference/put_parties_id)
+    * Parties - Retrieve a single party: GET [/parties/\{id\}](https://ae.docs.digitax.tech/reference/get_parties_id)
+    * Parties - Update a party: PUT [/parties/\{id\}](https://ae.docs.digitax.tech/reference/put_parties_id)
     * Items - Create an item: GET [/items](https://ae.docs.digitax.tech/reference/get_items)
     * Items - Retrieve multiple items: POST [/items](https://ae.docs.digitax.tech/reference/post_items)
-    * Items - Retrieve a single item: GET [/items/{id}](https://ae.docs.digitax.tech/reference/get_items_id)
+    * Items - Retrieve a single item: GET [/items/\{id\}](https://ae.docs.digitax.tech/reference/get_items_id)
     * Invoices - Create an invoice: GET [/invoices](https://ae.docs.digitax.tech/reference/get_invoices)
     * Invoices - Retrieve multiple invoices: POST [/invoices](https://ae.docs.digitax.tech/reference/post_invoices)
-    * Invoices - Retrieve a single invoice: GET [/invoices/{id}](https://ae.docs.digitax.tech/reference/get_invoices_id)
+    * Invoices - Retrieve a single invoice: GET [/invoices/\{id\}](https://ae.docs.digitax.tech/reference/get_invoices_id)
     * Credit Notes - Create a credit note: GET [/credit-notes](https://ae.docs.digitax.tech/reference/get_credit-notes)
     * Credit Notes - Retrieve multiple credit notes: POST [/credit-notes](https://ae.docs.digitax.tech/reference/post_credit-notes)
-    * Credit Notes - Retrieve a single credit note: GET [/credit-notes/{id}](https://ae.docs.digitax.tech/reference/get_credit-notes_id)
+    * Credit Notes - Retrieve a single credit note: GET [/credit-notes/\{id\}](https://ae.docs.digitax.tech/reference/get_credit-notes_id)
     * Debit Notes - Create a debit note: GET [/debit-notes](https://ae.docs.digitax.tech/reference/get_debit-notes)
     * Debit Notes - Retrieve multiple debit notes: POST [/debit-notes](https://ae.docs.digitax.tech/reference/post_debit-notes)
-    * Debit Notes - Retrieve a single debit note: GET [/debit-notes/{id}](https://ae.docs.digitax.tech/reference/get_debit-notes_id)
+    * Debit Notes - Retrieve a single debit note: GET [/debit-notes/\{id\}](https://ae.docs.digitax.tech/reference/get_debit-notes_id)
     * Self-Billed Invoices - Create a self-billed invoice: GET [/self-billed-invoices](https://ae.docs.digitax.tech/reference/get_self-billed-invoices)
     * Self-Billed Invoices - Retrieve multiple self-billed invoices: POST [/self-billed-invoices](https://ae.docs.digitax.tech/reference/post_self-billed-invoices)
-    * Self-Billed Invoices - Retrieve a single self-billed invoice: GET [/self-billed-invoices/{id}](https://ae.docs.digitax.tech/reference/get_self-billed-invoices_id)
+    * Self-Billed Invoices - Retrieve a single self-billed invoice: GET [/self-billed-invoices/\{id\}](https://ae.docs.digitax.tech/reference/get_self-billed-invoices_id)
     * Self-Billed Credit Notes - Create a self-billed credit note: GET [/self-billed-credit-notes](https://ae.docs.digitax.tech/reference/get_self-billed-credit-notes)
     * Self-Billed Credit Notes - Retrieve multiple self-billed credit notes: POST [/self-billed-credit-notes](https://ae.docs.digitax.tech/reference/post_self-billed-credit-notes)
-    * Self-Billed Credit Notes - Retrieve a single self-billed credit note: GET [/self-billed-credit-notes/{id}](https://ae.docs.digitax.tech/reference/get_self-billed-credit-notes_id)
+    * Self-Billed Credit Notes - Retrieve a single self-billed credit note: GET [/self-billed-credit-notes/\{id\}](https://ae.docs.digitax.tech/reference/get_self-billed-credit-notes_id)
   </Card>
 </Cards>
 
@@ -91,7 +91,7 @@ These are the steps required to get up and running on the API - [Prerequisites o
 
 The API endpoints feature three types of parameters:
 
-* Path parameters: Identifiers that are part of the URL path. (e.g. invoices/{id})
+* Path parameters: Identifiers that are part of the URL path. (e.g. invoices/\{id\})
 * Query parameters: Parameters that are appended to the URL after a question mark (?).
 * Body parameters: Parameters that are included in the request body.
 
