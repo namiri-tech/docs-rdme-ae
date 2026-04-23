@@ -1,7 +1,11 @@
 ---
 title: MCP
+excerpt: Learn how to use DigiTax UAE's MCP server
 hidden: false
 ---
+
+MCP stands for Model Context Protocol. Read more about it in the [official documentation](https://modelcontextprotocol.io/).
+
 The DigiTax UAE Model Context Protocol (MCP) server enables AI-powered code editors like Cursor and Windsurf, plus general-purpose tools like Claude Desktop, to interact directly with your DigiTax UAE API and documentation.
 
 ## What is MCP?

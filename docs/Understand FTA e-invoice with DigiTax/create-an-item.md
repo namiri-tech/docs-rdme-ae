@@ -17,6 +17,8 @@ In this guide, we'll walk through creating an item.
 
 ### Creating an item for an FTA e-invoice
 
+An item represents a product or service that you sell. Creating items beforehand simplifies invoice creation by making them reusable.
+
 To create an FTA e-invoice item, you need the following details:
 
-1. ...
+1. 
