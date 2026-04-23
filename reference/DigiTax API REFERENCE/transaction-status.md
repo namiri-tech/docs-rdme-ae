@@ -56,8 +56,6 @@ The timestamps above correspond to what you'd see on the dashboard, under the "I
 * `Submitted`
 * `Reported`
 
-<br />
-
 <Image align="center" src="https://files.readme.io/6ca8cd751031da29f2f38116d9ff3f9c0215eba17a32c3d61f423f8a21908916-Screenshot_2026-04-23_at_09.26.39_22x.png" />
 
 <br />
