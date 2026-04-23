@@ -1,6 +1,6 @@
 ---
 title: Create an item
-excerpt: '!! Phase two'
+excerpt: '!!Note to reviewer!! Planned for Phase two'
 deprecated: false
 hidden: true
 metadata:
