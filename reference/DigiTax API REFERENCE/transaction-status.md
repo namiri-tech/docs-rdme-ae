@@ -9,15 +9,15 @@ metadata:
 
 DigiTax provides the following:
 
-* Asynchronous functionality that automatically retries NRS
+* Asynchronous functionality that automatically retries FTA
 * Get notifications on transaction statuses via [Callback URLs](ref:feature-callback-urls)
-* Throttling traffic between the businesses throughput and the tax authority's system
+* Throttling traffic between the business's throughput and the tax authority's system
 
 These functionalities are possible due to the DigiTax Queueing system.
 
 > 📘 You don't run the risk of double-entry
 >
-> Every transaction that interacts with NRS E-Invoicing System is first off entered into the DigiTax Queueing system to mitigate against possible NRS:
+> Every transaction that interacts with FTA's e-invoicing system is first off entered into the DigiTax queueing system to mitigate against possible FTA:
 >
 > * intermittency and downtime OR
 > * slow response rate
@@ -30,30 +30,34 @@ Since transactions are first off entered into the DigiTax Queueing system, we gi
 
 These are the possible options for the `status` property of a response from the invoices endpoints.
 
-| Status    | Meaning                                                                                 | Action                                                                                                                                                    |
-| :-------- | :-------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pending   | DigiTax Queueing system is **queued** after attempting to reach FTA e-invoicing System | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when the FTA E-Invoicing System sync is done. |
-| completed | The completed invoice is signed                                                         | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when it is done.                               |
-| failed    | FTA e-invoicing System rejected the transaction                                        | Please initiate another transaction.                                                                                                                      |
+| Status    | Meaning                                                                                    | Action                                                                                                                                                   |
+| :-------- | :----------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pending   | The DigiTax queueing system is **queued** after attempting to reach FTA e-invoicing System | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when the FTA e-invoicing system sync is done. |
+| completed | The completed invoice is signed                                                            | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when it is done.                              |
+| failed    | FTA e-invoicing system rejected the transaction                                            | Please initiate another transaction.                                                                                                                     |
 
 ### Invoice Status Details
 
-These are depicted by timestamps both on the DigiTax Nigeria API and Dashboard.
+These are depicted by timestamps both on the DigiTax UAE API and Dashboard.
 
 On the API, these are:
 
 * `created_at` property
 * `validated_at` property
-* `signed_at` property
-* `transmitted_at` property
+* `submitted_at` property
+* `reported_at` property
 
 of a response from the invoices endpoints.
 
-The timestamps above correspond to what you'd see on the Dashboard, under "Invoices" tab, when you click on the arrow icon next to the block under "Invoice Status". These are:
+The timestamps above correspond to what you'd see on the dashboard, under the "Invoices" tab, when you click on the arrow icon next to the block under "Invoice Status". These are:
 
 * `Created`
 * `Validated`
-* `Signed`
-* `Transmitted`
+* `Submitted`
+* `Reported`
 
-<Image align="center" src="https://files.readme.io/485b71a70cbbfb59a9d623c5b7b9d6d811b88fe1a9d0de49890f129c2f9f15a6-CleanShot_2025-09-16_at_15.58.43_22x.png" />
+<br />
+
+<Image align="center" src="https://files.readme.io/6ca8cd751031da29f2f38116d9ff3f9c0215eba17a32c3d61f423f8a21908916-Screenshot_2026-04-23_at_09.26.39_22x.png" />
+
+<br />
