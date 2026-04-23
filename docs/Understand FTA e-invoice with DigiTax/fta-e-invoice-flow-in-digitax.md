@@ -55,7 +55,7 @@ Expect a similar render when an invoice is printed.
 
 <Image align="center" border={true} caption="FTA e-invoice on DigiTax Dashboard" src="https://files.readme.io/2c4a034774a4e4cf56512f646ea71e71b9db3ae14f2cfa86b35abfa613e076a3-Screenshot_2026-04-23_at_09.27.262x.png" width="800px" />
 
-### FTA e-invoice on the DigiTax Dashboard
+### FTA e-invoice via the DigiTax API
 
 Expect a similar response to be consumed by your system once you've integrated with DigiTax UAE API.
 
