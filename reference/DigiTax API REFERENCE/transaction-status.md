@@ -48,6 +48,17 @@ On the API, these are:
 * `submitted_at` property
 * `reported_at` property
 
+```json
+{
+      "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
+		  "created_at": "2026-04-23T06:25:54Z",
+			// other key-value pairs
+			"reported_at": null,
+      "submitted_at": null,
+      "validated_at": null
+}
+```
+
 of a response from the invoices endpoints.
 
 The timestamps above correspond to what you'd see on the dashboard, under the "Invoices" tab, when you click on the arrow icon next to the block under "Invoice Status". These are:
