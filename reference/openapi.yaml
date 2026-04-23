@@ -946,7 +946,7 @@ paths:
   /credit-notes:
     get:
       tags:
-        - Invoices
+        - Credit Notes
       summary: Get UAE Credit Notes
       description: Returns a paginated list of all credit notes created by the business
       security:
@@ -976,7 +976,7 @@ paths:
           $ref: '#/components/responses/Error'
     post:
       tags:
-        - Invoices
+        - Credit Notes
       summary: Create Credit Note
       description: Creates a new PINT-AE compliant credit note
       security:
