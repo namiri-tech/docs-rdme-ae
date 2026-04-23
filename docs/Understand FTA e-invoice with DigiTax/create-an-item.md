@@ -2,7 +2,7 @@
 title: Create an item
 excerpt: '!!Note to reviewer!! Planned for Phase two'
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
