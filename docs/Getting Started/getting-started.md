@@ -1,5 +1,5 @@
 ---
-title: DigiTax UAE API Hub
+title: DigiTax UAE API Hub: DigiTax API and FTA e-invoicing
 excerpt: >-
   **DigiTax UAE API Hub** contains guides and API reference pages for further
   understanding, equipping you on how to integrate with the UAE FTA System to
@@ -55,11 +55,11 @@ FTA is the tax regulator of the UAE government. It is responsible for the admini
 
 ### Peppol
 
-Peppol is an international network that allows businesses to exchange e-invoices with each other. It is a open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol [here](https://peppol.eu/why-peppol/what-is-peppol/).
+Peppol is an international network that allows businesses to exchange e-invoices with each other. It is a open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol on [their website](https://peppol.eu/why-peppol/what-is-peppol/) _external link_.
 
 ### PINT AE
 
-PINT AE are the e-invoicing specifications for the UAE. They are based on the Peppol network, but with some modifications to meet the specific requirements of the UAE. Learn more about PINT AE [here](https://ae.docs.digitax.tech/docs/getting-started-with-pint-ae#pint-ae).
+PINT AE are the e-invoicing specifications for the UAE. They are based on the Peppol network, but with some modifications to meet the specific requirements of the UAE. Learn more about PINT AE [on this guide page](https://ae.docs.digitax.tech/docs/getting-started-with-pint-ae#pint-ae).
 
 ### DigiTax platform
 
@@ -74,10 +74,10 @@ The suite of digital solutions or products under DigiTax, through which one can 
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
-* _**DigiTax UAE**_ integrates you with <Glossary>FTA</Glossary> (Federal Tax Authority System)
-* _**DigiTax Nigeria**_ integrates you with <Glossary>NRS</Glossary> (Nigeria Revenue Service)
-* _**DigiTax Kenya**_ integrates you with <Glossary>KRA</Glossary> (Kenya Revenue Authority)
-* _**DigiTax Zambia**_ integrates you with <Glossary>ZRA</Glossary> (Zambia Revenue Authority)
+* _**DigiTax UAE**_ integrates you with FTA (Federal Tax Authority System)
+* _**DigiTax Nigeria**_ integrates you with NRS (Nigeria Revenue Service)
+* _**DigiTax Kenya**_ integrates you with KRA (Kenya Revenue Authority)
+* _**DigiTax Zambia**_ integrates you with ZRA (Zambia Revenue Authority)
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
@@ -85,74 +85,14 @@ to offer you a streamlined invoicing system that ensures compliance and supports
 
 ### DigiTax API Features
 
-The DigiTax API is built with various industry standards for API platforms in mind. Read more on this [here](https://ae.docs.digitax.tech/v1.0/reference/using-the-digitax-UAE-api#digitax-api).
+The DigiTax API is built with various industry standards for API platforms in mind. Read more on the general overview of the DigiTax API [on this reference page](ref:digitax-api).
 
 > We invite you to use **DigiTax UAE API** to integrate your system with FTA for automation and to reduce platform-hopping
 
-These include:
-
-* RESTful API
-* OpenAPI (formerly Swagger): An open-source standard that allows a standardized way to generate, document, and test our APIs.
-* Secure authentication with cryptographically signed JWTs (JSON Web Tokens)
-
-To use this API, you'll need access to DigiTax Dashboard environment to get an X-API-Key. Get in touch with [our team](mailto:support@namiri.tech).
-
-These are the steps required to get up and running - [Prerequisites of using DigiTax API](https://ae.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
-
-***
-
-### Guaranteed safety and integrity
-
-We comply with industry and security best practices.
-
-> 👍 DigiTax is built with the best industry practices and to the highest security standards
-
-## DigiTax UAE and FTA e-invoicing system
-
-> **DigiTax UAE** integrates you with FTA e-invoicing system
-
-**DigiTax** is a solution that sits between you; the taxpayer, and the FTA e-invoicing system.
-
-With DigiTax, you gain access to a streamlined invoicing system that ensures compliance and supports your business's growth. Together, DigiTax and FTA e-Invoicing are transforming how businesses in the UAE manage their tax and invoicing obligations.
-
-For us to support individuals and businesses to generate FTA e-invoices, DigiTax is licensed as an FTA approved system integrator.
-
-The speed at which FTA invoices are generated is dependent on network capacity, connectivity, and responsiveness of FTA's e-invoicing system and the Peppol network transmitting the network traffic.
-
-<Callout icon="🥇" theme="default">
-  ### DigiTax is a leading FTA-approved system integrator
-</Callout>
-
-## DigiTax UAE API Hub
-
-This API Hub contains guides and API reference pages for further understanding, equipping you on how to integrate with the DigiTax UAE API.
-
-### Explore DigiTax UAE API Guides
-
-Gain understanding of DigiTax UAE integration through our detailed guides.
-
-You're in the guides section of DigiTax UAE API Hub. Explore other pages below to gain context on DigiTax and FTA and understanding of how DigiTax makes it easier for you to integrate your invoicing system with FTA.
-
-### Explore DigiTax UAE API reference
-
-For a great developer experience, the endpoints in the [DigiTax UAE API reference](/reference) are interactive.
-
-Once you're set up in the DigiTax Dashboard, you can generate a Test/ LIVE **X-API-Key** for authorization.
-
-Explore the API endpoints [here](/reference)
-
-***
-
-## Once again, welcome to the DigiTax UAE API Hub
-
-Once again, thank you for reviewing the getting started page of the DigiTax UAE API hub. We're excited you're here! 💚
-
-We invite you to use **DigiTax UAE API** to integrate your system with FTA e-invoicing system for automation and to reduce platform-hopping.
-
 To recap:
 
-* Explore our detailed guides to gain understanding of DigiTax UAE integration. Learn how to navigate them [here](doc:how-to-use-this-site)
-* Get the [Prerequisites for using DigiTax UAE API](https://ae.docs.digitax.tech/docs/start-using-the-api#/prerequisites)
+* Explore our detailed guides to gain understanding of DigiTax UAE integration. Learn how to [navigate them](doc:how-to-use-this-site)
+* Get the [Prerequisites for using DigiTax UAE API](ref:prerequisites-of-using-the-api)
 * For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
 Welcome to the Less Taxing solution - DigiTax.
