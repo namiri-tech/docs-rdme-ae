@@ -1,0 +1,6 @@
+- get_self-billed-invoices
+- post_self-billed-invoices
+- get_self-billed-invoices-invoice-id
+- get_self-billed-credit-notes
+- post_self-billed-credit-notes
+- get_self-billed-credit-notes-credit-note-id
