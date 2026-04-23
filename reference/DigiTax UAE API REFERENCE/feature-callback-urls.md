@@ -1,7 +1,7 @@
 ---
 title: 'Feature: Callback URLs'
 excerpt: >-
-  Learn how to use callback URLs to receive notifications about transaction
+  !! Learn how to use callback URLs to receive notifications about transaction
   statuses
 deprecated: false
 hidden: false
