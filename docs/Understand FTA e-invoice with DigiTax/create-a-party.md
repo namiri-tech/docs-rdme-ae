@@ -98,6 +98,7 @@ Under the [2026/2027 FTA mandate](doc:e-invoicing-initiative), the options are s
 3. Tax Scheme ID
 
    For the specific field related to the **Tax Scheme** itself (usually under `cac:PartyTaxScheme`):
+
    * **Scheme ID:** Always use **`VAT`**.
 
    * **Company ID:** Use the full **15-digit TRN**.
@@ -112,4 +113,10 @@ In this example, I went with:
 | Company ID Scheme ID    | 0235            |
 | Company ID Scheme Name  | TIN             |
 
-<br />
+### Address
+
+Some fields here are optional. Fill in the address of the party.
+
+### Contact
+
+All fields here are optional. Fill in the contact details of the party.
