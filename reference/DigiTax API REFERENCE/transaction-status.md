@@ -31,11 +31,11 @@ Since transactions are first off entered into the DigiTax Queueing system, we gi
 
 These are the possible options for the `status` property of a response from the invoices endpoints.
 
-| Status    | Meaning                                                                                    | Action                                                                                                                                                   |
-| :-------- | :----------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| pending   | The DigiTax queueing system is **queued** after attempting to reach FTA e-invoicing System | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when the FTA e-invoicing system sync is done. |
-| completed | The completed invoice is signed                                                            | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when it is done.                              |
-| failed    | FTA e-invoicing system rejected the transaction                                            | Please initiate another transaction.                                                                                                                     |
+| Status    | Meaning                                                                                        | Action                                                                                                                                                   |
+| :-------- | :--------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| pending   | The DigiTax queueing system is **queued** after attempting to reach the FTA e-invoicing system | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when the FTA e-invoicing system sync is done. |
+| completed | The completed invoice is signed                                                                | Check in later. If you set up [Callback URLs](ref:feature-callback-urls), DigiTax will post to your system when it is done.                              |
+| failed    | FTA e-invoicing system rejected the transaction                                                | Please initiate another transaction.                                                                                                                     |
 
 ### Invoice Status Details
 
