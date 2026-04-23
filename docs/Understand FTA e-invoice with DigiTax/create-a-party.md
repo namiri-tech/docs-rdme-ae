@@ -1,6 +1,5 @@
 ---
 title: Create a party
-excerpt: '!!Note to reviewer!! Planned for Phase two'
 deprecated: false
 hidden: false
 metadata:
