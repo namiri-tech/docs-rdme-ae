@@ -1,5 +1,5 @@
 ---
-title: FTA and FTA e-invoicing system
+title: FTA and the e-invoicing mandate
 ---
 # FTA e-invoicing initiative
 
