@@ -24,18 +24,19 @@ See screenshots below.
 
 ## Generate an API Key
 
-In a Sandbox/ LIVE business,
+In a test/sandbox or LIVE business,
 
 1. Navigate to the "Integrations" menu tab
-2. Select "Add API KEY"
 
-    <Image align="center" border={true} caption="Add API Key" src="https://files.readme.io/a99655fef3da77da85c1f6be4f877e63988e7f34d24d20790ab5f5faa162cd39-AddAPIKey.png" />
+2. Select "Add API KEY"  
 
-3. Enter a name and select "Api Key"
+   <Image align="center" border={true} caption="Integrations module" src="https://files.readme.io/f2906a1108b7d4cc9f8868687331766cc1141e6b4dfa4b97d0cc049d73e7aacb-Screenshot_2026-04-23_at_08.16.53_22x.png" width="800px" />
 
-    <Image align="center" border={true} caption="Create an API Key" src="https://files.readme.io/ecbb1763470858903d07c168a2fc17bc3477999ac27af026ccbc51dd81d74cf6-Api_Key.png" width="350px" />
+3. Enter a name and select "API Key"  
 
-    Please record the value that you generate for later use, as you will not see it from the dashboard on subsequent visits. Save it securely.
+   <Image align="center" caption="Create API Key" src="https://files.readme.io/926537e8c116ecc1a33d2c7c320d658e74caf3e821791cfc1e0c8101f1f0a0d5-Screenshot_2026-04-23_at_17.53.432x.png" />
+
+   Please record the value that you generate for later use, as you will not see it from the dashboard on subsequent visits. Save it securely.
 
 ### License Key
 
@@ -44,4 +45,4 @@ In step 3 above, under **API Type**, we have two options:
 * API Key - Stick with 'API Key' for standard integrations.
 * License Key - Use 'License Key' only if directed by the support team. Its use is restricted to specific systems.
 
-<Image align="center" className="border" border={true} width="350px" src="https://files.readme.io/e528f94e1cf702f97ee9fa40649c47a899a556586237c48cb016c5e8e672bfe3-License_Key.png" />
+<Image align="center" border={true} width="350px" src="https://files.readme.io/e528f94e1cf702f97ee9fa40649c47a899a556586237c48cb016c5e8e672bfe3-License_Key.png" className="border" />
