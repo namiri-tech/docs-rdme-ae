@@ -1,5 +1,6 @@
 ---
 title: Transaction Status
+excerpt: Understand the journey of an invoice and what each status means
 deprecated: false
 hidden: false
 metadata:
