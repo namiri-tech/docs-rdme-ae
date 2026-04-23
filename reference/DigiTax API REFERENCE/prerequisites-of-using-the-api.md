@@ -46,3 +46,17 @@ In step 3 above, under **API Type**, we have two options:
 * License Key - Use 'License Key' only if directed by the support team. Its use is restricted to specific systems.
 
 <Image align="center" border={true} width="350px" src="https://files.readme.io/e528f94e1cf702f97ee9fa40649c47a899a556586237c48cb016c5e8e672bfe3-License_Key.png" className="border" />
+
+## Use the API Key
+
+Once you've generated the API Key you can use it directly via our interactive API reference, on your local environment, or directly in your system integration.
+
+Below is an example of a request made on our interactive API reference. 
+
+<Image align="center" src="https://files.readme.io/b760cc065d8e815036c404174626af3a39189d35a349990603433b521ee6da9a-Screenshot_2026-04-23_at_18.09.402x.png" />
+
+Steps:
+
+1. Add your API Key in this field to include it in the header
+2. Click "Try it!" to make a request.
+3. View API response
