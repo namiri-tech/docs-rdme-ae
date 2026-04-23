@@ -13,7 +13,7 @@ Details of Peppol and the 5-corner model (Pint-AE) are covered on this page.
 
 ## Phased e-invoicing mandate
 
-The rollout of the e-invoicing mandate is scheduled in phases.
+The rollout of the 2026/2027 FTA mandate is scheduled in phases.
 
 | Date            | Requirement                                                      |
 | :-------------- | :--------------------------------------------------------------- |
