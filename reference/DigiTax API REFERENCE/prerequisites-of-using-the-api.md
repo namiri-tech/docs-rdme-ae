@@ -28,11 +28,11 @@ In a test/sandbox or LIVE business,
 
 1. Navigate to the "Integrations" menu tab
 
-2. Select "Add API KEY"  
+2. Select "Add API KEY"
 
    <Image align="center" border={true} caption="Integrations module" src="https://files.readme.io/f2906a1108b7d4cc9f8868687331766cc1141e6b4dfa4b97d0cc049d73e7aacb-Screenshot_2026-04-23_at_08.16.53_22x.png" width="800px" />
 
-3. Enter a name and select "API Key"  
+3. Enter a name and select "API Key"
 
    <Image align="center" caption="Create API Key" src="https://files.readme.io/926537e8c116ecc1a33d2c7c320d658e74caf3e821791cfc1e0c8101f1f0a0d5-Screenshot_2026-04-23_at_17.53.432x.png" />
 
@@ -51,9 +51,9 @@ In step 3 above, under **API Type**, we have two options:
 
 Once you've generated the API Key you can use it directly via our interactive API reference, on your local environment, or directly in your system integration.
 
-Below is an example of a request made on our interactive API reference. 
+Below is an example of a request made on our interactive API reference.
 
-<Image align="center" src="https://files.readme.io/b760cc065d8e815036c404174626af3a39189d35a349990603433b521ee6da9a-Screenshot_2026-04-23_at_18.09.402x.png" />
+<Image align="center" border={true} caption="Successful API request" src="https://files.readme.io/2a1a00a4cf8c210437ea2381e795894a74029cd0604a5693bc7628f9bb6a0dda-Screenshot_2026-04-23_at_18.25.402x.png" />
 
 Steps:
 
