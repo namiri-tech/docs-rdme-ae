@@ -50,12 +50,12 @@ On the API, these are:
 
 ```json
 {
-      "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
-		"created_at": "2026-04-23T06:25:54Z",
-		// other key-value pairs
-			"reported_at": null,
-      "submitted_at": null,
-      "validated_at": null
+    "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
+    "created_at": "2026-04-23T06:25:54Z",
+    // other key-value pairs
+    "reported_at": null,
+    "submitted_at": null,
+    "validated_at": null
 }
 ```
 
