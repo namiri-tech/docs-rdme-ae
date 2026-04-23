@@ -20,3 +20,7 @@ In this guide, we'll walk through creating a party.
 To create an FTA e-invoice party, you need the following details:
 
 1. ...
+
+<br />
+
+<br />
