@@ -14,13 +14,13 @@ When you make a request to DigiTax API, we immediately return a response. The st
 
 ```json
 {
-      "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
-      "created_at": "2026-04-23T06:25:54Z",
-      "status": "DRAFT",
-      // other key-value pairs
-      "validated_at": null,
-      "submitted_at": null,
-      "reported_at": null
+  "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
+  "created_at": "2026-04-23T06:25:54Z",
+  "status": "DRAFT",
+  // other key-value pairs
+  "validated_at": null,
+  "submitted_at": null,
+  "reported_at": null
 }
 ```
 
@@ -34,13 +34,13 @@ We save it into our queuing system to be **validated**, **submitted** and **repo
 
 ```json
 {
-      "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
-      "created_at": "2026-04-23T06:25:54Z",
-      "status": "COMPLETED",
-      // other key-value pairs
-      "validated_at": "2026-04-23T10:26:23.262Z",
-      "submitted_at": "2026-04-23T10:27:11.191Z",
-      "reported_at": "2026-04-23T10:27:20.262Z"
+  "id": "invoice_01KPWG8DW1CQBNYS34ZX7QG51T",
+  "created_at": "2026-04-23T06:25:54Z",
+  "status": "COMPLETED",
+  // other key-value pairs
+  "validated_at": "2026-04-23T10:26:23.262Z",
+  "submitted_at": "2026-04-23T10:27:11.191Z",
+  "reported_at": "2026-04-23T10:27:20.262Z"
 }
 ```
 
