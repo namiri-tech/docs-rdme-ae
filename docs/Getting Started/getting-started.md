@@ -1,3 +1,14 @@
+---
+title: 'DigiTax UAE API Hub: DigiTax API and FTA e-invoicing'
+excerpt: >-
+  **DigiTax UAE API Hub** contains guides and API reference pages for further
+  understanding, equipping you on how to integrate with the UAE FTA System to
+  implement PINT AE-compliant e-invoicing.
+deprecated: false
+hidden: false
+metadata:
+  robots: index
+---
 ## The DigiTax API for UAE FTA E-Invoicing
 
 <Cards columns={2}>
