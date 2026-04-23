@@ -69,7 +69,7 @@ DigiTax platform constitutes a suite of digital solutions crafted for effective,
 
 The suite of digital solutions or products under DigiTax, through which one can generate FTA e-invoices, are:
 
-* **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
+* **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
 * **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
 
 DigiTax connects with regional tax authorities/ regulators, so far:
