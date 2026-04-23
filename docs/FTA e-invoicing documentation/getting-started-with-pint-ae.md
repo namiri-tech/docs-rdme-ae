@@ -1,5 +1,6 @@
 ---
 title: Peppol and PINT-AE
+excerpt: '!!'
 ---
 ## Peppol
 
