@@ -1,8 +1,9 @@
 ---
 title: An UAE FTA e-invoice
 excerpt: >-
-  This guide provides everything you need to make your first API calls and start
-  creating PINT-AE compliant e-invoices for the United Arab Emirates.
+  This guide introduces us to a PINT-AE compliant e-invoices for the United Arab
+  Emirates. In following guides we'll cover the steps it takes to get create
+  your first invoice
 deprecated: false
 hidden: false
 metadata:
