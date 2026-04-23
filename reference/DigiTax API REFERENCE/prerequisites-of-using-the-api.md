@@ -18,7 +18,7 @@ The following are the steps to creating a sandbox business and getting an X-API-
 2. Create a profile.
 3. Create a test/sandbox business.
 4. Generate an API Key under the "Integrations" tab. See screenshots below.
-5. Use the copied API Key as **X-API-Key** in your header when making API calls through the interactive API docs [here](https://ae.docs.digitax.tech/reference/info) OR via your integration during testing.
+5. Use the copied API Key as **X-API-Key** in your header when making API calls through the [interactive API docs](https://ae.docs.digitax.tech/reference/info), your local environment or directly in your system integration.
 
 See screenshots below.
 
