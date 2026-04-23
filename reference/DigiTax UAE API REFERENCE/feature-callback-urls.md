@@ -1,6 +1,8 @@
 ---
 title: 'Feature: Callback URLs'
-excerpt: Learn how to use callback URLs to receive notifications about transaction statuses
+excerpt: >-
+  Learn how to use callback URLs to receive notifications about transaction
+  statuses
 deprecated: false
 hidden: false
 metadata:
@@ -43,8 +45,6 @@ We save it into our queuing system to be **validated**, **submitted** and **repo
   "reported_at": "2026-04-23T10:27:20.262Z"
 }
 ```
-
-<!-- *Below is the invoice above as viewed on the dashboard* -->
 
 The tax authority's system or DigiTax may take some time to sign an invoice, and it is not efficient to have you, as the API caller or consumer, wait for a response. Callback URLs are useful since they inform you as soon as a particular event like a status change happens after data processing on the tax authority's system or DigiTax.
 
