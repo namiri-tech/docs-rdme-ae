@@ -1,11 +1,11 @@
 ---
-title: FTA and the e-invoicing mandate
+title: FTA e-invoicing and the 2026/2027 FTA mandate
 ---
 # FTA e-invoicing initiative
 
 This page provides a consolidated overview of the United Arab Emirates (UAE) Peppol e-invoicing initiative. It outlines the key technical, security, and strategic documents available, summarizes the implementation timelines, and serves as a central reference for the project.
 
-## Overview 
+## Overview
 
 The UAE is transitioning to a mandatory e-invoicing system for all Business-to-Business (B2B) and Business-to-Government (B2G) transactions, leveraging the Peppol (Pan-European Public Procurement Online) network. The objective is to enhance transactional efficiency, improve transparency, and ensure tax compliance. The system will operate on a "5-corner" model, which incorporates the supplier, the buyer, their respective service providers, and the Federal Tax Authority (FTA).
 
