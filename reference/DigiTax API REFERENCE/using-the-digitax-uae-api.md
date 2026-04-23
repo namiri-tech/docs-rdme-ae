@@ -99,7 +99,7 @@ These are the steps required to get up and running on the API - [Prerequisites o
 
 The API endpoints feature three types of parameters:
 
-* Path parameters: Identifiers that are part of the URL path. (e.g. invoices/\{id})
+* Path parameters: Identifiers that are part of the URL path. (e.g. invoices/\{id\})
 * Query parameters: Parameters that are appended to the URL after a question mark (?).
 * Body parameters: Parameters that are included in the request body.
 
@@ -108,3 +108,5 @@ The API endpoints feature three types of parameters:
 We comply with industry and security best practices.
 
 > 👍 DigiTax is built with the best industry practices and to the highest security standards
+
+<br />
