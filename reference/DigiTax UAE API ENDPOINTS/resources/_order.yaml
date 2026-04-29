@@ -5,7 +5,6 @@
 - get_resources-payment-means
 - get_resources-commodity-codes
 - get_resources-item-classification-lists
-- get_resources-standard-item-schemes
 - get_resources-tax-exemption-reasons
 - get_resources-credit-reasons
 - get_resources-billing-frequencies

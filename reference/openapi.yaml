@@ -7,11 +7,11 @@ info:
   contact:
     name: DigiTax
     url: https://digitax.tech
-    email: support@namiri.tech
+    email: info@digitax.tech
   license:
     name: Apache 2.0
 servers:
-  - url: https://staging.api.digitax.tech/ae/v1
+  - url: https://api.digitax.tech/ae/v1
     description: API
 paths:
   /resources/countries:
@@ -157,19 +157,19 @@ paths:
                   $ref: '#/components/schemas/CommonCode'
         default:
           $ref: '#/components/responses/Error'
-  /resources/standard-item-schemes:
+  /resources/international-code-designator-schemes:
     get:
       tags:
         - Resources
-      summary: Get UAE Standard Item Identifier Schemes
+      summary: Get the ISO 6523 International Code Designator Schemes
       description: >-
-        Returns the list of standard item identifier scheme codes supported in
+        Returns the list of international code designator schemes supported in
         PINT-AE.
       security:
         - apiKeyAuth: []
       responses:
         '200':
-          description: List of standard item identifier scheme codes
+          description: List of international code designator scheme codes
           content:
             application/json:
               schema:
@@ -361,6 +361,27 @@ paths:
                   $ref: '#/components/schemas/CommonCode'
         default:
           $ref: '#/components/responses/Error'
+  /resources/legal-registration-types:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Legal Registration Types
+      description: >-
+        Returns the list of legal registration identifier types used to classify
+        a company identifier — e.g. Trade License, Emirates ID, Passport.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of legal registration type codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
   /info:
     get:
       tags:
@@ -429,7 +450,7 @@ paths:
                 - registration_name
                 - company_id
                 - company_id_scheme_id
-                - company_id_scheme_name
+                - company_id_scheme_agency_id
                 - address
               properties:
                 tax_registration_number:
@@ -442,16 +463,41 @@ paths:
                   example: Global Imports FZE
                 company_id:
                   type: string
-                  description: The party's company identifier
-                  example: JAFZA-98765
+                  description: >-
+                    The party's company identifier (e.g. trade license number,
+                    Emirates ID)
+                  example: CN-1234567
                 company_id_scheme_id:
                   type: string
-                  description: The scheme identifier for the company ID
-                  example: FREE_ZONE_LICENSE
-                company_id_scheme_name:
+                  description: >-
+                    The ISO 6523 International Code Designator (ICD) identifying
+                    the company ID scheme. Must be a valid ICD 6523 code (e.g.
+                    `0235` for the UAE FTA scheme).
+                  example: '0235'
+                company_id_scheme_agency_id:
                   type: string
-                  description: The human-readable name of the company ID scheme
-                  example: JAFZA Free Zone License
+                  description: >-
+                    The registration type of the company identifier. One of:
+                    `TL` (Commercial/Trade license), `CL` (Commercial license),
+                    `EID` (Emirates ID), `PAS` (Passport), `CD` (Cabinet
+                    decision).
+                  enum:
+                    - TL
+                    - CL
+                    - EID
+                    - PAS
+                    - CD
+                  example: TL
+                company_id_scheme_agency_name:
+                  type: string
+                  description: >-
+                    The issuing authority name for the company identifier.
+                    Required when `company_id_scheme_agency_id` is `TL` (e.g.
+                    "Department of Economic Development"). When
+                    `company_id_scheme_agency_id` is `PAS`, must be a valid ISO
+                    3166-1 alpha-2 country code identifying the passport-issuing
+                    country.
+                  example: Department of Economic Development
                 address:
                   $ref: '#/components/schemas/Address'
                 contact_name:
@@ -467,6 +513,16 @@ paths:
                   format: email
                   description: The contact email address
                   example: sara@global-imports.ae
+                peppol_id:
+                  type: string
+                  description: The party's Peppol participant identifier
+                  example: '1234567890123'
+                peppol_id_scheme_id:
+                  type: string
+                  description: >-
+                    The scheme identifier for the Peppol participant ID (e.g.
+                    `0088` for GLN)
+                  example: '0088'
       responses:
         '201':
           description: Created party
@@ -529,15 +585,31 @@ paths:
                 company_id:
                   type: string
                   description: The updated company identifier
-                  example: JAFZA-98765-V2
+                  example: CN-9876543
                 company_id_scheme_id:
                   type: string
-                  description: The updated scheme identifier for the company ID
-                  example: FREE_ZONE_LICENSE
-                company_id_scheme_name:
+                  description: >-
+                    The updated ISO 6523 ICD code identifying the company ID
+                    scheme
+                  example: '0235'
+                company_id_scheme_agency_id:
                   type: string
-                  description: The updated name of the company ID scheme
-                  example: JAFZA Free Zone License
+                  description: >-
+                    The updated registration type. One of: `TL`, `CL`, `EID`,
+                    `PAS`, `CD`.
+                  enum:
+                    - TL
+                    - CL
+                    - EID
+                    - PAS
+                    - CD
+                  example: TL
+                company_id_scheme_agency_name:
+                  type: string
+                  description: >-
+                    The updated issuing authority name (required for TL; ISO
+                    country code for PAS)
+                  example: Department of Economic Development
                 address:
                   $ref: '#/components/schemas/Address'
                 contact_name:
@@ -546,8 +618,8 @@ paths:
                   example: Sara Ahmed
                 contact_phone:
                   type: string
-                  description: The updated contact phone number
-                  example: +971-50-111-2222
+                  description: The updated contact phone number in E.164 format
+                  example: '+971501112222'
                 contact_email:
                   type: string
                   format: email
@@ -610,8 +682,6 @@ paths:
                 - name
                 - description
                 - commodity_code
-                - item_classification_code
-                - item_classification_list_id
                 - tax_category_code
               properties:
                 name:
@@ -628,14 +698,19 @@ paths:
                     The commodity type code (G for goods, S for services, B for
                     both)
                   example: G
-                item_classification_code:
+                hs_code:
                   type: string
-                  description: The classification code for the item
+                  description: >-
+                    The Harmonized System (HS) code for the item. Required when
+                    commodity_code is G (goods) or B (both goods and services)
                   example: '84137000'
-                item_classification_list_id:
+                service_accounting_code:
                   type: string
-                  description: The identification scheme for the classification code
-                  example: HS
+                  description: >-
+                    The Service Accounting Code for the item. Required when
+                    commodity_code is S (services) or B (both goods and
+                    services)
+                  example: SAC-0001
                 tax_category_code:
                   type: string
                   description: The VAT category code for this item
@@ -946,7 +1021,7 @@ paths:
   /credit-notes:
     get:
       tags:
-        - Credit Notes
+        - Invoices
       summary: Get UAE Credit Notes
       description: Returns a paginated list of all credit notes created by the business
       security:
@@ -976,7 +1051,7 @@ paths:
           $ref: '#/components/responses/Error'
     post:
       tags:
-        - Credit Notes
+        - Invoices
       summary: Create Credit Note
       description: Creates a new PINT-AE compliant credit note
       security:
@@ -993,6 +1068,7 @@ paths:
                 - issue_date
                 - document_currency_code
                 - customer_party_id
+                - invoice_type_code
                 - items
               properties:
                 trader_invoice_number:
@@ -1015,6 +1091,14 @@ paths:
                     The DigiTax ID of the original invoice this credit note
                     relates to
                   example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                invoice_type_code:
+                  type: string
+                  description: >-
+                    The UN/CEFACT document type code. If the credit note
+                    references an original invoice, the value should correspond
+                    to the original invoice type code (e.g. "381" for a standard
+                    credit note referencing a "380" invoice).
+                  example: '381'
                 issue_date:
                   type: string
                   format: date
@@ -1054,11 +1138,6 @@ paths:
                   type: string
                   description: The DigiTax party ID of the seller's tax representative
                   example: party_01HC3J1VVVM05YCTS61G7V3KC6
-                tax_point_date:
-                  type: string
-                  format: date
-                  description: The VAT point date (YYYY-MM-DD)
-                  example: '2024-11-25'
                 buyer_reference:
                   type: string
                   description: >-
@@ -1233,7 +1312,7 @@ paths:
                 - registration_name
                 - company_id
                 - company_id_scheme_id
-                - company_id_scheme_name
+                - company_id_scheme_agency_id
                 - address
               properties:
                 tax_registration_number:
@@ -1246,16 +1325,41 @@ paths:
                   example: Global Imports FZE
                 company_id:
                   type: string
-                  description: The supplier's company identifier
-                  example: JAFZA-98765
+                  description: >-
+                    The supplier's company identifier (e.g. trade license
+                    number, Emirates ID)
+                  example: CN-1234567
                 company_id_scheme_id:
                   type: string
-                  description: The scheme identifier for the company ID
-                  example: FREE_ZONE_LICENSE
-                company_id_scheme_name:
+                  description: >-
+                    The ISO 6523 International Code Designator (ICD) identifying
+                    the company ID scheme. Must be a valid ICD 6523 code (e.g.
+                    `0235` for the UAE FTA scheme).
+                  example: '0235'
+                company_id_scheme_agency_id:
                   type: string
-                  description: The human-readable name of the company ID scheme
-                  example: JAFZA Free Zone License
+                  description: >-
+                    The registration type of the company identifier. One of:
+                    `TL` (Commercial/Trade license), `CL` (Commercial license),
+                    `EID` (Emirates ID), `PAS` (Passport), `CD` (Cabinet
+                    decision).
+                  enum:
+                    - TL
+                    - CL
+                    - EID
+                    - PAS
+                    - CD
+                  example: TL
+                company_id_scheme_agency_name:
+                  type: string
+                  description: >-
+                    The issuing authority name for the company identifier.
+                    Required when `company_id_scheme_agency_id` is `TL` (e.g.
+                    "Department of Economic Development"). When
+                    `company_id_scheme_agency_id` is `PAS`, must be a valid ISO
+                    3166-1 alpha-2 country code identifying the passport-issuing
+                    country.
+                  example: Department of Economic Development
                 address:
                   $ref: '#/components/schemas/Address'
                 contact_name:
@@ -1271,6 +1375,16 @@ paths:
                   format: email
                   description: The contact email address
                   example: sara@global-imports.ae
+                peppol_id:
+                  type: string
+                  description: The supplier's Peppol participant identifier
+                  example: '1234567890123'
+                peppol_id_scheme_id:
+                  type: string
+                  description: >-
+                    The scheme identifier for the Peppol participant ID (e.g.
+                    `0088` for GLN)
+                  example: '0088'
       responses:
         '201':
           description: Created supplier
@@ -1386,7 +1500,7 @@ paths:
                 invoice_type_code:
                   type: string
                   description: The UN/CEFACT document type code
-                  example: '380'
+                  example: '389'
                 issue_date:
                   type: string
                   format: date
@@ -1560,7 +1674,7 @@ paths:
   /self-billed-credit-notes:
     get:
       tags:
-        - Self-Billing Credit Notes
+        - Self-Billing
       summary: Get UAE Self-Billed Credit Notes
       description: >-
         Returns a paginated list of all self-billed credit notes created by the
@@ -1592,7 +1706,7 @@ paths:
           $ref: '#/components/responses/Error'
     post:
       tags:
-        - Self-Billing Credit Notes
+        - Self-Billing
       summary: Create Self-Billed Credit Note
       description: Creates a new PINT-AE compliant self-billed credit note
       security:
@@ -1609,6 +1723,7 @@ paths:
                 - issue_date
                 - document_currency_code
                 - supplier_id
+                - invoice_type_code
                 - items
               properties:
                 trader_invoice_number:
@@ -1631,6 +1746,14 @@ paths:
                     The DigiTax ID of the original self-billed invoice this
                     credit note relates to
                   example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                invoice_type_code:
+                  type: string
+                  description: >-
+                    The UN/CEFACT document type code. If the credit note
+                    references an original invoice, the value should correspond
+                    to the original invoice type code (e.g. "261" for a self
+                    billed credit note referencing a "389" self billed invoice).
+                  example: '261'
                 issue_date:
                   type: string
                   format: date
@@ -1675,11 +1798,6 @@ paths:
                   type: string
                   description: The DigiTax party ID of the seller's tax representative
                   example: party_01HC3J1VVVM05YCTS61G7V3KC6
-                tax_point_date:
-                  type: string
-                  format: date
-                  description: The VAT point date (YYYY-MM-DD)
-                  example: '2026-03-24'
                 buyer_reference:
                   type: string
                   description: >-
@@ -1780,7 +1898,7 @@ paths:
   /self-billed-credit-notes/{credit_note_id}:
     get:
       tags:
-        - Self-Billing Credit Notes
+        - Self-Billing
       summary: Get a self-billed credit note
       description: >-
         Retrieves information about a self-billed credit note given its ID on
@@ -1857,6 +1975,8 @@ components:
         - name
         - description
         - invoice_category
+        - valid_for_regular
+        - valid_for_self_billed
       properties:
         code:
           type: string
@@ -1879,6 +1999,16 @@ components:
             - INVOICE
             - CREDIT_NOTE
           example: INVOICE
+        valid_for_regular:
+          type: boolean
+          description: Indicates whether this invoice type is valid for regular invoices
+          example: true
+        valid_for_self_billed:
+          type: boolean
+          description: >-
+            Indicates whether this invoice type is valid for self-billed
+            invoices
+          example: false
     TaxCategory:
       type: object
       required:
@@ -1994,12 +2124,29 @@ components:
           example: TL-12345678
         company_id_scheme_id:
           type: string
-          description: The scheme identifier for the company ID
-          example: TRADE_LICENSE
-        company_id_scheme_name:
+          description: >-
+            The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
+            for the UAE FTA scheme)
+          example: '0235'
+        company_id_scheme_agency_id:
           type: string
-          description: The human-readable name of the company ID scheme
-          example: UAE Trade License
+          description: >-
+            The registration type of the company identifier. One of: `TL`
+            (Commercial/Trade license), `CL` (Commercial license), `EID`
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision).
+          enum:
+            - TL
+            - CL
+            - EID
+            - PAS
+            - CD
+          example: TL
+        company_id_scheme_agency_name:
+          type: string
+          description: >-
+            The issuing authority name (required for TL; ISO country code for
+            PAS)
+          example: Department of Economic Development
         address:
           $ref: '#/components/schemas/Address'
         contact_name:
@@ -2009,7 +2156,7 @@ components:
         contact_phone:
           type: string
           description: The phone number of the contact person
-          example: +971-4-123-4567
+          example: '+97141234567'
         contact_email:
           type: string
           format: email
@@ -2035,7 +2182,7 @@ components:
         - registration_name
         - company_id
         - company_id_scheme_id
-        - company_id_scheme_name
+        - company_id_scheme_agency_id
       properties:
         id:
           type: string
@@ -2065,16 +2212,35 @@ components:
           example: Global Imports FZE
         company_id:
           type: string
-          description: The party's company identifier
-          example: JAFZA-98765
+          description: >-
+            The party's company identifier (e.g. trade license number, Emirates
+            ID)
+          example: CN-1234567
         company_id_scheme_id:
           type: string
-          description: The scheme identifier for the party's company ID
-          example: FREE_ZONE_LICENSE
-        company_id_scheme_name:
+          description: >-
+            The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
+            for the UAE FTA scheme)
+          example: '0235'
+        company_id_scheme_agency_id:
           type: string
-          description: The human-readable name of the party's company ID scheme
-          example: JAFZA Free Zone License
+          description: >-
+            The registration type of the company identifier. One of: `TL`
+            (Commercial/Trade license), `CL` (Commercial license), `EID`
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision).
+          enum:
+            - TL
+            - CL
+            - EID
+            - PAS
+            - CD
+          example: TL
+        company_id_scheme_agency_name:
+          type: string
+          description: >-
+            The issuing authority name (required for TL; ISO country code for
+            PAS)
+          example: Department of Economic Development
         address:
           $ref: '#/components/schemas/Address'
         contact_name:
@@ -2083,13 +2249,23 @@ components:
           example: Sara Mohammed
         contact_phone:
           type: string
-          description: The party's contact phone number
+          description: The party's contact phone number in E.164 format
           example: '+971509876543'
         contact_email:
           type: string
           format: email
           description: The party's contact email address
           example: sara@global-imports.ae
+        peppol_id:
+          type: string
+          description: The party's Peppol participant identifier
+          example: '1234567890123'
+        peppol_id_scheme_id:
+          type: string
+          description: >-
+            The scheme identifier for the Peppol participant ID (e.g. `0088` for
+            GLN)
+          example: '0088'
     Supplier:
       type: object
       description: A supplier in a UAE self-billed e-invoice
@@ -2102,7 +2278,7 @@ components:
         - registration_name
         - company_id
         - company_id_scheme_id
-        - company_id_scheme_name
+        - company_id_scheme_agency_id
       properties:
         id:
           type: string
@@ -2132,16 +2308,35 @@ components:
           example: Global Imports FZE
         company_id:
           type: string
-          description: The supplier's company identifier
-          example: JAFZA-98765
+          description: >-
+            The supplier's company identifier (e.g. trade license number,
+            Emirates ID)
+          example: CN-1234567
         company_id_scheme_id:
           type: string
-          description: The scheme identifier for the supplier's company ID
-          example: FREE_ZONE_LICENSE
-        company_id_scheme_name:
+          description: >-
+            The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
+            for the UAE FTA scheme)
+          example: '0235'
+        company_id_scheme_agency_id:
           type: string
-          description: The human-readable name of the supplier's company ID scheme
-          example: JAFZA Free Zone License
+          description: >-
+            The registration type of the company identifier. One of: `TL`
+            (Commercial/Trade license), `CL` (Commercial license), `EID`
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision).
+          enum:
+            - TL
+            - CL
+            - EID
+            - PAS
+            - CD
+          example: TL
+        company_id_scheme_agency_name:
+          type: string
+          description: >-
+            The issuing authority name (required for TL; ISO country code for
+            PAS)
+          example: Department of Economic Development
         address:
           $ref: '#/components/schemas/Address'
         contact_name:
@@ -2150,13 +2345,23 @@ components:
           example: Sara Mohammed
         contact_phone:
           type: string
-          description: The supplier's contact phone number
+          description: The supplier's contact phone number in E.164 format
           example: '+971509876543'
         contact_email:
           type: string
           format: email
           description: The supplier's contact email address
           example: sara@global-imports.ae
+        peppol_id:
+          type: string
+          description: The supplier's Peppol participant identifier
+          example: '1234567890123'
+        peppol_id_scheme_id:
+          type: string
+          description: >-
+            The scheme identifier for the Peppol participant ID (e.g. `0088` for
+            GLN)
+          example: '0088'
     ItemProperty:
       type: object
       description: An additional item attribute as a name/value pair
@@ -2183,8 +2388,6 @@ components:
         - name
         - description
         - commodity_code
-        - item_classification_code
-        - item_classification_list_id
         - tax_category_code
       properties:
         id:
@@ -2229,14 +2432,18 @@ components:
             The item type/commodity code indicating whether the item is goods,
             services, or both
           example: G
-        item_classification_code:
+        hs_code:
           type: string
-          description: The classification code identifying the item
+          description: >-
+            The Harmonized System (HS) code for the item. Present when
+            commodity_code is G (goods) or B (both goods and services).
           example: '84137000'
-        item_classification_list_id:
+        service_accounting_code:
           type: string
-          description: The identification scheme for the item classification code
-          example: HS
+          description: >-
+            The Service Accounting Code for the item. Present when
+            commodity_code is S (services) or B (both goods and services).
+          example: SAC-0001
         tax_category_code:
           type: string
           description: >-
@@ -2993,11 +3200,11 @@ components:
         next:
           type: string
           description: Cursor for the next page of results.
-          example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
         previous:
           type: string
           description: Cursor for the previous page of results.
-          example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
         page_size:
           type: integer
           description: The number of items per page.
@@ -3153,7 +3360,7 @@ components:
         description: >-
           When paginating results, a pointer to an ID after which we want
           results
-        example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+        example: item_01HC3J1VVVM05YCTS61G7V3KC6
     Before:
       in: query
       name: before
@@ -3163,7 +3370,7 @@ components:
         description: >-
           When paginating results, a pointer to an ID before which we want
           results
-        example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+        example: item_01HC3J1VVVM05YCTS61G7V3KC6
     PageSize:
       in: query
       name: page_size
