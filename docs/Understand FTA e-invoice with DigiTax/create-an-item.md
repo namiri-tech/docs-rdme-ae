@@ -21,4 +21,4 @@ An item represents a product or service that you sell. Creating items beforehand
 
 To create an FTA e-invoice item, you need the following details:
 
-1. 
+1.
