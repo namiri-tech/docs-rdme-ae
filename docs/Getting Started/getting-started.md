@@ -55,7 +55,7 @@ FTA is the tax regulator of the UAE government. It is responsible for the admini
 
 ### Peppol
 
-Peppol is an international network that allows businesses to exchange e-invoices with each other. It is a open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol on [their website](https://peppol.eu/why-peppol/what-is-peppol/) _external link_.
+Peppol is an international network that allows businesses to exchange e-invoices with each other. It is a open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol on [their website](https://peppol.org/about/) _external link_.
 
 ### PINT AE
 

@@ -7,7 +7,7 @@ hidden: false
 
 Peppol is an international framework that sets the standard for cross-border electronic document exchange, including e-invoicing. It enables secure, standardized, and interoperable data sharing between businesses and public sector entities across different countries and IT systems.
 
-[Download the full Peppol specification](https://www.peppol.eu/downloads/peppol-specifications)
+[Download an abridged Peppol specification](https://peppol.org/wp-content/uploads/2024/06/eInvoicing-Discovering-Peppol-May-2024.pdf)
 
 In summary, the key concepts behind the Peppol network are:
 
@@ -15,7 +15,7 @@ In summary, the key concepts behind the Peppol network are:
 * **Service Metadata Publisher (SMP):** A decentralized directory that stores the receiving capabilities of a business, including the types of documents they can receive and the network address of their Access Point.
 * **Service Metadata Locator (SML):** A centralized master directory that helps an Access Point locate the correct SMP where a receiver's details are registered, using their unique Peppol ID.
 
-You are welcome to read more about the key concepts behind the Peppol network in [Peppol FAQs](https://www.peppol.eu/faq).
+<!-- You are welcome to read more about the key concepts behind the Peppol network in [Peppol FAQs](https://www.peppol.eu/faq). -->
 
 ### 4-corner model vs. 5-corner model
 
@@ -23,7 +23,7 @@ The 4-corner model is a communication architecture that enables the exchange of 
 
 The 5-corner model extends the 4-corner model to include a fifth party, the tax authority. This enables the tax authority to receive copies of e-invoices and use them for compliance purposes.
 
-This 5-corner model is the standard followed by the UAE's e-invoicing system. [Check the Peppol 5-corner model](https://www.peppol.eu/faq/peppol-5-corner-model) to learn more.
+This 5-corner model is the standard followed by the UAE's e-invoicing system. [Check the Peppol site](https://www.peppol.org/) to learn more.
 
 Let's cover the 4-corner model first, then we can cover the 5-corner model, and finally, we can cover how DigiTax implements both.
 
