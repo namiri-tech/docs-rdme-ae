@@ -9,7 +9,7 @@ This page provides a consolidated overview of the United Arab Emirates (UAE) Pep
 
 The UAE is transitioning to a mandatory e-invoicing system for all Business-to-Business (B2B) and Business-to-Government (B2G) transactions, leveraging the Peppol (Pan-European Public Procurement Online) network. The objective is to enhance transactional efficiency, improve transparency, and ensure tax compliance. The system will operate on a "5-corner" model, which incorporates the supplier, the buyer, their respective service providers, and the Federal Tax Authority (FTA).
 
-Details of Peppol and the 5-corner model (Pint-AE) are covered on this page.
+Details of Peppol and the 5-corner model (Pint-AE) are covered on [this page](doc:getting-started-with-pint-ae).
 
 ## Phased e-invoicing mandate
 
