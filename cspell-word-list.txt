@@ -1,2 +1,6 @@
 Digi
+fiscalization
+Fintech
 Namiri
+Peppol
+subentities

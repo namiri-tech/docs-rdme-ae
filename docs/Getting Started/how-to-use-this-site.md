@@ -27,7 +27,7 @@ For a great developer experience, the endpoints in the [DigiTax UAE API referenc
 
 Once you're set up in the DigiTax Dashboard, you can generate a sandbox or LIVE **X-API-Key** for authorization. Read more on the [API prerequisites](https://ae.docs.digitax.tech/docs/start-using-the-api#/prerequisites).
 
-Explore the API endpoints [here](/reference).
+Explore the [API endpoints](/reference).
 
 ### Code samples
 
