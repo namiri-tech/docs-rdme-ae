@@ -30,7 +30,7 @@ metadata:
   </Card>
 </Cards>
 
-<Accordion title="DigiTax is Global. Explore other countries here ..." icon="fa-globe">
+<Accordion title="DigiTax is Global. Explore other supported countries below ..." icon="fa-globe">
   You are currently reading a guide in the DigiTax UAE API Hub.
 
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
