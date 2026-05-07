@@ -7,7 +7,7 @@ info:
   contact:
     name: DigiTax
     url: https://digitax.tech
-    email: info@digitax.tech
+    email: support@namiri.tech
   license:
     name: Apache 2.0
 servers:
@@ -472,7 +472,9 @@ paths:
                   description: >-
                     The ISO 6523 International Code Designator (ICD) identifying
                     the company ID scheme. Must be a valid ICD 6523 code (e.g.
-                    `0235` for the UAE FTA scheme).
+                    `0235` for the UAE FTA scheme). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
                   example: '0235'
                 company_id_scheme_agency_id:
                   type: string
@@ -480,7 +482,8 @@ paths:
                     The registration type of the company identifier. One of:
                     `TL` (Commercial/Trade license), `CL` (Commercial license),
                     `EID` (Emirates ID), `PAS` (Passport), `CD` (Cabinet
-                    decision).
+                    decision). See `GET /resources/legal-registration-types` for
+                    available values.
                   enum:
                     - TL
                     - CL
@@ -521,7 +524,9 @@ paths:
                   type: string
                   description: >-
                     The scheme identifier for the Peppol participant ID (e.g.
-                    `0088` for GLN)
+                    `0088` for GLN). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
                   example: '0088'
       responses:
         '201':
@@ -590,13 +595,16 @@ paths:
                   type: string
                   description: >-
                     The updated ISO 6523 ICD code identifying the company ID
-                    scheme
+                    scheme. See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
                   example: '0235'
                 company_id_scheme_agency_id:
                   type: string
                   description: >-
                     The updated registration type. One of: `TL`, `CL`, `EID`,
-                    `PAS`, `CD`.
+                    `PAS`, `CD`. See `GET /resources/legal-registration-types`
+                    for available values.
                   enum:
                     - TL
                     - CL
@@ -696,7 +704,8 @@ paths:
                   type: string
                   description: >-
                     The commodity type code (G for goods, S for services, B for
-                    both)
+                    both). See `GET /resources/commodity-codes` for available
+                    values.
                   example: G
                 hs_code:
                   type: string
@@ -713,7 +722,9 @@ paths:
                   example: SAC-0001
                 tax_category_code:
                   type: string
-                  description: The VAT category code for this item
+                  description: >-
+                    The VAT category code for this item. See `GET
+                    /resources/tax-categories` for available values.
                   example: S
                 item_code:
                   type: string
@@ -727,11 +738,16 @@ paths:
                   example: '09501101530003'
                 standard_item_scheme:
                   type: string
-                  description: The scheme for the standard item identifier
+                  description: >-
+                    The scheme for the standard item identifier. See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
                   example: '0160'
                 origin_country_code:
                   type: string
-                  description: The ISO 3166-1 alpha-2 code of the item's country of origin
+                  description: >-
+                    The ISO 3166-1 alpha-2 code of the item's country of origin.
+                    See `GET /resources/countries` for available values.
                   example: DE
                 item_properties:
                   type: array
@@ -851,13 +867,18 @@ paths:
                     - CONTINUOUS_SUPPLY
                 invoice_type_code:
                   type: string
-                  description: The UN/CEFACT document type code
+                  description: >-
+                    The UN/CEFACT document type code. See `GET
+                    /resources/invoice-types` for available values.
                   example: '380'
                 issue_date:
                   type: string
                   format: date
-                  description: The date on which the invoice was issued (YYYY-MM-DD)
-                  example: '2026-03-20'
+                  description: >-
+                    The date on which the invoice was issued (YYYY-MM-DD). Must
+                    not be in the future and must not be more than 30 days in
+                    the past.
+                  example: '2026-05-06'
                 issue_time:
                   type: string
                   description: The invoice issue time (HH:MM:SS)
@@ -866,21 +887,22 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-04-20'
+                  example: '2026-06-05'
                 document_currency_code:
                   type: string
                   description: >-
                     A code that specifies the currency in which the invoice is
-                    issued
+                    issued. See `GET /resources/currencies` for available
+                    values.
                   example: USD
                 tax_currency_exchange_rate:
                   type: number
                   format: double
                   description: >-
-                    The exchange rate between document and tax currencies. This
-                    is required when the document currency code is different
-                    from the tax currency (which is AED for VAT purposes in the
-                    UAE)
+                    The exchange rate between document and tax currencies.
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
                   example: 3.67
                 customer_party_id:
                   type: string
@@ -899,8 +921,10 @@ paths:
                 tax_point_date:
                   type: string
                   format: date
-                  description: The VAT point date (YYYY-MM-DD)
-                  example: '2026-03-20'
+                  description: >-
+                    The VAT point date (YYYY-MM-DD). Must be strictly before the
+                    issue_date.
+                  example: '2026-05-05'
                 buyer_reference:
                   type: string
                   description: >-
@@ -978,11 +1002,17 @@ paths:
                   example: 0
                 beneficiary_trn:
                   type: string
-                  description: The TRN of the beneficiary for Free Trade Zone supplies
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
                   type: string
-                  description: The TRN of the principal for Disclosed Agent billing
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
                   example: '123456789098704'
       responses:
         '201':
@@ -1021,7 +1051,7 @@ paths:
   /credit-notes:
     get:
       tags:
-        - Invoices
+        - Credit Notes
       summary: Get UAE Credit Notes
       description: Returns a paginated list of all credit notes created by the business
       security:
@@ -1051,7 +1081,7 @@ paths:
           $ref: '#/components/responses/Error'
     post:
       tags:
-        - Invoices
+        - Credit Notes
       summary: Create Credit Note
       description: Creates a new PINT-AE compliant credit note
       security:
@@ -1079,7 +1109,9 @@ paths:
                   example: ACME-CN-2024-0003
                 credit_note_reason_code:
                   type: string
-                  description: The coded reason for the credit note
+                  description: >-
+                    The coded reason for the credit note. See `GET
+                    /resources/credit-reasons` for available values.
                   example: DL8.61.1.A
                 credit_note_reason:
                   type: string
@@ -1097,13 +1129,17 @@ paths:
                     The UN/CEFACT document type code. If the credit note
                     references an original invoice, the value should correspond
                     to the original invoice type code (e.g. "381" for a standard
-                    credit note referencing a "380" invoice).
+                    credit note referencing a "380" invoice). See `GET
+                    /resources/invoice-types` for available values.
                   example: '381'
                 issue_date:
                   type: string
                   format: date
-                  description: The date on which the credit note was issued (YYYY-MM-DD)
-                  example: '2026-03-24'
+                  description: >-
+                    The date on which the credit note was issued (YYYY-MM-DD).
+                    Must not be in the future and must not be more than 30 days
+                    in the past.
+                  example: '2026-05-06'
                 issue_time:
                   type: string
                   description: The credit note issue time (HH:MM:SS)
@@ -1112,19 +1148,21 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2024-12-25'
+                  example: '2026-06-05'
                 document_currency_code:
                   type: string
-                  description: The currency code (ISO 4217)
+                  description: >-
+                    The currency code (ISO 4217). See `GET
+                    /resources/currencies` for available values.
                   example: AED
                 tax_currency_exchange_rate:
                   type: number
                   format: double
                   description: >-
-                    The exchange rate between document and tax currencies This
-                    is required when the document currency code is different
-                    from the tax currency (which is AED for VAT purposes in the
-                    UAE)
+                    The exchange rate between document and tax currencies.
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
                   example: 1
                 customer_party_id:
                   type: string
@@ -1221,11 +1259,17 @@ paths:
                     - CONTINUOUS_SUPPLY
                 beneficiary_trn:
                   type: string
-                  description: The TRN of the beneficiary for Free Trade Zone supplies
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
                   type: string
-                  description: The TRN of the principal for Disclosed Agent billing
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
                   example: '123456789098703'
       responses:
         '201':
@@ -1334,7 +1378,9 @@ paths:
                   description: >-
                     The ISO 6523 International Code Designator (ICD) identifying
                     the company ID scheme. Must be a valid ICD 6523 code (e.g.
-                    `0235` for the UAE FTA scheme).
+                    `0235` for the UAE FTA scheme). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
                   example: '0235'
                 company_id_scheme_agency_id:
                   type: string
@@ -1342,7 +1388,8 @@ paths:
                     The registration type of the company identifier. One of:
                     `TL` (Commercial/Trade license), `CL` (Commercial license),
                     `EID` (Emirates ID), `PAS` (Passport), `CD` (Cabinet
-                    decision).
+                    decision). See `GET /resources/legal-registration-types` for
+                    available values.
                   enum:
                     - TL
                     - CL
@@ -1383,7 +1430,9 @@ paths:
                   type: string
                   description: >-
                     The scheme identifier for the Peppol participant ID (e.g.
-                    `0088` for GLN)
+                    `0088` for GLN). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
                   example: '0088'
       responses:
         '201':
@@ -1422,7 +1471,7 @@ paths:
   /self-billed-invoices:
     get:
       tags:
-        - Self-Billing
+        - Self-Billed Invoices
       summary: Get UAE Self-Billed Invoices
       description: >-
         Returns a paginated list of all self-billed invoices created by the
@@ -1454,7 +1503,7 @@ paths:
           $ref: '#/components/responses/Error'
     post:
       tags:
-        - Self-Billing
+        - Self-Billed Invoices
       summary: Create Self-Billed Invoice
       description: >-
         Creates a new PINT-AE compliant self-billed e-invoice and submits it to
@@ -1499,15 +1548,18 @@ paths:
                     - CONTINUOUS_SUPPLY
                 invoice_type_code:
                   type: string
-                  description: The UN/CEFACT document type code
+                  description: >-
+                    The UN/CEFACT document type code. See `GET
+                    /resources/invoice-types` for available values.
                   example: '389'
                 issue_date:
                   type: string
                   format: date
                   description: >-
                     The date on which the self-billed invoice was issued
-                    (YYYY-MM-DD)
-                  example: '2026-03-20'
+                    (YYYY-MM-DD). Must not be in the future and must not be more
+                    than 30 days in the past.
+                  example: '2026-05-06'
                 issue_time:
                   type: string
                   description: The invoice issue time (HH:MM:SS)
@@ -1516,20 +1568,22 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-04-20'
+                  example: '2026-06-05'
                 document_currency_code:
                   type: string
                   description: >-
                     A code that specifies the currency in which the invoice is
-                    issued
+                    issued. See `GET /resources/currencies` for available
+                    values.
                   example: AED
                 tax_currency_exchange_rate:
                   type: number
                   format: double
                   description: >-
                     The exchange rate between document and tax currencies.
-                    Required when the document currency code differs from the
-                    tax currency (AED)
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
                   example: 1
                 supplier_id:
                   type: string
@@ -1550,8 +1604,10 @@ paths:
                 tax_point_date:
                   type: string
                   format: date
-                  description: The VAT point date (YYYY-MM-DD)
-                  example: '2026-03-20'
+                  description: >-
+                    The VAT point date (YYYY-MM-DD). Must be strictly before the
+                    issue_date.
+                  example: '2026-05-05'
                 buyer_reference:
                   type: string
                   description: >-
@@ -1629,11 +1685,17 @@ paths:
                   example: 0
                 beneficiary_trn:
                   type: string
-                  description: The TRN of the beneficiary for Free Trade Zone supplies
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
                   type: string
-                  description: The TRN of the principal for Disclosed Agent billing
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
                   example: '123456789098704'
       responses:
         '201':
@@ -1647,7 +1709,7 @@ paths:
   /self-billed-invoices/{invoice_id}:
     get:
       tags:
-        - Self-Billing
+        - Self-Billed Invoices
       summary: Get a self-billed invoice
       description: >-
         Retrieves information about a self-billed invoice given its ID on
@@ -1674,7 +1736,7 @@ paths:
   /self-billed-credit-notes:
     get:
       tags:
-        - Self-Billing
+        - Self-Billed Credit Notes
       summary: Get UAE Self-Billed Credit Notes
       description: >-
         Returns a paginated list of all self-billed credit notes created by the
@@ -1706,7 +1768,7 @@ paths:
           $ref: '#/components/responses/Error'
     post:
       tags:
-        - Self-Billing
+        - Self-Billed Credit Notes
       summary: Create Self-Billed Credit Note
       description: Creates a new PINT-AE compliant self-billed credit note
       security:
@@ -1734,7 +1796,9 @@ paths:
                   example: ACME-SBCN-2024-0003
                 credit_note_reason_code:
                   type: string
-                  description: The coded reason for the self-billed credit note
+                  description: >-
+                    The coded reason for the self-billed credit note. See `GET
+                    /resources/credit-reasons` for available values.
                   example: DL8.61.1.A
                 credit_note_reason:
                   type: string
@@ -1753,14 +1817,16 @@ paths:
                     references an original invoice, the value should correspond
                     to the original invoice type code (e.g. "261" for a self
                     billed credit note referencing a "389" self billed invoice).
+                    See `GET /resources/invoice-types` for available values.
                   example: '261'
                 issue_date:
                   type: string
                   format: date
                   description: >-
                     The date on which the self-billed credit note was issued
-                    (YYYY-MM-DD)
-                  example: '2026-03-24'
+                    (YYYY-MM-DD). Must not be in the future and must not be more
+                    than 30 days in the past.
+                  example: '2026-05-06'
                 issue_time:
                   type: string
                   description: The credit note issue time (HH:MM:SS)
@@ -1769,18 +1835,21 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-04-24'
+                  example: '2026-06-05'
                 document_currency_code:
                   type: string
-                  description: The currency code (ISO 4217)
+                  description: >-
+                    The currency code (ISO 4217). See `GET
+                    /resources/currencies` for available values.
                   example: AED
                 tax_currency_exchange_rate:
                   type: number
                   format: double
                   description: >-
                     The exchange rate between document and tax currencies.
-                    Required when the document currency code differs from the
-                    tax currency (AED)
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
                   example: 1
                 supplier_id:
                   type: string
@@ -1880,11 +1949,17 @@ paths:
                     - CONTINUOUS_SUPPLY
                 beneficiary_trn:
                   type: string
-                  description: The TRN of the beneficiary for Free Trade Zone supplies
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
                   type: string
-                  description: The TRN of the principal for Disclosed Agent billing
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
                   example: '123456789098704'
       responses:
         '201':
@@ -1898,7 +1973,7 @@ paths:
   /self-billed-credit-notes/{credit_note_id}:
     get:
       tags:
-        - Self-Billing
+        - Self-Billed Credit Notes
       summary: Get a self-billed credit note
       description: >-
         Retrieves information about a self-billed credit note given its ID on
@@ -2069,11 +2144,15 @@ components:
           example: '00000'
         country_subentity:
           type: string
-          description: The country subdivision (emirate)
-          example: Dubai
+          description: >-
+            The country subdivision (emirate). When `country_code` is `AE`, see
+            `GET /resources/ae-country-subentities` for available values.
+          example: DXB
         country_code:
           type: string
-          description: The ISO 3166-1 alpha-2 country code
+          description: >-
+            The ISO 3166-1 alpha-2 country code. See `GET /resources/countries`
+            for available values.
           example: AE
         address_line:
           type: string
@@ -2096,12 +2175,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the business was created on DigiTax
-          example: '2024-01-15T08:30:00Z'
+          example: '2026-05-06T08:30:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the business was last updated on DigiTax
-          example: '2024-06-20T14:45:00Z'
+          example: '2026-05-06T14:45:00Z'
         active:
           type: boolean
           description: Whether the branch is currently active on DigiTax
@@ -2126,14 +2205,17 @@ components:
           type: string
           description: >-
             The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
-            for the UAE FTA scheme)
+            for the UAE FTA scheme). See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
           example: '0235'
         company_id_scheme_agency_id:
           type: string
           description: >-
             The registration type of the company identifier. One of: `TL`
             (Commercial/Trade license), `CL` (Commercial license), `EID`
-            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision).
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision). See `GET
+            /resources/legal-registration-types` for available values.
           enum:
             - TL
             - CL
@@ -2192,12 +2274,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the party was created
-          example: '2024-02-10T09:00:00Z'
+          example: '2026-05-06T09:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the party was last updated
-          example: '2024-07-05T11:20:00Z'
+          example: '2026-05-06T11:20:00Z'
         active:
           type: boolean
           description: Whether the party is currently active on DigiTax
@@ -2220,14 +2302,17 @@ components:
           type: string
           description: >-
             The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
-            for the UAE FTA scheme)
+            for the UAE FTA scheme). See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
           example: '0235'
         company_id_scheme_agency_id:
           type: string
           description: >-
             The registration type of the company identifier. One of: `TL`
             (Commercial/Trade license), `CL` (Commercial license), `EID`
-            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision).
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision). See `GET
+            /resources/legal-registration-types` for available values.
           enum:
             - TL
             - CL
@@ -2264,7 +2349,8 @@ components:
           type: string
           description: >-
             The scheme identifier for the Peppol participant ID (e.g. `0088` for
-            GLN)
+            GLN). See `GET /resources/international-code-designator-schemes` for
+            available values.
           example: '0088'
     Supplier:
       type: object
@@ -2288,12 +2374,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the supplier was created
-          example: '2024-02-10T09:00:00Z'
+          example: '2026-05-06T09:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the supplier was last updated
-          example: '2024-07-05T11:20:00Z'
+          example: '2026-05-06T11:20:00Z'
         active:
           type: boolean
           description: Whether the supplier is currently active on DigiTax
@@ -2316,14 +2402,17 @@ components:
           type: string
           description: >-
             The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
-            for the UAE FTA scheme)
+            for the UAE FTA scheme). See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
           example: '0235'
         company_id_scheme_agency_id:
           type: string
           description: >-
             The registration type of the company identifier. One of: `TL`
             (Commercial/Trade license), `CL` (Commercial license), `EID`
-            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision).
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision). See `GET
+            /resources/legal-registration-types` for available values.
           enum:
             - TL
             - CL
@@ -2360,7 +2449,8 @@ components:
           type: string
           description: >-
             The scheme identifier for the Peppol participant ID (e.g. `0088` for
-            GLN)
+            GLN). See `GET /resources/international-code-designator-schemes` for
+            available values.
           example: '0088'
     ItemProperty:
       type: object
@@ -2398,12 +2488,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the item was created
-          example: '2024-03-01T07:00:00Z'
+          example: '2026-05-06T07:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the item was last updated
-          example: '2024-08-12T16:30:00Z'
+          example: '2026-05-06T14:00:00Z'
         active:
           type: boolean
           description: Whether the item is currently active on DigiTax
@@ -2430,7 +2520,8 @@ components:
           type: string
           description: >-
             The item type/commodity code indicating whether the item is goods,
-            services, or both
+            services, or both. See `GET /resources/commodity-codes` for
+            available values.
           example: G
         hs_code:
           type: string
@@ -2448,7 +2539,8 @@ components:
           type: string
           description: >-
             The default VAT category code applicable to this item. This can be
-            overridden when creating an invoice if needed
+            overridden when creating an invoice if needed. See `GET
+            /resources/tax-categories` for available values.
           example: S
         standard_item_id:
           type: string
@@ -2456,11 +2548,16 @@ components:
           example: '09501101530003'
         standard_item_scheme:
           type: string
-          description: The scheme identifier for the standard item identifier
+          description: >-
+            The scheme identifier for the standard item identifier. See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
           example: '0160'
         origin_country_code:
           type: string
-          description: The ISO 3166-1 alpha-2 code of the item's country of origin
+          description: >-
+            The ISO 3166-1 alpha-2 code of the item's country of origin. See
+            `GET /resources/countries` for available values.
           example: DE
         item_properties:
           type: array
@@ -2502,7 +2599,7 @@ components:
         issue_date:
           type: string
           description: The issue date of the referenced document (YYYY-MM-DD)
-          example: '2026-03-20'
+          example: '2026-05-06'
     InvoicePeriod:
       type: object
       description: The period to which the invoice relates
@@ -2510,30 +2607,37 @@ components:
         start_date:
           type: string
           description: The start date of the invoice period (YYYY-MM-DD)
-          example: '2026-03-24'
+          example: '2026-05-06'
         end_date:
           type: string
           description: The end date of the invoice period (YYYY-MM-DD)
-          example: '2026-03-30'
+          example: '2026-06-05'
         billing_frequency_code:
           type: string
-          description: The billing frequency code
+          description: >-
+            The billing frequency code. See `GET /resources/billing-frequencies`
+            for available values.
           example: MTH
     InvoiceDelivery:
       type: object
-      description: Delivery information for the items in the invoice
+      description: >-
+        Delivery information for the items in the invoice. When
+        `transaction_types` includes `EXPORTS`, `delivery` is required and
+        `delivery_address.country_code` must not be `AE`.
       properties:
         actual_delivery_date:
           type: string
           description: The actual delivery date (YYYY-MM-DD)
-          example: '2026-03-25'
+          example: '2026-05-06'
         delivery_location_id:
           type: string
           description: The identifier of the delivery location
           example: LOC-JEBEL-ALI-001
         delivery_location_scheme_id:
           type: string
-          description: The scheme identifier for the delivery location ID
+          description: >-
+            The scheme identifier for the delivery location ID. See `GET
+            /resources/delivery-location-schemes` for available values.
           example: '0088'
         delivery_address:
           $ref: '#/components/schemas/Address'
@@ -2543,7 +2647,10 @@ components:
           example: Global Imports FZE - Warehouse
         delivery_terms_id:
           type: string
-          description: The delivery terms identifier (e.g. Incoterm)
+          description: >-
+            The Incoterms delivery terms identifier. Required when
+            `transaction_types` includes `EXPORTS` or
+            `SUPPLY_THROUGH_ECOMMERCE`.
           example: DAP
     InvoiceAllowanceCharge:
       type: object
@@ -2583,7 +2690,10 @@ components:
           maximum: 1
         reason_code:
           type: string
-          description: The coded reason for the allowance or charge
+          description: >-
+            The coded reason for the allowance or charge. See `GET
+            /resources/allowance-reasons` (for allowances) or `GET
+            /resources/charge-reasons` (for charges) for available values.
           example: '95'
         reason:
           type: string
@@ -2593,20 +2703,22 @@ components:
           type: string
           description: >-
             The VAT category code for this allowance/charge. It is required for
-            document-level allowances/charges
-          example: S
+            document-level allowances/charges. See `GET
+            /resources/tax-categories` for available values.
+          example: E
         tax_rate:
           type: number
           format: double
           description: The VAT rate applicable to this allowance/charge
-          example: 0.05
+          example: 0
           minimum: 0
           maximum: 1
         tax_exemption_reason_code:
           type: string
           description: >-
             The coded reason for VAT exemption if the allowance/charge is tax
-            exempt
+            exempt. See `GET /resources/tax-exemption-reasons` for available
+            values.
           example: DL8.46.1
         tax_exemption_reason:
           type: string
@@ -2650,7 +2762,10 @@ components:
           maximum: 1
         reason_code:
           type: string
-          description: The coded reason for the allowance or charge
+          description: >-
+            The coded reason for the allowance or charge. See `GET
+            /resources/allowance-reasons` (for allowances) or `GET
+            /resources/charge-reasons` (for charges) for available values.
           example: '95'
         reason:
           type: string
@@ -2714,7 +2829,7 @@ components:
         payment_terms_due_date:
           type: string
           description: The due date for payment (YYYY-MM-DD)
-          example: '2024-12-15'
+          example: '2026-06-05'
     TaxBreakdown:
       type: object
       description: A breakdown of VAT by category
@@ -2775,12 +2890,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the line item was created
-          example: '2024-11-20T10:00:00Z'
+          example: '2026-05-06T10:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the line item was last updated
-          example: '2024-11-20T10:00:00Z'
+          example: '2026-05-06T10:00:00Z'
         active:
           type: boolean
           description: Whether the line item is active
@@ -2840,8 +2955,8 @@ components:
         tax_rate:
           type: number
           format: double
-          description: The VAT rate percentage for this line
-          example: 5
+          description: The VAT rate for this line, between 0 and 1
+          example: 0.05
         tax_exemption_reason_code:
           type: string
           description: The coded reason for VAT exemption on this line
@@ -2919,12 +3034,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the invoice was created on DigiTax
-          example: '2024-11-20T10:00:00Z'
+          example: '2026-05-06T10:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the invoice was last updated on DigiTax
-          example: '2024-11-20T12:30:00Z'
+          example: '2026-05-06T12:30:00Z'
         active:
           type: boolean
           description: Whether this invoice record is active on DigiTax
@@ -2949,7 +3064,7 @@ components:
             A binary code that identifies the invoice transaction types that
             apply to the invoice. Each digit represents a specific transaction
             type, in the order defined by Peppol
-          example: '00000001'
+          example: '10000001'
         transaction_types:
           type: array
           description: The list of applicable PINT-AE transaction types
@@ -2975,7 +3090,7 @@ components:
           type: string
           format: date
           description: The date the invoice was issued (YYYY-MM-DD)
-          example: '2026-03-23'
+          example: '2026-05-06'
         issue_time:
           type: string
           description: The time the invoice was issued (HH:MM:SS)
@@ -2984,12 +3099,12 @@ components:
           type: string
           format: date
           description: The payment due date (YYYY-MM-DD)
-          example: '2026-03-23'
+          example: '2026-06-05'
         tax_point_date:
           type: string
           format: date
           description: The date for tax purposes (VAT point date) (YYYY-MM-DD)
-          example: '2026-03-23'
+          example: '2026-05-05'
         document_currency_code:
           type: string
           description: The currency of the invoice amounts
@@ -3169,13 +3284,13 @@ components:
           type: string
           format: date-time
           nullable: true
-          example: '2025-08-12T04:40:58Z'
+          example: '2026-05-06T10:05:00Z'
           description: The date and time when the invoice was sent to C5(FTA)
         submitted_at:
           type: string
           format: date-time
           nullable: true
-          example: '2025-08-12T04:40:58Z'
+          example: '2026-05-06T10:04:00Z'
           description: >-
             The date and time when the invoice was sent to C3(buyer's Access
             Point) in the case of billing or C2(supplier's Access Point) in the
@@ -3184,7 +3299,7 @@ components:
           type: string
           format: date-time
           nullable: true
-          example: '2025-08-12T04:40:58Z'
+          example: '2026-05-06T10:03:00Z'
           description: >-
             The date and time when the invoice was validated against the PINT-AE
             rules
@@ -3200,11 +3315,11 @@ components:
         next:
           type: string
           description: Cursor for the next page of results.
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
         previous:
           type: string
           description: Cursor for the previous page of results.
-          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+          example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
         page_size:
           type: integer
           description: The number of items per page.
@@ -3216,7 +3331,9 @@ components:
       properties:
         payment_means_code:
           type: string
-          description: The UNCL4461 payment means code
+          description: >-
+            The UNCL4461 payment means code. See `GET /resources/payment-means`
+            for available values.
           example: '30'
         payment_id:
           type: string
@@ -3257,7 +3374,7 @@ components:
         payment_terms_due_date:
           type: string
           description: The payment due date (YYYY-MM-DD)
-          example: '2026-04-20'
+          example: '2026-06-05'
     CreateInvoiceItemRequest:
       type: object
       required:
@@ -3279,7 +3396,9 @@ components:
           example: 10
         unit_of_measure_code:
           type: string
-          description: The code of the unit of measure used for the invoiced quantity
+          description: >-
+            The code of the unit of measure used for the invoiced quantity. See
+            `GET /resources/units-of-measure` for available values.
           example: EA
         price_amount:
           type: number
@@ -3300,7 +3419,9 @@ components:
           example: 525
         tax_category_code:
           type: string
-          description: The VAT category code for this invoice item
+          description: >-
+            The VAT category code for this invoice item. See `GET
+            /resources/tax-categories` for available values.
           example: E
         tax_rate:
           type: number
@@ -3311,7 +3432,9 @@ components:
           maximum: 1
         tax_exemption_reason_code:
           type: string
-          description: The coded reason for VAT exemption
+          description: >-
+            The coded reason for VAT exemption. See `GET
+            /resources/tax-exemption-reasons` for available values.
           example: DL8.46.1
         tax_exemption_reason:
           type: string
@@ -3348,7 +3471,7 @@ components:
           type: string
           description: >-
             The item nature code, required when tax category is reverse charge
-            (AE)
+            (AE). See `GET /resources/goods-types` for available values.
           example: DL8.48.8.2
   parameters:
     After:
@@ -3360,7 +3483,7 @@ components:
         description: >-
           When paginating results, a pointer to an ID after which we want
           results
-        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
     Before:
       in: query
       name: before
@@ -3370,7 +3493,7 @@ components:
         description: >-
           When paginating results, a pointer to an ID before which we want
           results
-        example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
     PageSize:
       in: query
       name: page_size
