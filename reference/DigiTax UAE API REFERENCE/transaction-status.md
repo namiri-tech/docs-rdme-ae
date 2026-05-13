@@ -11,7 +11,7 @@ metadata:
 DigiTax provides the following:
 
 * Asynchronous functionality that automatically retries FTA
-<!-- * Get notifications on transaction statuses via [Callback URLs](ref:feature-callback-urls) -->
+
 * Throttling traffic between the business's throughput and the tax authority's system
 
 These functionalities are possible due to the DigiTax Queueing system.
