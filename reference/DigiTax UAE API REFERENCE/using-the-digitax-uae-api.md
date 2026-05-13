@@ -66,7 +66,7 @@ You send invoice (and other document) data to DigiTax. DigiTax validates, enrich
   </Card>
 </Cards>
 
-## Once again, welcome to the DigiTax Nigeria API Hub
+## Once again, welcome to the DigiTax UAE API Hub
 
 Once again, thank you for reviewing the getting started page of the DigiTax UAE API hub. We're excited you're here! 💚
 
