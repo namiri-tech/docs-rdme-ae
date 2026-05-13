@@ -2,7 +2,7 @@
 title: Create an item
 excerpt: '!!'
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
