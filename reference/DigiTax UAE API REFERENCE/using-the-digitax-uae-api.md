@@ -66,47 +66,18 @@ You send invoice (and other document) data to DigiTax. DigiTax validates, enrich
   </Card>
 </Cards>
 
-## DigiTax API
+## Once again, welcome to the DigiTax Nigeria API Hub
 
-Namiri Technologies, the proprietor of DigiTax, has developed a suite of solutions through the DigiTax Platform. These include:
+Once again, thank you for reviewing the getting started page of the DigiTax UAE API hub. We're excited you're here! 💚
 
-* DigiTax POS App (Available for Android, iOS, Windows and macOS - not yet available in all markets. UAE is not supported yet.),
-* DigiTax Dashboard (Web Browser-based Desktop application)
-* DigiTax API
+We invite you to use the **DigiTax UAE API** to integrate your system with the UAE FTA E-Invoicing System for automation and to reduce platform-hopping
 
-> The first two are powered by the DigiTax API :tada:
+To recap:
 
-### DigiTax API Features
+* Explore our detailed guides to gain understanding of DigiTax Nigeria integration. Learn how to navigate them [here](doc:how-to-use-this-site)
+* Get the [Prerequisites for using DigiTax UAE API](https://ae.docs.digitax.tech/update/reference/prerequisites-of-using-the-api)
+* For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
-The DigiTax API is built with various industry standards for API platforms in mind. These include:
+Welcome to the Less Taxing solution - DigiTax.
 
-* RESTful API
-* OpenAPI (formerly Swagger): An open-source standard that allows a standardized way to generate, document, and test our APIs.
-* Secure authentication with cryptographically signed JWTs (JSON Web Tokens)
-* [Standard HTTP response codes](ref:errors-and-other-http-response-codes) for errors and successful requests
-
-### Using DigiTax API
-
-To use this API, you'll need access to DigiTax Dashboard environment to get an API Key. You can test our solutions (DigiTax Dashboard, DigiTax POS App and DigiTax API) for free using test businesses.
-
-These are the steps required to get up and running on the API - [Prerequisites of using DigiTax API](ref:prerequisites-of-using-the-api)
-
-> ℹ️ You can test our solutions before committing
->
-> For commercial conversations, get in touch with <Anchor label="our team" target="_blank" href="mailto:support@namiri.tech">our team</Anchor>
-
-### API endpoint parameters
-
-The API endpoints feature three types of parameters:
-
-* Path parameters: Identifiers that are part of the URL path. (e.g. invoices/\{id\})
-* Query parameters: Parameters that are appended to the URL after a question mark (?).
-* Body parameters: Parameters that are included in the request body.
-
-## Guaranteed safety and integrity
-
-We comply with industry and security best practices.
-
-> 👍 DigiTax is built with the best industry practices and to the highest security standards
-
-<br />
+<Image align="center" border={true} width="300px" src="https://files.readme.io/d13b6d83ab31573e992719e15714a5956bbdc95acd27c17b572d9bfb0c750e8e-Full-Logo_Slogan_Colour.png" className="border" />
