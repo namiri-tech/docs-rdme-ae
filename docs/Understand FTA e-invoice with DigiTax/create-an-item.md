@@ -21,4 +21,12 @@ An item represents a product or service that you sell. Creating items beforehand
 
 To create an FTA e-invoice item, you need the following details:
 
-1.
+1. Item name
+2. Tax category
+3. Commodity code
+4. HS code
+5. Service accounting code
+6. Item code(optional)
+7. Origin country(optional)
+8. Standard item scheme(optional)
+9. Description
