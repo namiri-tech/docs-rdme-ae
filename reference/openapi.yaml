@@ -1013,7 +1013,7 @@ paths:
                     The TRN of the principal for Disclosed Agent billing.
                     Required when `transaction_types` includes `AGENT_BILLING`.
                     Must differ from the business's own TRN.
-                  example: '123456789098704'
+                  example: '123456789098703'
       responses:
         '201':
           description: Invoice created
@@ -1696,7 +1696,7 @@ paths:
                     The TRN of the principal for Disclosed Agent billing.
                     Required when `transaction_types` includes `AGENT_BILLING`.
                     Must differ from the business's own TRN.
-                  example: '123456789098704'
+                  example: '123456789098703'
       responses:
         '201':
           description: Self-billed invoice created
@@ -1960,7 +1960,7 @@ paths:
                     The TRN of the principal for Disclosed Agent billing.
                     Required when `transaction_types` includes `AGENT_BILLING`.
                     Must differ from the business's own TRN.
-                  example: '123456789098704'
+                  example: '123456789098703'
       responses:
         '201':
           description: Created self-billed credit note
