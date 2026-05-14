@@ -17,7 +17,7 @@ In this guide, we'll walk through creating an item.
 
 ### Creating a standard FTA e-invoice
 
-An invoice represents the PINT-AE compliant e-invoice document itself. It references existing [Parties](doc:create-a-party) and [Items](doc:create-an-item).
+An invoice represents the PINT-AE-compliant e-invoice document itself. It references existing [Parties](doc:create-a-party) and [Items](doc:create-an-item).
 
 To create a standard FTA e-invoice, you need the following details:
 
