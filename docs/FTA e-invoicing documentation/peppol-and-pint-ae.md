@@ -4,7 +4,7 @@ excerpt: >-
   Learn how Peppol and PINT-AE work. This is for context only. You don't need to
   understand Peppol or PINT-AE to use the DigiTax API.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
