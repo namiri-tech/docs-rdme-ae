@@ -10,7 +10,7 @@ metadata:
 ---
 ## Understanding Callback URLs
 
-When you make a request to DigiTax API, we immediately return a response. The status of that transaction by default is `DRAFT`.
+When you make a request to the DigiTax API, we immediately return a response. The status of that transaction by default is `DRAFT`.
 
 _Below is a snippet of the response to a POST invoice request. The status property reads "DRAFT"._
 
