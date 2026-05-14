@@ -12,7 +12,7 @@ metadata:
 
 When you make a request to DigiTax API, we immediately return a response. The status of that transaction by default is `DRAFT`.
 
-*Below is a snippet of the response to a POST invoice request. The status property reads "DRAFT".*
+_Below is a snippet of the response to a POST invoice request. The status property reads "DRAFT"._
 
 ```json
 {
@@ -32,7 +32,7 @@ More on the different transaction statuses and what they mean can be found [in t
 
 We save it into our queuing system to be **validated**, **submitted** and **reported**. This step changes the status property from `DRAFT` to `COMPLETED`. This is apparent via the DigiTax Dashboard or when you make a **GET** request.
 
-*Below is a snippet of the response of a GET invoice request. The status property reads "COMPLETED".*
+_Below is a snippet of the response of a GET invoice request. The status property reads "COMPLETED"._
 
 ```json
 {
@@ -65,7 +65,7 @@ Our system will POST data to the callback URL when we have new information about
 
 ## Scenarios
 
-We send a callback when invoice has been signed.
+We send a callback when the invoice has been signed.
 
 When an invoice, credit note, self-billed invoice or self-billed credit note has been synced to FTA, we also send a POST request to the `callback_url`. The request body contains a `data` object with details about the synced invoice, credit note, self-billed invoice or self-billed credit note and an `event` property with the value `invoice.sync`.
 
