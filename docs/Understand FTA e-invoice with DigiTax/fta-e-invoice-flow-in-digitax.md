@@ -1,5 +1,5 @@
 ---
-title: An UAE FTA e-invoice flow in DigiTax
+title: Create a UAE FTA e-invoice in DigiTax
 excerpt: >-
   This guide introduces us to a PINT-AE compliant e-invoices for the United Arab
   Emirates. In following guides we'll cover the steps it takes to get create
