@@ -1,5 +1,5 @@
 ---
-title: FTA e-invoicing and the 2026/2027 FTA mandate
+title: FTA e-invoicing and the mandate
 ---
 # FTA e-invoicing initiative
 
@@ -11,7 +11,7 @@ The UAE is transitioning to a mandatory e-invoicing system for all Business-to-B
 
 Details of Peppol and the 5-corner model (Pint-AE) are covered on [this page](doc:peppol-and-pint-ae).
 
-## Phased e-invoicing mandate
+## Phased 2026/2027 e-invoicing mandate
 
 The rollout of the 2026/2027 FTA mandate is scheduled in phases.
 
