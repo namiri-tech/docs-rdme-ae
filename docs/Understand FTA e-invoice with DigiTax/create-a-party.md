@@ -92,6 +92,7 @@ Under the [2026/2027 FTA mandate](doc:e-invoicing-initiative), the options are s
    **Value:** Your **TIN** (Tax Identification Number).
 
    _Note:_ The **TIN** is the **first 10 digits** of your 15-digit TRN. Even if you are part of a tax group, you must use your individual 10-digit TIN.
+
 2. Legal Registration Options (Party Legal Entity)
 
    When filling out the **Legal Registration Identifier** (to prove the company is a registered legal entity), you should use one of the following codes as the **Scheme ID**:
