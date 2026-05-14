@@ -142,7 +142,7 @@ As mentioned previously, an e-invoice has two parties:
 
 The buyer is the party who buys the goods or services, and the seller is the party who sells the goods or services.
 
-As soon as you create a business on DigiTax, the business is also classified as a party type: **seller**. This is because your business is registered with the FTA and is therefore able to issue tax invoices.
+As soon as you create a business on DigiTax, the business is also classified as a party type: **seller**. This is because your business is registered with the FTA and can therefore issue tax invoices.
 
 **Note**: for a test business on DigiTax, the registered tax authority ID of the seller is that of Namiri Technology (the business that owns DigiTax). You can find this details of your business in the [info](api:get-my-business-details) endpoint.
 
