@@ -1,8 +1,8 @@
 ---
 title: Create an item
-excerpt: '!!'
+excerpt: An item is a prerequisite of an invoice
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
