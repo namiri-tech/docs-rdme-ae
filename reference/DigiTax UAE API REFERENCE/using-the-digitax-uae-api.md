@@ -75,7 +75,7 @@ We invite you to use the **DigiTax UAE API** to integrate your system with the U
 To recap:
 
 * Explore our detailed guides to gain understanding of DigiTax Nigeria integration. Learn how to navigate them [here](doc:how-to-use-this-site)
-* Get the [Prerequisites for using DigiTax UAE API](https://ae.docs.digitax.tech/update/reference/prerequisites-of-using-the-api)
+* Get the [Prerequisites for using DigiTax UAE API](ref:prerequisites-of-using-the-api)
 * For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
 Welcome to the Less Taxing solution - DigiTax.
