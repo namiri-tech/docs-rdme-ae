@@ -1,5 +1,6 @@
 ---
 title: Create a party
+excerpt: A party is a prerequisite of an invoice
 deprecated: false
 hidden: false
 metadata:
