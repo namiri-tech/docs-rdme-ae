@@ -37,7 +37,7 @@ An FTA e-invoice has several variations of invoice fields. It contains:
 To create an FTA invoice, you need to:
 
 1. Create an item
-2. Create party
+2. Create a party
 3. Create an invoice
 
 After that, you can view the invoice details
