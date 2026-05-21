@@ -28,6 +28,8 @@ The buyer is the party who buys the goods or services, and the seller is the par
 
 To create an FTA e-invoice party, you need the following details:
 
+> Review party attributes <Anchor label="here" target="_blank" href="doc:item-attributes">here</Anchor>
+
 1. Tax Registration Number
 2. Registration Name
 3. Company ID
