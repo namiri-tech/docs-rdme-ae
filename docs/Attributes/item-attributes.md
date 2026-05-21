@@ -2,7 +2,7 @@
 title: Item attributes
 excerpt: Peruse further details of attributes filled-in in `/items` endpoint
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
