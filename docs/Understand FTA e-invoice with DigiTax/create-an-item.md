@@ -21,7 +21,7 @@ An item represents a product or service that you sell. Creating items beforehand
 
 To create an FTA e-invoice item, you need the following details:
 
-Review item attributes <Anchor label="here" target="_blank" href="doc:item-attributes">here</Anchor>
+> Review item attributes <Anchor label="here" target="_blank" href="doc:item-attributes">here</Anchor>
 
 1. Item name
 2. Tax category
