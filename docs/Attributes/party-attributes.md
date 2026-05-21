@@ -260,8 +260,8 @@ metadata:
 
 Use a country code when [Legal Registration Type](doc:party-attributes#legal-registration-types) is `PAS`
 
-* NN** — Norwegian Nynorsk: the second official written form of Norwegian
 * NB** — Norwegian Bokmål: the more common written form of Norwegian
+* NN** — Norwegian Nynorsk: the second official written form of Norwegian
 
 | Name                                                 | Alpha2 | Name (NB)     | Name (NN)     |
 | ---------------------------------------------------- | ------ | ------------- | ------------- |
