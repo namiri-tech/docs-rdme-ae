@@ -277,4 +277,193 @@ NN — Norwegian Nynorsk: the second official written form of Norwegian
 | Spain                                                | ES     |               |               |
 | Thailand                                             | TH     |               |               |
 
-<br />
+## Currencies
+
+| Code | Name                                                      |
+| ---- | --------------------------------------------------------- |
+| BTN  | Ngultrum                                                  |
+| DJF  | Djibouti Franc                                            |
+| GHS  | Ghana Cedi                                                |
+| GNF  | Guinean Franc                                             |
+| KZT  | Tenge                                                     |
+| SEK  | Swedish Krona                                             |
+| ZAR  | Rand                                                      |
+| KES  | Kenyan Shilling                                           |
+| KWD  | Kuwaiti Dinar                                             |
+| OMR  | Rial Omani                                                |
+| PGK  | Kina                                                      |
+| SHP  | Saint Helena Pound                                        |
+| UYU  | Peso Uruguayo                                             |
+| CVE  | Cabo Verde Escudo                                         |
+| ERN  | Nakfa                                                     |
+| GBP  | Pound Sterling                                            |
+| IRR  | Iranian Rial                                              |
+| ISK  | Iceland Krona                                             |
+| JMD  | Jamaican Dollar                                           |
+| UAH  | Hryvnia                                                   |
+| XBA  | Bond Markets Unit European Composite Unit (EURCO)         |
+| CHE  | WIR Euro                                                  |
+| CUC  | Peso Convertible                                          |
+| SBD  | Solomon Islands Dollar                                    |
+| SYP  | Syrian Pound                                              |
+| UYW  | Unidad Previsional                                        |
+| FKP  | Falkland Islands Pound                                    |
+| PAB  | Balboa                                                    |
+| SDG  | Sudanese Pound                                            |
+| WST  | Tala                                                      |
+| XAG  | Silver                                                    |
+| YER  | Yemeni Rial                                               |
+| LBP  | Lebanese Pound                                            |
+| NOK  | Norwegian Krone                                           |
+| AZN  | Azerbaijan Manat                                          |
+| CLP  | Chilean Peso                                              |
+| CUP  | Cuban Peso                                                |
+| ETB  | Ethiopian Birr                                            |
+| HKD  | Hong Kong Dollar                                          |
+| MUR  | Mauritius Rupee                                           |
+| MWK  | Malawi Kwacha                                             |
+| NZD  | New Zealand Dollar                                        |
+| GTQ  | Quetzal                                                   |
+| LYD  | Libyan Dinar                                              |
+| MRU  | Ouguiya                                                   |
+| PEN  | Sol                                                       |
+| QAR  | Qatari Rial                                               |
+| SCR  | Seychelles Rupee                                          |
+| UYI  | Uruguay Peso en Unidades Indexadas (URUIURUI)             |
+| UZS  | Uzbekistan Sum                                            |
+| BHD  | Bahraini Dinar                                            |
+| BMD  | Bermudian Dollar                                          |
+| COP  | Colombian Peso                                            |
+| JPY  | Yen                                                       |
+| RUB  | Russian Ruble                                             |
+| SLE  | Sierra Leone (new valuation 2022)                         |
+| SRD  | Surinam Dollar                                            |
+| VUV  | Vatu                                                      |
+| ALL  | Lek                                                       |
+| EGP  | Egyptian Pound                                            |
+| MVR  | Rufiyaa                                                   |
+| XTS  | Codes specifically reserved for testing purposes          |
+| BRL  | Brazilian Real                                            |
+| KPW  | North Korean Won                                          |
+| MAD  | Moroccan Dirham                                           |
+| TMT  | Turkmenistan New Manat                                    |
+| UGX  | Uganda Shilling                                           |
+| VED  | Bolívar Soberano, new valuation                           |
+| XCD  | East Caribbean Dollar                                     |
+| AWG  | Aruban Florin                                             |
+| CRC  | Costa Rican Colon                                         |
+| FJD  | Fiji Dollar                                               |
+| KHR  | Riel                                                      |
+| XBB  | Bond Markets Unit European Monetary Unit (E.M.U.-6)       |
+| XDR  | SDR (Special Drawing Right)                               |
+| ZWG  | Zimbabwe Gold                                             |
+| ANG  | Netherlands Antillean Guilder                             |
+| GEL  | Lari                                                      |
+| HUF  | Forint                                                    |
+| KMF  | Comorian Franc                                            |
+| LKR  | Sri Lanka Rupee                                           |
+| RWF  | Rwanda Franc                                              |
+| SOS  | Somali Shilling                                           |
+| AED  | UAE Dirham                                                |
+| HTG  | Gourde                                                    |
+| NAD  | Namibia Dollar                                            |
+| RSD  | Serbian Dinar                                             |
+| SZL  | Lilangeni                                                 |
+| USN  | US Dollar (Next day)                                      |
+| VES  | Bolívar Soberano                                          |
+| ARS  | Argentine Peso                                            |
+| BSD  | Bahamian Dollar                                           |
+| CZK  | Czech Koruna                                              |
+| LSL  | Loti                                                      |
+| BOB  | Boliviano                                                 |
+| BOV  | Mvdol                                                     |
+| MNT  | Tugrik                                                    |
+| MYR  | Malaysian Ringgit                                         |
+| XAU  | Gold                                                      |
+| ZMW  | Zambian Kwacha                                            |
+| BWP  | Pula                                                      |
+| BYN  | Belarusian Ruble                                          |
+| HNL  | Lempira                                                   |
+| LRD  | Liberian Dollar                                           |
+| XPT  | Platinum                                                  |
+| PHP  | Philippine Piso                                           |
+| TJS  | Somoni                                                    |
+| BZD  | Belize Dollar                                             |
+| MDL  | Moldovan Leu                                              |
+| MXV  | Mexican Unidad de Inversion (UDI)                         |
+| SGD  | Singapore Dollar                                          |
+| USD  | US Dollar                                                 |
+| XOF  | CFA Franc BCEAO                                           |
+| AFN  | Afghani                                                   |
+| CHF  | Swiss Franc                                               |
+| CHW  | WIR Franc                                                 |
+| DKK  | Danish Krone                                              |
+| JOD  | Jordanian Dinar                                           |
+| KYD  | Cayman Islands Dollar                                     |
+| BBD  | Barbados Dollar                                           |
+| BND  | Brunei Dollar                                             |
+| COU  | Unidad de Valor Real                                      |
+| STN  | Dobra                                                     |
+| SVC  | El Salvador Colon                                         |
+| TRY  | Turkish Lira                                              |
+| XBC  | Bond Markets Unit European Unit of Account 9 (E.U.A.-9)   |
+| XPF  | CFP Franc                                                 |
+| EUR  | Euro                                                      |
+| MOP  | Pataca                                                    |
+| XUA  | ADB Unit of Account                                       |
+| MMK  | Kyat                                                      |
+| NGN  | Naira                                                     |
+| CAD  | Canadian Dollar                                           |
+| GYD  | Guyana Dollar                                             |
+| ILS  | New Israeli Sheqel                                        |
+| KGS  | Som                                                       |
+| MXN  | Mexican Peso                                              |
+| MZN  | Mozambique Metical                                        |
+| NIO  | Cordoba Oro                                               |
+| TTD  | Trinidad and Tobago Dollar                                |
+| BAM  | Convertible Mark                                          |
+| BDT  | Taka                                                      |
+| LAK  | Lao Kip                                                   |
+| MGA  | Malagasy Ariary                                           |
+| PKR  | Pakistan Rupee                                            |
+| PLN  | Zloty                                                     |
+| SSP  | South Sudanese Pound                                      |
+| GIP  | Gibraltar Pound                                           |
+| PYG  | Guarani                                                   |
+| XPD  | Palladium                                                 |
+| AUD  | Australian Dollar                                         |
+| BGN  | Bulgarian Lev                                             |
+| BIF  | Burundi Franc                                             |
+| CDF  | Congolese Franc                                           |
+| CNY  | Yuan Renminbi                                             |
+| DZD  | Algerian Dinar                                            |
+| IDR  | Rupiah                                                    |
+| INR  | Indian Rupee                                              |
+| AOA  | Kwanza                                                    |
+| IQD  | Iraqi Dinar                                               |
+| RON  | Romanian Leu                                              |
+| TOP  | Pa'anga                                                   |
+| TWD  | New Taiwan Dollar                                         |
+| TZS  | Tanzanian Shilling                                        |
+| XAF  | CFA Franc BEAC                                            |
+| XBD  | Bond Markets Unit European Unit of Account 17 (E.U.A.-17) |
+| DOP  | Dominican Peso                                            |
+| KRW  | Won                                                       |
+| SAR  | Saudi Riyal                                               |
+| VND  | Dong                                                      |
+| XSU  | Sucre                                                     |
+| AMD  | Armenian Dram                                             |
+| CLF  | Unidad de Fomento                                         |
+| TND  | Tunisian Dinar                                            |
+| GMD  | Dalasi                                                    |
+| MKD  | Denar                                                     |
+| NPR  | Nepalese Rupee                                            |
+| THB  | Baht                                                      |
+
+## Commodity types
+
+| Code | Name     |
+| ---- | -------- |
+| G    | Goods    |
+| S    | Services |
+| B    | Both     |
