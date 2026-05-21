@@ -258,7 +258,7 @@ metadata:
 
 ## Country Codes
 
-Use a country code when `company_id_scheme_agency_id` is PAS
+Use a country code when [Legal Registration Type](doc:party-attributes#legal-registration-types) is `PAS`
 
 * NN** — Norwegian Nynorsk: the second official written form of Norwegian
 * NB** — Norwegian Bokmål: the more common written form of Norwegian
