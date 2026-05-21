@@ -1,8 +1,8 @@
 ---
 title: Invoice attributes
 excerpt: >-
-  Peruse further details of attributes filled-in in `invoices` and
-  `/credit-notes` endpoints
+  Peruse further details of attributes filled-in in `invoices`, `/credit-notes`,
+  `self-billed-invoices` and `self-billed-credit-notes` endpoints
 deprecated: false
 hidden: true
 metadata:
