@@ -59,7 +59,7 @@ Peppol is an international network that allows businesses to exchange e-invoices
 
 ### PINT AE
 
-PINT AE are the e-invoicing specifications for the UAE. They are based on the Peppol network, but with some modifications to meet the specific requirements of the UAE. Learn more about PINT AE [on this guide page](https://ae.docs.digitax.tech/docs/getting-started-with-pint-ae#pint-ae).
+PINT AE are the e-invoicing specifications for the UAE. They are based on the Peppol network, but with some modifications to meet the specific requirements of the UAE. Learn more about PINT AE [on this guide page](doc:peppol-and-pint-ae#pint-ae-5-corner-model).
 
 ### DigiTax platform
 
