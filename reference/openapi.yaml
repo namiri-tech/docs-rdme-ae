@@ -1,0 +1,4123 @@
+openapi: 3.0.1
+info:
+  title: DigiTax UAE API
+  description: DigiTax UAE Public API — Peppol PINT-AE compliant e-invoicing
+  version: '3'
+  termsOfService: https://digitax.tech/page/terms
+  contact:
+    name: DigiTax
+    url: https://digitax.tech
+    email: support@namiri.tech
+  license:
+    name: Apache 2.0
+servers:
+  - url: https://staging.api.digitax.tech/ae/v1
+    description: API
+paths:
+  /resources/countries:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Countries
+      description: >-
+        Returns the list of supported countries based on the ISO 3166-1 alpha-2
+        code list used in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of countries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Country'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/currencies:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Currencies
+      description: Returns the list of supported currencies based on ISO 4217.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of currencies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/tax-categories:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Tax Categories
+      description: >-
+        Returns the list of VAT category codes applicable in the UAE under the
+        PINT-AE specification.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of tax category codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TaxCategory'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/invoice-types:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Invoice Types
+      description: >-
+        Returns the list of invoice type codes (UN/CEFACT UNCL1001 subset)
+        supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of invoice type codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InvoiceType'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/payment-means:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Payment Means
+      description: >-
+        Returns the list of payment means codes (UN/CEFACT UNCL4461) supported
+        in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of payment means codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/commodity-codes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Commodity Codes
+      description: Returns the list of item type/commodity codes supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of commodity codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/item-classification-lists:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Item Classification Lists
+      description: >-
+        Returns the valid item classification list identifiers
+        (BT-158-scheme-id) supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of item classification list codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/international-code-designator-schemes:
+    get:
+      tags:
+        - Resources
+      summary: Get the ISO 6523 International Code Designator Schemes
+      description: >-
+        Returns the list of international code designator schemes supported in
+        PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of international code designator scheme codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/tax-exemption-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Tax Exemption Reason Codes
+      description: Returns the list of VAT exemption reason codes applicable in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of tax exemption reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/credit-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Credit Note Reason Codes
+      description: >-
+        Returns the list of valid reason codes for credit notes as specified by
+        the UAE FTA.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of credit note reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/billing-frequencies:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Billing Frequency Codes
+      description: >-
+        Returns the list of billing frequency codes used in invoice periods
+        under PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of billing frequency codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/units-of-measure:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Units of Measure
+      description: >-
+        Returns the list of UN/ECE Recommendation 20 unit of measure codes
+        supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of unit of measure codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/allowance-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Allowance Reason Codes
+      description: >-
+        Returns the list of allowance reason codes (UN/CEFACT UNCL5189)
+        supported in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of allowance reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/charge-reasons:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Charge Reason Codes
+      description: >-
+        Returns the list of charge reason codes (UN/CEFACT UNCL7161) supported
+        in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of charge reason codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/goods-types:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Goods Types
+      description: >-
+        Returns the list of goods type codes for items subject to reverse charge
+        mechanism (RCM) in PINT-AE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of goods type codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/delivery-location-schemes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Delivery Location Schemes
+      description: Returns the list of delivery location schemes used in UAE e-invoices.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of delivery location schemes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/ae-country-subentities:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Country Subentities
+      description: Returns the list of country subentities in the UAE.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of AE country subentities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/legal-registration-types:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Legal Registration Types
+      description: >-
+        Returns the list of legal registration identifier types used to classify
+        a company identifier — e.g. Trade License, Emirates ID, Passport.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of legal registration type codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /info:
+    get:
+      tags:
+        - Business
+      summary: Get UAE business Info
+      description: Returns information about the business as registered on DigiTax.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: Branch info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Branch'
+        default:
+          $ref: '#/components/responses/Error'
+  /parties:
+    get:
+      tags:
+        - Parties
+      summary: Get UAE Parties
+      description: >-
+        Returns a paginated list of parties registered under the authenticated
+        business.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: List of parties
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Party'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Parties
+      summary: Create Party
+      description: Creates a new party for use in UAE e-invoices.
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - tax_registration_number
+                - registration_name
+                - company_id
+                - company_id_scheme_id
+                - company_id_scheme_agency_id
+                - address
+              properties:
+                tax_registration_number:
+                  type: string
+                  description: The UAE Tax Registration Number (TRN) of the party
+                  example: '100987654300003'
+                registration_name:
+                  type: string
+                  description: The full legal name of the party
+                  example: Global Imports FZE
+                company_id:
+                  type: string
+                  description: >-
+                    The party's company identifier (e.g. trade license number,
+                    Emirates ID)
+                  example: CN-1234567
+                company_id_scheme_id:
+                  type: string
+                  description: >-
+                    The ISO 6523 International Code Designator (ICD) identifying
+                    the company ID scheme. Must be a valid ICD 6523 code (e.g.
+                    `0235` for the UAE FTA scheme). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0235'
+                company_id_scheme_agency_id:
+                  type: string
+                  description: >-
+                    The registration type of the company identifier. One of:
+                    `TL` (Commercial/Trade license), `CL` (Commercial license),
+                    `EID` (Emirates ID), `PAS` (Passport), `CD` (Cabinet
+                    decision). See `GET /resources/legal-registration-types` for
+                    available values.
+                  enum:
+                    - TL
+                    - CL
+                    - EID
+                    - PAS
+                    - CD
+                  example: TL
+                company_id_scheme_agency_name:
+                  type: string
+                  description: >-
+                    The issuing authority name for the company identifier.
+                    Required when `company_id_scheme_agency_id` is `TL` (e.g.
+                    "Department of Economic Development"). When
+                    `company_id_scheme_agency_id` is `PAS`, must be a valid ISO
+                    3166-1 alpha-2 country code identifying the passport-issuing
+                    country.
+                  example: Department of Economic Development
+                address:
+                  $ref: '#/components/schemas/Address'
+                contact_name:
+                  type: string
+                  description: The name of the contact person
+                  example: Sara Mohammed
+                contact_phone:
+                  type: string
+                  description: The contact phone number
+                  example: '+971509876543'
+                contact_email:
+                  type: string
+                  format: email
+                  description: The contact email address
+                  example: sara@global-imports.ae
+                peppol_id:
+                  type: string
+                  description: The party's Peppol participant identifier
+                  example: '1234567890123'
+                peppol_id_scheme_id:
+                  type: string
+                  description: >-
+                    The scheme identifier for the Peppol participant ID (e.g.
+                    `0088` for GLN). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0088'
+      responses:
+        '201':
+          description: Created party
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Party'
+        default:
+          $ref: '#/components/responses/Error'
+  /parties/{party_id}:
+    get:
+      tags:
+        - Parties
+      summary: Get a business party
+      description: Retrieves information about a party given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: party_id
+          required: true
+          schema:
+            type: string
+            example: party_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Party'
+        default:
+          $ref: '#/components/responses/Error'
+    put:
+      tags:
+        - Parties
+      summary: Update a business party
+      description: Updates party information given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: party_id
+          required: true
+          schema:
+            type: string
+            description: Party ID on DigiTax
+            example: party_01HC3J1VVVM05YCTS61G7V3KC6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                registration_name:
+                  type: string
+                  description: The updated full legal name of the party
+                  example: Global Imports FZE (Updated)
+                company_id:
+                  type: string
+                  description: The updated company identifier
+                  example: CN-9876543
+                company_id_scheme_id:
+                  type: string
+                  description: >-
+                    The updated ISO 6523 ICD code identifying the company ID
+                    scheme. See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0235'
+                company_id_scheme_agency_id:
+                  type: string
+                  description: >-
+                    The updated registration type. One of: `TL`, `CL`, `EID`,
+                    `PAS`, `CD`. See `GET /resources/legal-registration-types`
+                    for available values.
+                  enum:
+                    - TL
+                    - CL
+                    - EID
+                    - PAS
+                    - CD
+                  example: TL
+                company_id_scheme_agency_name:
+                  type: string
+                  description: >-
+                    The updated issuing authority name (required for TL; ISO
+                    country code for PAS)
+                  example: Department of Economic Development
+                address:
+                  $ref: '#/components/schemas/Address'
+                contact_name:
+                  type: string
+                  description: The updated contact person name
+                  example: Sara Ahmed
+                contact_phone:
+                  type: string
+                  description: The updated contact phone number in E.164 format
+                  example: '+971501112222'
+                contact_email:
+                  type: string
+                  format: email
+                  description: The updated contact email address
+                  example: sara.ahmed@global-imports.ae
+      responses:
+        '200':
+          description: Party updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Party'
+        default:
+          $ref: '#/components/responses/Error'
+  /items:
+    get:
+      tags:
+        - Items
+      summary: Get UAE Items
+      description: Returns a paginated list of business items
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A list of items
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Items
+      summary: Create Item
+      description: Creates a new item that can be referenced in UAE e-invoices.
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - description
+                - commodity_code
+                - tax_category_code
+              properties:
+                name:
+                  type: string
+                  description: The name of the item
+                  example: Industrial Pump Model X-500
+                description:
+                  type: string
+                  description: A description of the item
+                  example: High-pressure centrifugal pump for industrial fluid transfer
+                commodity_code:
+                  type: string
+                  description: >-
+                    The commodity type code (G for goods, S for services, B for
+                    both). See `GET /resources/commodity-codes` for available
+                    values.
+                  example: G
+                hs_code:
+                  type: string
+                  description: >-
+                    The Harmonized System (HS) code for the item. Required when
+                    commodity_code is G (goods) or B (both goods and services)
+                  example: '84137000'
+                service_accounting_code:
+                  type: string
+                  description: >-
+                    The Service Accounting Code for the item. Required when
+                    commodity_code is S (services) or B (both goods and
+                    services)
+                  example: SAC-0001
+                tax_category_code:
+                  type: string
+                  description: >-
+                    The VAT category code for this item. See `GET
+                    /resources/tax-categories` for available values.
+                  example: S
+                item_code:
+                  type: string
+                  description: >-
+                    A unique code assigned to the item in the user's system. It
+                    will be used as the unique product identifier
+                  example: PUMP-X500-BLK
+                standard_item_id:
+                  type: string
+                  description: A standardised item identifier
+                  example: '09501101530003'
+                standard_item_scheme:
+                  type: string
+                  description: >-
+                    The scheme for the standard item identifier. See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0160'
+                origin_country_code:
+                  type: string
+                  description: >-
+                    The ISO 3166-1 alpha-2 code of the item's country of origin.
+                    See `GET /resources/countries` for available values.
+                  example: DE
+                item_properties:
+                  type: array
+                  description: Additional item attributes
+                  items:
+                    $ref: '#/components/schemas/ItemProperty'
+      responses:
+        '201':
+          description: Item created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        default:
+          $ref: '#/components/responses/Error'
+  /items/{item_id}:
+    get:
+      tags:
+        - Items
+      summary: Get a business item
+      description: Retrieves information about an item given its ID on DigiTax.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: item_id
+          required: true
+          schema:
+            type: string
+            description: Item ID on DigiTax
+            example: item_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        default:
+          $ref: '#/components/responses/Error'
+  /invoices:
+    get:
+      tags:
+        - Invoices
+      summary: Get UAE Invoices
+      description: Returns a paginated list of all invoices created by the business
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A list of invoices
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Invoices
+      summary: Create Invoice
+      description: >-
+        Creates a new PINT-AE compliant e-invoice and submits it to the Peppol
+        network.
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - invoice_type_code
+                - issue_date
+                - document_currency_code
+                - customer_party_id
+                - items
+                - payments
+              properties:
+                trader_invoice_number:
+                  type: string
+                  description: >-
+                    An invoice number assigned by the supplier to uniquely
+                    identify the invoice in their system
+                  example: ACME-INV-2024-0042
+                transaction_types:
+                  type: array
+                  description: The list of applicable PINT-AE transaction types
+                  items:
+                    type: string
+                    enum:
+                      - FREE_TRADE_ZONE
+                      - DEEMED_SUPPLY
+                      - PROFIT_MARGIN_SCHEME
+                      - SUMMARY_INVOICE
+                      - CONTINUOUS_SUPPLY
+                      - AGENT_BILLING
+                      - SUPPLY_THROUGH_ECOMMERCE
+                      - EXPORTS
+                  example:
+                    - FREE_TRADE_ZONE
+                    - CONTINUOUS_SUPPLY
+                invoice_type_code:
+                  type: string
+                  description: >-
+                    The UN/CEFACT document type code. See `GET
+                    /resources/invoice-types` for available values.
+                  example: '380'
+                issue_date:
+                  type: string
+                  format: date
+                  description: >-
+                    The date on which the invoice was issued (YYYY-MM-DD). Must
+                    not be in the future and must not be more than 30 days in
+                    the past.
+                  example: '2026-05-06'
+                issue_time:
+                  type: string
+                  description: The invoice issue time (HH:MM:SS)
+                  example: '10:00:00'
+                due_date:
+                  type: string
+                  format: date
+                  description: The payment due date (YYYY-MM-DD)
+                  example: '2026-06-05'
+                document_currency_code:
+                  type: string
+                  description: >-
+                    A code that specifies the currency in which the invoice is
+                    issued. See `GET /resources/currencies` for available
+                    values.
+                  example: USD
+                tax_currency_exchange_rate:
+                  type: number
+                  format: double
+                  description: >-
+                    The exchange rate between document and tax currencies.
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
+                  example: 3.67
+                customer_party_id:
+                  type: string
+                  description: The DigiTax party ID of the buyer
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                payee_party_id:
+                  type: string
+                  description: >-
+                    The DigiTax party ID of the payee if different from the
+                    buyer
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                tax_representative_party_id:
+                  type: string
+                  description: The DigiTax party ID of the seller's tax representative
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                tax_point_date:
+                  type: string
+                  format: date
+                  description: >-
+                    The VAT point date (YYYY-MM-DD). Must be strictly before the
+                    issue_date.
+                  example: '2026-05-05'
+                buyer_reference:
+                  type: string
+                  description: >-
+                    An identifier assigned by the Buyer used for internal
+                    routing purposes.
+                  example: BR-2026-00789
+                accounting_cost:
+                  type: string
+                  description: >-
+                    A textual value that specifies where to book the relevant
+                    data into the Buyer's financial accounts
+                  example: CAPEX-2024-Q4
+                project_reference:
+                  type: string
+                  description: A project reference
+                  example: PROJ-JEBEL-2024
+                note:
+                  type: string
+                  description: A free-text note on the invoice
+                  example: General invoice details
+                invoice_period:
+                  $ref: '#/components/schemas/InvoicePeriod'
+                order_reference:
+                  $ref: '#/components/schemas/OrderReference'
+                billing_reference:
+                  type: array
+                  description: References to preceding invoices
+                  items:
+                    $ref: '#/components/schemas/DocumentReference'
+                despatch_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                receipt_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                originator_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                contract_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                additional_documents:
+                  type: array
+                  description: Additional supporting document references
+                  items:
+                    $ref: '#/components/schemas/DocumentReference'
+                delivery:
+                  $ref: '#/components/schemas/InvoiceDelivery'
+                payment_terms_note:
+                  type: string
+                  description: Textual payment terms
+                  example: Next 30 days
+                allowance_charges:
+                  type: array
+                  description: Invoice-level allowances and charges
+                  items:
+                    $ref: '#/components/schemas/InvoiceAllowanceCharge'
+                payments:
+                  type: array
+                  description: Payment details for this invoice
+                  items:
+                    $ref: '#/components/schemas/CreateInvoicePaymentRequest'
+                items:
+                  type: array
+                  description: The invoice line items
+                  items:
+                    $ref: '#/components/schemas/CreateInvoiceItemRequest'
+                prepaid_amount:
+                  type: number
+                  format: double
+                  description: >-
+                    The amount already paid, to be deducted from the payable
+                    amount
+                  example: 0
+                payable_rounding_amount:
+                  type: number
+                  format: double
+                  description: The rounding amount
+                  example: 0
+                beneficiary_trn:
+                  type: string
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
+                  example: '123456789098703'
+                principle_trn:
+                  type: string
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
+                  example: '123456789098703'
+            examples:
+              commercial_invoice:
+                description: >-
+                  Invoice for a supply outside the scope of UAE VAT (type 480);
+                  no VAT collected
+                summary: Commercial Invoice (Out of Scope)
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '480'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 850
+                      quantity: 5
+                      tax_category_code: O
+                      tax_rate: 0
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0002
+              ecommerce:
+                description: >-
+                  B2C sale via online platform; delivery address with
+                  subdivision required; Incoterms required
+                summary: E-Commerce Supply
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  delivery:
+                    delivery_address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: AE-DU
+                      street_name: Sheikh Zayed Road
+                    delivery_terms_id: DAP
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 150
+                      quantity: 3
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0008
+                  transaction_types:
+                    - SUPPLY_THROUGH_ECOMMERCE
+              exports:
+                description: >-
+                  Goods exported to Saudi Arabia — zero-rated under UAE VAT
+                  Article 45(1)(a); EXPORTS transaction type
+                summary: Export Invoice
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  delivery:
+                    delivery_address:
+                      city_name: Riyadh
+                      country_code: SA
+                      street_name: King Fahd Road
+                    delivery_terms_id: DAP
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 1200
+                      quantity: 10
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0001
+                  transaction_types:
+                    - EXPORTS
+              free_trade_zone:
+                description: >-
+                  Supply of goods to a buyer in a UAE Free Trade Zone;
+                  beneficiary TRN required; zero-rated
+                summary: Free Trade Zone Supply
+                value:
+                  beneficiary_trn: '123456789098703'
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 3500
+                      quantity: 2
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0007
+                  transaction_types:
+                    - FREE_TRADE_ZONE
+              margin_scheme:
+                description: >-
+                  Second-hand goods sold under profit margin scheme — VAT
+                  applies only to the margin; category N
+                summary: Profit Margin Scheme Invoice
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 2500
+                      quantity: 1
+                      tax_category_code: 'N'
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 1800
+                      quantity: 1
+                      tax_category_code: 'N'
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0003
+                  transaction_types:
+                    - PROFIT_MARGIN_SCHEME
+              multiple_tax_categories:
+                description: >-
+                  Invoice spanning S (standard 5%), Z (zero-rated), E (exempt —
+                  financial services), and AE (reverse charge) categories across
+                  four line items
+                summary: Multiple Tax Categories
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 1000
+                      quantity: 5
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 800
+                      quantity: 3
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS3
+                      price_amount: 600
+                      quantity: 2
+                      tax_category_code: E
+                      tax_exemption_reason: Certain financial services
+                      tax_exemption_reason_code: DL8.46.1
+                      tax_rate: 0
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS4
+                      item_nature_code: DL8.48.8.1
+                      price_amount: 1500
+                      quantity: 4
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0011
+              reverse_charge:
+                description: >-
+                  Imported services — VAT liability transferred to buyer under
+                  UAE Article 48; buyer self-accounts at 5%
+                summary: Reverse Charge
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      item_nature_code: DL8.48.8.1
+                      price_amount: 2000
+                      quantity: 5
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  note: >-
+                    Reverse charge — buyer self-accounts for VAT under UAE
+                    Article 48
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0009
+              standard_invoice_minimal:
+                description: >-
+                  Minimal valid tax invoice containing only mandatory fields;
+                  useful as a starting point for integration
+                summary: Standard Invoice — Mandatory Fields Only
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 500
+                      quantity: 1
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0004
+              standard_tax_invoice:
+                description: >-
+                  Full-featured B2B VAT invoice with order reference, contract
+                  reference, document-level allowance, and multiple line items
+                summary: Standard Tax Invoice
+                value:
+                  allowance_charges:
+                    - amount: 250
+                      base_amount: 5000
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Trade discount
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  contract_document_reference:
+                    id: CTR-2026-00042
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_period:
+                    end_date: '2026-05-31'
+                    start_date: '2026-05-01'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 300
+                      quantity: 10
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: HUR
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 200
+                      quantity: 10
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: HUR
+                  order_reference:
+                    purchase_order_id: PO-2026-00123
+                    sales_order_id: SO-2026-00456
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0005
+              summary_tax_invoice:
+                description: >-
+                  Monthly summary invoice for recurring supplies to the same
+                  customer in the same calendar month
+                summary: Summary Tax Invoice
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_period:
+                    billing_frequency_code: MTH
+                    end_date: '2026-05-31'
+                    start_date: '2026-05-01'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 450
+                      quantity: 8
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: HUR
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 350
+                      quantity: 6
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: HUR
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0006
+                  transaction_types:
+                    - SUMMARY_INVOICE
+              zero_rated:
+                description: >-
+                  International transport service zero-rated under UAE VAT
+                  Article 45
+                summary: Zero-Rated Supply
+                value:
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '380'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 4500
+                      quantity: 1
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-INV-2026-0010
+      responses:
+        '201':
+          description: Invoice created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /invoices/{invoice_id}:
+    get:
+      tags:
+        - Invoices
+      summary: Get a business invoice
+      description: Retrieves information about an invoice given its ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+            description: Invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /credit-notes:
+    get:
+      tags:
+        - Credit Notes
+      summary: Get UAE Credit Notes
+      description: Returns a paginated list of all credit notes created by the business
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A list of credit notes
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Credit Notes
+      summary: Create Credit Note
+      description: Creates a new PINT-AE compliant credit note
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - credit_note_reason_code
+                - credit_note_reason
+                - issue_date
+                - document_currency_code
+                - customer_party_id
+                - invoice_type_code
+                - items
+              properties:
+                trader_invoice_number:
+                  type: string
+                  description: >-
+                    An invoice number assigned by the supplier to uniquely
+                    identify the invoice in their system
+                  example: ACME-CN-2024-0003
+                credit_note_reason_code:
+                  type: string
+                  description: >-
+                    The coded reason for the credit note. See `GET
+                    /resources/credit-reasons` for available values.
+                  example: DL8.61.1.A
+                credit_note_reason:
+                  type: string
+                  description: The textual reason for the credit note
+                  example: Supply was cancelled
+                original_invoice_id:
+                  type: string
+                  description: >-
+                    The DigiTax ID of the original invoice this credit note
+                    relates to
+                  example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                invoice_type_code:
+                  type: string
+                  description: >-
+                    The UN/CEFACT document type code. If the credit note
+                    references an original invoice, the value should correspond
+                    to the original invoice type code (e.g. "381" for a standard
+                    credit note referencing a "380" invoice). See `GET
+                    /resources/invoice-types` for available values.
+                  example: '381'
+                issue_date:
+                  type: string
+                  format: date
+                  description: >-
+                    The date on which the credit note was issued (YYYY-MM-DD).
+                    Must not be in the future and must not be more than 30 days
+                    in the past.
+                  example: '2026-05-06'
+                issue_time:
+                  type: string
+                  description: The credit note issue time (HH:MM:SS)
+                  example: '09:00:00'
+                due_date:
+                  type: string
+                  format: date
+                  description: The payment due date (YYYY-MM-DD)
+                  example: '2026-06-05'
+                document_currency_code:
+                  type: string
+                  description: >-
+                    The currency code (ISO 4217). See `GET
+                    /resources/currencies` for available values.
+                  example: AED
+                tax_currency_exchange_rate:
+                  type: number
+                  format: double
+                  description: >-
+                    The exchange rate between document and tax currencies.
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
+                  example: 1
+                customer_party_id:
+                  type: string
+                  description: The DigiTax party ID of the buyer
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                payee_party_id:
+                  type: string
+                  description: The DigiTax party ID of the payee (if different from buyer)
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                tax_representative_party_id:
+                  type: string
+                  description: The DigiTax party ID of the seller's tax representative
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                buyer_reference:
+                  type: string
+                  description: >-
+                    An identifier assigned by the Buyer used for internal
+                    routing purposes
+                  example: BR-2024-00789
+                accounting_cost:
+                  type: string
+                  description: >-
+                    A textual value that specifies where to book the relevant
+                    data into the Buyer's financial accounts
+                  example: CAPEX-2024-Q4
+                note:
+                  type: string
+                  description: A free-text note on the credit note
+                  example: Credit for cancelled order
+                invoice_period:
+                  $ref: '#/components/schemas/InvoicePeriod'
+                order_reference:
+                  $ref: '#/components/schemas/OrderReference'
+                despatch_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                receipt_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                originator_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                contract_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                additional_documents:
+                  type: array
+                  description: Additional supporting document references
+                  items:
+                    $ref: '#/components/schemas/DocumentReference'
+                delivery:
+                  $ref: '#/components/schemas/InvoiceDelivery'
+                payment_terms_note:
+                  type: string
+                  description: Textual payment terms
+                  example: Next 30 days
+                allowance_charges:
+                  type: array
+                  description: Invoice-level allowances and charges
+                  items:
+                    $ref: '#/components/schemas/InvoiceAllowanceCharge'
+                payments:
+                  type: array
+                  description: Payment means for this credit note
+                  items:
+                    $ref: '#/components/schemas/CreateInvoicePaymentRequest'
+                items:
+                  type: array
+                  description: The credit note line items
+                  items:
+                    $ref: '#/components/schemas/CreateInvoiceItemRequest'
+                prepaid_amount:
+                  type: number
+                  format: double
+                  description: The amount already paid
+                  example: 0
+                payable_rounding_amount:
+                  type: number
+                  format: double
+                  description: The rounding amount
+                  example: 0
+                transaction_types:
+                  type: array
+                  description: The list of applicable PINT-AE transaction types
+                  items:
+                    type: string
+                    enum:
+                      - FREE_TRADE_ZONE
+                      - DEEMED_SUPPLY
+                      - PROFIT_MARGIN_SCHEME
+                      - SUMMARY_INVOICE
+                      - CONTINUOUS_SUPPLY
+                      - AGENT_BILLING
+                      - SUPPLY_THROUGH_ECOMMERCE
+                      - EXPORTS
+                  example:
+                    - EXPORTS
+                    - CONTINUOUS_SUPPLY
+                beneficiary_trn:
+                  type: string
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
+                  example: '123456789098703'
+                principle_trn:
+                  type: string
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
+                  example: '123456789098703'
+            examples:
+              disclosed_agent_billing:
+                description: >-
+                  Credit note issued by an agent on behalf of a principal under
+                  disclosed agent billing; principle_trn is required and must
+                  differ from the issuing branch's TRN
+                summary: Disclosed Agent Billing Credit Note
+                value:
+                  credit_note_reason: Supply was cancelled — disclosed agent billing arrangement
+                  credit_note_reason_code: DL8.61.1.A
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '381'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 1500
+                      quantity: 2
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 800
+                      quantity: 1
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  note: >-
+                    Disclosed agent billing — credit note issued by agent on
+                    behalf of principal
+                  original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  principle_trn: '100567891234560'
+                  trader_invoice_number: ACME-CN-2026-0001
+                  transaction_types:
+                    - AGENT_BILLING
+              standard_credit_note_minimal:
+                description: >-
+                  Minimal valid credit note containing only mandatory fields;
+                  useful as a starting point for integration
+                summary: Standard Credit Note — Mandatory Fields Only
+                value:
+                  credit_note_reason: Supply was cancelled
+                  credit_note_reason_code: DL8.61.1.A
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '381'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 500
+                      quantity: 1
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-CN-2026-0003
+              standard_tax_credit_note:
+                description: >-
+                  Full-featured credit note reversing a standard-rated B2B
+                  supply; includes order reference, contract reference, and a
+                  document-level allowance
+                summary: Standard Tax Credit Note
+                value:
+                  allowance_charges:
+                    - amount: 150
+                      base_amount: 3000
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Restocking fee waived
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  contract_document_reference:
+                    id: CTR-2026-00042
+                  credit_note_reason: Goods returned by customer in full
+                  credit_note_reason_code: DL8.61.1.D
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '381'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 1200
+                      quantity: 5
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 600
+                      quantity: 3
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  order_reference:
+                    purchase_order_id: PO-2026-00123
+                    sales_order_id: SO-2026-00456
+                  original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  trader_invoice_number: ACME-CN-2026-0002
+      responses:
+        '201':
+          description: Created credit note
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /credit-notes/{credit_note_id}:
+    get:
+      tags:
+        - Credit Notes
+      summary: Get a business credit note
+      description: Retrieves information about a credit note given its ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: credit_note_id
+          required: true
+          schema:
+            type: string
+            description: Credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /suppliers:
+    get:
+      tags:
+        - Suppliers
+      summary: Get UAE Suppliers
+      description: >-
+        Returns a paginated list of suppliers registered under the authenticated
+        business.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A list of suppliers
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Supplier'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Suppliers
+      summary: Create Supplier
+      description: Creates a new supplier for use in UAE self-billed e-invoices.
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - tax_registration_number
+                - registration_name
+                - company_id
+                - company_id_scheme_id
+                - company_id_scheme_agency_id
+                - address
+              properties:
+                tax_registration_number:
+                  type: string
+                  description: The UAE Tax Registration Number (TRN) of the supplier
+                  example: '100987654300003'
+                registration_name:
+                  type: string
+                  description: The full legal name of the supplier
+                  example: Global Imports FZE
+                company_id:
+                  type: string
+                  description: >-
+                    The supplier's company identifier (e.g. trade license
+                    number, Emirates ID)
+                  example: CN-1234567
+                company_id_scheme_id:
+                  type: string
+                  description: >-
+                    The ISO 6523 International Code Designator (ICD) identifying
+                    the company ID scheme. Must be a valid ICD 6523 code (e.g.
+                    `0235` for the UAE FTA scheme). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0235'
+                company_id_scheme_agency_id:
+                  type: string
+                  description: >-
+                    The registration type of the company identifier. One of:
+                    `TL` (Commercial/Trade license), `CL` (Commercial license),
+                    `EID` (Emirates ID), `PAS` (Passport), `CD` (Cabinet
+                    decision). See `GET /resources/legal-registration-types` for
+                    available values.
+                  enum:
+                    - TL
+                    - CL
+                    - EID
+                    - PAS
+                    - CD
+                  example: TL
+                company_id_scheme_agency_name:
+                  type: string
+                  description: >-
+                    The issuing authority name for the company identifier.
+                    Required when `company_id_scheme_agency_id` is `TL` (e.g.
+                    "Department of Economic Development"). When
+                    `company_id_scheme_agency_id` is `PAS`, must be a valid ISO
+                    3166-1 alpha-2 country code identifying the passport-issuing
+                    country.
+                  example: Department of Economic Development
+                address:
+                  $ref: '#/components/schemas/Address'
+                contact_name:
+                  type: string
+                  description: The name of the contact person
+                  example: Sara Mohammed
+                contact_phone:
+                  type: string
+                  description: The contact phone number
+                  example: '+971509876543'
+                contact_email:
+                  type: string
+                  format: email
+                  description: The contact email address
+                  example: sara@global-imports.ae
+                peppol_id:
+                  type: string
+                  description: The supplier's Peppol participant identifier
+                  example: '1234567890123'
+                peppol_id_scheme_id:
+                  type: string
+                  description: >-
+                    The scheme identifier for the Peppol participant ID (e.g.
+                    `0088` for GLN). See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0088'
+      responses:
+        '201':
+          description: Created supplier
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        default:
+          $ref: '#/components/responses/Error'
+  /suppliers/{supplier_id}:
+    get:
+      tags:
+        - Suppliers
+      summary: Get a business supplier
+      description: Retrieves information about a supplier given their ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: supplier_id
+          required: true
+          schema:
+            type: string
+            description: Supplier ID on DigiTax
+            example: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Supplier'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-invoices:
+    get:
+      tags:
+        - Self-Billed Invoices
+      summary: Get UAE Self-Billed Invoices
+      description: >-
+        Returns a paginated list of all self-billed invoices created by the
+        business
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A list of self-billed invoices
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Self-Billed Invoices
+      summary: Create Self-Billed Invoice
+      description: >-
+        Creates a new PINT-AE compliant self-billed e-invoice and submits it to
+        the Peppol network.
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - invoice_type_code
+                - issue_date
+                - document_currency_code
+                - supplier_id
+                - items
+                - payments
+              properties:
+                trader_invoice_number:
+                  type: string
+                  description: >-
+                    An invoice number assigned by the buyer to uniquely identify
+                    the self-billed invoice in their system
+                  example: ACME-SBI-2024-0042
+                transaction_types:
+                  type: array
+                  description: The list of applicable PINT-AE transaction types
+                  items:
+                    type: string
+                    enum:
+                      - FREE_TRADE_ZONE
+                      - DEEMED_SUPPLY
+                      - PROFIT_MARGIN_SCHEME
+                      - SUMMARY_INVOICE
+                      - CONTINUOUS_SUPPLY
+                      - AGENT_BILLING
+                      - SUPPLY_THROUGH_ECOMMERCE
+                      - EXPORTS
+                  example:
+                    - CONTINUOUS_SUPPLY
+                invoice_type_code:
+                  type: string
+                  description: >-
+                    The UN/CEFACT document type code. See `GET
+                    /resources/invoice-types` for available values.
+                  example: '389'
+                issue_date:
+                  type: string
+                  format: date
+                  description: >-
+                    The date on which the self-billed invoice was issued
+                    (YYYY-MM-DD). Must not be in the future and must not be more
+                    than 30 days in the past.
+                  example: '2026-05-06'
+                issue_time:
+                  type: string
+                  description: The invoice issue time (HH:MM:SS)
+                  example: '10:00:00'
+                due_date:
+                  type: string
+                  format: date
+                  description: The payment due date (YYYY-MM-DD)
+                  example: '2026-06-05'
+                document_currency_code:
+                  type: string
+                  description: >-
+                    A code that specifies the currency in which the invoice is
+                    issued. See `GET /resources/currencies` for available
+                    values.
+                  example: AED
+                tax_currency_exchange_rate:
+                  type: number
+                  format: double
+                  description: >-
+                    The exchange rate between document and tax currencies.
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
+                  example: 1
+                supplier_id:
+                  type: string
+                  description: >-
+                    The DigiTax supplier ID of the supplier from whom the buyer
+                    is self-billing
+                  example: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+                payee_party_id:
+                  type: string
+                  description: >-
+                    The DigiTax party ID of the payee if different from the
+                    supplier
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                tax_representative_party_id:
+                  type: string
+                  description: The DigiTax party ID of the seller's tax representative
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                tax_point_date:
+                  type: string
+                  format: date
+                  description: >-
+                    The VAT point date (YYYY-MM-DD). Must be strictly before the
+                    issue_date.
+                  example: '2026-05-05'
+                buyer_reference:
+                  type: string
+                  description: >-
+                    An identifier assigned by the buyer used for internal
+                    routing purposes
+                  example: BR-2026-00789
+                accounting_cost:
+                  type: string
+                  description: >-
+                    A textual value that specifies where to book the relevant
+                    data into the buyer's financial accounts
+                  example: CAPEX-2024-Q4
+                project_reference:
+                  type: string
+                  description: A project reference
+                  example: PROJ-JEBEL-2024
+                note:
+                  type: string
+                  description: A free-text note on the self-billed invoice
+                  example: Self-billed invoice details
+                invoice_period:
+                  $ref: '#/components/schemas/InvoicePeriod'
+                order_reference:
+                  $ref: '#/components/schemas/OrderReference'
+                billing_reference:
+                  type: array
+                  description: References to preceding invoices
+                  items:
+                    $ref: '#/components/schemas/DocumentReference'
+                despatch_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                receipt_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                originator_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                contract_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                additional_documents:
+                  type: array
+                  description: Additional supporting document references
+                  items:
+                    $ref: '#/components/schemas/DocumentReference'
+                delivery:
+                  $ref: '#/components/schemas/InvoiceDelivery'
+                payment_terms_note:
+                  type: string
+                  description: Textual payment terms
+                  example: Next 30 days
+                allowance_charges:
+                  type: array
+                  description: Invoice-level allowances and charges
+                  items:
+                    $ref: '#/components/schemas/InvoiceAllowanceCharge'
+                payments:
+                  type: array
+                  description: Payment details for this self-billed invoice
+                  items:
+                    $ref: '#/components/schemas/CreateInvoicePaymentRequest'
+                items:
+                  type: array
+                  description: The self-billed invoice line items
+                  items:
+                    $ref: '#/components/schemas/CreateInvoiceItemRequest'
+                prepaid_amount:
+                  type: number
+                  format: double
+                  description: >-
+                    The amount already paid, to be deducted from the payable
+                    amount
+                  example: 0
+                payable_rounding_amount:
+                  type: number
+                  format: double
+                  description: The rounding amount
+                  example: 0
+                beneficiary_trn:
+                  type: string
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
+                  example: '123456789098703'
+                principle_trn:
+                  type: string
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
+                  example: '123456789098703'
+            examples:
+              standard_self_billed_invoice:
+                description: >-
+                  Full-featured self-billed invoice (type 389) issued by the
+                  buyer; includes order reference, contract reference, and a
+                  document-level allowance
+                summary: Standard Self-Billed Invoice
+                value:
+                  allowance_charges:
+                    - amount: 200
+                      base_amount: 4000
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Trade discount
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  contract_document_reference:
+                    id: CTR-2026-00042
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '389'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 800
+                      quantity: 5
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 400
+                      quantity: 10
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: HUR
+                  order_reference:
+                    purchase_order_id: PO-2026-00123
+                    sales_order_id: SO-2026-00456
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  supplier_id: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+                  trader_invoice_number: ACME-SBI-2026-0001
+              standard_self_billed_invoice_minimal:
+                description: >-
+                  Minimal valid self-billed invoice containing only the required
+                  fields; useful as a starting point for integration
+                summary: Standard Self-Billed Invoice — Mandatory Fields Only
+                value:
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '389'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 500
+                      quantity: 1
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  supplier_id: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+                  trader_invoice_number: ACME-SBI-2026-0002
+      responses:
+        '201':
+          description: Self-billed invoice created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-invoices/{invoice_id}:
+    get:
+      tags:
+        - Self-Billed Invoices
+      summary: Get a self-billed invoice
+      description: >-
+        Retrieves information about a self-billed invoice given its ID on
+        DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+            description: Self-billed invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-credit-notes:
+    get:
+      tags:
+        - Self-Billed Credit Notes
+      summary: Get UAE Self-Billed Credit Notes
+      description: >-
+        Returns a paginated list of all self-billed credit notes created by the
+        business
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - $ref: '#/components/parameters/Before'
+        - $ref: '#/components/parameters/After'
+        - $ref: '#/components/parameters/PageSize'
+      responses:
+        '200':
+          description: A list of self-billed credit notes
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                  - cursor
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Invoice'
+                  cursor:
+                    $ref: '#/components/schemas/Pagination'
+        default:
+          $ref: '#/components/responses/Error'
+    post:
+      tags:
+        - Self-Billed Credit Notes
+      summary: Create Self-Billed Credit Note
+      description: Creates a new PINT-AE compliant self-billed credit note
+      security:
+        - apiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - credit_note_reason_code
+                - credit_note_reason
+                - issue_date
+                - document_currency_code
+                - supplier_id
+                - invoice_type_code
+                - items
+              properties:
+                trader_invoice_number:
+                  type: string
+                  description: >-
+                    An invoice number assigned by the buyer to uniquely identify
+                    the self-billed credit note in their system
+                  example: ACME-SBCN-2024-0003
+                credit_note_reason_code:
+                  type: string
+                  description: >-
+                    The coded reason for the self-billed credit note. See `GET
+                    /resources/credit-reasons` for available values.
+                  example: DL8.61.1.A
+                credit_note_reason:
+                  type: string
+                  description: The textual reason for the self-billed credit note
+                  example: Supply was cancelled
+                original_invoice_id:
+                  type: string
+                  description: >-
+                    The DigiTax ID of the original self-billed invoice this
+                    credit note relates to
+                  example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                invoice_type_code:
+                  type: string
+                  description: >-
+                    The UN/CEFACT document type code. If the credit note
+                    references an original invoice, the value should correspond
+                    to the original invoice type code (e.g. "261" for a self
+                    billed credit note referencing a "389" self billed invoice).
+                    See `GET /resources/invoice-types` for available values.
+                  example: '261'
+                issue_date:
+                  type: string
+                  format: date
+                  description: >-
+                    The date on which the self-billed credit note was issued
+                    (YYYY-MM-DD). Must not be in the future and must not be more
+                    than 30 days in the past.
+                  example: '2026-05-06'
+                issue_time:
+                  type: string
+                  description: The credit note issue time (HH:MM:SS)
+                  example: '09:00:00'
+                due_date:
+                  type: string
+                  format: date
+                  description: The payment due date (YYYY-MM-DD)
+                  example: '2026-06-05'
+                document_currency_code:
+                  type: string
+                  description: >-
+                    The currency code (ISO 4217). See `GET
+                    /resources/currencies` for available values.
+                  example: AED
+                tax_currency_exchange_rate:
+                  type: number
+                  format: double
+                  description: >-
+                    The exchange rate between document and tax currencies.
+                    Required and must be > 0 when `document_currency_code` is
+                    not `AED`. When `document_currency_code` is `AED`, must be
+                    `1` or omitted. Maximum 6 decimal places.
+                  example: 1
+                supplier_id:
+                  type: string
+                  description: >-
+                    The DigiTax supplier ID of the supplier from whom the buyer
+                    is self-billing
+                  example: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+                payee_party_id:
+                  type: string
+                  description: >-
+                    The DigiTax party ID of the payee (if different from
+                    supplier)
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                tax_representative_party_id:
+                  type: string
+                  description: The DigiTax party ID of the seller's tax representative
+                  example: party_01HC3J1VVVM05YCTS61G7V3KC6
+                buyer_reference:
+                  type: string
+                  description: >-
+                    An identifier assigned by the buyer used for internal
+                    routing purposes
+                  example: BR-2024-00789
+                accounting_cost:
+                  type: string
+                  description: >-
+                    A textual value that specifies where to book the relevant
+                    data into the buyer's financial accounts
+                  example: CAPEX-2024-Q4
+                note:
+                  type: string
+                  description: A free-text note on the self-billed credit note
+                  example: Credit for cancelled self-billed order
+                invoice_period:
+                  $ref: '#/components/schemas/InvoicePeriod'
+                order_reference:
+                  $ref: '#/components/schemas/OrderReference'
+                despatch_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                receipt_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                originator_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                contract_document_reference:
+                  $ref: '#/components/schemas/DocumentReference'
+                additional_documents:
+                  type: array
+                  description: Additional supporting document references
+                  items:
+                    $ref: '#/components/schemas/DocumentReference'
+                delivery:
+                  $ref: '#/components/schemas/InvoiceDelivery'
+                payment_terms_note:
+                  type: string
+                  description: Textual payment terms
+                  example: Next 30 days
+                allowance_charges:
+                  type: array
+                  description: Invoice-level allowances and charges
+                  items:
+                    $ref: '#/components/schemas/InvoiceAllowanceCharge'
+                payments:
+                  type: array
+                  description: Payment means for this self-billed credit note
+                  items:
+                    $ref: '#/components/schemas/CreateInvoicePaymentRequest'
+                items:
+                  type: array
+                  description: The self-billed credit note line items
+                  items:
+                    $ref: '#/components/schemas/CreateInvoiceItemRequest'
+                prepaid_amount:
+                  type: number
+                  format: double
+                  description: The amount already paid
+                  example: 0
+                payable_rounding_amount:
+                  type: number
+                  format: double
+                  description: The rounding amount
+                  example: 0
+                transaction_types:
+                  type: array
+                  description: The list of applicable PINT-AE transaction types
+                  items:
+                    type: string
+                    enum:
+                      - FREE_TRADE_ZONE
+                      - DEEMED_SUPPLY
+                      - PROFIT_MARGIN_SCHEME
+                      - SUMMARY_INVOICE
+                      - CONTINUOUS_SUPPLY
+                      - AGENT_BILLING
+                      - SUPPLY_THROUGH_ECOMMERCE
+                      - EXPORTS
+                  example:
+                    - CONTINUOUS_SUPPLY
+                beneficiary_trn:
+                  type: string
+                  description: >-
+                    The TRN of the beneficiary for Free Trade Zone supplies.
+                    Required when `transaction_types` includes
+                    `FREE_TRADE_ZONE`.
+                  example: '123456789098703'
+                principle_trn:
+                  type: string
+                  description: >-
+                    The TRN of the principal for Disclosed Agent billing.
+                    Required when `transaction_types` includes `AGENT_BILLING`.
+                    Must differ from the business's own TRN.
+                  example: '123456789098703'
+            examples:
+              standard_self_billed_credit_note:
+                description: >-
+                  Full-featured self-billed credit note (type 261) reversing a
+                  prior self-billed invoice; includes order reference and
+                  contract reference
+                summary: Standard Self-Billed Credit Note
+                value:
+                  contract_document_reference:
+                    id: CTR-2026-00042
+                  credit_note_reason: Goods returned by customer in full
+                  credit_note_reason_code: DL8.61.1.D
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '261'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 1200
+                      quantity: 5
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 600
+                      quantity: 3
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  order_reference:
+                    purchase_order_id: PO-2026-00123
+                    sales_order_id: SO-2026-00456
+                  original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  supplier_id: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+                  trader_invoice_number: ACME-SBCN-2026-0001
+              standard_self_billed_credit_note_minimal:
+                description: >-
+                  Minimal valid self-billed credit note containing only the
+                  required fields; useful as a starting point for integration
+                summary: Standard Self-Billed Credit Note — Mandatory Fields Only
+                value:
+                  credit_note_reason: Supply was cancelled
+                  credit_note_reason_code: DL8.61.1.A
+                  document_currency_code: AED
+                  due_date: '2026-07-02'
+                  invoice_type_code: '261'
+                  issue_date: '2026-06-02'
+                  items:
+                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 500
+                      quantity: 1
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: EA
+                  original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: ACME Trading LLC
+                      payment_means_code: '30'
+                  supplier_id: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+                  trader_invoice_number: ACME-SBCN-2026-0002
+      responses:
+        '201':
+          description: Created self-billed credit note
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-credit-notes/{credit_note_id}:
+    get:
+      tags:
+        - Self-Billed Credit Notes
+      summary: Get a self-billed credit note
+      description: >-
+        Retrieves information about a self-billed credit note given its ID on
+        DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: credit_note_id
+          required: true
+          schema:
+            type: string
+            description: Self-billed credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+components:
+  schemas:
+    CommonCode:
+      type: object
+      required:
+        - code
+        - name
+      properties:
+        code:
+          type: string
+          description: The code identifier
+          example: S
+        name:
+          type: string
+          description: The human-readable name of the code
+          example: Standard rate
+        description:
+          type: string
+          description: An optional longer description of what this code means
+          example: Code specifying the standard rate
+    Country:
+      type: object
+      description: Represents a country based on ISO 3166-1 alpha-2
+      required:
+        - name
+        - alpha2
+      properties:
+        name:
+          type: string
+          description: The English name of the country
+          example: United Arab Emirates
+        alpha2:
+          type: string
+          description: The ISO 3166-1 alpha-2 country code
+          example: AE
+        name_nb:
+          type: string
+          description: The Norwegian Bokmål name of the country
+          example: Sverige
+        name_nn:
+          type: string
+          description: The Norwegian Nynorsk name of the country
+          example: Sverige
+    InvoiceType:
+      type: object
+      description: >-
+        Represents a UN/CEFACT document name code (UNCL1001 subset) used as the
+        invoice type
+      required:
+        - code
+        - name
+        - description
+        - invoice_category
+        - valid_for_regular
+        - valid_for_self_billed
+      properties:
+        code:
+          type: string
+          description: The UN/CEFACT document name code
+          example: '380'
+        name:
+          type: string
+          description: The name of the invoice type
+          example: Commercial invoice
+        description:
+          type: string
+          description: A description of the invoice type as defined by UN/CEFACT
+          example: >-
+            Document/message claiming payment for goods or services supplied
+            under conditions agreed between seller and buyer.
+        invoice_category:
+          type: string
+          description: Indicates whether this code represents an invoice or a credit note
+          enum:
+            - INVOICE
+            - CREDIT_NOTE
+          example: INVOICE
+        valid_for_regular:
+          type: boolean
+          description: Indicates whether this invoice type is valid for regular invoices
+          example: true
+        valid_for_self_billed:
+          type: boolean
+          description: >-
+            Indicates whether this invoice type is valid for self-billed
+            invoices
+          example: false
+    TaxCategory:
+      type: object
+      required:
+        - code
+        - name
+        - description
+        - has_rate
+        - tax_rate
+      properties:
+        code:
+          type: string
+          description: The code identifier
+          example: S
+        name:
+          type: string
+          description: The human-readable name of the code
+          example: Standard rate
+        description:
+          type: string
+          description: An optional longer description of what this code means
+          example: Code specifying the standard rate
+        tax_rate:
+          type: number
+          format: double
+          example: 0.05
+          nullable: true
+          description: >-
+            The tax rate(between 0 and 1) applied to the category for tax
+            categories that have a defined rate
+        has_rate:
+          type: boolean
+          example: true
+          description: Indicates whether the tax category has a rate defined
+    Address:
+      type: object
+      description: Postal address
+      required:
+        - street_name
+        - city_name
+        - country_subentity
+        - country_code
+      properties:
+        street_name:
+          type: string
+          description: The main address line (street name, building number)
+          example: Sheikh Zayed Road, Tower 1
+        additional_street_name:
+          type: string
+          description: An additional address line
+          example: Floor 22
+        city_name:
+          type: string
+          description: The city of the address
+          example: Dubai
+        postal_zone:
+          type: string
+          description: The postal zone or postcode
+          example: '00000'
+        country_subentity:
+          type: string
+          description: >-
+            The country subdivision (emirate). When `country_code` is `AE`, see
+            `GET /resources/ae-country-subentities` for available values.
+          example: DXB
+        country_code:
+          type: string
+          description: >-
+            The ISO 3166-1 alpha-2 country code. See `GET /resources/countries`
+            for available values.
+          example: AE
+        address_line:
+          type: string
+          description: A free-form address line for additional details
+          example: Near Dubai Mall
+    Branch:
+      type: object
+      description: Represents the business details as registered on DigiTax
+      required:
+        - created_at
+        - updated_at
+        - active
+        - business_id
+        - tax_registration_number
+        - registration_name
+        - is_test
+        - is_live
+      properties:
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the business was created on DigiTax
+          example: '2026-05-06T08:30:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the business was last updated on DigiTax
+          example: '2026-05-06T14:45:00Z'
+        active:
+          type: boolean
+          description: Whether the branch is currently active on DigiTax
+          example: true
+        business_id:
+          type: string
+          description: The DigiTax business identifier associated with this business.
+          example: business_01KMFHKF4YJBGG2MNDQASKHWE9
+        tax_registration_number:
+          type: string
+          description: The UAE Tax Registration Number (TRN) of the business
+          example: '100123456700003'
+        registration_name:
+          type: string
+          description: The full legal name of the business as registered with the UAE FTA
+          example: Acme Trading LLC
+        company_id:
+          type: string
+          description: The company identifier (e.g. trade license number)
+          example: TL-12345678
+        company_id_scheme_id:
+          type: string
+          description: >-
+            The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
+            for the UAE FTA scheme). See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
+          example: '0235'
+        company_id_scheme_agency_id:
+          type: string
+          description: >-
+            The registration type of the company identifier. One of: `TL`
+            (Commercial/Trade license), `CL` (Commercial license), `EID`
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision). See `GET
+            /resources/legal-registration-types` for available values.
+          enum:
+            - TL
+            - CL
+            - EID
+            - PAS
+            - CD
+          example: TL
+        company_id_scheme_agency_name:
+          type: string
+          description: >-
+            The issuing authority name (required for TL; ISO country code for
+            PAS)
+          example: Department of Economic Development
+        address:
+          $ref: '#/components/schemas/Address'
+        contact_name:
+          type: string
+          description: The name of the contact person at the organisation
+          example: Ahmed Al-Rashid
+        contact_phone:
+          type: string
+          description: The phone number of the contact person
+          example: '+97141234567'
+        contact_email:
+          type: string
+          format: email
+          description: The email address of the contact person
+          example: ahmed@acme-trading.ae
+        is_test:
+          type: boolean
+          description: Whether this branch is operating in test mode
+          example: false
+        is_live:
+          type: boolean
+          description: Whether this branch has been taken live in DigiTax
+          example: false
+    Party:
+      type: object
+      description: A party in a UAE e-invoice
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - tax_registration_number
+        - registration_name
+        - company_id
+        - company_id_scheme_id
+        - company_id_scheme_agency_id
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this party
+          example: party_01HC3J1VVVM05YCTS61G7V3KC6
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the party was created
+          example: '2026-05-06T09:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the party was last updated
+          example: '2026-05-06T11:20:00Z'
+        active:
+          type: boolean
+          description: Whether the party is currently active on DigiTax
+          example: true
+        tax_registration_number:
+          type: string
+          description: The UAE Tax Registration Number (TRN) of the party
+          example: '100987654300003'
+        registration_name:
+          type: string
+          description: The full legal name of the party
+          example: Global Imports FZE
+        company_id:
+          type: string
+          description: >-
+            The party's company identifier (e.g. trade license number, Emirates
+            ID)
+          example: CN-1234567
+        company_id_scheme_id:
+          type: string
+          description: >-
+            The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
+            for the UAE FTA scheme). See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
+          example: '0235'
+        company_id_scheme_agency_id:
+          type: string
+          description: >-
+            The registration type of the company identifier. One of: `TL`
+            (Commercial/Trade license), `CL` (Commercial license), `EID`
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision). See `GET
+            /resources/legal-registration-types` for available values.
+          enum:
+            - TL
+            - CL
+            - EID
+            - PAS
+            - CD
+          example: TL
+        company_id_scheme_agency_name:
+          type: string
+          description: >-
+            The issuing authority name (required for TL; ISO country code for
+            PAS)
+          example: Department of Economic Development
+        address:
+          $ref: '#/components/schemas/Address'
+        contact_name:
+          type: string
+          description: The name of the party's contact person
+          example: Sara Mohammed
+        contact_phone:
+          type: string
+          description: The party's contact phone number in E.164 format
+          example: '+971509876543'
+        contact_email:
+          type: string
+          format: email
+          description: The party's contact email address
+          example: sara@global-imports.ae
+        peppol_id:
+          type: string
+          description: The party's Peppol participant identifier
+          example: '1234567890123'
+        peppol_id_scheme_id:
+          type: string
+          description: >-
+            The scheme identifier for the Peppol participant ID (e.g. `0088` for
+            GLN). See `GET /resources/international-code-designator-schemes` for
+            available values.
+          example: '0088'
+    Supplier:
+      type: object
+      description: A supplier in a UAE self-billed e-invoice
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - tax_registration_number
+        - registration_name
+        - company_id
+        - company_id_scheme_id
+        - company_id_scheme_agency_id
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this supplier
+          example: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the supplier was created
+          example: '2026-05-06T09:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the supplier was last updated
+          example: '2026-05-06T11:20:00Z'
+        active:
+          type: boolean
+          description: Whether the supplier is currently active on DigiTax
+          example: true
+        tax_registration_number:
+          type: string
+          description: The UAE Tax Registration Number (TRN) of the supplier
+          example: '100987654300003'
+        registration_name:
+          type: string
+          description: The full legal name of the supplier
+          example: Global Imports FZE
+        company_id:
+          type: string
+          description: >-
+            The supplier's company identifier (e.g. trade license number,
+            Emirates ID)
+          example: CN-1234567
+        company_id_scheme_id:
+          type: string
+          description: >-
+            The ISO 6523 ICD code identifying the company ID scheme (e.g. `0235`
+            for the UAE FTA scheme). See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
+          example: '0235'
+        company_id_scheme_agency_id:
+          type: string
+          description: >-
+            The registration type of the company identifier. One of: `TL`
+            (Commercial/Trade license), `CL` (Commercial license), `EID`
+            (Emirates ID), `PAS` (Passport), `CD` (Cabinet decision). See `GET
+            /resources/legal-registration-types` for available values.
+          enum:
+            - TL
+            - CL
+            - EID
+            - PAS
+            - CD
+          example: TL
+        company_id_scheme_agency_name:
+          type: string
+          description: >-
+            The issuing authority name (required for TL; ISO country code for
+            PAS)
+          example: Department of Economic Development
+        address:
+          $ref: '#/components/schemas/Address'
+        contact_name:
+          type: string
+          description: The name of the supplier's contact person
+          example: Sara Mohammed
+        contact_phone:
+          type: string
+          description: The supplier's contact phone number in E.164 format
+          example: '+971509876543'
+        contact_email:
+          type: string
+          format: email
+          description: The supplier's contact email address
+          example: sara@global-imports.ae
+        peppol_id:
+          type: string
+          description: The supplier's Peppol participant identifier
+          example: '1234567890123'
+        peppol_id_scheme_id:
+          type: string
+          description: >-
+            The scheme identifier for the Peppol participant ID (e.g. `0088` for
+            GLN). See `GET /resources/international-code-designator-schemes` for
+            available values.
+          example: '0088'
+    ItemProperty:
+      type: object
+      description: An additional item attribute as a name/value pair
+      required:
+        - name
+        - value
+      properties:
+        name:
+          type: string
+          description: The name of the item attribute
+          example: Colour
+        value:
+          type: string
+          description: The value of the item attribute
+          example: Silver
+    Item:
+      type: object
+      description: Represents an item that can be referenced in UAE e-invoices
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - name
+        - description
+        - commodity_code
+        - tax_category_code
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this item
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the item was created
+          example: '2026-05-06T07:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the item was last updated
+          example: '2026-05-06T14:00:00Z'
+        active:
+          type: boolean
+          description: Whether the item is currently active on DigiTax
+          example: true
+        name:
+          type: string
+          description: The name of the item
+          example: Industrial Pump Model X-500
+        description:
+          type: string
+          description: A description of the item
+          example: High-pressure centrifugal pump for industrial fluid transfer
+        item_code:
+          type: string
+          description: >-
+            A unique code assigned to the item in the user's system. It will be
+            used as the unique product identifier
+          example: PUMP-X500-BLK
+        item_number:
+          type: string
+          description: The unique item number of the item on DigiTax
+          example: ITM26-083-120958611-VGJBR7
+        commodity_code:
+          type: string
+          description: >-
+            The item type/commodity code indicating whether the item is goods,
+            services, or both. See `GET /resources/commodity-codes` for
+            available values.
+          example: G
+        hs_code:
+          type: string
+          description: >-
+            The Harmonized System (HS) code for the item. Present when
+            commodity_code is G (goods) or B (both goods and services).
+          example: '84137000'
+        service_accounting_code:
+          type: string
+          description: >-
+            The Service Accounting Code for the item. Present when
+            commodity_code is S (services) or B (both goods and services).
+          example: SAC-0001
+        tax_category_code:
+          type: string
+          description: >-
+            The default VAT category code applicable to this item. This can be
+            overridden when creating an invoice if needed. See `GET
+            /resources/tax-categories` for available values.
+          example: S
+        standard_item_id:
+          type: string
+          description: A standardised item identifier (e.g. GTIN, EAN)
+          example: '09501101530003'
+        standard_item_scheme:
+          type: string
+          description: >-
+            The scheme identifier for the standard item identifier. See `GET
+            /resources/international-code-designator-schemes` for available
+            values.
+          example: '0160'
+        origin_country_code:
+          type: string
+          description: >-
+            The ISO 3166-1 alpha-2 code of the item's country of origin. See
+            `GET /resources/countries` for available values.
+          example: DE
+        item_properties:
+          type: array
+          description: Additional item attributes
+          items:
+            $ref: '#/components/schemas/ItemProperty'
+    OrderReference:
+      type: object
+      description: A reference to a purchase and/or sales order
+      properties:
+        purchase_order_id:
+          type: string
+          description: An identifier of a referenced purchase order, issued by the Buyer
+          example: PO-2024-00123
+        sales_order_id:
+          type: string
+          description: An identifier of a referenced sales order, issued by the Seller
+          example: SO-2024-00456
+    DocumentReference:
+      type: object
+      description: >-
+        A reference to another document (e.g. despatch advice, receipt advice,
+        contract)
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The identifier of the referenced document
+          example: DA-2024-001
+        document_type_code:
+          type: string
+          description: The UNCL1001 document type code of the referenced document
+          example: '916'
+        document_description:
+          type: string
+          description: A human-readable description of the referenced document
+          example: Despatch Advice
+        issue_date:
+          type: string
+          description: The issue date of the referenced document (YYYY-MM-DD)
+          example: '2026-05-06'
+    InvoicePeriod:
+      type: object
+      description: The period to which the invoice relates
+      properties:
+        start_date:
+          type: string
+          description: The start date of the invoice period (YYYY-MM-DD)
+          example: '2026-05-06'
+        end_date:
+          type: string
+          description: The end date of the invoice period (YYYY-MM-DD)
+          example: '2026-06-05'
+        billing_frequency_code:
+          type: string
+          description: >-
+            The billing frequency code. See `GET /resources/billing-frequencies`
+            for available values.
+          example: MTH
+    InvoiceDelivery:
+      type: object
+      description: >-
+        Delivery information for the items in the invoice. When
+        `transaction_types` includes `EXPORTS`, `delivery` is required and
+        `delivery_address.country_code` must not be `AE`.
+      properties:
+        actual_delivery_date:
+          type: string
+          description: The actual delivery date (YYYY-MM-DD)
+          example: '2026-05-06'
+        delivery_location_id:
+          type: string
+          description: The identifier of the delivery location
+          example: LOC-JEBEL-ALI-001
+        delivery_location_scheme_id:
+          type: string
+          description: >-
+            The scheme identifier for the delivery location ID. See `GET
+            /resources/delivery-location-schemes` for available values.
+          example: '0088'
+        delivery_address:
+          $ref: '#/components/schemas/Address'
+        delivery_party_name:
+          type: string
+          description: The name of the party receiving the delivery
+          example: Global Imports FZE - Warehouse
+        delivery_terms_id:
+          type: string
+          description: >-
+            The Incoterms delivery terms identifier. Required when
+            `transaction_types` includes `EXPORTS` or
+            `SUPPLY_THROUGH_ECOMMERCE`.
+          example: DAP
+    InvoiceAllowanceCharge:
+      type: object
+      description: An allowance or charge at document level
+      required:
+        - charge_indicator
+        - amount
+        - reason_code
+        - reason
+        - tax_category_code
+        - tax_rate
+      properties:
+        charge_indicator:
+          type: boolean
+          description: If true, this is a charge; if false, it is an allowance
+          example: false
+        amount:
+          type: number
+          format: double
+          description: The monetary amount of the allowance or charge
+          example: 50
+        base_amount:
+          type: number
+          format: double
+          description: >-
+            The base amount on which the allowance or charge percentage is
+            calculated
+          example: 1000
+        multiplier_rate:
+          type: number
+          format: double
+          description: >-
+            The rate(between 0 to 1) used to calculate the allowance/charge
+            amount
+          example: 0.05
+          minimum: 0
+          maximum: 1
+        reason_code:
+          type: string
+          description: >-
+            The coded reason for the allowance or charge. See `GET
+            /resources/allowance-reasons` (for allowances) or `GET
+            /resources/charge-reasons` (for charges) for available values.
+          example: '95'
+        reason:
+          type: string
+          description: The textual reason for the allowance or charge
+          example: Volume discount
+        tax_category_code:
+          type: string
+          description: >-
+            The VAT category code for this allowance/charge. It is required for
+            document-level allowances/charges. See `GET
+            /resources/tax-categories` for available values.
+          example: E
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate applicable to this allowance/charge
+          example: 0
+          minimum: 0
+          maximum: 1
+        tax_exemption_reason_code:
+          type: string
+          description: >-
+            The coded reason for VAT exemption if the allowance/charge is tax
+            exempt. See `GET /resources/tax-exemption-reasons` for available
+            values.
+          example: DL8.46.1
+        tax_exemption_reason:
+          type: string
+          description: >-
+            The textual reason for VAT exemption if the allowance/charge is tax
+            exempt
+          example: Certain financial services
+    InvoiceItemAllowanceCharge:
+      type: object
+      description: An allowance or charge at invoice item level
+      required:
+        - charge_indicator
+        - amount
+        - reason_code
+        - reason
+      properties:
+        charge_indicator:
+          type: boolean
+          description: If true, this is a charge; if false, it is an allowance
+          example: false
+        amount:
+          type: number
+          format: double
+          description: The monetary amount of the allowance or charge
+          example: 50
+        base_amount:
+          type: number
+          format: double
+          description: >-
+            The base amount on which the allowance or charge percentage is
+            calculated
+          example: 1000
+        multiplier_rate:
+          type: number
+          format: double
+          description: >-
+            The rate(between 0 to 1) used to calculate the allowance/charge
+            amount
+          example: 0.05
+          minimum: 0
+          maximum: 1
+        reason_code:
+          type: string
+          description: >-
+            The coded reason for the allowance or charge. See `GET
+            /resources/allowance-reasons` (for allowances) or `GET
+            /resources/charge-reasons` (for charges) for available values.
+          example: '95'
+        reason:
+          type: string
+          description: The textual reason for the allowance or charge
+          example: Volume discount
+    InvoicePayment:
+      type: object
+      description: Payment means information for the invoice
+      required:
+        - id
+        - payment_means_code
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this payment record
+          example: payment_01KMFHQG90HC0H5CA6D2C1H5MK
+        payment_means_code:
+          type: string
+          description: The UNCL4461 code identifying the payment means
+          example: '30'
+        payment_means_code_name:
+          type: string
+          description: The name of the payment means code
+          example: Credit transfer
+        payment_id:
+          type: string
+          description: The payment reference or remittance information
+          example: PAY-REF-2024-001
+        payee_account_id:
+          type: string
+          description: The payee's bank account number (IBAN)
+          example: AE070331234567890123456
+        payee_account_name:
+          type: string
+          description: The name of the payee's bank account
+          example: Acme Trading LLC - Main Account
+        payee_financial_institution_bic:
+          type: string
+          description: The BIC/SWIFT code of the payee's bank
+          example: ADCBAEAA
+        card_primary_account_number:
+          type: string
+          description: The last few digits of the card used for payment
+          example: '****1234'
+        card_network_id:
+          type: string
+          description: The network identifier of the payment card
+          example: VISA
+        card_holder_name:
+          type: string
+          description: The name of the card holder
+          example: Ahmed Al-Rashid
+        payment_mandate_id:
+          type: string
+          description: The mandate reference for direct debit
+          example: MANDATE-2024-001
+        payment_terms_note:
+          type: string
+          description: A textual description of the payment terms
+          example: Payment due within 30 days
+        payment_terms_due_date:
+          type: string
+          description: The due date for payment (YYYY-MM-DD)
+          example: '2026-06-05'
+    TaxBreakdown:
+      type: object
+      description: A breakdown of VAT by category
+      required:
+        - tax_category_code
+        - taxable_amount
+        - tax_amount
+        - currency
+        - tax_rate
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this tax breakdown record
+          example: taxbreakdown_01KMFHQG90HC0H5CA6CZ0A93VC
+        tax_category_code:
+          type: string
+          description: The VAT category code
+          example: S
+        taxable_amount:
+          type: number
+          format: double
+          description: The net amount subject to this VAT category
+          example: 10000
+        tax_amount:
+          type: number
+          format: double
+          description: The VAT amount for this category
+          example: 500
+        currency:
+          type: string
+          description: The currency code for the tax amounts
+          example: AED
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate(between 0 and 1)
+          example: 0.05
+          minimum: 0
+          maximum: 1
+    InvoiceItem:
+      type: object
+      description: A line item within an invoice
+      required:
+        - id
+        - item_id
+        - quantity
+        - unit_of_measure_code
+        - line_extension_amount
+        - price_amount
+        - tax_category_code
+        - tax_rate
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this invoice line
+          example: invoiceitem_01KMFQN8P2CE43QQGH29FH32CT
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the line item was created
+          example: '2026-05-06T10:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the line item was last updated
+          example: '2026-05-06T10:00:00Z'
+        active:
+          type: boolean
+          description: Whether the line item is active
+          example: true
+        item_id:
+          type: string
+          description: The DigiTax item ID associated with this line
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        line_id:
+          type: integer
+          description: The sequential line identifier within the invoice
+          example: 1
+        note:
+          type: string
+          description: A free-text note on the invoice line
+          example: Special handling required
+        quantity:
+          type: number
+          format: double
+          description: The quantity of items on this line
+          example: 10
+        unit_of_measure_code:
+          type: string
+          description: The unit of measure code for the quantity and price
+          example: EA
+        line_extension_amount:
+          type: number
+          format: double
+          description: >-
+            The net amount for this line ((quantity x price amount) - sum of
+            allowances + sum of charges)
+          example: 5000
+        tax_amount:
+          type: number
+          format: double
+          description: The VAT amount for this line
+          example: 250
+        price_amount:
+          type: number
+          format: double
+          description: The net price per unit (excluding VAT)
+          example: 500
+        price_discount:
+          type: number
+          format: double
+          description: The discount applied to the gross price to arrive at the net price
+          example: 25
+        gross_price:
+          type: number
+          format: double
+          description: The gross price per unit before any price discount
+          example: 525
+        tax_category_code:
+          type: string
+          description: The VAT category code for this line
+          example: S
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate for this line, between 0 and 1
+          example: 0.05
+        tax_exemption_reason_code:
+          type: string
+          description: The coded reason for VAT exemption on this line
+          example: DL8.46.1
+        tax_exemption_reason:
+          type: string
+          description: The textual reason for VAT exemption on this line
+          example: Certain financial services
+        accounting_cost:
+          type: string
+          description: >-
+            A textual value that specifies where to book the relevant data into
+            the Buyer's financial accounts
+          example: CC-OPEX-001
+        invoice_period:
+          $ref: '#/components/schemas/InvoicePeriod'
+        buyers_item_id:
+          type: string
+          description: The buyer's identifier for this item
+          example: BUY-ITEM-9901
+        sellers_item_id:
+          type: string
+          description: The seller's identifier for this item
+          example: PUMP-X500-BLK
+        allowance_charges:
+          type: array
+          description: Line-level allowances and charges
+          items:
+            $ref: '#/components/schemas/InvoiceItemAllowanceCharge'
+        allowance_total_amount:
+          type: number
+          format: double
+          description: The total amount of all line-level allowances
+          example: 25
+        charge_total_amount:
+          type: number
+          format: double
+          description: The total amount of all line-level charges
+          example: 0
+        item_nature_code:
+          type: string
+          description: >-
+            The nature code of the item, required when the tax category is
+            reverse charge (AE)
+          example: DL8.48.8.2
+    Invoice:
+      type: object
+      description: >-
+        Represents a UAE PINT-AE compliant invoice or credit note created on
+        DigiTax
+      required:
+        - id
+        - created_at
+        - updated_at
+        - active
+        - invoice_type_code
+        - issue_date
+        - document_currency_code
+        - customer_party_id
+        - line_extension_amount
+        - tax_exclusive_amount
+        - tax_inclusive_amount
+        - payable_amount
+        - tax_amount
+        - status
+        - validated_at
+        - submitted_at
+        - reported_at
+      properties:
+        id:
+          type: string
+          description: The unique DigiTax identifier for this invoice
+          example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+        created_at:
+          type: string
+          format: date-time
+          description: The timestamp when the invoice was created on DigiTax
+          example: '2026-05-06T10:00:00Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: The timestamp when the invoice was last updated on DigiTax
+          example: '2026-05-06T12:30:00Z'
+        active:
+          type: boolean
+          description: Whether this invoice record is active on DigiTax
+          example: true
+        invoice_number:
+          type: string
+          description: The sequential invoice number assigned by DigiTax
+          example: INV-2024-00001
+        uuid:
+          type: string
+          description: The universally unique identifier (UUID) of the invoice
+          example: 550e8400-e29b-41d4-a716-446655440000
+        trader_invoice_number:
+          type: string
+          description: >-
+            An invoice number assigned by the supplier to uniquely identify the
+            invoice in their system
+          example: ACME-INV-2024-0042
+        transaction_type_code:
+          type: string
+          description: >-
+            A binary code that identifies the invoice transaction types that
+            apply to the invoice. Each digit represents a specific transaction
+            type, in the order defined by Peppol
+          example: '10000001'
+        transaction_types:
+          type: array
+          description: The list of applicable PINT-AE transaction types
+          items:
+            type: string
+            enum:
+              - FREE_TRADE_ZONE
+              - DEEMED_SUPPLY
+              - PROFIT_MARGIN_SCHEME
+              - SUMMARY_INVOICE
+              - CONTINUOUS_SUPPLY
+              - AGENT_BILLING
+              - SUPPLY_THROUGH_ECOMMERCE
+              - EXPORTS
+          example:
+            - FREE_TRADE_ZONE
+            - EXPORTS
+        invoice_type_code:
+          type: string
+          description: The UN/CEFACT document type code
+          example: '380'
+        issue_date:
+          type: string
+          format: date
+          description: The date the invoice was issued (YYYY-MM-DD)
+          example: '2026-05-06'
+        issue_time:
+          type: string
+          description: The time the invoice was issued (HH:MM:SS)
+          example: '10:00:00'
+        due_date:
+          type: string
+          format: date
+          description: The payment due date (YYYY-MM-DD)
+          example: '2026-06-05'
+        tax_point_date:
+          type: string
+          format: date
+          description: The date for tax purposes (VAT point date) (YYYY-MM-DD)
+          example: '2026-05-05'
+        document_currency_code:
+          type: string
+          description: The currency of the invoice amounts
+          example: AED
+        tax_currency_code:
+          type: string
+          description: The tax accounting currency. It's always AED for UAE e-invoices
+          example: AED
+        tax_currency_exchange_rate:
+          type: number
+          format: double
+          description: The exchange rate between document currency and tax currency
+          example: 1
+        buyer_reference:
+          type: string
+          description: >-
+            An identifier assigned by the Buyer used for internal routing
+            purposes
+          example: BR-2024-00789
+        accounting_cost:
+          type: string
+          description: >-
+            A textual value that specifies where to book the relevant data into
+            the Buyer's financial accounts
+          example: CAPEX-2024-Q4
+        project_reference:
+          type: string
+          description: A reference to a project relating to this invoice
+          example: PROJ-JEBEL-2024
+        note:
+          type: string
+          description: Free-text notes on the invoice
+          example: Thank you for your business
+        invoice_period:
+          $ref: '#/components/schemas/InvoicePeriod'
+        order_reference:
+          $ref: '#/components/schemas/OrderReference'
+        billing_reference:
+          type: array
+          description: References to preceding invoices for credit notes
+          items:
+            $ref: '#/components/schemas/DocumentReference'
+        despatch_document_reference:
+          $ref: '#/components/schemas/DocumentReference'
+        receipt_document_reference:
+          $ref: '#/components/schemas/DocumentReference'
+        originator_document_reference:
+          $ref: '#/components/schemas/DocumentReference'
+        contract_document_reference:
+          $ref: '#/components/schemas/DocumentReference'
+        additional_documents:
+          type: array
+          description: References to additional supporting documents
+          items:
+            $ref: '#/components/schemas/DocumentReference'
+        customer_party_id:
+          type: string
+          description: The DigiTax party ID of the buyer
+          example: party_01HC3J1VVVM05YCTS61G7V3KC6
+        payee_party_id:
+          type: string
+          description: The DigiTax party ID of the payee (if different from buyer)
+          example: party_01HC3J1VVVM05YCTS61G7V3KD7
+        tax_representative_party_id:
+          type: string
+          description: The DigiTax party ID of the seller's tax representative
+          example: party_01HC3J1VVVM05YCTS61G7V3KC6
+        delivery:
+          $ref: '#/components/schemas/InvoiceDelivery'
+        payment_terms_note:
+          type: string
+          description: Textual description of the payment terms
+          example: Net 30 days
+        line_extension_amount:
+          type: number
+          format: double
+          description: The sum of all invoice line net amounts
+          example: 10000
+        tax_exclusive_amount:
+          type: number
+          format: double
+          description: >-
+            The total amount without VAT (sum of net amounts minus
+            document-level allowances plus document-level charges)
+          example: 9500
+        tax_inclusive_amount:
+          type: number
+          format: double
+          description: The total amount including VAT
+          example: 9975
+        payable_amount:
+          type: number
+          format: double
+          description: >-
+            The amount due for payment after subtracting any prepaid amount and
+            adding payable rounding amount
+          example: 9975
+        allowance_total_amount:
+          type: number
+          format: double
+          description: The sum of all document-level allowances
+          example: 500
+        charge_total_amount:
+          type: number
+          format: double
+          description: The sum of all document-level charges
+          example: 0
+        prepaid_amount:
+          type: number
+          format: double
+          description: The amount already paid to be deducted from the payable amount
+          example: 0
+        payable_rounding_amount:
+          type: number
+          format: double
+          description: The rounding amount added to make the payable amount a round number
+          example: 0
+        tax_amount:
+          type: number
+          format: double
+          description: The total VAT amount for the invoice
+          example: 475
+        tax_included_indicator:
+          type: boolean
+          description: Indicates whether VAT is included in the invoice line amounts
+          example: false
+        tax_amount_in_tax_currency:
+          type: number
+          format: double
+          description: The VAT amount expressed in the tax currency
+          example: 475
+        status:
+          type: string
+          description: The current processing status of the invoice on DigiTax
+          example: COMPLETED
+        allowance_charges:
+          type: array
+          description: Document-level allowances and charges
+          items:
+            $ref: '#/components/schemas/InvoiceAllowanceCharge'
+        payments:
+          type: array
+          description: Payment means for this invoice
+          items:
+            $ref: '#/components/schemas/InvoicePayment'
+        items:
+          type: array
+          description: The invoice line items
+          items:
+            $ref: '#/components/schemas/InvoiceItem'
+        taxes:
+          type: array
+          description: The VAT breakdown by category
+          items:
+            $ref: '#/components/schemas/TaxBreakdown'
+        credit_note_reason_code:
+          type: string
+          description: The code for the reason a credit note was issued
+          example: DL8.61.1.A
+        credit_note_reason:
+          type: string
+          description: The textual reason a credit note was issued
+          example: Supply was cancelled
+        original_invoice_id:
+          type: string
+          description: The DigiTax ID of the original invoice this credit note relates to
+          example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+        beneficiary_trn:
+          type: string
+          description: The TRN of the beneficiary in case of Free Trade Zone supply
+          example: '100111222300003'
+        principle_trn:
+          type: string
+          description: The TRN of the principal in case of Disclosed Agent billing
+          example: '100333444500003'
+        reported_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-05-06T10:05:00Z'
+          description: The date and time when the invoice was sent to C5(FTA)
+        submitted_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-05-06T10:04:00Z'
+          description: >-
+            The date and time when the invoice was sent to C3(buyer's Access
+            Point) in the case of billing or C2(supplier's Access Point) in the
+            case of self-billing
+        validated_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-05-06T10:03:00Z'
+          description: >-
+            The date and time when the invoice was validated against the PINT-AE
+            rules
+        supplier_id:
+          type: string
+          description: >-
+            The DigiTax supplier ID of the supplier, populated only on
+            self-billed invoices and credit notes
+          example: supplier_01HC3J1VVVM05YCTS61G7V3KC6
+    Pagination:
+      type: object
+      properties:
+        next:
+          type: string
+          description: Cursor for the next page of results.
+          example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+        previous:
+          type: string
+          description: Cursor for the previous page of results.
+          example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+        page_size:
+          type: integer
+          description: The number of items per page.
+          example: 20
+    CreateInvoicePaymentRequest:
+      type: object
+      required:
+        - payment_means_code
+      properties:
+        payment_means_code:
+          type: string
+          description: >-
+            The UNCL4461 payment means code. See `GET /resources/payment-means`
+            for available values.
+          example: '30'
+        payment_id:
+          type: string
+          description: The payment reference
+          example: PAY-REF-2024-001
+        payee_account_id:
+          type: string
+          description: The payee IBAN or account number
+          example: AE070331234567890123456
+        payee_account_name:
+          type: string
+          description: The payee bank account name
+          example: Acme Trading LLC - Main Account
+        payee_financial_institution_bic:
+          type: string
+          description: The BIC/SWIFT code of the payee's bank
+          example: ADCBAEAA
+        card_primary_account_number:
+          type: string
+          description: The primary account number of the payment card
+          example: '66541234'
+        card_network_id:
+          type: string
+          description: The payment card network identifier
+          example: VISA
+        card_holder_name:
+          type: string
+          description: The name of the card holder
+          example: Ahmed Al-Rashid
+        payment_mandate_id:
+          type: string
+          description: The direct debit mandate reference
+          example: MANDATE-2024-001
+        payment_terms_note:
+          type: string
+          description: A description of the payment terms
+          example: Payment due within 30 days
+        payment_terms_due_date:
+          type: string
+          description: The payment due date (YYYY-MM-DD)
+          example: '2026-06-05'
+    CreateInvoiceItemRequest:
+      type: object
+      required:
+        - item_id
+        - quantity
+        - unit_of_measure_code
+        - price_amount
+        - tax_category_code
+        - tax_rate
+      properties:
+        item_id:
+          type: string
+          description: The DigiTax item ID of the item being invoiced
+          example: item_01HC3J1VVVM05YCTS61G7V3KC6
+        quantity:
+          type: number
+          format: double
+          description: The number of units of the item being invoiced
+          example: 10
+        unit_of_measure_code:
+          type: string
+          description: >-
+            The code of the unit of measure used for the invoiced quantity. See
+            `GET /resources/units-of-measure` for available values.
+          example: EA
+        price_amount:
+          type: number
+          format: double
+          description: >-
+            The net unit price (excluding VAT) for the invoiced item and in the
+            specified unit of measure
+          example: 500
+        price_discount:
+          type: number
+          format: double
+          description: The discount on the gross price to arrive at the net price
+          example: 25
+        gross_price:
+          type: number
+          format: double
+          description: The gross unit price before discount
+          example: 525
+        tax_category_code:
+          type: string
+          description: >-
+            The VAT category code for this invoice item. See `GET
+            /resources/tax-categories` for available values.
+          example: E
+        tax_rate:
+          type: number
+          format: double
+          description: The VAT rate(between 0 and 1) percentage
+          example: 0
+          minimum: 0
+          maximum: 1
+        tax_exemption_reason_code:
+          type: string
+          description: >-
+            The coded reason for VAT exemption. See `GET
+            /resources/tax-exemption-reasons` for available values.
+          example: DL8.46.1
+        tax_exemption_reason:
+          type: string
+          description: The textual reason for VAT exemption
+          example: Certain financial services
+        note:
+          type: string
+          description: A free-text note on this invoice item
+          example: General invoice item details
+        accounting_cost:
+          type: string
+          description: >-
+            A textual value that specifies where to book the relevant data into
+            the Buyer's financial accounts
+          example: CC-OPEX-001
+        invoice_period:
+          $ref: '#/components/schemas/InvoicePeriod'
+        buyers_item_id:
+          type: string
+          description: The buyer's identifier for this item
+          example: BUY-ITEM-9901
+        sellers_item_id:
+          type: string
+          description: The seller's identifier for this item
+          example: PUMP-X500-BLK
+        order_line_reference:
+          $ref: '#/components/schemas/OrderReference'
+        allowance_charges:
+          type: array
+          description: Invoice item-level allowances and charges
+          items:
+            $ref: '#/components/schemas/InvoiceItemAllowanceCharge'
+        item_nature_code:
+          type: string
+          description: >-
+            The item nature code, required when tax category is reverse charge
+            (AE). See `GET /resources/goods-types` for available values.
+          example: DL8.48.8.2
+  parameters:
+    After:
+      in: query
+      name: after
+      required: false
+      schema:
+        type: string
+        description: >-
+          When paginating results, a pointer to an ID after which we want
+          results
+        example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+    Before:
+      in: query
+      name: before
+      required: false
+      schema:
+        type: string
+        description: >-
+          When paginating results, a pointer to an ID before which we want
+          results
+        example: <entity>_01HC3J1VVVM05YCTS61G7V3KC6
+    PageSize:
+      in: query
+      name: page_size
+      required: false
+      schema:
+        type: integer
+        description: The maximum number of items to return per page, defaults to 20
+        maximum: 20
+        minimum: 1
+        example: 20
+  responses:
+    default:
+      $ref: '#/components/responses/Error'
+    Error:
+      description: Error response
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - message
+              - code
+            properties:
+              message:
+                type: string
+                example: An error occurred
+              code:
+                type: string
+                example: '400'
+              metadata:
+                type: object
+                additionalProperties:
+                  type: string
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
