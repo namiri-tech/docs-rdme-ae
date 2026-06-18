@@ -38,6 +38,7 @@ metadata:
   * <i class="icon-guides" /> **DigiTax UAE API Hub (You are here 🎉)**
   * <i class="icon-guides" /> [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)
   * <i class="icon-guides" /> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Tanzania API Hub](https://tz.docs.digitax.tech)
   * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
 </Accordion>
 
@@ -75,8 +76,9 @@ The suite of digital solutions or products under DigiTax, through which one can 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
 * _**DigiTax UAE**_ integrates you with FTA (Federal Tax Authority System)
-* _**DigiTax Nigeria**_ integrates you with NRS (Nigeria Revenue Service)
 * _**DigiTax Kenya**_ integrates you with KRA (Kenya Revenue Authority)
+* _**DigiTax Nigeria**_ integrates you with NRS (Nigeria Revenue Service)
+* _**DigiTax Tanzania**_ integrates you with TRA VFD (Tanzania Revenue Authority)
 * _**DigiTax Zambia**_ integrates you with ZRA (Zambia Revenue Authority)
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
