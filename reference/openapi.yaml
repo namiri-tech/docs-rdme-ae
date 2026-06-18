@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: DigiTax UAE API
+  title: DigiTax UAE FTA API
   description: DigiTax UAE Public API — Peppol PINT-AE compliant e-invoicing
   version: '3'
   termsOfService: https://digitax.tech/page/terms
