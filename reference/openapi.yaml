@@ -60,7 +60,7 @@ paths:
         - Resources
       summary: Get UAE Tax Categories
       description: >-
-        Returns the list of VAT category codes applicable in the UAE under the
+        Returns the list of VAT Category codes applicable in the UAE under the
         PINT-AE specification.
       security:
         - apiKeyAuth: []
