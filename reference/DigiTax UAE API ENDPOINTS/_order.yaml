@@ -5,5 +5,6 @@
 - invoices
 - credit-notes
 - suppliers
-- self-billing
-- self-billing-credit-notes
+- self-billed-invoices
+- self-billed-credit-notes
+- received-invoices
