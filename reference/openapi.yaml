@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: DigiTax UAE API
+  title: DigiTax UAE API ENDPOINTS
   description: DigiTax UAE Public API — Peppol PINT-AE compliant e-invoicing
   version: '3'
   termsOfService: https://digitax.tech/page/terms
@@ -386,7 +386,7 @@ paths:
     get:
       tags:
         - Business
-      summary: Get UAE business Info
+      summary: Get UAE Business Info
       description: Returns information about the business as registered on DigiTax.
       security:
         - apiKeyAuth: []
@@ -435,7 +435,7 @@ paths:
     post:
       tags:
         - Parties
-      summary: Create Party
+      summary: Create UAE Party
       description: Creates a new party for use in UAE e-invoices.
       security:
         - apiKeyAuth: []
@@ -465,7 +465,7 @@ paths:
     get:
       tags:
         - Parties
-      summary: Get a business party
+      summary: Get a UAE business party
       description: Retrieves information about a party given their ID on DigiTax
       security:
         - apiKeyAuth: []
@@ -488,7 +488,7 @@ paths:
     put:
       tags:
         - Parties
-      summary: Update a business party
+      summary: Update a UAE business party
       description: Updates party information given their ID on DigiTax
       security:
         - apiKeyAuth: []
@@ -567,7 +567,7 @@ paths:
     post:
       tags:
         - Items
-      summary: Create Item
+      summary: Create a UAE Item
       description: Creates a new item that can be referenced in UAE e-invoices.
       security:
         - apiKeyAuth: []
@@ -658,7 +658,7 @@ paths:
     get:
       tags:
         - Items
-      summary: Get a business item
+      summary: Get a UAE Item
       description: Retrieves information about an item given its ID on DigiTax.
       security:
         - apiKeyAuth: []
@@ -713,7 +713,7 @@ paths:
     post:
       tags:
         - Invoices
-      summary: Create Invoice
+      summary: Create a UAE Invoice
       description: >-
         Creates a new PINT-AE compliant e-invoice and submits it to the Peppol
         network.
@@ -1261,7 +1261,7 @@ paths:
     get:
       tags:
         - Invoices
-      summary: Get a business invoice
+      summary: Get a UAE Invoice
       description: Retrieves information about an invoice given its ID on DigiTax
       security:
         - apiKeyAuth: []
@@ -1316,7 +1316,7 @@ paths:
     post:
       tags:
         - Credit Notes
-      summary: Create Credit Note
+      summary: Create a UAE Credit Note
       description: Creates a new PINT-AE compliant credit note
       security:
         - apiKeyAuth: []
@@ -1631,7 +1631,7 @@ paths:
     get:
       tags:
         - Credit Notes
-      summary: Get a business credit note
+      summary: Get a UAE Credit Note
       description: Retrieves information about a credit note given its ID on DigiTax
       security:
         - apiKeyAuth: []
@@ -1688,7 +1688,7 @@ paths:
     post:
       tags:
         - Suppliers
-      summary: Create Supplier
+      summary: Create a UAE Supplier
       description: Creates a new supplier for use in UAE self-billed e-invoices.
       security:
         - apiKeyAuth: []
@@ -1718,7 +1718,7 @@ paths:
     get:
       tags:
         - Suppliers
-      summary: Get a business supplier
+      summary: Get a UAE supplier
       description: Retrieves information about a supplier given their ID on DigiTax
       security:
         - apiKeyAuth: []
@@ -1775,7 +1775,7 @@ paths:
     post:
       tags:
         - Self-Billed Invoices
-      summary: Create Self-Billed Invoice
+      summary: Create a UAE Self-Billed Invoice
       description: >-
         Creates a new PINT-AE compliant self-billed e-invoice and submits it to
         the Peppol network.
@@ -2049,7 +2049,7 @@ paths:
     get:
       tags:
         - Self-Billed Invoices
-      summary: Get a self-billed invoice
+      summary: Get a UAE Self-Billed Invoice
       description: >-
         Retrieves information about a self-billed invoice given its ID on
         DigiTax
@@ -2108,7 +2108,7 @@ paths:
     post:
       tags:
         - Self-Billed Credit Notes
-      summary: Create Self-Billed Credit Note
+      summary: Create a UAE Self-Billed Credit Note
       description: Creates a new PINT-AE compliant self-billed credit note
       security:
         - apiKeyAuth: []
@@ -2378,7 +2378,7 @@ paths:
     get:
       tags:
         - Self-Billed Credit Notes
-      summary: Get a self-billed credit note
+      summary: Get a Self-Billed Credit Note
       description: >-
         Retrieves information about a self-billed credit note given its ID on
         DigiTax
@@ -2438,7 +2438,7 @@ paths:
     get:
       tags:
         - Received Invoices
-      summary: Get a received invoice
+      summary: Get a Received Invoice
       description: Retrieves information about a received invoice given its ID on DigiTax
       security:
         - apiKeyAuth: []
