@@ -435,7 +435,7 @@ paths:
     post:
       tags:
         - Parties
-      summary: Create a UAE Party
+      summary: Create a UAE business Party
       description: Creates a new party for use in UAE e-invoices.
       security:
         - apiKeyAuth: []
@@ -1718,7 +1718,7 @@ paths:
     get:
       tags:
         - Suppliers
-      summary: Get a UAE supplier
+      summary: Get a UAE Supplier
       description: Retrieves information about a supplier given their ID on DigiTax
       security:
         - apiKeyAuth: []
