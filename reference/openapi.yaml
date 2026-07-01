@@ -435,7 +435,7 @@ paths:
     post:
       tags:
         - Parties
-      summary: Create UAE Party
+      summary: Create a UAE Party
       description: Creates a new party for use in UAE e-invoices.
       security:
         - apiKeyAuth: []
@@ -2438,7 +2438,7 @@ paths:
     get:
       tags:
         - Received Invoices
-      summary: Get a Received Invoice
+      summary: Get a UAE Received Invoice
       description: Retrieves information about a received invoice given its ID on DigiTax
       security:
         - apiKeyAuth: []
