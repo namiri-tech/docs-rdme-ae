@@ -140,7 +140,7 @@ paths:
     get:
       tags:
         - Resources
-      summary: Get UAE Item Classification Lists
+      summary: Get UAE Item Classification List
       description: >-
         Returns the valid item classification list identifiers
         (BT-158-scheme-id) supported in PINT-AE.
