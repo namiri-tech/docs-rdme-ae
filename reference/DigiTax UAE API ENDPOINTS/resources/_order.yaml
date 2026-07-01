@@ -4,7 +4,6 @@
 - get_resources-invoice-types
 - get_resources-payment-means
 - get_resources-commodity-codes
-- get_resources-item-classification-lists
 - get_resources-international-code-designator-schemes
 - get_resources-tax-exemption-reasons
 - get_resources-credit-reasons
@@ -16,3 +15,4 @@
 - get_resources-delivery-location-schemes
 - get_resources-ae-country-subentities
 - get_resources-legal-registration-types
+- get_resources-item-classification-list
