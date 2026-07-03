@@ -93,7 +93,7 @@ The DigiTax API is built with various industry standards for API platforms in mi
 
 ## Recap
 
-- Explore our detailed guides to gain understanding of DigiTax UAE integration. Learn how to [navigate them](doc:how-to-use-this-site)
+- Explore our detailed guides to gain an understanding of DigiTax UAE integration. Learn how to [navigate them](doc:how-to-use-this-site)
 - Get the [Prerequisites for using DigiTax UAE API](ref:prerequisites-of-using-the-api)
 - For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
