@@ -102,7 +102,7 @@ Welcome to the Less Taxing solution - DigiTax.
 <br />
 
 
-<Image src="https://files.readme.io/92663ad8c03b479ca18943d7fbbab39b9ce940afd012cbaad65fe7d0a6822a73-Full-Logo_Slogan_Universal.png" align="center" width="300px" />
+<Image src="https://files.readme.io/d92f794215453c3054c330ecb160d4be1b7622666c76b11f24a4b305f97ab3da-Full-Logo_Slogan_Mint.png" align="center" width="300px" />
 
 
 <br />
