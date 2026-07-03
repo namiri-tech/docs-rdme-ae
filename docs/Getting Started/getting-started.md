@@ -35,10 +35,10 @@ metadata:
 
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
 
-  * <i class="icon-guides" /> **DigiTax UAE API Hub (You are here 🎉)**
-  * <i class="icon-guides" /> [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)
-  * <i class="icon-guides" /> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
-  * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
+  * <i class="icon-guides"></i> **DigiTax UAE API Hub (You are here 🎉)**
+  * <i class="icon-guides"></i> [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)
+  * <i class="icon-guides"></i> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
+  * <i class="icon-guides"></i> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
 </Accordion>
 
 ## Electronic Tax Invoicing in UAE
@@ -69,19 +69,21 @@ DigiTax platform constitutes a suite of digital solutions crafted for effective,
 
 The suite of digital solutions or products under DigiTax, through which one can generate FTA e-invoices, are:
 
-* **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
-* **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
+- **DigiTax Dashboard** (Responsive, Web-Browser based, Desktop application)
+- **DigiTax API** (for system-to-system integration without the issue of platform hopping), and
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
-* _**DigiTax UAE**_ integrates you with FTA (Federal Tax Authority System)
-* _**DigiTax Nigeria**_ integrates you with NRS (Nigeria Revenue Service)
-* _**DigiTax Kenya**_ integrates you with KRA (Kenya Revenue Authority)
-* _**DigiTax Zambia**_ integrates you with ZRA (Zambia Revenue Authority)
+- **_DigiTax UAE_** integrates you with FTA (Federal Tax Authority System)
+- **_DigiTax Nigeria_** integrates you with NRS (Nigeria Revenue Service)
+- **_DigiTax Kenya_** integrates you with KRA (Kenya Revenue Authority)
+- **_DigiTax Zambia_** integrates you with ZRA (Zambia Revenue Authority)
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 
-<Image align="center" border={true} caption="DigiTax - Tax Regulators" src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" width="600px" />
+
+<Image src="https://files.readme.io/c4b6c503b46201821ae3d228d057ee6db2585be40a27a8607b90ec0d60b733ff-eInvoice.png" align="center" width="600px" caption="DigiTax - Tax Regulators" border={true} />
+
 
 ### DigiTax API Features
 
@@ -91,10 +93,16 @@ The DigiTax API is built with various industry standards for API platforms in mi
 
 ## Recap
 
-* Explore our detailed guides to gain understanding of DigiTax UAE integration. Learn how to [navigate them](doc:how-to-use-this-site)
-* Get the [Prerequisites for using DigiTax UAE API](ref:prerequisites-of-using-the-api)
-* For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
+- Explore our detailed guides to gain understanding of DigiTax UAE integration. Learn how to [navigate them](doc:how-to-use-this-site)
+- Get the [Prerequisites for using DigiTax UAE API](ref:prerequisites-of-using-the-api)
+- For support, [email us](mailto:support@namiri.tech) OR talk to us via the **DigiTax chat** on the bottom-right of any page
 
 Welcome to the Less Taxing solution - DigiTax.
 
-<Image align="center" width="300px" src="https://files.readme.io/f982859d4fdca89de7d179a31795b159cb6c2e34a9a4dc578b85aba910daf13f-Full-Logo_Slogan_Colour.png" />
+<br />
+
+
+<Image src="https://files.readme.io/89c53893fab5c2a019ca415e752c6961ef7ef8f09f074c9e26824d72cde3ee5e-Full-Logo_Slogan_Universal.png" align="center" width="300px" />
+
+
+<br />
