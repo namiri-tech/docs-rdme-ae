@@ -1,6 +1,6 @@
 openapi: 3.0.1
 info:
-  title: DigiTax UAE API ENDPOINTS
+  title: DigiTax UAE API Endpoints
   description: DigiTax UAE Public API — Peppol PINT-AE compliant e-invoicing
   version: '3'
   termsOfService: https://digitax.tech/page/terms
@@ -769,7 +769,7 @@ paths:
                     The date on which the invoice was issued (YYYY-MM-DD). Must
                     not be in the future and must not be more than 30 days in
                     the past.
-                  example: '2026-05-06'
+                  example: '2026-07-14'
                 issue_time:
                   type: string
                   description: The invoice issue time (HH:MM:SS)
@@ -778,14 +778,14 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-06-05'
+                  example: '2026-08-13'
                 document_currency_code:
                   type: string
                   description: >-
                     A code that specifies the currency in which the invoice is
                     issued. See `GET /resources/currencies` for available
                     values.
-                  example: USD
+                  example: AED
                 tax_currency_exchange_rate:
                   type: number
                   format: double
@@ -815,7 +815,7 @@ paths:
                   description: >-
                     The VAT point date (YYYY-MM-DD). Must be strictly before the
                     issue_date.
-                  example: '2026-05-05'
+                  example: '2026-07-13'
                 buyer_reference:
                   type: string
                   description: >-
@@ -914,9 +914,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '480'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 850
@@ -944,9 +944,9 @@ paths:
                       street_name: Sheikh Zayed Road
                     delivery_terms_id: DAP
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 150
@@ -975,9 +975,9 @@ paths:
                       street_name: King Fahd Road
                     delivery_terms_id: DAP
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 1200
@@ -1001,9 +1001,9 @@ paths:
                   beneficiary_trn: '123456789098703'
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 3500
@@ -1026,9 +1026,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 2500
@@ -1058,9 +1058,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 1000
@@ -1102,9 +1102,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       item_nature_code: DL8.48.8.1
@@ -1129,9 +1129,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
@@ -1163,12 +1163,12 @@ paths:
                     id: CTR-2026-00042
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_period:
-                    end_date: '2026-05-31'
-                    start_date: '2026-05-01'
+                    end_date: '2026-07-13'
+                    start_date: '2026-06-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 300
@@ -1198,13 +1198,13 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_period:
                     billing_frequency_code: MTH
-                    end_date: '2026-05-31'
-                    start_date: '2026-05-01'
+                    end_date: '2026-07-13'
+                    start_date: '2026-06-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 450
@@ -1233,9 +1233,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '380'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 4500
@@ -1373,7 +1373,7 @@ paths:
                     The date on which the credit note was issued (YYYY-MM-DD).
                     Must not be in the future and must not be more than 30 days
                     in the past.
-                  example: '2026-05-06'
+                  example: '2026-07-14'
                 issue_time:
                   type: string
                   description: The credit note issue time (HH:MM:SS)
@@ -1382,7 +1382,7 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-06-05'
+                  example: '2026-08-13'
                 document_currency_code:
                   type: string
                   description: >-
@@ -1517,9 +1517,9 @@ paths:
                   credit_note_reason_code: DL8.61.1.A
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '381'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 1500
@@ -1555,9 +1555,9 @@ paths:
                   credit_note_reason_code: DL8.61.1.A
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '381'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
@@ -1593,9 +1593,9 @@ paths:
                   credit_note_reason_code: DL8.61.1.D
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '381'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 1200
@@ -1830,7 +1830,7 @@ paths:
                     The date on which the self-billed invoice was issued
                     (YYYY-MM-DD). Must not be in the future and must not be more
                     than 30 days in the past.
-                  example: '2026-05-06'
+                  example: '2026-07-14'
                 issue_time:
                   type: string
                   description: The invoice issue time (HH:MM:SS)
@@ -1839,7 +1839,7 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-06-05'
+                  example: '2026-08-13'
                 document_currency_code:
                   type: string
                   description: >-
@@ -1878,7 +1878,7 @@ paths:
                   description: >-
                     The VAT point date (YYYY-MM-DD). Must be strictly before the
                     issue_date.
-                  example: '2026-05-05'
+                  example: '2026-07-13'
                 buyer_reference:
                   type: string
                   description: >-
@@ -1988,9 +1988,9 @@ paths:
                   contract_document_reference:
                     id: CTR-2026-00042
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '389'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 800
@@ -2020,9 +2020,9 @@ paths:
                 summary: Standard Self-Billed Invoice — Mandatory Fields Only
                 value:
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '389'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
@@ -2165,7 +2165,7 @@ paths:
                     The date on which the self-billed credit note was issued
                     (YYYY-MM-DD). Must not be in the future and must not be more
                     than 30 days in the past.
-                  example: '2026-05-06'
+                  example: '2026-07-14'
                 issue_time:
                   type: string
                   description: The credit note issue time (HH:MM:SS)
@@ -2174,7 +2174,7 @@ paths:
                   type: string
                   format: date
                   description: The payment due date (YYYY-MM-DD)
-                  example: '2026-06-05'
+                  example: '2026-08-13'
                 document_currency_code:
                   type: string
                   description: >-
@@ -2313,9 +2313,9 @@ paths:
                   credit_note_reason: Goods returned by customer in full
                   credit_note_reason_code: DL8.61.1.D
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '261'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 1200
@@ -2348,9 +2348,9 @@ paths:
                   credit_note_reason: Supply was cancelled
                   credit_note_reason_code: DL8.61.1.A
                   document_currency_code: AED
-                  due_date: '2026-07-02'
+                  due_date: '2026-08-13'
                   invoice_type_code: '261'
-                  issue_date: '2026-06-02'
+                  issue_date: '2026-07-14'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
@@ -2721,12 +2721,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the business was created on DigiTax
-          example: '2026-05-06T08:30:00Z'
+          example: '2026-07-14T08:30:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the business was last updated on DigiTax
-          example: '2026-05-06T14:45:00Z'
+          example: '2026-07-14T14:45:00Z'
         active:
           type: boolean
           description: Whether the branch is currently active on DigiTax
@@ -2783,12 +2783,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the party was created
-          example: '2026-05-06T09:00:00Z'
+          example: '2026-07-14T09:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the party was last updated
-          example: '2026-05-06T11:20:00Z'
+          example: '2026-07-14T11:20:00Z'
         active:
           type: boolean
           description: Whether the party is currently active on DigiTax
@@ -2848,12 +2848,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the supplier was created
-          example: '2026-05-06T09:00:00Z'
+          example: '2026-07-14T09:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the supplier was last updated
-          example: '2026-05-06T11:20:00Z'
+          example: '2026-07-14T11:20:00Z'
         active:
           type: boolean
           description: Whether the supplier is currently active on DigiTax
@@ -2926,12 +2926,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the item was created
-          example: '2026-05-06T07:00:00Z'
+          example: '2026-07-14T07:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the item was last updated
-          example: '2026-05-06T14:00:00Z'
+          example: '2026-07-14T14:00:00Z'
         active:
           type: boolean
           description: Whether the item is currently active on DigiTax
@@ -3037,7 +3037,7 @@ components:
         issue_date:
           type: string
           description: The issue date of the referenced document (YYYY-MM-DD)
-          example: '2026-05-06'
+          example: '2026-07-14'
     InvoicePeriod:
       type: object
       description: The period to which the invoice relates
@@ -3045,11 +3045,11 @@ components:
         start_date:
           type: string
           description: The start date of the invoice period (YYYY-MM-DD)
-          example: '2026-05-06'
+          example: '2026-07-14'
         end_date:
           type: string
           description: The end date of the invoice period (YYYY-MM-DD)
-          example: '2026-06-05'
+          example: '2026-08-13'
         billing_frequency_code:
           type: string
           description: >-
@@ -3066,7 +3066,7 @@ components:
         actual_delivery_date:
           type: string
           description: The actual delivery date (YYYY-MM-DD)
-          example: '2026-05-06'
+          example: '2026-07-14'
         delivery_location_id:
           type: string
           description: The identifier of the delivery location
@@ -3267,7 +3267,7 @@ components:
         payment_terms_due_date:
           type: string
           description: The due date for payment (YYYY-MM-DD)
-          example: '2026-06-05'
+          example: '2026-08-13'
     TaxBreakdown:
       type: object
       description: A breakdown of VAT by category
@@ -3328,12 +3328,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the line item was created
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the line item was last updated
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
         active:
           type: boolean
           description: Whether the line item is active
@@ -3358,7 +3358,7 @@ components:
         unit_of_measure_code:
           type: string
           description: The unit of measure code for the quantity and price
-          example: EA
+          example: C62
         line_extension_amount:
           type: number
           format: double
@@ -3472,12 +3472,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when the invoice was created on DigiTax
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when the invoice was last updated on DigiTax
-          example: '2026-05-06T12:30:00Z'
+          example: '2026-07-14T12:30:00Z'
         active:
           type: boolean
           description: Whether this invoice record is active on DigiTax
@@ -3528,7 +3528,7 @@ components:
           type: string
           format: date
           description: The date the invoice was issued (YYYY-MM-DD)
-          example: '2026-05-06'
+          example: '2026-07-14'
         issue_time:
           type: string
           description: The time the invoice was issued (HH:MM:SS)
@@ -3537,12 +3537,14 @@ components:
           type: string
           format: date
           description: The payment due date (YYYY-MM-DD)
-          example: '2026-06-05'
+          example: '2026-08-13'
         tax_point_date:
           type: string
           format: date
-          description: The date for tax purposes (VAT point date) (YYYY-MM-DD)
-          example: '2026-05-05'
+          description: >-
+            The date for tax purposes (VAT point date) (YYYY-MM-DD). Must be
+            strictly before the issue_date.
+          example: '2026-07-13'
         document_currency_code:
           type: string
           description: The currency of the invoice amounts
@@ -3722,13 +3724,13 @@ components:
           type: string
           format: date-time
           nullable: true
-          example: '2026-05-06T10:05:00Z'
+          example: '2026-07-14T10:05:00Z'
           description: The date and time when the invoice was sent to C5(FTA)
         submitted_at:
           type: string
           format: date-time
           nullable: true
-          example: '2026-05-06T10:04:00Z'
+          example: '2026-07-14T10:04:00Z'
           description: >-
             The date and time when the invoice was sent to C3(buyer's Access
             Point) in the case of billing or C2(supplier's Access Point) in the
@@ -3737,7 +3739,7 @@ components:
           type: string
           format: date-time
           nullable: true
-          example: '2026-05-06T10:03:00Z'
+          example: '2026-07-14T10:03:00Z'
           description: >-
             The date and time when the invoice was validated against the PINT-AE
             rules
@@ -3895,7 +3897,7 @@ components:
         unit_of_measure_code:
           type: string
           description: The unit of measure code for the quantity and price
-          example: EA
+          example: C62
         line_extension_amount:
           type: number
           format: double
@@ -4012,12 +4014,12 @@ components:
           type: string
           format: date-time
           description: The timestamp when this record was created on DigiTax
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
         updated_at:
           type: string
           format: date-time
           description: The timestamp when this record was last updated on DigiTax
-          example: '2026-05-06T12:30:00Z'
+          example: '2026-07-14T12:30:00Z'
         active:
           type: boolean
           description: Whether this received invoice record is active on DigiTax
@@ -4073,7 +4075,7 @@ components:
           type: string
           format: date
           description: The date the invoice was issued (YYYY-MM-DD)
-          example: '2026-05-06'
+          example: '2026-07-14'
         issue_time:
           type: string
           description: The time the invoice was issued (HH:MM:SS)
@@ -4082,12 +4084,14 @@ components:
           type: string
           format: date
           description: The payment due date (YYYY-MM-DD)
-          example: '2026-06-05'
+          example: '2026-08-13'
         tax_point_date:
           type: string
           format: date
-          description: The VAT point date (YYYY-MM-DD)
-          example: '2026-05-05'
+          description: >-
+            The VAT point date (YYYY-MM-DD). Must be strictly before the
+            issue_date.
+          example: '2026-07-13'
         document_currency_code:
           type: string
           description: The currency of the invoice amounts
@@ -4265,13 +4269,13 @@ components:
           description: >-
             The timestamp when the document first arrived from the Peppol
             network
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
         accepted_at:
           type: string
           format: date-time
           nullable: true
           description: The timestamp when the AP approved this invoice
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
         rejected_at:
           type: string
           format: date-time
@@ -4283,7 +4287,7 @@ components:
           format: date-time
           nullable: true
           description: The timestamp when this invoice was forwarded to the FTA
-          example: '2026-05-06T10:00:00Z'
+          example: '2026-07-14T10:00:00Z'
     Pagination:
       type: object
       properties:
@@ -4349,7 +4353,7 @@ components:
         payment_terms_due_date:
           type: string
           description: The payment due date (YYYY-MM-DD)
-          example: '2026-06-05'
+          example: '2026-08-13'
     CreateInvoiceItemRequest:
       type: object
       required:
@@ -4374,7 +4378,7 @@ components:
           description: >-
             The code of the unit of measure used for the invoiced quantity. See
             `GET /resources/units-of-measure` for available values.
-          example: EA
+          example: C62
         price_amount:
           type: number
           format: double
@@ -4397,12 +4401,12 @@ components:
           description: >-
             The VAT category code for this invoice item. See `GET
             /resources/tax-categories` for available values.
-          example: E
+          example: S
         tax_rate:
           type: number
           format: double
           description: The VAT rate(between 0 and 1) percentage
-          example: 0
+          example: 0.05
           minimum: 0
           maximum: 1
         tax_exemption_reason_code:
