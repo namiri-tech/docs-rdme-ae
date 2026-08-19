@@ -1,5 +1,5 @@
 ---
-title: Item calculations and validations
+title: Item validations
 deprecated: false
 hidden: false
 metadata:
