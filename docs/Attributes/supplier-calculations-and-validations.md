@@ -1,5 +1,5 @@
 ---
-title: Supplier calculations and validations
+title: Supplier validations
 deprecated: false
 hidden: false
 metadata:
