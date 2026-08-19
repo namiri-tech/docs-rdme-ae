@@ -1,5 +1,5 @@
 ---
-title: Credit notes
+title: Credit notes calculations and validations
 deprecated: false
 hidden: false
 metadata:
