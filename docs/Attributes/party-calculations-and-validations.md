@@ -1,5 +1,5 @@
 ---
-title: Party calculations and validations
+title: Party validations
 deprecated: false
 hidden: false
 metadata:
