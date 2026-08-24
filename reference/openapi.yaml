@@ -3463,6 +3463,10 @@ components:
         - validated_at
         - submitted_at
         - reported_at
+        - accepted_at
+        - rejected_at
+        - report_accepted_at
+        - report_rejected_at
       properties:
         id:
           type: string
@@ -3726,6 +3730,46 @@ components:
           nullable: true
           example: '2026-07-14T10:05:00Z'
           description: The date and time when the invoice was sent to C5(FTA)
+        accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:06:00Z'
+          description: >-
+            The date and time C3 acknowledged the invoice with a positive
+            Message Level Status
+        rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:06:00Z'
+          description: >-
+            The date and time C3 rejected the invoice with a negative Message
+            Level Status
+        rejection_reason:
+          type: string
+          description: The reason C3 gave for rejecting the invoice
+          example: Document rejected due to 2 validation error(s)
+        report_accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:07:00Z'
+          description: >-
+            The date and time C5(FTA) acknowledged the tax report with a
+            positive Message Level Status
+        report_rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:07:00Z'
+          description: >-
+            The date and time C5(FTA) rejected the tax report with a negative
+            Message Level Status
+        report_rejection_reason:
+          type: string
+          description: The reason C5(FTA) gave for rejecting the tax report
+          example: Document rejected due to 1 validation error(s)
         submitted_at:
           type: string
           format: date-time
