@@ -891,11 +891,11 @@ paths:
                   format: double
                   description: The rounding amount
                   example: 0
-                beneficiary_trn:
+                beneficiary_tax_number:
                   type: string
                   description: >-
-                    The TRN of the beneficiary for Free Trade Zone supplies.
-                    Required when `transaction_types` includes
+                    The TRN or TIN of the beneficiary for Free Trade Zone
+                    supplies. Required when `transaction_types` includes
                     `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
@@ -995,10 +995,10 @@ paths:
               free_trade_zone:
                 description: >-
                   Supply of goods to a buyer in a UAE Free Trade Zone;
-                  beneficiary TRN required; zero-rated
+                  beneficiary tax number required; zero-rated
                 summary: Free Trade Zone Supply
                 value:
-                  beneficiary_trn: '123456789098703'
+                  beneficiary_tax_number: '123456789098703'
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
                   due_date: '2026-08-13'
@@ -1491,11 +1491,11 @@ paths:
                   example:
                     - EXPORTS
                     - CONTINUOUS_SUPPLY
-                beneficiary_trn:
+                beneficiary_tax_number:
                   type: string
                   description: >-
-                    The TRN of the beneficiary for Free Trade Zone supplies.
-                    Required when `transaction_types` includes
+                    The TRN or TIN of the beneficiary for Free Trade Zone
+                    supplies. Required when `transaction_types` includes
                     `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
@@ -1954,11 +1954,11 @@ paths:
                   format: double
                   description: The rounding amount
                   example: 0
-                beneficiary_trn:
+                beneficiary_tax_number:
                   type: string
                   description: >-
-                    The TRN of the beneficiary for Free Trade Zone supplies.
-                    Required when `transaction_types` includes
+                    The TRN or TIN of the beneficiary for Free Trade Zone
+                    supplies. Required when `transaction_types` includes
                     `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
@@ -2286,11 +2286,11 @@ paths:
                       - EXPORTS
                   example:
                     - CONTINUOUS_SUPPLY
-                beneficiary_trn:
+                beneficiary_tax_number:
                   type: string
                   description: >-
-                    The TRN of the beneficiary for Free Trade Zone supplies.
-                    Required when `transaction_types` includes
+                    The TRN or TIN of the beneficiary for Free Trade Zone
+                    supplies. Required when `transaction_types` includes
                     `FREE_TRADE_ZONE`.
                   example: '123456789098703'
                 principle_trn:
@@ -2669,13 +2669,21 @@ components:
     Taxpayer:
       type: object
       required:
-        - tax_registration_number
+        - tax_identification_number
         - legal_entity
         - address
       properties:
+        tax_identification_number:
+          type: string
+          description: >-
+            The UAE Tax Identification Number (TIN) — the universal 10-digit FTA
+            identity
+          example: '1009876543'
         tax_registration_number:
           type: string
-          description: The UAE Tax Registration Number (TRN)
+          description: >-
+            The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
+            have one
           example: '100987654300003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
@@ -2712,7 +2720,7 @@ components:
         - updated_at
         - active
         - business_id
-        - tax_registration_number
+        - tax_identification_number
         - legal_entity
         - is_test
         - is_live
@@ -2735,9 +2743,17 @@ components:
           type: string
           description: The DigiTax business identifier associated with this business.
           example: business_01KMFHKF4YJBGG2MNDQASKHWE9
+        tax_identification_number:
+          type: string
+          description: >-
+            The UAE Tax Identification Number (TIN) of the business — the
+            universal 10-digit FTA identity
+          example: '1001234567'
         tax_registration_number:
           type: string
-          description: The UAE Tax Registration Number (TRN) of the business
+          description: >-
+            The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
+            have one of the business
           example: '100123456700003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
@@ -2772,7 +2788,7 @@ components:
         - created_at
         - updated_at
         - active
-        - tax_registration_number
+        - tax_identification_number
         - legal_entity
       properties:
         id:
@@ -2793,9 +2809,17 @@ components:
           type: boolean
           description: Whether the party is currently active on DigiTax
           example: true
+        tax_identification_number:
+          type: string
+          description: >-
+            The UAE Tax Identification Number (TIN) of the party — the universal
+            10-digit FTA identity
+          example: '1009876543'
         tax_registration_number:
           type: string
-          description: The UAE Tax Registration Number (TRN) of the party
+          description: >-
+            The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
+            have one of the party
           example: '100987654300003'
         party_name:
           type: string
@@ -2837,7 +2861,7 @@ components:
         - created_at
         - updated_at
         - active
-        - tax_registration_number
+        - tax_identification_number
         - legal_entity
       properties:
         id:
@@ -2858,9 +2882,17 @@ components:
           type: boolean
           description: Whether the supplier is currently active on DigiTax
           example: true
+        tax_identification_number:
+          type: string
+          description: >-
+            The UAE Tax Identification Number (TIN) of the supplier — the
+            universal 10-digit FTA identity
+          example: '1009876543'
         tax_registration_number:
           type: string
-          description: The UAE Tax Registration Number (TRN) of the supplier
+          description: >-
+            The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
+            have one of the supplier
           example: '100987654300003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
@@ -3716,9 +3748,9 @@ components:
           type: string
           description: The DigiTax ID of the original invoice this credit note relates to
           example: invoice_01KMFSMEYVCDV0150T6P4WECVR
-        beneficiary_trn:
+        beneficiary_tax_number:
           type: string
-          description: The TRN of the beneficiary in case of Free Trade Zone supply
+          description: The TRN or TIN of the beneficiary in case of Free Trade Zone supply
           example: '100111222300003'
         principle_trn:
           type: string
@@ -4264,9 +4296,9 @@ components:
           format: double
           description: The VAT amount expressed in the tax currency (AED)
           example: 475
-        beneficiary_trn:
+        beneficiary_tax_number:
           type: string
-          description: The TRN of the beneficiary in case of Free Trade Zone supply
+          description: The TRN or TIN of the beneficiary in case of Free Trade Zone supply
           example: '100111222300003'
         principle_trn:
           type: string
