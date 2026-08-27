@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: DigiTax UAE API
-  description: DigiTax UAE Public API — Peppol PINT-AE compliant e-invoicing
+  description: DigiTax UAE Public API - Peppol PINT-AE compliant e-invoicing
   version: '3'
   termsOfService: https://digitax.tech/page/terms
   contact:
@@ -368,7 +368,7 @@ paths:
       summary: Get UAE Legal Registration Types
       description: >-
         Returns the list of legal registration identifier types used to classify
-        a company identifier — e.g. Trade License, Emirates ID, Passport.
+        a company identifier - e.g. Trade License, Emirates ID, Passport.
       security:
         - apiKeyAuth: []
       responses:
@@ -1072,7 +1072,7 @@ paths:
                     - SUPPLY_THROUGH_ECOMMERCE
               exports:
                 description: >-
-                  Goods exported to Saudi Arabia — zero-rated under UAE VAT
+                  Goods exported to Saudi Arabia - zero-rated under UAE VAT
                   Article 45(1)(a); EXPORTS transaction type
                 summary: Export Invoice
                 value:
@@ -1129,7 +1129,7 @@ paths:
                     - FREE_TRADE_ZONE
               margin_scheme:
                 description: >-
-                  Second-hand goods sold under profit margin scheme — VAT
+                  Second-hand goods sold under profit margin scheme - VAT
                   applies only to the margin; category N
                 summary: Profit Margin Scheme Invoice
                 value:
@@ -1160,7 +1160,7 @@ paths:
                     - PROFIT_MARGIN_SCHEME
               multiple_tax_categories:
                 description: >-
-                  Invoice spanning S (standard 5%), Z (zero-rated), E (exempt —
+                  Invoice spanning S (standard 5%), Z (zero-rated), E (exempt -
                   financial services), and AE (reverse charge) categories across
                   four line items
                 summary: Multiple Tax Categories
@@ -1205,7 +1205,7 @@ paths:
                   trader_invoice_number: ACME-INV-2026-0011
               reverse_charge:
                 description: >-
-                  Imported services — VAT liability transferred to buyer under
+                  Imported services - VAT liability transferred to buyer under
                   UAE Article 48; buyer self-accounts at 5%
                 summary: Reverse Charge
                 value:
@@ -1223,7 +1223,7 @@ paths:
                       tax_rate: 0.05
                       unit_of_measure_code: EA
                   note: >-
-                    Reverse charge — buyer self-accounts for VAT under UAE
+                    Reverse charge - buyer self-accounts for VAT under UAE
                     Article 48
                   payments:
                     - payee_account_id: AE070331234567890123456
@@ -1234,7 +1234,7 @@ paths:
                 description: >-
                   Minimal valid tax invoice containing only mandatory fields;
                   useful as a starting point for integration
-                summary: Standard Invoice — Mandatory Fields Only
+                summary: Standard Invoice - Mandatory Fields Only
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
@@ -1622,7 +1622,7 @@ paths:
                   differ from the issuing branch's TRN
                 summary: Disclosed Agent Billing Credit Note
                 value:
-                  credit_note_reason: Supply was cancelled — disclosed agent billing arrangement
+                  credit_note_reason: Supply was cancelled - disclosed agent billing arrangement
                   credit_note_reason_code: DL8.61.1.A
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
@@ -1643,7 +1643,7 @@ paths:
                       tax_rate: 0.05
                       unit_of_measure_code: EA
                   note: >-
-                    Disclosed agent billing — credit note issued by agent on
+                    Disclosed agent billing - credit note issued by agent on
                     behalf of principal
                   original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
                   payments:
@@ -1658,7 +1658,7 @@ paths:
                 description: >-
                   Minimal valid credit note containing only mandatory fields;
                   useful as a starting point for integration
-                summary: Standard Credit Note — Mandatory Fields Only
+                summary: Standard Credit Note - Mandatory Fields Only
                 value:
                   credit_note_reason: Supply was cancelled
                   credit_note_reason_code: DL8.61.1.A
@@ -2202,7 +2202,7 @@ paths:
                 description: >-
                   Minimal valid self-billed invoice containing only the required
                   fields; useful as a starting point for integration
-                summary: Standard Self-Billed Invoice — Mandatory Fields Only
+                summary: Standard Self-Billed Invoice - Mandatory Fields Only
                 value:
                   document_currency_code: AED
                   due_date: '2026-07-02'
@@ -2528,7 +2528,7 @@ paths:
                 description: >-
                   Minimal valid self-billed credit note containing only the
                   required fields; useful as a starting point for integration
-                summary: Standard Self-Billed Credit Note — Mandatory Fields Only
+                summary: Standard Self-Billed Credit Note - Mandatory Fields Only
                 value:
                   credit_note_reason: Supply was cancelled
                   credit_note_reason_code: DL8.61.1.A
