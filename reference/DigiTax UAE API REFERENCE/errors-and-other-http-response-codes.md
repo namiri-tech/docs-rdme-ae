@@ -10,214 +10,68 @@ metadata:
 ---
 ## Overview
 
-Conventional HTTP response codes are used to indicate the success or failure of an API request.
+Conventional HTTP response codes indicate the success or failure of an API request.
 
-Responses are grouped in five classes:
+Responses are grouped into standard classes:
 
-* Informational responses (100 – 199)
 * Successful responses (200 – 299)
 * Redirection messages (300 – 399)
 * Client error responses (400 – 499)
 * Server error responses (500 – 599)
 
-## DigiTax API HTTP response status codes
+## Standard Error Response Body
 
-For our interactive API, these are the main HTTP response status codes (Client error responses and Server error responses included):
+When an error occurs, the DigiTax UAE API returns a standardized JSON error envelope:
 
-* 200 OK
+```json
+{
+  "code": 400,
+  "message": "invalid tax category code",
+  "metadata": {
+    "field": "items[0].tax_category_code",
+    "details": "Tax category 'X' is not valid in UAE PINT-AE specification."
+  }
+}
+```
 
-* 201 Created
+---
 
-* 400 Bad Request
+## DigiTax API HTTP Response Status Codes
 
-* 401 Unauthorized
+For the interactive DigiTax UAE API, these are the primary HTTP response codes:
 
-* 403 Forbidden
+* **200 OK**: Request succeeded.
+* **201 Created**: Resource created successfully.
+* **400 Bad Request**: Request payload validation failed.
+* **401 Unauthorized**: Authentication failed (missing or invalid `X-API-Key`).
+* **403 Forbidden**: Authenticated business lacks permissions for this operation.
+* **404 Not Found**: Resource or endpoint path not found.
+* **409 Conflict**: Duplicate unique constraint (e.g., duplicated `trader_invoice_number` or existing party TRN for branch).
+* **412 Precondition Failed**: Business logic precondition not met.
+* **429 Too Many Requests**: Rate limit exceeded.
+* **500 Internal Server Error**: Internal server issue.
+* **503 Service Unavailable**: Temporary maintenance or downtime.
 
-* 404 Not Found
+---
 
-* 409 Conflict
+## Further Context and Action Points
 
-* 412 Precondition Failed
+### Successful Responses
 
-* 429 Too Many Requests
+| HTTP Status Code | Scenario in DigiTax API | Action |
+| :--- | :--- | :--- |
+| **200 OK** | Typical for successful **GET** and **PUT** requests | Use the API response data as needed |
+| **201 Created** | Typical for successful **POST** creation requests | Use the newly created entity response |
 
-* 500 Internal Server Error
+### Client Error Responses
 
-* 501 Not Implemented
-
-* 502 Bad Gateway
-
-* 503 Service Unavailable
-
-> 📘 503 is unlikely for DigiTax
->
-> We pride ourselves to provide 99.99% uptime!
-
-Head over to the [MDN reference on HTTP Status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) for details on the entire list of HTTP response status codes.
-
-## Further context and Possible action points
-
-### Successful responses
-
-| HTTP response status codes | Scenario in DigiTax API                           | Action                         |
-| :------------------------- | :------------------------------------------------ | :----------------------------- |
-| 200 OK                     | Typical for successful **GET** endpoint requests  | Use the API response as needed |
-| 201 Created                | Typical for successful **POST** endpoint requests | Use the API response as needed |
-
-### Client error responses
-
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        HTTP response status codes
-      </th>
-
-      <th>
-        Scenario in DigiTax API
-      </th>
-
-      <th>
-        Further context and Possible action points
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        400 Bad Request
-      </td>
-
-      <td>
-        Typical for POST endpoint requests
-      </td>
-
-      <td>
-        **Action**: Update the request body, headers, and/or parameters and retry
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        401 Unauthorized
-      </td>
-
-      <td>
-        Typical for POST and GET endpoint requests
-      </td>
-
-      <td>
-          
-        For example, if you use a wrong/ deactivated API Key, you get a 401 error with the response body as:  
-        `{"message": "bad credentials"}`   
-
-        **Action**: Check API Key or add one if you hadn't already. The message returned will advise otherwise.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        403 Forbidden
-      </td>
-
-      <td>
-        Typical for POST endpoint requests
-      </td>
-
-      <td>
-        The user who generated the API Key is not allowed to perform the action or view the resource.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        404 Not Found
-      </td>
-
-      <td>
-        Possible in any endpoint
-      </td>
-
-      <td>
-        **Action**: Update the endpoint path or route
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        409 Conflict
-      </td>
-
-      <td>
-        Typical for POST endpoint requests
-      </td>
-
-      <td>
-        For example, `trader_invoice_number` should be unique across all sales/ credit notes and debit notes. If you repeat the value of an existing invoice in a POST request, the request will fail with this error.  
-
-        **Action**: Retry with a different, unique `trader_invoice_number`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        412 Precondition Failed
-      </td>
-
-      <td>
-        Typical for POST endpoint requests
-      </td>
-
-      <td>
-        There are several actions that need Preconditions met. The message accompanying the error will advise.  
-
-        Below are examples.
-
-        * (For Credit Notes) `credit note can only be created for signed invoices`
-        * `item amount more than amount in original invoice`
-        * (For Invoices) `items sent are more than those found, check that you haven't duplicated an item` - Which means that you have likely duplicated an item in the request.  
-        * (For Items) `tax category not found`
-
-        **Action**: Update the request body and retry
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        429 Too Many Requests
-      </td>
-
-      <td>
-        Possible in any endpoint
-      </td>
-
-      <td>
-        Since all endpoints are rate-limited, you have reached the set user quota/ rate limit.
-
-        **Action**: Retry later at a slower cadence
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        5XX (501, 502, 503, 504 ...)
-      </td>
-
-      <td>
-        Possible in any endpoint
-      </td>
-
-      <td>
-        **Action**:  
-
-        * Confirm that our team has issued an advisory on service interruption.
-          * If so, retry once a resolution of the issue has been communicated.
-          * If not, please retry. If a retry still returns a 5XX error, kindly reach out to our support team.
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-<br />
+| HTTP Status Code | Scenario in DigiTax API | Context & Action |
+| :--- | :--- | :--- |
+| **400 Bad Request** | Schema or field validation failed | **Examples**: Invalid tax category code, missing mandatory address fields (`city_name`, `street_name`), invalid TRN format.<br/>**Action**: Fix the request body against the schema and retry. |
+| **401 Unauthorized** | Missing, expired, or invalid API Key | Returned when `X-API-Key` header is missing or inactive (`{"message": "bad credentials"}`).<br/>**Action**: Verify your API Key from the DigiTax dashboard. |
+| **403 Forbidden** | Insufficient permissions | The API Key does not have rights to access this branch or resource. |
+| **404 Not Found** | Resource or route not found | **Action**: Check the URL path and ID parameter. |
+| **409 Conflict** | Unique constraint violation | **Example**: `trader_invoice_number` must be unique across all invoices/credit notes issued by the business. A duplicate number triggers a 409 Conflict.<br/>**Action**: Retry with a unique identifier. |
+| **412 Precondition Failed** | Business state precondition failed | **Example**: In credit notes, `items sent are more than those in the original invoice`.<br/>**Action**: Verify that references to the original document match before issuing the credit note. |
+| **429 Too Many Requests** | Rate limit quota reached | **Action**: Back off and retry requests with exponential backoff. |
+| **5XX Server Errors** | Service interruption or upstream error | **Action**: Check DigiTax status advisories or reach out to [support@namiri.tech](mailto:support@namiri.tech). |

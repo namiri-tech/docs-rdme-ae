@@ -35,10 +35,11 @@ metadata:
 
   If you're looking for another country or the general homepage for DigiTax API, navigate to the [DigiTax API homepage](https://docs.digitax.tech), or country-specific API hub pages (ordered alphabetically):
 
-  * <i class="icon-guides"></i> **DigiTax UAE API Hub (You are here 🎉)**
-  * <i class="icon-guides"></i> [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)
-  * <i class="icon-guides"></i> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
-  * <i class="icon-guides"></i> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
+  * <i class="icon-guides" /> **DigiTax UAE API Hub (You are here 🎉)**
+  * <i class="icon-guides" /> [DigiTax Kenya API Hub](https://ke.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Nigeria API Hub](https://ng.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Tanzania API Hub](https://tz.docs.digitax.tech)
+  * <i class="icon-guides" /> [DigiTax Zambia API Hub](https://zm.docs.digitax.tech)
 </Accordion>
 
 ## Electronic Tax Invoicing in UAE
@@ -55,7 +56,7 @@ FTA is the tax regulator of the UAE government. It is responsible for the admini
 
 ### Peppol
 
-Peppol is an international network that allows businesses to exchange e-invoices with each other. It is a open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol on [their website](https://peppol.org/about/) _external link_.
+Peppol is an international network that allows businesses to exchange e-invoices with each other. It is an open standard that is used by businesses all over the world. Peppol is a not-for-profit organization that is committed to the development and promotion of e-invoicing. Learn more about Peppol on [their website](https://peppol.org/about/) _external link_.
 
 ### PINT AE
 
@@ -74,10 +75,11 @@ The suite of digital solutions or products under DigiTax, through which one can 
 
 DigiTax connects with regional tax authorities/ regulators, so far:
 
-- **_DigiTax UAE_** integrates you with FTA (Federal Tax Authority System)
-- **_DigiTax Nigeria_** integrates you with NRS (Nigeria Revenue Service)
-- **_DigiTax Kenya_** integrates you with KRA (Kenya Revenue Authority)
-- **_DigiTax Zambia_** integrates you with ZRA (Zambia Revenue Authority)
+* _**DigiTax UAE**_ integrates you with FTA (Federal Tax Authority System)
+* _**DigiTax Kenya**_ integrates you with KRA (Kenya Revenue Authority)
+* _**DigiTax Nigeria**_ integrates you with NRS (Nigeria Revenue Service)
+* _**DigiTax Tanzania**_ integrates you with TRA VFD (Tanzania Revenue Authority)
+* _**DigiTax Zambia**_ integrates you with ZRA (Zambia Revenue Authority)
 
 to offer you a streamlined invoicing system that ensures compliance and supports the growth of your business.
 

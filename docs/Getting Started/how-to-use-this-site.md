@@ -1,7 +1,7 @@
 ---
 title: How to use this site
 excerpt: >-
-  If you're new to here, learn how to navigate these DigiTax UAE API Hub pages
+  If you're new here, learn how to navigate these DigiTax UAE API Hub pages
   below
 deprecated: false
 hidden: false
@@ -16,10 +16,10 @@ Explore the guides as outlined on the left-hand menu.
 
 ### Guide page features
 
-* **Table of contents** on the right-hand side (Only on Desktop)
-* **Hover to view Glossary definitions (mouseover)**: We don't want to get lost in the jargon. Words (acronyms) listed in the Glossary appear on a page as underlined with a dotted line.
+* **Table of contents** on the right-hand side (Desktop)
+* **Hover to view Glossary definitions (mouseover)**: Acronyms and technical terms listed in the Glossary appear on a page underlined with a dotted line.
 
-  Like <Glossary>API</Glossary>, hover (or click - _On Mobile_) to view the definition.
+  Like <Glossary>API</Glossary>, hover (or tap on mobile) to view the definition.
 
 ## 🚦 Interactive API Docs
 
@@ -31,7 +31,7 @@ Explore the [API endpoints](/reference).
 
 ### Code samples
 
-You can make use of up to 20 programming language code samples for requests to get you started, regardless of the language you're using.
+You can make use of code samples in over 20 programming languages for requests to get you started quickly.
 
 <Image align="center" width="360px" src="https://files.readme.io/18fab9d0ba74fe79ca356fbda311e278e6b92caa26dab89ba40e56e52d985db2-CleanShot_2025-02-27_at_12.19.552x.png" />
 
@@ -43,40 +43,23 @@ We support **cursor-based pagination requests** for endpoints whose **GET** requ
 
 The following are optional query parameters for paginated requests like [GET invoices](https://ae.docs.digitax.tech/reference/get_invoices).
 
-| Parameter | Explanation                                                              |
-| :-------- | :----------------------------------------------------------------------- |
-| before    | When paginating results, a pointer to an ID before which we want results |
-| after     | When paginating results, a pointer to an ID after which we want results  |
-| page_size | The maximum number of items to return per page, defaults to 20           |
+| Parameter | Explanation |
+| :--- | :--- |
+| **`before`** | A cursor pointer to an ID before which we want results (for previous page) |
+| **`after`** | A cursor pointer to an ID after which we want results (for next page) |
+| **`page_size`** | The maximum number of items to return per page (defaults to `20`, maximum: `20`) |
 
 These are also explained on the API endpoint page(s).
 
-### Requests
-
-After making requests via our interactive API reference, the most recent requests are saved for review under the "Recent Requests" section.
-
-<Image align="center" width="360px" src="https://files.readme.io/17102ca17357bbe74dc763eec7c4288fd9dcd8e09e8b7173339166f7b69305da-CleanShot_2025-02-27_at_12.31.522x.png" />
-
 ### Parameters
 
-Parameters (or Params) come in two types in the DigiTax UAE API - Query Params and Body Params.
+Parameters come in two types in the DigiTax UAE API: Query Params and Body Params.
 
-Below are examples:
-
-* Query Params
-
-  An example is seen in [Get invoices](https://ae.docs.digitax.tech/reference/get_invoices) endpoint
-
-<Image align="center" border={true} width="360px" src="https://files.readme.io/ed5701501c2285fdd10a25061c91929c120bfa7ba917d2dea83aa16215e43124-Screenshot_2026-04-22_at_11.01.552x.png" className="border" />
-
-* Body Params
-
-  An example is seen in [Create an item](https://ae.docs.digitax.tech/reference/post_items) endpoint
-
-<Image align="center" border={true} width="360px" src="https://files.readme.io/097f0e019386346f995df37a8766c6a2febf82e64ef0aac4f205278d960fd79a-Screenshot_2026-04-22_at_11.02.362x.png" className="border" />
+* **Query Params**: Used in listing endpoints like [GET invoices](https://ae.docs.digitax.tech/reference/get_invoices)
+* **Body Params**: Passed in JSON request bodies like [POST items](https://ae.docs.digitax.tech/reference/post_items) or [POST invoices](https://ae.docs.digitax.tech/reference/post_invoices)
 
 ## 💬 We're here to help
 
-If you get stuck, [email us](mailto:support@namiri.tech)  or use the **DigiTax chat** on the bottom right of any page.
+If you get stuck, [email us](mailto:support@namiri.tech) or use the **DigiTax chat** on the bottom right of any page.
 
 We're excited you're here! 💚

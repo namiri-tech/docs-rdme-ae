@@ -1,7 +1,10 @@
 ---
 title: MCP
 excerpt: Learn how to use DigiTax UAE's MCP server
+deprecated: false
 hidden: false
+metadata:
+  robots: index
 ---
 
 MCP stands for Model Context Protocol. Read more about it in the [official documentation](https://modelcontextprotocol.io/).
@@ -35,7 +38,7 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
     }
     ```
 
-    </Tab>
+  </Tab>
   <Tab title="Windsurf">
     **Add to `~/.codeium/windsurf/mcp_config.json`:**
 
@@ -70,11 +73,12 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
 
 Once configured, you can test your MCP server connection:
 
-1. **Open your AI editor** (Cursor, Windsurf, etc.)
+1. **Open your AI editor** (Cursor, Windsurf, Claude Desktop, etc.)
 2. **Start a new chat** with the AI assistant
 3. **Ask about DigiTax UAE** - try questions like:
-   * "How do I [common use case]?"
-   * "Show me an example of [API functionality]"
-   * "Create a [integration type] using DigiTax UAE"
+   * "How do I create a standard VAT invoice (type 380) with DigiTax UAE?"
+   * "Show me an example of a Profit Margin Scheme invoice using tax category N"
+   * "What fields are mandatory when creating an export invoice with delivery terms?"
+   * "How do I issue a credit note referencing an original invoice in DigiTax UAE?"
 
 The AI should now have access to your DigiTax UAE account data and documentation through the MCP server.
