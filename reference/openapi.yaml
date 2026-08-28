@@ -3614,6 +3614,7 @@ components:
         - rejected_at
         - report_accepted_at
         - report_rejected_at
+        - withdrawn_at
       properties:
         id:
           type: string
@@ -3917,6 +3918,14 @@ components:
           type: string
           description: The reason C5(FTA) gave for rejecting the tax report
           example: Document rejected due to 1 validation error(s)
+        withdrawn_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:08:00Z'
+          description: >-
+            The date and time the tax report filed with C5(FTA) was withdrawn,
+            because C3 rejected the invoice or never acknowledged receiving it
         submitted_at:
           type: string
           format: date-time
