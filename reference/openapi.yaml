@@ -2445,6 +2445,14 @@ paths:
         - $ref: '#/components/parameters/Before'
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/PageSize'
+        - in: query
+          name: acknowledged
+          schema:
+            type: boolean
+          description: >-
+            Filter to invoices that have (true) or have not (false) been
+            acknowledged. Omit to return both.
+          example: true
       responses:
         '200':
           description: A list of received invoices
@@ -2470,6 +2478,34 @@ paths:
         - Received Invoices
       summary: Get a UAE Received Invoice
       description: Retrieves information about a received invoice given its ID on DigiTax
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: received_invoice_id
+          required: true
+          schema:
+            type: string
+            description: Received invoice ID on DigiTax
+            example: receivedinvoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReceivedInvoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /received-invoices/{received_invoice_id}/acknowledge:
+    post:
+      tags:
+        - Received Invoices
+      summary: Acknowledge a UAE Received Invoice
+      description: >-
+        Marks a received invoice as acknowledged by the business. This is a
+        business-level record only — it does not affect the Peppol MLS, which is
+        sent automatically and immediately on receipt.
       security:
         - apiKeyAuth: []
       parameters:
@@ -4483,6 +4519,20 @@ components:
           nullable: true
           description: The timestamp when this invoice was forwarded to the FTA
           example: '2026-07-14T10:00:00Z'
+        acknowledged_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            The timestamp when a human at the business confirmed they've seen
+            this invoice. Business-level only — separate from the automated
+            Peppol MLS.
+          example: null
+        acknowledged_by:
+          type: string
+          nullable: true
+          description: The actor ID that acknowledged this invoice
+          example: null
     Pagination:
       type: object
       properties:
