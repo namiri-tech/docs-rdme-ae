@@ -1721,7 +1721,16 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/Taxpayer'
                 - type: object
+                  required:
+                    - tax_registration_number
                   properties:
+                    tax_registration_number:
+                      type: string
+                      description: >-
+                        The UAE Tax Registration Number (TRN). Self-billing
+                        requires the supplier to be VAT-registered, so this is
+                        always required.
+                      example: '100987654300003'
                     metadata:
                       type: object
                       additionalProperties:
@@ -2672,14 +2681,10 @@ components:
         issuing_authority_code:
           type: string
           description: >-
-            The registration type code. One of: `TL`, `CL`, `EID`, `PAS`, `CD`.
-            See `GET /resources/legal-registration-types` for available values.
-          enum:
-            - TL
-            - CL
-            - EID
-            - PAS
-            - CD
+            For a UAE address (`country_code` `AE`), one of: `TL`, `CL`, `EID`,
+            `PAS`, `CD` — see `GET /resources/legal-registration-types` for
+            available values. For any other country, a free-form registration
+            authority identifier.
           example: TL
         issuing_authority_name:
           type: string
@@ -2724,17 +2729,6 @@ components:
           format: email
           description: The contact email address
           example: sara@global-imports.ae
-        peppol_id:
-          type: string
-          description: The party's Peppol participant identifier
-          example: '1234567890123'
-        peppol_id_scheme:
-          type: string
-          description: >-
-            The Peppol EAS code for `peppol_id`, required when `peppol_id` is
-            given. See `GET /resources/electronic-address-schemes` for available
-            values.
-          example: '0088'
     PartyLegalEntity:
       type: object
       description: >-
@@ -2978,6 +2972,7 @@ components:
         - updated_at
         - active
         - tax_identification_number
+        - tax_registration_number
         - legal_entity
       properties:
         id:
@@ -3007,8 +3002,8 @@ components:
         tax_registration_number:
           type: string
           description: >-
-            The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
-            have one of the supplier
+            The UAE Tax Registration Number (TRN) of the supplier. Self-billing
+            requires VAT registration, so every supplier has one.
           example: '100987654300003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
