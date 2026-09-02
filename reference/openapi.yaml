@@ -2446,13 +2446,16 @@ paths:
         - $ref: '#/components/parameters/After'
         - $ref: '#/components/parameters/PageSize'
         - in: query
-          name: acknowledged
+          name: acknowledgement_status
           schema:
-            type: boolean
+            type: string
+            enum:
+              - ACKNOWLEDGED
+              - UNACKNOWLEDGED
           description: >-
-            Filter to invoices that have (true) or have not (false) been
-            acknowledged. Omit to return both.
-          example: true
+            Filter to invoices that have or have not been acknowledged. Omit to
+            return both.
+          example: ACKNOWLEDGED
       responses:
         '200':
           description: A list of received invoices
