@@ -935,108 +935,641 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-08-27'
                   invoice_type_code: '480'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: 17:38:00+04:00
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 850
-                      quantity: 5
+                    - gross_price: 151
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 150
+                      price_discount: 1
+                      quantity: 1000
                       tax_category_code: O
                       tax_rate: 0
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
+                  payment_terms_note: Cash payment
+                  payments:
+                    - payment_means_code: '10'
+                  trader_invoice_number: AE-CI-001Test
+              continuous_supply:
+                description: >-
+                  Recurring supply of goods and services billed on a continuous
+                  basis, spanning a standard-rated and an exempt line item
+                summary: Continuous Supply
+                value:
+                  additional_documents:
+                    - id: Cabbills
+                    - id: All signed cab bills
+                  allowance_charges:
+                    - amount: 75
+                      base_amount: 5000
+                      charge_indicator: true
+                      multiplier_rate: 0.015
+                      reason: Polyethylene wrap packing
+                      reason_code: ABU
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  contract_document_reference:
+                    document_description: AED 1000000
+                    id: ZXC-CS-03
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-24'
+                  invoice_period:
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 500
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 500
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: TIP
+                    - gross_price: 0.5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 0.5
+                      price_discount: 0
+                      quantity: 1455
+                      tax_category_code: E
+                      tax_exemption_reason: Local passenger transport
+                      tax_exemption_reason_code: DL8.46.4
+                      tax_rate: 0
+                      unit_of_measure_code: LN
+                  note: Tax invoice
+                  payable_rounding_amount: 0.75
+                  payment_terms_note: 1 month
+                  payments:
+                    - payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-19'
+                  trader_invoice_number: AE-001CS-TEST
+                  transaction_types:
+                    - CONTINUOUS_SUPPLY
+              deemed_supply:
+                description: >-
+                  Supply of goods or services without consideration (e.g.
+                  business assets given away); DEEMED_SUPPLY transaction type
+                summary: Deemed Supply
+                value:
+                  additional_documents:
+                    - id: Sample-05
+                    - id: Sample-05
+                  allowance_charges:
+                    - amount: 14
+                      base_amount: 280
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 150
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 140
+                      price_discount: 10
+                      quantity: 2
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payments:
+                    - payment_means_code: '1'
+                  trader_invoice_number: AE-001DS-Test
+                  transaction_types:
+                    - DEEMED_SUPPLY
+              disclosed_agent_billing_invoice:
+                description: >-
+                  Invoice issued by an agent on behalf of a principal under
+                  disclosed agent billing; principle_trn is required and must
+                  differ from the issuing branch's TRN
+                summary: Disclosed Agent Billing Invoice
+                value:
+                  allowance_charges:
+                    - amount: 49.97
+                      base_amount: 999.375
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-08-27'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  issue_time: 15:08:00+04:00
+                  items:
+                    - allowance_charges:
+                        - amount: 24.375
+                          base_amount: 975
+                          charge_indicator: true
+                          multiplier_rate: 0.025
+                          reason: Technical Modification
+                          reason_code: AAC
+                      gross_price: 20
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: Inspect the goods
+                      price_amount: 19.5
+                      price_discount: 0.5
+                      quantity: 50
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payment_terms_note: cash payment
+                  payments:
+                    - payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
+                      payment_means_code: '30'
+                  principle_trn: '100567891234560'
+                  trader_invoice_number: AE-01DAB-TEST
+                  transaction_types:
+                    - AGENT_BILLING
+              document_level_allowance_ae:
+                description: >-
+                  Document-level allowance under the Reverse Charge (AE) VAT
+                  category; VAT rate must be exactly 0
+                summary: Document-Level Allowance — Reverse Charge (AE)
+                value:
+                  allowance_charges:
+                    - amount: 100
+                      charge_indicator: false
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: AE
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      item_nature_code: DL8.48.3.1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payment_terms_note: Net 15 days
                   payments:
                     - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
                       payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0002
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-ALLOW-AE-01
+              document_level_allowance_e:
+                description: >-
+                  Document-level allowance under the Exempt (E) VAT category; no
+                  VAT rate applies and an exemption reason is required on the
+                  line
+                summary: Document-Level Allowance — Exempt (E)
+                value:
+                  allowance_charges:
+                    - amount: 100
+                      charge_indicator: false
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: E
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '480'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: E
+                      tax_exemption_reason_code: VATEX-AE-EDU
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Exempt supply invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-ALLOW-E-01
+              document_level_allowance_o:
+                description: >-
+                  Document-level allowance under the Out of Scope (O) VAT
+                  category; no VAT rate applies
+                summary: Document-Level Allowance — Out of Scope (O)
+                value:
+                  allowance_charges:
+                    - amount: 100
+                      charge_indicator: false
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: O
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '480'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: O
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Not subject to VAT invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-ALLOW-O-01
+              document_level_allowance_z:
+                description: >-
+                  Document-level allowance under the Zero Rated (Z) VAT
+                  category; VAT rate must be exactly 0
+                summary: Document-Level Allowance — Zero Rated (Z)
+                value:
+                  allowance_charges:
+                    - amount: 100
+                      charge_indicator: false
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: Z
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Zero rated supply invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-ALLOW-Z-01
+              document_level_charge_ae:
+                description: >-
+                  Document-level charge under the Reverse Charge (AE) VAT
+                  category; VAT rate must be exactly 0
+                summary: Document-Level Charge — Reverse Charge (AE)
+                value:
+                  allowance_charges:
+                    - amount: 200
+                      charge_indicator: true
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: AE
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      item_nature_code: DL8.48.3.1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-CHARGE-AE-01
+              document_level_charge_e:
+                description: >-
+                  Document-level charge under the Exempt (E) VAT category; no
+                  VAT rate applies and an exemption reason is required on the
+                  line
+                summary: Document-Level Charge — Exempt (E)
+                value:
+                  allowance_charges:
+                    - amount: 200
+                      charge_indicator: true
+                      reason: Handling fee
+                      reason_code: AAT
+                      tax_category_code: E
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '480'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: E
+                      tax_exemption_reason_code: VATEX-AE-EDU
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Exempt supply invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-CHARGE-E-01
+              document_level_charge_o:
+                description: >-
+                  Document-level charge under the Out of Scope (O) VAT category;
+                  no VAT rate applies
+                summary: Document-Level Charge — Out of Scope (O)
+                value:
+                  allowance_charges:
+                    - amount: 200
+                      charge_indicator: true
+                      reason: Handling fee
+                      reason_code: AAT
+                      tax_category_code: O
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '480'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: O
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Not subject to VAT invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-CHARGE-O-01
+              document_level_charge_z:
+                description: >-
+                  Document-level charge under the Zero Rated (Z) VAT category;
+                  VAT rate must be exactly 0
+                summary: Document-Level Charge — Zero Rated (Z)
+                value:
+                  allowance_charges:
+                    - amount: 200
+                      charge_indicator: true
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: Z
+                      tax_rate: 0
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  document_currency_code: AED
+                  due_date: '2026-09-11'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  items:
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 100
+                      price_discount: 0
+                      quantity: 10
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Zero rated supply invoice
+                  payment_terms_note: Net 15 days
+                  payments:
+                    - payee_account_id: AE070331234567890123456
+                      payee_account_name: current account
+                      payee_financial_institution_bic: ABORAEADXXX
+                      payment_means_code: '30'
+                  tax_point_date: '2026-08-22'
+                  trader_invoice_number: AE-CHARGE-Z-01
               ecommerce:
                 description: >-
                   B2C sale via online platform; delivery address with
                   subdivision required; Incoterms required
                 summary: E-Commerce Supply
                 value:
-                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
-                  delivery:
-                    delivery_address:
-                      city_name: Dubai
-                      country_code: AE
-                      country_subentity: AE-DU
-                      street_name: Sheikh Zayed Road
-                    delivery_terms_id: DAP
-                  document_currency_code: AED
-                  due_date: '2026-08-13'
-                  invoice_type_code: '380'
-                  issue_date: '2026-07-14'
-                  items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 150
-                      quantity: 3
+                  additional_documents:
+                    - id: DR-INV-001
+                    - id: DR-INV-02
+                  allowance_charges:
+                    - amount: 5
+                      base_amount: 100
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Discount
+                      reason_code: '95'
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
+                    - amount: 2.5
+                      base_amount: 100
+                      charge_indicator: true
+                      multiplier_rate: 0.025
+                      reason: Technical Modification
+                      reason_code: AAC
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  delivery:
+                    actual_delivery_date: '2026-08-27'
+                    delivery_address:
+                      additional_street_name: Additional Street Name
+                      address_line: Address line 3
+                      city_name: Abu Dhabi
+                      country_code: AE
+                      country_subentity: AUH
+                      postal_zone: Postal Zone
+                      street_name: Street Name
+                    delivery_location_id: '112345679000003'
+                    delivery_location_scheme_id: '0066'
+                    delivery_party_name: Delivery Party Name
+                    delivery_terms_id: DAP
+                  document_currency_code: AED
+                  due_date: '2026-08-27'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  issue_time: 11:35:10+04:00
+                  items:
+                    - allowance_charges:
+                        - amount: 2.5
+                          base_amount: 100
+                          charge_indicator: false
+                          multiplier_rate: 0.025
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 5
+                          base_amount: 100
+                          charge_indicator: true
+                          multiplier_rate: 0.05
+                          reason: Technical Modification
+                          reason_code: AAC
+                      gross_price: 101
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: Please check the invoice
+                      price_amount: 100
+                      price_discount: 1
+                      quantity: 1
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payable_rounding_amount: 0
+                  payment_terms_note: Instant Payment
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0008
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payment_means_code: '55'
+                  prepaid_amount: 0
+                  trader_invoice_number: AE-001-E-Commerce-TEST
                   transaction_types:
                     - SUPPLY_THROUGH_ECOMMERCE
               exports:
                 description: >-
-                  Goods exported to Saudi Arabia — zero-rated under UAE VAT
-                  Article 45(1)(a); EXPORTS transaction type
+                  Goods exported outside the UAE, invoiced in a foreign
+                  currency; zero-rated under UAE VAT Article 45(1)(a); EXPORTS
+                  transaction type with Incoterms and an AED-equivalent total
+                  reference
                 summary: Export Invoice
                 value:
+                  additional_documents:
+                    - document_description: AED 913621.44
+                      document_type_code: aedtotal-incl-vat
+                      id: AED
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   delivery:
                     delivery_address:
                       city_name: Riyadh
                       country_code: SA
+                      country_subentity: Riyadh Region
                       street_name: King Fahd Road
-                    delivery_terms_id: DAP
-                  document_currency_code: AED
-                  due_date: '2026-08-13'
+                    delivery_terms_id: CIF
+                  document_currency_code: USD
+                  due_date: '2026-09-11'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: 17:31:00+04:00
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 1200
-                      quantity: 10
+                    - gross_price: 50
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 49.75
+                      price_discount: 0.25
+                      quantity: 5000
                       tax_category_code: Z
                       tax_rate: 0
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  order_reference:
+                    purchase_order_id: EXP-09
+                    sales_order_id: EC-24-25-1001
+                  payment_terms_note: within 1 month
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0001
+                    - payment_means_code: '1'
+                  tax_currency_exchange_rate: 3.67285
+                  tax_point_date: '2026-08-20'
+                  trader_invoice_number: AE-001-Exports-TEST
                   transaction_types:
                     - EXPORTS
               free_trade_zone:
                 description: >-
                   Supply of goods to a buyer in a UAE Free Trade Zone;
-                  beneficiary tax number required; zero-rated
+                  beneficiary tax number required; standard-rated with a
+                  document- and line-level allowance
                 summary: Free Trade Zone Supply
                 value:
+                  additional_documents:
+                    - id: Sample-04
+                    - id: Sample-04
+                  allowance_charges:
+                    - amount: 3535
+                      base_amount: 70700
+                      charge_indicator: false
+                      multiplier_rate: 0.05
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
                   beneficiary_tax_number: '123456789098703'
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-24'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 3500
-                      quantity: 2
-                      tax_category_code: Z
-                      tax_rate: 0
-                      unit_of_measure_code: EA
+                    - allowance_charges:
+                        - amount: 700
+                          base_amount: 70000
+                          charge_indicator: true
+                          multiplier_rate: 0.01
+                          reason: Technical Modification
+                          reason_code: AAC
+                      gross_price: 150
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: Invoice line note
+                      price_amount: 140
+                      price_discount: 10
+                      quantity: 500
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payment_terms_note: 1 month
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
+                    - payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
                       payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0007
+                  trader_invoice_number: AE-001FTZ-TEST
                   transaction_types:
                     - FREE_TRADE_ZONE
               margin_scheme:
@@ -1047,27 +1580,27 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-08-27'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 2500
+                    - gross_price: 1000
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: Margin scheme goods
+                      price_amount: 1000
+                      price_discount: 0
                       quantity: 1
                       tax_category_code: 'N'
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 1800
-                      quantity: 1
-                      tax_category_code: 'N'
-                      tax_rate: 0.05
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  payment_terms_note: Instant Payment
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0003
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payment_means_code: '55'
+                  trader_invoice_number: AE-001-Marginscheme-TEST
                   transaction_types:
                     - PROFIT_MARGIN_SCHEME
               multiple_tax_categories:
@@ -1079,9 +1612,9 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-26'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 1000
@@ -1118,30 +1651,36 @@ paths:
               reverse_charge:
                 description: >-
                   Imported services — VAT liability transferred to buyer under
-                  UAE Article 48; buyer self-accounts at 5%
+                  UAE Article 48; buyer self-accounts at 5%; item nature code
+                  required for reverse charge
                 summary: Reverse Charge
                 value:
+                  additional_documents:
+                    - id: DC
+                    - id: Delivery Challans
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-10'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      item_nature_code: DL8.48.8.1
-                      price_amount: 2000
-                      quantity: 5
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      item_nature_code: DL8.48.3.1
+                      price_amount: 99
+                      price_discount: 1
+                      quantity: 30
                       tax_category_code: AE
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
-                  note: >-
-                    Reverse charge — buyer self-accounts for VAT under UAE
-                    Article 48
+                      unit_of_measure_code: K6
+                  note: Tax invoice
+                  payment_terms_note: Within 15 days
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
+                    - payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
                       payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0009
+                  trader_invoice_number: AE-01RCTEST
               standard_invoice_minimal:
                 description: >-
                   Minimal valid tax invoice containing only mandatory fields;
@@ -1150,100 +1689,178 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-03'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 500
-                      quantity: 1
+                    - gross_price: 10
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 10
+                      price_discount: 0
+                      quantity: 100
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0004
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payment_means_code: '55'
+                  trader_invoice_number: AE001-Test
               standard_tax_invoice:
                 description: >-
-                  Full-featured B2B VAT invoice with order reference, contract
-                  reference, document-level allowance, and multiple line items
+                  Full-featured B2B VAT invoice with order reference, originator
+                  reference, a billing reference to a prior invoice, document-
+                  and line-level allowances/charges, and payment terms
                 summary: Standard Tax Invoice
                 value:
+                  accounting_cost: Regular sales
+                  additional_documents:
+                    - id: PO-AE-220
+                    - id: PO-AE-220
                   allowance_charges:
-                    - amount: 250
-                      base_amount: 5000
+                    - amount: 262.15
+                      base_amount: 10486
                       charge_indicator: false
-                      multiplier_rate: 0.05
-                      reason: Trade discount
-                      reason_code: '95'
+                      multiplier_rate: 0.025
+                      reason: Special Rebate
+                      reason_code: '100'
                       tax_category_code: S
                       tax_rate: 0.05
-                  contract_document_reference:
-                    id: CTR-2026-00042
+                    - amount: 419.44
+                      base_amount: 10486
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  billing_reference:
+                    - id: INV-234-2025
+                      issue_date: '2026-08-27'
+                  buyer_reference: PO-AE-220
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  despatch_document_reference:
+                    id: Memo-1000
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-03'
                   invoice_period:
-                    end_date: '2026-07-13'
-                    start_date: '2026-06-13'
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-21'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: 07:54:00+04:00
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 300
-                      quantity: 10
+                    - allowance_charges:
+                        - amount: 294
+                          base_amount: 9800
+                          charge_indicator: false
+                          multiplier_rate: 0.03
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 980
+                          base_amount: 9800
+                          charge_indicator: true
+                          multiplier_rate: 0.1
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: Purchase goods
+                      gross_price: 5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: All items
+                      price_amount: 4.9
+                      price_discount: 0.1
+                      quantity: 2000
+                      sellers_item_id: Sales Goods
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: HUR
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 200
-                      quantity: 10
-                      tax_category_code: S
-                      tax_rate: 0.05
-                      unit_of_measure_code: HUR
+                      unit_of_measure_code: H87
+                  note: Tax invoice
                   order_reference:
-                    purchase_order_id: PO-2026-00123
-                    sales_order_id: SO-2026-00456
+                    purchase_order_id: PO-AE-220
+                    sales_order_id: Salesorder-2122
+                  originator_document_reference:
+                    id: PO-AE-220
+                  payable_rounding_amount: 0.05
+                  payment_terms_note: Within a week
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0005
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payment_means_code: '55'
+                  project_reference: Regular work
+                  tax_point_date: '2026-08-20'
+                  trader_invoice_number: AE-01TEST
               summary_tax_invoice:
                 description: >-
                   Monthly summary invoice for recurring supplies to the same
-                  customer in the same calendar month
+                  customer in the same calendar month, spanning standard-rated
+                  and reverse-charge line items
                 summary: Summary Tax Invoice
                 value:
+                  additional_documents:
+                    - id: DC
+                    - id: Delivery Challans
+                  allowance_charges:
+                    - amount: 80.16
+                      base_amount: 10687.5
+                      charge_indicator: false
+                      multiplier_rate: 0.0075
+                      reason: Special rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-10'
                   invoice_period:
-                    billing_frequency_code: MTH
-                    end_date: '2026-07-13'
-                    start_date: '2026-06-13'
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 450
-                      quantity: 8
+                    - gross_price: 15
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 14.25
+                      price_discount: 0.75
+                      quantity: 100
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: HUR
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 350
-                      quantity: 6
+                      unit_of_measure_code: H87
+                    - gross_price: 25
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 23.75
+                      price_discount: 1.25
+                      quantity: 150
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: HUR
+                      unit_of_measure_code: H87
+                    - gross_price: 30
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS3
+                      price_amount: 28.5
+                      price_discount: 1.5
+                      quantity: 200
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                    - gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS4
+                      item_nature_code: DL8.48.3.1
+                      price_amount: 99
+                      price_discount: 1
+                      quantity: 30
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: K6
+                  note: Tax invoice
+                  payable_rounding_amount: 0.29
+                  payment_terms_note: Within 15 days
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
+                    - payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
                       payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0006
+                  trader_invoice_number: AE-010TEST
                   transaction_types:
                     - SUMMARY_INVOICE
               zero_rated:
@@ -1254,21 +1871,28 @@ paths:
                 value:
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-11'
                   invoice_type_code: '380'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: 17:31:00+04:00
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 4500
-                      quantity: 1
+                    - gross_price: 50
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      price_amount: 49.75
+                      price_discount: 0.25
+                      quantity: 5000
                       tax_category_code: Z
                       tax_rate: 0
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  order_reference:
+                    purchase_order_id: EXP-09
+                    sales_order_id: EC-24-25-1001
+                  payment_terms_note: within 15 days
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-INV-2026-0010
+                    - payment_means_code: '1'
+                  tax_point_date: '2026-08-20'
+                  trader_invoice_number: AE-001-ZeroRated-TEST
       responses:
         '201':
           description: Invoice created
@@ -1534,36 +2158,77 @@ paths:
                   differ from the issuing branch's TRN
                 summary: Disclosed Agent Billing Credit Note
                 value:
-                  credit_note_reason: Supply was cancelled — disclosed agent billing arrangement
-                  credit_note_reason_code: DL8.61.1.A
+                  accounting_cost: Regular sales
+                  additional_documents:
+                    - id: PO-AE-220
+                  allowance_charges:
+                    - amount: 262.15
+                      base_amount: 10486
+                      charge_indicator: false
+                      multiplier_rate: 0.025
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 419.44
+                      base_amount: 10486
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  buyer_reference: PO-AE-220
+                  credit_note_reason: >-
+                    Tax treatment was applied in error — disclosed agent billing
+                    arrangement
+                  credit_note_reason_code: DL8.61.1.E
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  despatch_document_reference:
+                    id: Memo-1000
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  invoice_period:
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
                   invoice_type_code: '381'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: 15:55:00+04:00
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 1500
-                      quantity: 2
+                    - allowance_charges:
+                        - amount: 294
+                          base_amount: 9800
+                          charge_indicator: false
+                          multiplier_rate: 0.03
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 980
+                          base_amount: 9800
+                          charge_indicator: true
+                          multiplier_rate: 0.1
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: Buyer Item Identification
+                      gross_price: 5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: All items
+                      price_amount: 4.9
+                      price_discount: 0.1
+                      quantity: 2000
+                      sellers_item_id: Seller Item Identification
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 800
-                      quantity: 1
-                      tax_category_code: S
-                      tax_rate: 0.05
-                      unit_of_measure_code: EA
-                  note: >-
-                    Disclosed agent billing — credit note issued by agent on
-                    behalf of principal
+                      unit_of_measure_code: H87
+                  note: Tax Credit invoice
+                  order_reference:
+                    purchase_order_id: PO-AE-220
+                    sales_order_id: Salesorder-2122
                   original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
-                  payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
+                  originator_document_reference:
+                    id: PO-AE-220
+                  payable_rounding_amount: 0.05
+                  payment_terms_note: Will be adjusted against next invoice
                   principle_trn: '100567891234560'
-                  trader_invoice_number: ACME-CN-2026-0001
+                  trader_invoice_number: AE001-CN-TEST
                   transaction_types:
                     - AGENT_BILLING
               standard_credit_note_minimal:
@@ -1576,9 +2241,9 @@ paths:
                   credit_note_reason_code: DL8.61.1.A
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-26'
                   invoice_type_code: '381'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
@@ -1595,50 +2260,153 @@ paths:
               standard_tax_credit_note:
                 description: >-
                   Full-featured credit note reversing a standard-rated B2B
-                  supply; includes order reference, contract reference, and a
-                  document-level allowance
+                  supply; includes billing reference, order reference, and
+                  document- and line-level allowances/charges
                 summary: Standard Tax Credit Note
                 value:
+                  accounting_cost: Regular sales
+                  additional_documents:
+                    - id: PO-AE-220
                   allowance_charges:
-                    - amount: 150
-                      base_amount: 3000
+                    - amount: 262.15
+                      base_amount: 10486
                       charge_indicator: false
-                      multiplier_rate: 0.05
-                      reason: Restocking fee waived
-                      reason_code: '95'
+                      multiplier_rate: 0.025
+                      reason: Special Rebate
+                      reason_code: '100'
                       tax_category_code: S
                       tax_rate: 0.05
-                  contract_document_reference:
-                    id: CTR-2026-00042
-                  credit_note_reason: Goods returned by customer in full
-                  credit_note_reason_code: DL8.61.1.D
+                    - amount: 419.44
+                      base_amount: 10486
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  buyer_reference: PO-AE-220
+                  credit_note_reason: Tax was charged in error on the original invoice
+                  credit_note_reason_code: DL8.61.1.E
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  despatch_document_reference:
+                    id: Memo-1000
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  invoice_period:
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
                   invoice_type_code: '381'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: 15:55:00+04:00
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 1200
-                      quantity: 5
+                    - allowance_charges:
+                        - amount: 294
+                          base_amount: 9800
+                          charge_indicator: false
+                          multiplier_rate: 0.03
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 980
+                          base_amount: 9800
+                          charge_indicator: true
+                          multiplier_rate: 0.1
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: Buyer Item Identification
+                      gross_price: 5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: All items
+                      price_amount: 4.9
+                      price_discount: 0.1
+                      quantity: 2000
+                      sellers_item_id: Seller Item Identification
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 600
-                      quantity: 3
-                      tax_category_code: S
-                      tax_rate: 0.05
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
+                  note: Tax Credit invoice
                   order_reference:
-                    purchase_order_id: PO-2026-00123
-                    sales_order_id: SO-2026-00456
+                    purchase_order_id: PO-AE-220
+                    sales_order_id: Salesorder-2122
                   original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
-                  payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
-                  trader_invoice_number: ACME-CN-2026-0002
+                  originator_document_reference:
+                    id: PO-AE-220
+                  payable_rounding_amount: 0.05
+                  payment_terms_note: Will be adjusted against next invoice
+                  trader_invoice_number: AE001-CN-TEST
+              volume_discount_credit_note:
+                description: >-
+                  Credit note for a volume discount (reason code VD); no
+                  preceding invoice reference required per ibr-055-ae
+                summary: Volume Discount Credit Note
+                value:
+                  accounting_cost: Regular sales
+                  additional_documents:
+                    - id: PO-AE-220
+                  allowance_charges:
+                    - amount: 262.15
+                      base_amount: 10486
+                      charge_indicator: false
+                      multiplier_rate: 0.025
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 419.44
+                      base_amount: 10486
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  buyer_reference: PO-AE-220
+                  credit_note_reason: Volume discount
+                  credit_note_reason_code: VD
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  despatch_document_reference:
+                    id: Memo-1000
+                  document_currency_code: AED
+                  invoice_period:
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
+                  invoice_type_code: '381'
+                  issue_date: '2026-08-27'
+                  issue_time: 15:55:00+04:00
+                  items:
+                    - allowance_charges:
+                        - amount: 294
+                          base_amount: 9800
+                          charge_indicator: false
+                          multiplier_rate: 0.03
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 980
+                          base_amount: 9800
+                          charge_indicator: true
+                          multiplier_rate: 0.1
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: Buyer Item Identification
+                      gross_price: 5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: All items
+                      price_amount: 4.9
+                      price_discount: 0.1
+                      quantity: 2000
+                      sellers_item_id: Seller Item Identification
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                  note: >-
+                    Volume discount credit note — VD reason, no BillingReference
+                    required per ibr-055-ae
+                  order_reference:
+                    purchase_order_id: PO-AE-220
+                    sales_order_id: Salesorder-2122
+                  originator_document_reference:
+                    id: PO-AE-220
+                  payable_rounding_amount: 0.05
+                  payment_terms_note: Will be adjusted against next invoice
+                  trader_invoice_number: AE001-CN-VD
       responses:
         '201':
           description: Created credit note
@@ -2002,47 +2770,88 @@ paths:
               standard_self_billed_invoice:
                 description: >-
                   Full-featured self-billed invoice (type 389) issued by the
-                  buyer; includes order reference, contract reference, and a
-                  document-level allowance
+                  buyer; includes order reference, originator reference, a
+                  billing reference to a prior invoice, and document- and
+                  line-level allowances/charges
                 summary: Standard Self-Billed Invoice
                 value:
+                  accounting_cost: Regular sales
+                  additional_documents:
+                    - id: PO-AE-220
+                    - id: PO-AE-220
                   allowance_charges:
-                    - amount: 200
-                      base_amount: 4000
+                    - amount: 262.15
+                      base_amount: 10486
                       charge_indicator: false
-                      multiplier_rate: 0.05
-                      reason: Trade discount
-                      reason_code: '95'
+                      multiplier_rate: 0.025
+                      reason: Special Rebate
+                      reason_code: '100'
                       tax_category_code: S
                       tax_rate: 0.05
-                  contract_document_reference:
-                    id: CTR-2026-00042
+                    - amount: 419.44
+                      base_amount: 10486
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  billing_reference:
+                    - id: INV-234-2025
+                      issue_date: '2026-08-27'
+                  buyer_reference: PO-AE-220
+                  despatch_document_reference:
+                    id: Memo-1000
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-03'
+                  invoice_period:
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-21'
                   invoice_type_code: '389'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: '07:54:00'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 800
-                      quantity: 5
+                    - allowance_charges:
+                        - amount: 294
+                          base_amount: 9800
+                          charge_indicator: false
+                          multiplier_rate: 0.03
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 980
+                          base_amount: 9800
+                          charge_indicator: true
+                          multiplier_rate: 0.1
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: Purchase goods
+                      gross_price: 5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: All items
+                      price_amount: 4.9
+                      price_discount: 0.1
+                      quantity: 2000
+                      sellers_item_id: Sales Goods
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 400
-                      quantity: 10
-                      tax_category_code: S
-                      tax_rate: 0.05
-                      unit_of_measure_code: HUR
+                      unit_of_measure_code: H87
+                  note: Self Billing Tax invoice
                   order_reference:
-                    purchase_order_id: PO-2026-00123
-                    sales_order_id: SO-2026-00456
+                    purchase_order_id: PO-AE-220
+                    sales_order_id: Salesorder-2122
+                  originator_document_reference:
+                    id: PO-AE-220
+                  payable_rounding_amount: 0.05
+                  payment_terms_note: Within a week
                   payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payment_means_code: '55'
+                  project_reference: Regular work
                   supplier_id: supplier_01HC3J1VVVM05YCTS61G7V3KC6
-                  trader_invoice_number: ACME-SBI-2026-0001
+                  tax_point_date: '2026-08-20'
+                  trader_invoice_number: AE-01-SB-TEST
               standard_self_billed_invoice_minimal:
                 description: >-
                   Minimal valid self-billed invoice containing only the required
@@ -2050,9 +2859,9 @@ paths:
                 summary: Standard Self-Billed Invoice — Mandatory Fields Only
                 value:
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-26'
                   invoice_type_code: '389'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
@@ -2334,41 +3143,78 @@ paths:
               standard_self_billed_credit_note:
                 description: >-
                   Full-featured self-billed credit note (type 261) reversing a
-                  prior self-billed invoice; includes order reference and
-                  contract reference
+                  prior self-billed invoice; includes billing reference, order
+                  reference, and document- and line-level allowances/charges
                 summary: Standard Self-Billed Credit Note
                 value:
-                  contract_document_reference:
-                    id: CTR-2026-00042
-                  credit_note_reason: Goods returned by customer in full
-                  credit_note_reason_code: DL8.61.1.D
+                  accounting_cost: Regular sales
+                  additional_documents:
+                    - id: PO-AE-220
+                  allowance_charges:
+                    - amount: 262.15
+                      base_amount: 10486
+                      charge_indicator: false
+                      multiplier_rate: 0.025
+                      reason: Special Rebate
+                      reason_code: '100'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 419.44
+                      base_amount: 10486
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Rush Delivery
+                      reason_code: AAT
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  buyer_reference: PO-AE-220
+                  credit_note_reason: Tax was charged in error on the original self-billed invoice
+                  credit_note_reason_code: DL8.61.1.E
+                  despatch_document_reference:
+                    id: Memo-1000
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  invoice_period:
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
                   invoice_type_code: '261'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
+                  issue_time: '15:55:00'
                   items:
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
-                      price_amount: 1200
-                      quantity: 5
+                    - allowance_charges:
+                        - amount: 294
+                          base_amount: 9800
+                          charge_indicator: false
+                          multiplier_rate: 0.03
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 980
+                          base_amount: 9800
+                          charge_indicator: true
+                          multiplier_rate: 0.1
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: Buyer Item Identification
+                      gross_price: 5
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: All items
+                      price_amount: 4.9
+                      price_discount: 0.1
+                      quantity: 2000
+                      sellers_item_id: Seller Item Identification
                       tax_category_code: S
                       tax_rate: 0.05
-                      unit_of_measure_code: EA
-                    - item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
-                      price_amount: 600
-                      quantity: 3
-                      tax_category_code: S
-                      tax_rate: 0.05
-                      unit_of_measure_code: EA
+                      unit_of_measure_code: H87
+                  note: Self Billing Tax Credit invoice
                   order_reference:
-                    purchase_order_id: PO-2026-00123
-                    sales_order_id: SO-2026-00456
+                    purchase_order_id: PO-AE-220
+                    sales_order_id: Salesorder-2122
                   original_invoice_id: invoice_01KMFSMEYVCDV0150T6P4WECVR
-                  payments:
-                    - payee_account_id: AE070331234567890123456
-                      payee_account_name: ACME Trading LLC
-                      payment_means_code: '30'
+                  originator_document_reference:
+                    id: PO-AE-220
+                  payable_rounding_amount: 0.05
+                  payment_terms_note: Will be adjusted against next invoice
                   supplier_id: supplier_01HC3J1VVVM05YCTS61G7V3KC6
-                  trader_invoice_number: ACME-SBCN-2026-0001
+                  trader_invoice_number: AE001-CN-SB-TEST
               standard_self_billed_credit_note_minimal:
                 description: >-
                   Minimal valid self-billed credit note containing only the
@@ -2378,9 +3224,9 @@ paths:
                   credit_note_reason: Supply was cancelled
                   credit_note_reason_code: DL8.61.1.A
                   document_currency_code: AED
-                  due_date: '2026-08-13'
+                  due_date: '2026-09-26'
                   invoice_type_code: '261'
-                  issue_date: '2026-07-14'
+                  issue_date: '2026-08-27'
                   items:
                     - item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
                       price_amount: 500
