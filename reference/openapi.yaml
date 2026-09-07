@@ -938,7 +938,7 @@ paths:
                   due_date: '2026-08-27'
                   invoice_type_code: '480'
                   issue_date: '2026-08-27'
-                  issue_time: 17:38:00+04:00
+                  issue_time: '17:38:00'
                   items:
                     - gross_price: 151
                       item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
@@ -1070,7 +1070,7 @@ paths:
                   due_date: '2026-08-27'
                   invoice_type_code: '380'
                   issue_date: '2026-08-27'
-                  issue_time: 15:08:00+04:00
+                  issue_time: '15:08:00'
                   items:
                     - allowance_charges:
                         - amount: 24.375
@@ -1095,7 +1095,7 @@ paths:
                       payee_account_name: current account
                       payee_financial_institution_bic: '236000'
                       payment_means_code: '30'
-                  principle_trn: '100567891234560'
+                  principle_trn: '198765432109103'
                   trader_invoice_number: AE-01DAB-TEST
                   transaction_types:
                     - AGENT_BILLING
@@ -1149,6 +1149,8 @@ paths:
                       reason: Special Rebate
                       reason_code: '100'
                       tax_category_code: E
+                      tax_exemption_reason: Certain financial services
+                      tax_exemption_reason_code: DL8.46.1
                       tax_rate: 0
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
@@ -1162,7 +1164,7 @@ paths:
                       price_discount: 0
                       quantity: 10
                       tax_category_code: E
-                      tax_exemption_reason_code: VATEX-AE-EDU
+                      tax_exemption_reason_code: DL8.46.1
                       tax_rate: 0
                       unit_of_measure_code: H87
                   note: Exempt supply invoice
@@ -1296,6 +1298,8 @@ paths:
                       reason: Handling fee
                       reason_code: AAT
                       tax_category_code: E
+                      tax_exemption_reason: Certain financial services
+                      tax_exemption_reason_code: DL8.46.1
                       tax_rate: 0
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
@@ -1309,7 +1313,7 @@ paths:
                       price_discount: 0
                       quantity: 10
                       tax_category_code: E
-                      tax_exemption_reason_code: VATEX-AE-EDU
+                      tax_exemption_reason_code: DL8.46.1
                       tax_rate: 0
                       unit_of_measure_code: H87
                   note: Exempt supply invoice
@@ -1438,7 +1442,7 @@ paths:
                   due_date: '2026-08-27'
                   invoice_type_code: '380'
                   issue_date: '2026-08-27'
-                  issue_time: 11:35:10+04:00
+                  issue_time: '11:35:10'
                   items:
                     - allowance_charges:
                         - amount: 2.5
@@ -1498,7 +1502,7 @@ paths:
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
                   issue_date: '2026-08-27'
-                  issue_time: 17:31:00+04:00
+                  issue_time: '17:31:00'
                   items:
                     - gross_price: 50
                       item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
@@ -1749,7 +1753,7 @@ paths:
                     start_date: '2026-08-21'
                   invoice_type_code: '380'
                   issue_date: '2026-08-27'
-                  issue_time: 07:54:00+04:00
+                  issue_time: '07:54:00'
                   items:
                     - allowance_charges:
                         - amount: 294
@@ -1874,7 +1878,7 @@ paths:
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
                   issue_date: '2026-08-27'
-                  issue_time: 17:31:00+04:00
+                  issue_time: '17:31:00'
                   items:
                     - gross_price: 50
                       item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
@@ -2192,7 +2196,7 @@ paths:
                     start_date: '2026-08-20'
                   invoice_type_code: '381'
                   issue_date: '2026-08-27'
-                  issue_time: 15:55:00+04:00
+                  issue_time: '15:55:00'
                   items:
                     - allowance_charges:
                         - amount: 294
@@ -2227,7 +2231,7 @@ paths:
                     id: PO-AE-220
                   payable_rounding_amount: 0.05
                   payment_terms_note: Will be adjusted against next invoice
-                  principle_trn: '100567891234560'
+                  principle_trn: '198765432109103'
                   trader_invoice_number: AE001-CN-TEST
                   transaction_types:
                     - AGENT_BILLING
@@ -2296,7 +2300,7 @@ paths:
                     start_date: '2026-08-20'
                   invoice_type_code: '381'
                   issue_date: '2026-08-27'
-                  issue_time: 15:55:00+04:00
+                  issue_time: '15:55:00'
                   items:
                     - allowance_charges:
                         - amount: 294
@@ -2370,7 +2374,7 @@ paths:
                     start_date: '2026-08-20'
                   invoice_type_code: '381'
                   issue_date: '2026-08-27'
-                  issue_time: 15:55:00+04:00
+                  issue_time: '15:55:00'
                   items:
                     - allowance_charges:
                         - amount: 294
