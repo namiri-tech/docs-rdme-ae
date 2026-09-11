@@ -747,6 +747,7 @@ paths:
             schema:
               type: object
               required:
+                - trader_invoice_number
                 - invoice_type_code
                 - issue_date
                 - document_currency_code
@@ -1976,6 +1977,7 @@ paths:
             schema:
               type: object
               required:
+                - trader_invoice_number
                 - credit_note_reason_code
                 - credit_note_reason
                 - issue_date
@@ -2586,6 +2588,7 @@ paths:
             schema:
               type: object
               required:
+                - trader_invoice_number
                 - invoice_type_code
                 - issue_date
                 - document_currency_code
@@ -2952,6 +2955,7 @@ paths:
             schema:
               type: object
               required:
+                - trader_invoice_number
                 - credit_note_reason_code
                 - credit_note_reason
                 - issue_date
@@ -6137,6 +6141,7 @@ components:
         the buyer is supplied inline as `customer_party` and each line carries
         its item's details.
       required:
+        - trader_invoice_number
         - invoice_type_code
         - issue_date
         - document_currency_code
@@ -6309,6 +6314,7 @@ components:
         because ibr-055-ae exempts volume discounts, which have no original
         invoice.
       required:
+        - trader_invoice_number
         - invoice_type_code
         - credit_note_reason_code
         - credit_note_reason
