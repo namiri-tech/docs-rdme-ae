@@ -1096,7 +1096,10 @@ paths:
               document_level_allowance_ae:
                 description: >-
                   Document-level allowance under the Reverse Charge (AE) VAT
-                  category; VAT rate must be exactly 0
+                  category; VAT rate must be exactly 0. Note: submitting this
+                  exact example currently fails real-time validation (PINT-AE
+                  rule aligned-ibrp-ae-08-ae) due to a defect in that officially
+                  published rule, outside our control pending an upstream fix.
                 summary: Document-Level Allowance — Reverse Charge (AE)
                 value:
                   allowance_charges:
@@ -1245,7 +1248,10 @@ paths:
               document_level_charge_ae:
                 description: >-
                   Document-level charge under the Reverse Charge (AE) VAT
-                  category; VAT rate must be exactly 0
+                  category; VAT rate must be exactly 0. Note: submitting this
+                  exact example currently fails real-time validation (PINT-AE
+                  rule aligned-ibrp-ae-08-ae) due to a defect in that officially
+                  published rule, outside our control pending an upstream fix.
                 summary: Document-Level Charge — Reverse Charge (AE)
                 value:
                   allowance_charges:
