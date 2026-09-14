@@ -4913,6 +4913,9 @@ components:
         - report_accepted_at
         - report_rejected_at
         - withdrawn_at
+        - withdrawal_queued_at
+        - withdrawal_accepted_at
+        - withdrawal_rejected_at
       properties:
         id:
           type: string
@@ -5218,8 +5221,36 @@ components:
           nullable: true
           example: '2026-07-14T10:08:00Z'
           description: >-
-            The date and time the tax report filed with C5(FTA) was withdrawn,
+            The date and time the withdrawal of the tax report was delivered to
+            C5(FTA)
+        withdrawal_queued_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:08:00Z'
+          description: >-
+            The date and time the withdrawal of the tax report was raised,
             because C3 rejected the invoice or never acknowledged receiving it
+        withdrawal_accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:09:00Z'
+          description: >-
+            The date and time C5(FTA) acknowledged the withdrawal with a
+            positive Message Level Status
+        withdrawal_rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:09:00Z'
+          description: >-
+            The date and time C5(FTA) rejected the withdrawal with a negative
+            Message Level Status
+        withdrawal_rejection_reason:
+          type: string
+          description: The reason C5(FTA) gave for rejecting the withdrawal
+          example: Document rejected due to 1 validation error(s)
         submitted_at:
           type: string
           format: date-time
