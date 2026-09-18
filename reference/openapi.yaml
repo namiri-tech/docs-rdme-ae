@@ -3283,6 +3283,11 @@ paths:
         that `POST /invoices` applies also applies here. Note that the parties
         and items are created before the invoice is validated, so a rejected
         invoice can leave them behind.
+
+
+        Omit `peppol_id` for a buyer who isn't on Peppol — the right predefined
+        endpoint is substituted at submission and the document is reported to
+        the FTA instead of delivered.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -3300,6 +3305,929 @@ paths:
                 invoice:
                   $ref: '#/components/schemas/DetailedInvoiceDocument'
             examples:
+              detailed_commercial_invoice:
+                description: >-
+                  Invoice for a supply outside the scope of UAE VAT (type 480);
+                  no VAT collected
+                summary: Commercial Invoice (Out of Scope)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    document_currency_code: AED
+                    due_date: '2026-08-27'
+                    invoice_type_code: '480'
+                    issue_date: '2026-08-27'
+                    issue_time: '17:38:00'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 151
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 150
+                        price_discount: 1
+                        quantity: 1000
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: O
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    payment_terms_note: Cash payment
+                    payments:
+                      - payment_means_code: '10'
+                    trader_invoice_number: AE-CI-001Test-D
+              detailed_continuous_supply:
+                description: >-
+                  Recurring supply of goods and services billed on a continuous
+                  basis, spanning a standard-rated and an exempt line item
+                summary: Continuous Supply
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    additional_documents:
+                      - id: Cabbills
+                      - id: All signed cab bills
+                    allowance_charges:
+                      - amount: 75
+                        base_amount: 5000
+                        charge_indicator: true
+                        multiplier_rate: 0.015
+                        reason: Polyethylene wrap packing
+                        reason_code: ABU
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    contract_document_reference:
+                      document_description: AED 1000000
+                      id: ZXC-CS-03
+                    document_currency_code: AED
+                    due_date: '2026-09-24'
+                    invoice_period:
+                      end_date: '2026-08-27'
+                      start_date: '2026-08-20'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 500
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 500
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: TIP
+                      - commodity_code: G
+                        description: Stainless steel gate valve for high-pressure pipelines
+                        gross_price: 0.5
+                        hs_code: '84818099'
+                        item_code: VALVE-V200-SS
+                        name: Stainless Steel Gate Valve V-200
+                        price_amount: 0.5
+                        price_discount: 0
+                        quantity: 1455
+                        standard_item_id: '09501101530010'
+                        standard_item_scheme: '0160'
+                        tax_category_code: E
+                        tax_exemption_reason: Local passenger transport
+                        tax_exemption_reason_code: DL8.46.4
+                        tax_rate: 0
+                        unit_of_measure_code: LN
+                    note: Tax invoice
+                    payable_rounding_amount: 0.75
+                    payment_terms_note: 1 month
+                    payments:
+                      - payee_account_id: AE0000000001
+                        payee_account_name: current account
+                        payee_financial_institution_bic: '236000'
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-19'
+                    trader_invoice_number: AE-001CS-TEST-D
+                    transaction_types:
+                      - CONTINUOUS_SUPPLY
+              detailed_deemed_supply:
+                description: >-
+                  Supply of goods or services without consideration (e.g.
+                  business assets given away); DEEMED_SUPPLY transaction type
+                summary: Deemed Supply
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    additional_documents:
+                      - id: Sample-05
+                      - id: Sample-05
+                    allowance_charges:
+                      - amount: 14
+                        base_amount: 280
+                        charge_indicator: false
+                        multiplier_rate: 0.05
+                        reason: Special Rebate
+                        reason_code: '100'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    document_currency_code: AED
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 150
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 140
+                        price_discount: 10
+                        quantity: 2
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payments:
+                      - payment_means_code: '1'
+                    trader_invoice_number: AE-001DS-Test-D
+                    transaction_types:
+                      - DEEMED_SUPPLY
+              detailed_disclosed_agent_billing_invoice:
+                description: >-
+                  Invoice issued by an agent on behalf of a principal under
+                  disclosed agent billing; principle_trn is required and must
+                  differ from the issuing branch's TRN
+                summary: Disclosed Agent Billing Invoice
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 49.97
+                        base_amount: 999.375
+                        charge_indicator: false
+                        multiplier_rate: 0.05
+                        reason: Special Rebate
+                        reason_code: '100'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    document_currency_code: AED
+                    due_date: '2026-08-27'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '15:08:00'
+                    items:
+                      - allowance_charges:
+                          - amount: 24.375
+                            base_amount: 975
+                            charge_indicator: true
+                            multiplier_rate: 0.025
+                            reason: Technical Modification
+                            reason_code: AAC
+                        commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 20
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        note: Inspect the goods
+                        price_amount: 19.5
+                        price_discount: 0.5
+                        quantity: 50
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: cash payment
+                    payments:
+                      - payee_account_id: AE0000000001
+                        payee_account_name: current account
+                        payee_financial_institution_bic: '236000'
+                        payment_means_code: '30'
+                    principle_trn: '198765432109103'
+                    trader_invoice_number: AE-01DAB-TEST-D
+                    transaction_types:
+                      - AGENT_BILLING
+              detailed_document_level_allowance_ae:
+                description: >-
+                  Document-level allowance under the Reverse Charge (AE) VAT
+                  category; VAT rate must be exactly 0. Note: submitting this
+                  exact example currently fails real-time validation (PINT-AE
+                  rule aligned-ibrp-ae-08-ae) due to a defect in that officially
+                  published rule, outside our control pending an upstream fix.
+                summary: Document-Level Allowance — Reverse Charge (AE)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 100
+                        charge_indicator: false
+                        reason: Discount
+                        reason_code: '95'
+                        tax_category_code: AE
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        item_nature_code: DL8.48.3.1
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: AE
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-ALLOW-AE-01-D
+              detailed_document_level_allowance_e:
+                description: >-
+                  Document-level allowance under the Exempt (E) VAT category; no
+                  VAT rate applies and an exemption reason is required on the
+                  line
+                summary: Document-Level Allowance — Exempt (E)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 100
+                        charge_indicator: false
+                        reason: Special Rebate
+                        reason_code: '100'
+                        tax_category_code: E
+                        tax_exemption_reason: Certain financial services
+                        tax_exemption_reason_code: DL8.46.1
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '480'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: E
+                        tax_exemption_reason_code: DL8.46.1
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Exempt supply invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-ALLOW-E-01-D
+              detailed_document_level_allowance_o:
+                description: >-
+                  Document-level allowance under the Out of Scope (O) VAT
+                  category; no VAT rate applies
+                summary: Document-Level Allowance — Out of Scope (O)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 100
+                        charge_indicator: false
+                        reason: Discount
+                        reason_code: '95'
+                        tax_category_code: O
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '480'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: O
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Not subject to VAT invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-ALLOW-O-01-D
+              detailed_document_level_allowance_z:
+                description: >-
+                  Document-level allowance under the Zero Rated (Z) VAT
+                  category; VAT rate must be exactly 0
+                summary: Document-Level Allowance — Zero Rated (Z)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 100
+                        charge_indicator: false
+                        reason: Discount
+                        reason_code: '95'
+                        tax_category_code: Z
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: Z
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Zero rated supply invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-ALLOW-Z-01-D
+              detailed_document_level_charge_ae:
+                description: >-
+                  Document-level charge under the Reverse Charge (AE) VAT
+                  category; VAT rate must be exactly 0. Note: submitting this
+                  exact example currently fails real-time validation (PINT-AE
+                  rule aligned-ibrp-ae-08-ae) due to a defect in that officially
+                  published rule, outside our control pending an upstream fix.
+                summary: Document-Level Charge — Reverse Charge (AE)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 200
+                        charge_indicator: true
+                        reason: Rush Delivery
+                        reason_code: AAT
+                        tax_category_code: AE
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        item_nature_code: DL8.48.3.1
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: AE
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-CHARGE-AE-01-D
+              detailed_document_level_charge_e:
+                description: >-
+                  Document-level charge under the Exempt (E) VAT category; no
+                  VAT rate applies and an exemption reason is required on the
+                  line
+                summary: Document-Level Charge — Exempt (E)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 200
+                        charge_indicator: true
+                        reason: Handling fee
+                        reason_code: AAT
+                        tax_category_code: E
+                        tax_exemption_reason: Certain financial services
+                        tax_exemption_reason_code: DL8.46.1
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '480'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: E
+                        tax_exemption_reason_code: DL8.46.1
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Exempt supply invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-CHARGE-E-01-D
+              detailed_document_level_charge_o:
+                description: >-
+                  Document-level charge under the Out of Scope (O) VAT category;
+                  no VAT rate applies
+                summary: Document-Level Charge — Out of Scope (O)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 200
+                        charge_indicator: true
+                        reason: Handling fee
+                        reason_code: AAT
+                        tax_category_code: O
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '480'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: O
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Not subject to VAT invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-CHARGE-O-01-D
+              detailed_document_level_charge_z:
+                description: >-
+                  Document-level charge under the Zero Rated (Z) VAT category;
+                  VAT rate must be exactly 0
+                summary: Document-Level Charge — Zero Rated (Z)
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    allowance_charges:
+                      - amount: 200
+                        charge_indicator: true
+                        reason: Rush Delivery
+                        reason_code: AAT
+                        tax_category_code: Z
+                        tax_rate: 0
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 100
+                        price_discount: 0
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: Z
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Zero rated supply invoice
+                    payment_terms_note: Net 15 days
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: current account
+                        payee_financial_institution_bic: ABORAEADXXX
+                        payment_means_code: '30'
+                    tax_point_date: '2026-08-22'
+                    trader_invoice_number: AE-CHARGE-Z-01-D
+              detailed_ecommerce:
+                description: >-
+                  B2C sale via online platform; delivery address with
+                  subdivision required; Incoterms required
+                summary: E-Commerce Supply
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    additional_documents:
+                      - id: DR-INV-001
+                      - id: DR-INV-02
+                    allowance_charges:
+                      - amount: 5
+                        base_amount: 100
+                        charge_indicator: false
+                        multiplier_rate: 0.05
+                        reason: Discount
+                        reason_code: '95'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                      - amount: 2.5
+                        base_amount: 100
+                        charge_indicator: true
+                        multiplier_rate: 0.025
+                        reason: Technical Modification
+                        reason_code: AAC
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    delivery:
+                      actual_delivery_date: '2026-08-27'
+                      delivery_address:
+                        additional_street_name: Additional Street Name
+                        address_line: Address line 3
+                        city_name: Abu Dhabi
+                        country_code: AE
+                        country_subentity: AUH
+                        postal_zone: Postal Zone
+                        street_name: Street Name
+                      delivery_location_id: '112345679000003'
+                      delivery_location_scheme_id: '0066'
+                      delivery_party_name: Delivery Party Name
+                      delivery_terms_id: DAP
+                    document_currency_code: AED
+                    due_date: '2026-08-27'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '11:35:10'
+                    items:
+                      - allowance_charges:
+                          - amount: 2.5
+                            base_amount: 100
+                            charge_indicator: false
+                            multiplier_rate: 0.025
+                            reason: Discount
+                            reason_code: '95'
+                          - amount: 5
+                            base_amount: 100
+                            charge_indicator: true
+                            multiplier_rate: 0.05
+                            reason: Technical Modification
+                            reason_code: AAC
+                        commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 101
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        note: Please check the invoice
+                        price_amount: 100
+                        price_discount: 1
+                        quantity: 1
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payable_rounding_amount: 0
+                    payment_terms_note: Instant Payment
+                    payments:
+                      - card_holder_name: Card Holder Name
+                        card_network_id: VISA
+                        card_primary_account_number: XXXXXXXXXXXX1234
+                        payment_means_code: '55'
+                    prepaid_amount: 0
+                    trader_invoice_number: AE-001-E-Commerce-TEST-D
+                    transaction_types:
+                      - SUPPLY_THROUGH_ECOMMERCE
+              detailed_free_trade_zone:
+                description: >-
+                  Supply of goods to a buyer in a UAE Free Trade Zone;
+                  beneficiary tax number required; standard-rated with a
+                  document- and line-level allowance
+                summary: Free Trade Zone Supply
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    additional_documents:
+                      - id: Sample-04
+                      - id: Sample-04
+                    allowance_charges:
+                      - amount: 3535
+                        base_amount: 70700
+                        charge_indicator: false
+                        multiplier_rate: 0.05
+                        reason: Special Rebate
+                        reason_code: '100'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    beneficiary_tax_number: '123456789098703'
+                    document_currency_code: AED
+                    due_date: '2026-09-24'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - allowance_charges:
+                          - amount: 700
+                            base_amount: 70000
+                            charge_indicator: true
+                            multiplier_rate: 0.01
+                            reason: Technical Modification
+                            reason_code: AAC
+                        commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 150
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        note: Invoice line note
+                        price_amount: 140
+                        price_discount: 10
+                        quantity: 500
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: 1 month
+                    payments:
+                      - payee_account_id: AE0000000001
+                        payee_account_name: current account
+                        payee_financial_institution_bic: '236000'
+                        payment_means_code: '30'
+                    trader_invoice_number: AE-001FTZ-TEST-D
+                    transaction_types:
+                      - FREE_TRADE_ZONE
               detailed_invoice:
                 description: >-
                   A standard-rated invoice that creates the buyer and the
@@ -3345,6 +4273,689 @@ paths:
                     payments:
                       - payment_means_code: '10'
                     trader_invoice_number: AE-DINV-001
+              detailed_invoice_export_foreign_buyer:
+                description: >-
+                  Zero-rated export to a buyer outside the UAE who has their own
+                  Peppol address. `peppol_id_scheme` is the EAS code for
+                  `peppol_id` — here `0151`, the Australian Business Number. The
+                  document is delivered to that address normally.
+                summary: Export to a Foreign Buyer on Peppol
+                value:
+                  customer_party:
+                    address:
+                      city_name: Sydney
+                      country_code: AU
+                      country_subentity: NSW
+                      street_name: George Street
+                    legal_entity:
+                      registration_name: Sydney Trading Pty Ltd
+                    peppol_id: '51824753556'
+                    peppol_id_scheme: '0151'
+                    tax_identification_number: '51824753556'
+                  invoice:
+                    additional_documents:
+                      - document_description: AED 913621.44
+                        document_type_code: aedtotal-incl-vat
+                        id: AED
+                    delivery:
+                      delivery_address:
+                        city_name: Sydney
+                        country_code: AU
+                        country_subentity: NSW
+                        street_name: George Street
+                      delivery_terms_id: CIF
+                    document_currency_code: USD
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '17:31:00'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 50
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 49.75
+                        price_discount: 0.25
+                        quantity: 5000
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: Z
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: within 1 month
+                    payments:
+                      - payment_means_code: '1'
+                    tax_currency_exchange_rate: 3.67285
+                    trader_invoice_number: AE-EXP-PEPPOL-01
+                    transaction_types:
+                      - EXPORTS
+              detailed_invoice_export_no_peppol_id:
+                description: >-
+                  Zero-rated export to a buyer outside the UAE who has no Peppol
+                  address. Omit `peppol_id` and `peppol_id_scheme` — the
+                  predefined endpoint `9900000099` is substituted at submission
+                  and the document is reported to the FTA without being
+                  delivered over Peppol.
+                summary: Export to a Foreign Buyer not on Peppol
+                value:
+                  customer_party:
+                    address:
+                      city_name: Sydney
+                      country_code: AU
+                      country_subentity: NSW
+                      street_name: George Street
+                    legal_entity:
+                      registration_name: Sydney Trading Pty Ltd
+                    tax_identification_number: '51824753556'
+                  invoice:
+                    additional_documents:
+                      - document_description: AED 913621.44
+                        document_type_code: aedtotal-incl-vat
+                        id: AED
+                    delivery:
+                      delivery_address:
+                        city_name: Sydney
+                        country_code: AU
+                        country_subentity: NSW
+                        street_name: George Street
+                      delivery_terms_id: CIF
+                    document_currency_code: USD
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '17:31:00'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 50
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 49.75
+                        price_discount: 0.25
+                        quantity: 5000
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: Z
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: within 1 month
+                    payments:
+                      - payment_means_code: '1'
+                    tax_currency_exchange_rate: 3.67285
+                    trader_invoice_number: AE-EXP-NOPEPPOL-01
+                    transaction_types:
+                      - EXPORTS
+              detailed_invoice_passport_buyer:
+                description: >-
+                  A buyer legally identified by passport rather than a trade
+                  licence. `issuing_authority_code` is `PAS` and
+                  `issuing_authority_name` carries the passport's issuing
+                  country as an ISO 3166-1 alpha-2 code, not an authority name.
+                summary: Passport-Identified Buyer
+                value:
+                  customer_party:
+                    address:
+                      city_name: Abu Dhabi
+                      country_code: AE
+                      country_subentity: AUH
+                      street_name: Khalifa Street
+                    legal_entity:
+                      issuing_authority_code: PAS
+                      issuing_authority_name: IN
+                      registration_name: Rahul Menon Trading
+                      registration_number: P1234567890
+                      registration_scheme: '0235'
+                    tax_identification_number: '1023456789'
+                    tax_registration_number: '102345678900003'
+                  invoice:
+                    document_currency_code: AED
+                    due_date: '2026-09-26'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '10:00:00'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 500
+                        quantity: 10
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: C62
+                    payment_terms_note: Next 30 days
+                    payments:
+                      - payment_means_code: '10'
+                    trader_invoice_number: AE-DINV-PAS-001
+              detailed_margin_scheme:
+                description: >-
+                  Second-hand goods sold under profit margin scheme — VAT
+                  applies only to the margin; category N
+                summary: Profit Margin Scheme Invoice
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    document_currency_code: AED
+                    due_date: '2026-08-27'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 1000
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        note: Margin scheme goods
+                        price_amount: 1000
+                        price_discount: 0
+                        quantity: 1
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: 'N'
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    payment_terms_note: Instant Payment
+                    payments:
+                      - card_holder_name: Card Holder Name
+                        card_network_id: VISA
+                        card_primary_account_number: XXXXXXXXXXXX1234
+                        payment_means_code: '55'
+                    trader_invoice_number: AE-001-Marginscheme-TEST-D
+                    transaction_types:
+                      - PROFIT_MARGIN_SCHEME
+              detailed_multiple_tax_categories:
+                description: >-
+                  Invoice spanning S (standard 5%), Z (zero-rated), E (exempt —
+                  financial services), and AE (reverse charge) categories across
+                  four line items
+                summary: Multiple Tax Categories
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    document_currency_code: AED
+                    due_date: '2026-09-26'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 1000
+                        quantity: 5
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: EA
+                      - commodity_code: G
+                        description: Stainless steel gate valve for high-pressure pipelines
+                        hs_code: '84818099'
+                        item_code: VALVE-V200-SS
+                        name: Stainless Steel Gate Valve V-200
+                        price_amount: 800
+                        quantity: 3
+                        standard_item_id: '09501101530010'
+                        standard_item_scheme: '0160'
+                        tax_category_code: Z
+                        tax_rate: 0
+                        unit_of_measure_code: EA
+                      - commodity_code: G
+                        description: Replacement mechanical seal kit for centrifugal pumps
+                        hs_code: '84842000'
+                        item_code: SEAL-KIT-9F
+                        name: Mechanical Seal Kit 9F
+                        price_amount: 600
+                        quantity: 2
+                        standard_item_id: '09501101530027'
+                        standard_item_scheme: '0160'
+                        tax_category_code: E
+                        tax_exemption_reason: Certain financial services
+                        tax_exemption_reason_code: DL8.46.1
+                        tax_rate: 0
+                        unit_of_measure_code: EA
+                      - commodity_code: G
+                        description: >-
+                          Forged carbon steel weld-neck flange, nominal diameter
+                          100mm
+                        hs_code: '73072100'
+                        item_code: FLANGE-DN100
+                        item_nature_code: DL8.48.8.1
+                        name: Forged Steel Flange DN100
+                        price_amount: 1500
+                        quantity: 4
+                        standard_item_id: '09501101530034'
+                        standard_item_scheme: '0160'
+                        tax_category_code: AE
+                        tax_rate: 0.05
+                        unit_of_measure_code: EA
+                    payments:
+                      - payee_account_id: AE070331234567890123456
+                        payee_account_name: ACME Trading LLC
+                        payment_means_code: '30'
+                    trader_invoice_number: ACME-INV-2026-0011-D
+              detailed_reverse_charge:
+                description: >-
+                  Imported services — VAT liability transferred to buyer under
+                  UAE Article 48; buyer self-accounts at 5%; item nature code
+                  required for reverse charge
+                summary: Reverse Charge
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    additional_documents:
+                      - id: DC
+                      - id: Delivery Challans
+                    document_currency_code: AED
+                    due_date: '2026-09-10'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 100
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        item_nature_code: DL8.48.3.1
+                        name: Industrial Pump Model X-500
+                        price_amount: 99
+                        price_discount: 1
+                        quantity: 30
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: AE
+                        tax_rate: 0.05
+                        unit_of_measure_code: K6
+                    note: Tax invoice
+                    payment_terms_note: Within 15 days
+                    payments:
+                      - payee_account_id: AE0000000001
+                        payee_account_name: current account
+                        payee_financial_institution_bic: '236000'
+                        payment_means_code: '30'
+                    trader_invoice_number: AE-01RCTEST-D
+              detailed_standard_invoice_minimal:
+                description: >-
+                  Minimal valid tax invoice containing only mandatory fields;
+                  useful as a starting point for integration
+                summary: Standard Invoice — Mandatory Fields Only
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    document_currency_code: AED
+                    due_date: '2026-09-03'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 10
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 10
+                        price_discount: 0
+                        quantity: 100
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    payments:
+                      - card_holder_name: Card Holder Name
+                        card_network_id: VISA
+                        card_primary_account_number: XXXXXXXXXXXX1234
+                        payment_means_code: '55'
+                    trader_invoice_number: AE001-Test-D
+              detailed_standard_tax_invoice:
+                description: >-
+                  Full-featured B2B VAT invoice with order reference, originator
+                  reference, a billing reference to a prior invoice, document-
+                  and line-level allowances/charges, and payment terms
+                summary: Standard Tax Invoice
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    accounting_cost: Regular sales
+                    additional_documents:
+                      - id: PO-AE-220
+                      - id: PO-AE-220
+                    allowance_charges:
+                      - amount: 262.15
+                        base_amount: 10486
+                        charge_indicator: false
+                        multiplier_rate: 0.025
+                        reason: Special Rebate
+                        reason_code: '100'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                      - amount: 419.44
+                        base_amount: 10486
+                        charge_indicator: true
+                        multiplier_rate: 0.04
+                        reason: Rush Delivery
+                        reason_code: AAT
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    billing_reference:
+                      - id: INV-234-2025
+                        issue_date: '2026-08-27'
+                    buyer_reference: PO-AE-220
+                    despatch_document_reference:
+                      id: Memo-1000
+                    document_currency_code: AED
+                    due_date: '2026-09-03'
+                    invoice_period:
+                      end_date: '2026-08-27'
+                      start_date: '2026-08-21'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '07:54:00'
+                    items:
+                      - allowance_charges:
+                          - amount: 294
+                            base_amount: 9800
+                            charge_indicator: false
+                            multiplier_rate: 0.03
+                            reason: Discount
+                            reason_code: '95'
+                          - amount: 980
+                            base_amount: 9800
+                            charge_indicator: true
+                            multiplier_rate: 0.1
+                            reason: Technical Modification
+                            reason_code: AAC
+                        buyers_item_id: Purchase goods
+                        commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 5
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        note: All items
+                        price_amount: 4.9
+                        price_discount: 0.1
+                        quantity: 2000
+                        sellers_item_id: Sales Goods
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    order_reference:
+                      purchase_order_id: PO-AE-220
+                      sales_order_id: Salesorder-2122
+                    originator_document_reference:
+                      id: PO-AE-220
+                    payable_rounding_amount: 0.05
+                    payment_terms_note: Within a week
+                    payments:
+                      - card_holder_name: Card Holder Name
+                        card_network_id: VISA
+                        card_primary_account_number: XXXXXXXXXXXX1234
+                        payment_means_code: '55'
+                    project_reference: Regular work
+                    tax_point_date: '2026-08-20'
+                    trader_invoice_number: AE-01TEST-D
+              detailed_summary_tax_invoice:
+                description: >-
+                  Monthly summary invoice for recurring supplies to the same
+                  customer in the same calendar month, spanning standard-rated
+                  and reverse-charge line items
+                summary: Summary Tax Invoice
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    additional_documents:
+                      - id: DC
+                      - id: Delivery Challans
+                    allowance_charges:
+                      - amount: 80.16
+                        base_amount: 10687.5
+                        charge_indicator: false
+                        multiplier_rate: 0.0075
+                        reason: Special rebate
+                        reason_code: '100'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                    document_currency_code: AED
+                    due_date: '2026-09-10'
+                    invoice_period:
+                      end_date: '2026-08-27'
+                      start_date: '2026-08-20'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 15
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 14.25
+                        price_discount: 0.75
+                        quantity: 100
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                      - commodity_code: G
+                        description: Stainless steel gate valve for high-pressure pipelines
+                        gross_price: 25
+                        hs_code: '84818099'
+                        item_code: VALVE-V200-SS
+                        name: Stainless Steel Gate Valve V-200
+                        price_amount: 23.75
+                        price_discount: 1.25
+                        quantity: 150
+                        standard_item_id: '09501101530010'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                      - commodity_code: G
+                        description: Replacement mechanical seal kit for centrifugal pumps
+                        gross_price: 30
+                        hs_code: '84842000'
+                        item_code: SEAL-KIT-9F
+                        name: Mechanical Seal Kit 9F
+                        price_amount: 28.5
+                        price_discount: 1.5
+                        quantity: 200
+                        standard_item_id: '09501101530027'
+                        standard_item_scheme: '0160'
+                        tax_category_code: S
+                        tax_rate: 0.05
+                        unit_of_measure_code: H87
+                      - commodity_code: G
+                        description: >-
+                          Forged carbon steel weld-neck flange, nominal diameter
+                          100mm
+                        gross_price: 100
+                        hs_code: '73072100'
+                        item_code: FLANGE-DN100
+                        item_nature_code: DL8.48.3.1
+                        name: Forged Steel Flange DN100
+                        price_amount: 99
+                        price_discount: 1
+                        quantity: 30
+                        standard_item_id: '09501101530034'
+                        standard_item_scheme: '0160'
+                        tax_category_code: AE
+                        tax_rate: 0.05
+                        unit_of_measure_code: K6
+                    note: Tax invoice
+                    payable_rounding_amount: 0.29
+                    payment_terms_note: Within 15 days
+                    payments:
+                      - payee_account_id: AE0000000001
+                        payee_account_name: current account
+                        payee_financial_institution_bic: '236000'
+                        payment_means_code: '30'
+                    trader_invoice_number: AE-010TEST-D
+                    transaction_types:
+                      - SUMMARY_INVOICE
+              detailed_zero_rated:
+                description: >-
+                  International transport service zero-rated under UAE VAT
+                  Article 45
+                summary: Zero-Rated Supply
+                value:
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  invoice:
+                    document_currency_code: AED
+                    due_date: '2026-09-11'
+                    invoice_type_code: '380'
+                    issue_date: '2026-08-27'
+                    issue_time: '17:31:00'
+                    items:
+                      - commodity_code: G
+                        description: >-
+                          High-pressure centrifugal pump for industrial fluid
+                          transfer
+                        gross_price: 50
+                        hs_code: '84137000'
+                        item_code: PUMP-X500-BLK
+                        name: Industrial Pump Model X-500
+                        price_amount: 49.75
+                        price_discount: 0.25
+                        quantity: 5000
+                        standard_item_id: '09501101530003'
+                        standard_item_scheme: '0160'
+                        tax_category_code: Z
+                        tax_rate: 0
+                        unit_of_measure_code: H87
+                    note: Tax invoice
+                    order_reference:
+                      purchase_order_id: EXP-09
+                      sales_order_id: EC-24-25-1001
+                    payment_terms_note: within 15 days
+                    payments:
+                      - payment_means_code: '1'
+                    tax_point_date: '2026-08-20'
+                    trader_invoice_number: AE-001-ZeroRated-TEST-D
       responses:
         '201':
           description: Invoice created
