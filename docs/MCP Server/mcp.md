@@ -6,7 +6,6 @@ hidden: false
 metadata:
   robots: index
 ---
-
 MCP stands for Model Context Protocol. Read more about it in the [official documentation](https://modelcontextprotocol.io/).
 
 The DigiTax UAE Model Context Protocol (MCP) server enables AI-powered code editors like Cursor and Windsurf, plus general-purpose tools like Claude Desktop, to interact directly with your DigiTax UAE API and documentation.
@@ -26,7 +25,7 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
 
 <Tabs>
   <Tab title="Cursor">
-    **Add to `~/.cursor/mcp.json`:**
+    **Add to&#x20;**`~/.cursor/mcp.json`**:**
 
     ```json
     {
@@ -37,10 +36,10 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
       }
     }
     ```
-
   </Tab>
+
   <Tab title="Windsurf">
-    **Add to `~/.codeium/windsurf/mcp_config.json`:**
+    **Add to&#x20;**`~/.codeium/windsurf/mcp_config.json`**:**
 
     ```json
     {
@@ -51,10 +50,10 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
       }
     }
     ```
-
   </Tab>
+
   <Tab title="Claude Desktop">
-    **Add to `claude_desktop_config.json`:**
+    **Add to&#x20;**`claude_desktop_config.json`**:**
 
     ```json
     {
@@ -65,7 +64,6 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
       }
     }
     ```
-
   </Tab>
 </Tabs>
 
@@ -82,3 +80,23 @@ Once configured, you can test your MCP server connection:
    * "How do I issue a credit note referencing an original invoice in DigiTax UAE?"
 
 The AI should now have access to your DigiTax UAE account data and documentation through the MCP server.
+
+<br />
+
+<Callout icon="📘" theme="info">
+  ### Found something wrong in an AI answer?
+
+  These tools read our live spec and documentation, but AI assistants can
+  still misread, over-generalise, or give an answer that's out of date.
+  If an answer looks wrong — a field that doesn't exist, a validation rule
+  that doesn't match what the API actually does, or a contradiction between
+  two pages — please tell us.
+
+  <Anchor target="_blank" href="mailto:support@namiri.tech">Email us</Anchor> or use the **DigiTax Support** at the<br />top-right of any page on the dashboard.
+
+  It helps us if you include:
+
+  - the question you asked
+  - the answer you got
+  - the endpoint or page it relates to, if you know it
+</Callout>
