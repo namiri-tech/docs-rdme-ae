@@ -21,7 +21,7 @@ Model Context Protocol (MCP) is an open standard that allows AI applications to 
 
 ## DigiTax UAE MCP Server Setup
 
-DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Configure your AI development tools to connect to this server. If your APIs require authentication, you can pass in headers via query parameters or however headers are configured in your MCP client.
+DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Configure your AI development tools to connect to this server. If your APIs require authentication, you can pass in headers via query parameters, or however headers are configured in your MCP client.
 
 <Tabs>
   <Tab title="Cursor">
