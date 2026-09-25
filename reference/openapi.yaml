@@ -1525,6 +1525,236 @@ paths:
                   trader_invoice_number: AE-001-Exports-TEST
                   transaction_types:
                     - EXPORTS
+              extensive_invoice:
+                description: >-
+                  Every optional group the endpoint accepts, populated at once:
+                  all six document references, a payee and a tax representative
+                  party, delivery with a location and Incoterms, document- and
+                  line-level allowances and charges, and five lines spanning the
+                  S, E, O, AE and Z tax categories. Ported from the PINT AE
+                  published "Standard invoice - Extensive" example.
+                summary: Extensive Invoice
+                value:
+                  accounting_cost: '4025:123:4343'
+                  additional_documents:
+                    - document_description: Invoice is enclosed
+                      id: DR-INV-001
+                    - id: DR-INV-02
+                  allowance_charges:
+                    - amount: 273.75
+                      base_amount: 18250
+                      charge_indicator: false
+                      multiplier_rate: 0.015
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 2451.25
+                      base_amount: 4902.5
+                      charge_indicator: false
+                      multiplier_rate: 0.5
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 79
+                      base_amount: 1975
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Technical Modification
+                      reason_code: AAC
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  beneficiary_tax_number: '189098765401003'
+                  billing_reference:
+                    - id: INV-1001/2022
+                      issue_date: '2026-08-20'
+                  buyer_reference: BR-001/23
+                  contract_document_reference:
+                    document_description: AED200000
+                    id: BR-001/23
+                  customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
+                  delivery:
+                    actual_delivery_date: '2026-08-20'
+                    delivery_address:
+                      additional_street_name: Additional Street Name
+                      address_line: Address line
+                      city_name: Abu Dhabi
+                      country_code: AE
+                      country_subentity: AUH
+                      postal_zone: Postal Zone
+                      street_name: Khalifa street
+                    delivery_location_id: '112345679000003'
+                    delivery_location_scheme_id: '0060'
+                    delivery_party_name: Delivery Party Name
+                    delivery_terms_id: DAP
+                  despatch_document_reference:
+                    id: DAR-001/23
+                  document_currency_code: AED
+                  due_date: '2026-09-10'
+                  invoice_period:
+                    billing_frequency_code: OTH
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  issue_time: '18:24:10'
+                  items:
+                    - accounting_cost: ABC-001
+                      allowance_charges:
+                        - amount: 50
+                          base_amount: 5000
+                          charge_indicator: false
+                          multiplier_rate: 0.01
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 10
+                          charge_indicator: true
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: art-to-001
+                      gross_price: 1000
+                      invoice_period:
+                        end_date: '2026-08-27'
+                        start_date: '2026-08-20'
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS1
+                      note: Please check the invoice
+                      order_line_reference:
+                        purchase_order_id: PO-001/23
+                      price_amount: 1000
+                      price_discount: 0
+                      quantity: 5
+                      sellers_item_id: art-p-001
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                    - allowance_charges:
+                        - amount: 80
+                          base_amount: 4000
+                          charge_indicator: false
+                          multiplier_rate: 0.02
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 20
+                          charge_indicator: true
+                          reason: Special Construction
+                          reason_code: AAV
+                      gross_price: 400
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS2
+                      price_amount: 396
+                      price_discount: 4
+                      quantity: 10
+                      tax_category_code: E
+                      tax_exemption_reason: Certain financial services
+                      tax_exemption_reason_code: DL8.46.1
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                    - accounting_cost: CS-024
+                      allowance_charges:
+                        - amount: 135
+                          charge_indicator: false
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 112.5
+                          base_amount: 4500
+                          charge_indicator: true
+                          multiplier_rate: 0.025
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: art-to-001
+                      gross_price: 300
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS3
+                      note: Please check the invoice
+                      price_amount: 297
+                      price_discount: 3
+                      quantity: 15
+                      sellers_item_id: art-p-001
+                      tax_category_code: O
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                    - accounting_cost: CS-024
+                      allowance_charges:
+                        - amount: 128
+                          base_amount: 3200
+                          charge_indicator: false
+                          multiplier_rate: 0.04
+                          reason: Discount
+                          reason_code: '95'
+                      buyers_item_id: art-to-001
+                      gross_price: 158.4
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS4
+                      item_nature_code: DL8.48.3.1
+                      note: Please check the invoice
+                      price_amount: 158.4
+                      price_discount: 0
+                      quantity: 20
+                      sellers_item_id: art-p-001
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                    - accounting_cost: CS-024
+                      allowance_charges:
+                        - amount: 625
+                          charge_indicator: false
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 125
+                          base_amount: 2500
+                          charge_indicator: true
+                          multiplier_rate: 0.05
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: art-to-001
+                      gross_price: 100
+                      item_id: item_01HFXK2VV2M05YCTS61G7SVCS5
+                      note: Please check the invoice
+                      price_amount: 99
+                      price_discount: 1
+                      quantity: 25
+                      sellers_item_id: art-p-001
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  order_reference:
+                    purchase_order_id: PO-001/23
+                    sales_order_id: SO-001/23
+                  originator_document_reference:
+                    id: LR-001/23
+                  payee_party:
+                    party_identifier: '132345679670003'
+                    party_identifier_scheme: '0060'
+                    party_name: Payee Party Name
+                    registration_number: '112345679350001'
+                    registration_scheme: '0235'
+                  payment_terms_note: 15 days
+                  payments:
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
+                      payment_means_code: '55'
+                  project_reference: BR-001/23
+                  receipt_document_reference:
+                    id: RAR-001/23
+                  tax_point_date: '2026-08-19'
+                  tax_representative_party:
+                    address:
+                      additional_street_name: Additional Street Name
+                      address_line: Address line
+                      city_name: Abu Dhabi
+                      country_code: AE
+                      country_subentity: AUH
+                      postal_zone: Postal Zone
+                      street_name: Al Bateen Street
+                    party_name: Seller Tax Representative Party Name
+                    tax_registration_number: '123349792700003'
+                  trader_invoice_number: AE-EXTENSIVE-001
+                  transaction_types:
+                    - FREE_TRADE_ZONE
+                    - CONTINUOUS_SUPPLY
               free_trade_zone:
                 description: >-
                   Supply of goods to a buyer in a UAE Free Trade Zone;
@@ -4140,6 +4370,305 @@ paths:
                   trader_invoice_number: AE-001-E-Commerce-TEST-D
                   transaction_types:
                     - SUPPLY_THROUGH_ECOMMERCE
+              detailed_extensive_invoice:
+                description: >-
+                  The same invoice as the `extensive_invoice` example on `POST
+                  /invoices`, with the buyer and the full item catalogue
+                  supplied inline. Only this endpoint can express the catalogue
+                  fields — `origin_country_code`, `item_properties`,
+                  `standard_item_id`, `hs_code` and the rest — because on `POST
+                  /invoices` they belong to the item record rather than the
+                  invoice line. Ported from the PINT AE published "Standard
+                  invoice - Extensive" example.
+                summary: Extensive Invoice
+                value:
+                  accounting_cost: '4025:123:4343'
+                  additional_documents:
+                    - document_description: Invoice is enclosed
+                      id: DR-INV-001
+                    - id: DR-INV-02
+                  allowance_charges:
+                    - amount: 273.75
+                      base_amount: 18250
+                      charge_indicator: false
+                      multiplier_rate: 0.015
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 2451.25
+                      base_amount: 4902.5
+                      charge_indicator: false
+                      multiplier_rate: 0.5
+                      reason: Discount
+                      reason_code: '95'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                    - amount: 79
+                      base_amount: 1975
+                      charge_indicator: true
+                      multiplier_rate: 0.04
+                      reason: Technical Modification
+                      reason_code: AAC
+                      tax_category_code: S
+                      tax_rate: 0.05
+                  beneficiary_tax_number: '189098765401003'
+                  billing_reference:
+                    - id: INV-1001/2022
+                      issue_date: '2026-08-20'
+                  buyer_reference: BR-001/23
+                  contract_document_reference:
+                    document_description: AED200000
+                    id: BR-001/23
+                  customer_party:
+                    address:
+                      city_name: Dubai
+                      country_code: AE
+                      country_subentity: DXB
+                      street_name: Sheikh Zayed Road
+                    legal_entity:
+                      issuing_authority_code: TL
+                      issuing_authority_name: Department of Economic Development
+                      registration_name: Global Imports LLC
+                      registration_number: CN-1234567
+                      registration_scheme: '0235'
+                    tax_identification_number: '1009876543'
+                    tax_registration_number: '100987654300003'
+                  delivery:
+                    actual_delivery_date: '2026-08-20'
+                    delivery_address:
+                      additional_street_name: Additional Street Name
+                      address_line: Address line
+                      city_name: Abu Dhabi
+                      country_code: AE
+                      country_subentity: AUH
+                      postal_zone: Postal Zone
+                      street_name: Khalifa street
+                    delivery_location_id: '112345679000003'
+                    delivery_location_scheme_id: '0060'
+                    delivery_party_name: Delivery Party Name
+                    delivery_terms_id: DAP
+                  despatch_document_reference:
+                    id: DAR-001/23
+                  document_currency_code: AED
+                  due_date: '2026-09-10'
+                  invoice_period:
+                    billing_frequency_code: OTH
+                    end_date: '2026-08-27'
+                    start_date: '2026-08-20'
+                  invoice_type_code: '380'
+                  issue_date: '2026-08-27'
+                  issue_time: '18:24:10'
+                  items:
+                    - accounting_cost: ABC-001
+                      allowance_charges:
+                        - amount: 50
+                          base_amount: 5000
+                          charge_indicator: false
+                          multiplier_rate: 0.01
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 10
+                          charge_indicator: true
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: art-to-001
+                      commodity_code: G
+                      description: >-
+                        Oil-injected rotary screw air compressor for plant
+                        service air
+                      gross_price: 1000
+                      hs_code: '84144000'
+                      invoice_period:
+                        end_date: '2026-08-27'
+                        start_date: '2026-08-20'
+                      item_code: COMP-C900-IND
+                      item_properties:
+                        - name: colour
+                          value: red
+                      name: Industrial Air Compressor C-900
+                      note: Please check the invoice
+                      order_line_reference:
+                        purchase_order_id: PO-001/23
+                      origin_country_code: AE
+                      price_amount: 1000
+                      price_discount: 0
+                      quantity: 5
+                      sellers_item_id: art-p-001
+                      standard_item_id: '09501101530058'
+                      standard_item_scheme: '0160'
+                      tax_category_code: S
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                    - allowance_charges:
+                        - amount: 80
+                          base_amount: 4000
+                          charge_indicator: false
+                          multiplier_rate: 0.02
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 20
+                          charge_indicator: true
+                          reason: Special Construction
+                          reason_code: AAV
+                      commodity_code: G
+                      description: Totally enclosed fan-cooled three-phase induction motor
+                      gross_price: 400
+                      hs_code: '85015290'
+                      item_code: MOTOR-M75-3PH
+                      item_properties:
+                        - name: Rated power
+                          value: 75kW
+                      name: Three-Phase Electric Motor M-75
+                      origin_country_code: DE
+                      price_amount: 396
+                      price_discount: 4
+                      quantity: 10
+                      standard_item_id: '09501101530065'
+                      standard_item_scheme: '0160'
+                      tax_category_code: E
+                      tax_exemption_reason: Certain financial services
+                      tax_exemption_reason_code: DL8.46.1
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                    - accounting_cost: CS-024
+                      allowance_charges:
+                        - amount: 135
+                          charge_indicator: false
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 112.5
+                          base_amount: 4500
+                          charge_indicator: true
+                          multiplier_rate: 0.025
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: art-to-001
+                      commodity_code: G
+                      description: Cylindrical roller bearing for high radial loads
+                      gross_price: 300
+                      hs_code: '84821000'
+                      item_code: BEARING-B220
+                      item_properties:
+                        - name: Material
+                          value: Chrome steel
+                      name: Roller Bearing B-220
+                      note: Please check the invoice
+                      origin_country_code: IN
+                      price_amount: 297
+                      price_discount: 3
+                      quantity: 15
+                      sellers_item_id: art-p-001
+                      standard_item_id: '09501101530072'
+                      standard_item_scheme: '0160'
+                      tax_category_code: O
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                    - accounting_cost: CS-024
+                      allowance_charges:
+                        - amount: 128
+                          base_amount: 3200
+                          charge_indicator: false
+                          multiplier_rate: 0.04
+                          reason: Discount
+                          reason_code: '95'
+                      buyers_item_id: art-to-001
+                      commodity_code: G
+                      description: >-
+                        Elastomeric jaw coupling for pump and motor shaft
+                        alignment
+                      gross_price: 158.4
+                      hs_code: '84836000'
+                      item_code: COUPLING-CP40
+                      item_nature_code: DL8.48.3.1
+                      item_properties:
+                        - name: Bore diameter
+                          value: 40mm
+                      name: Flexible Shaft Coupling CP-40
+                      note: Please check the invoice
+                      origin_country_code: AE
+                      price_amount: 158.4
+                      price_discount: 0
+                      quantity: 20
+                      sellers_item_id: art-p-001
+                      standard_item_id: '09501101530089'
+                      standard_item_scheme: '0160'
+                      tax_category_code: AE
+                      tax_rate: 0.05
+                      unit_of_measure_code: H87
+                    - accounting_cost: CS-024
+                      allowance_charges:
+                        - amount: 625
+                          charge_indicator: false
+                          reason: Discount
+                          reason_code: '95'
+                        - amount: 125
+                          base_amount: 2500
+                          charge_indicator: true
+                          multiplier_rate: 0.05
+                          reason: Technical Modification
+                          reason_code: AAC
+                      buyers_item_id: art-to-001
+                      commodity_code: G
+                      description: Spiral wound gasket set for flanged pipe joints
+                      gross_price: 100
+                      hs_code: '84842000'
+                      item_code: GASKET-SET-12
+                      item_properties:
+                        - name: Thickness
+                          value: 4.5mm
+                      name: Spiral Wound Gasket Set 12
+                      note: Please check the invoice
+                      origin_country_code: CN
+                      price_amount: 99
+                      price_discount: 1
+                      quantity: 25
+                      sellers_item_id: art-p-001
+                      standard_item_id: '09501101530096'
+                      standard_item_scheme: '0160'
+                      tax_category_code: Z
+                      tax_rate: 0
+                      unit_of_measure_code: H87
+                  note: Tax invoice
+                  order_reference:
+                    purchase_order_id: PO-001/23
+                    sales_order_id: SO-001/23
+                  originator_document_reference:
+                    id: LR-001/23
+                  payee_party:
+                    party_identifier: '132345679670003'
+                    party_identifier_scheme: '0060'
+                    party_name: Payee Party Name
+                    registration_number: '112345679350001'
+                    registration_scheme: '0235'
+                  payment_terms_note: 15 days
+                  payments:
+                    - card_holder_name: Card Holder Name
+                      card_network_id: VISA
+                      card_primary_account_number: XXXXXXXXXXXX1234
+                      payee_account_id: AE0000000001
+                      payee_account_name: current account
+                      payee_financial_institution_bic: '236000'
+                      payment_means_code: '55'
+                  project_reference: BR-001/23
+                  receipt_document_reference:
+                    id: RAR-001/23
+                  tax_point_date: '2026-08-19'
+                  tax_representative_party:
+                    address:
+                      additional_street_name: Additional Street Name
+                      address_line: Address line
+                      city_name: Abu Dhabi
+                      country_code: AE
+                      country_subentity: AUH
+                      postal_zone: Postal Zone
+                      street_name: Al Bateen Street
+                    party_name: Seller Tax Representative Party Name
+                    tax_registration_number: '123349792700003'
+                  trader_invoice_number: AE-DEXTENSIVE-001
+                  transaction_types:
+                    - FREE_TRADE_ZONE
+                    - CONTINUOUS_SUPPLY
               detailed_free_trade_zone:
                 description: >-
                   Supply of goods to a buyer in a UAE Free Trade Zone;
