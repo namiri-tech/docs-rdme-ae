@@ -6,6 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
+
 MCP stands for Model Context Protocol. Read more about it in the [official documentation](https://modelcontextprotocol.io/).
 
 The DigiTax UAE Model Context Protocol (MCP) server enables AI-powered code editors like Cursor and Windsurf, plus general-purpose tools like Claude Desktop, to interact directly with your DigiTax UAE API and documentation.
@@ -21,11 +22,11 @@ Model Context Protocol (MCP) is an open standard that allows AI applications to 
 
 ## DigiTax UAE MCP Server Setup
 
-DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Configure your AI development tools to connect to this server. If your APIs require authentication, you can pass in headers via query parameters, or however headers are configured in your MCP client.
+DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Configure your AI development tools to connect to this server. If your APIs require authentication, you can pass in headers via query parameters or however headers are configured in your MCP client.
 
 <Tabs>
   <Tab title="Cursor">
-    **Add to&#x20;**`~/.cursor/mcp.json`**:**
+    **Add to `~/.cursor/mcp.json`:**
 
     ```json
     {
@@ -36,10 +37,10 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
       }
     }
     ```
-  </Tab>
 
+  </Tab>
   <Tab title="Windsurf">
-    **Add to&#x20;**`~/.codeium/windsurf/mcp_config.json`**:**
+    **Add to `~/.codeium/windsurf/mcp_config.json`:**
 
     ```json
     {
@@ -50,20 +51,19 @@ DigiTax UAE hosts a remote MCP server at `https://ae.docs.digitax.tech/mcp`. Con
       }
     }
     ```
+
   </Tab>
-
   <Tab title="Claude Desktop">
-    **Add to&#x20;**`claude_desktop_config.json`**:**
+    Claude Desktop connects to remote MCP servers through the Connectors UI, not via `claude_desktop_config.json`.
 
-    ```json
-    {
-      "mcpServers": {
-        "ae-dgtax": {
-          "url": "https://ae.docs.digitax.tech/mcp"
-        }
-      }
-    }
-    ```
+    1. Open **Claude Desktop** and go to **Settings → Connectors**.
+    2. Click **Add custom connector**.
+    3. Enter a name (e.g. `DigiTax UAE`) and the URL:
+       ```
+       https://ae.docs.digitax.tech/mcp
+       ```
+    4. Save. To use it in a conversation, click **+** → **Add connectors** and enable **DigiTax UAE**.
+
   </Tab>
 </Tabs>
 
@@ -75,28 +75,18 @@ Once configured, you can test your MCP server connection:
 2. **Start a new chat** with the AI assistant
 3. **Ask about DigiTax UAE** - try questions like:
    * "How do I create a standard VAT invoice (type 380) with DigiTax UAE?"
-   * "Show me an example of a Profit Margin Scheme invoice using tax category N"
+   * "Show me an example of a Profit Margin Scheme invoice in DigiTax UAE"
    * "What fields are mandatory when creating an export invoice with delivery terms?"
    * "How do I issue a credit note referencing an original invoice in DigiTax UAE?"
 
 The AI should now have access to your DigiTax UAE account data and documentation through the MCP server.
 
-<br />
+## Authentication
 
-<Callout icon="📘" theme="info">
-  ### Found something wrong in an AI answer?
+The DigiTax UAE MCP server reads live data from your account. Pass your API key as a request header:
 
-  These tools read our live spec and documentation, but AI assistants can
-  still misread, over-generalise, or give an answer that's out of date.
-  If an answer looks wrong — a field that doesn't exist, a validation rule
-  that doesn't match what the API actually does, or a contradiction between
-  two pages — please tell us.
+```
+X-API-Key: <your-api-key>
+```
 
-  <Anchor target="_blank" href="mailto:support@namiri.tech">Email us</Anchor> or use the **DigiTax Support** at the<br />top-right of any page on the dashboard.
-
-  It helps us if you include:
-
-  - the question you asked
-  - the answer you got
-  - the endpoint or page it relates to, if you know it
-</Callout>
+See [API Prerequisites](ref:prerequisites-of-using-the-api) for how to obtain your key and configure it in your MCP client.

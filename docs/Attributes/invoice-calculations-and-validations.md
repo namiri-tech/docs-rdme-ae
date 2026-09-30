@@ -14,7 +14,7 @@ metadata:
 - `trader_invoice_number`: unique per branch (checked in-app + DB unique constraint, race-safe).
 - `note`: required when `invoice_period.billing_frequency_code = OTH`.
 - `beneficiary_trn` / `principle_trn`: valid TRN; required by `FREE_TRADE_ZONE`/`AGENT_BILLING` respectively; principle TRN must differ from the branch's own TRN.
-- `customer_party_id` / `payee_party_id` / `tax_representative_party_id` / `supplier_id`: must reference existing entities in the branch. (`tax_representative_party_id` check is correctly implemented but has no dedicated test.)
+- `customer_party_id` / `payee_party_id` / `tax_representative_party_id` / `supplier_id`: must reference existing entities in the branch.
 - `payments`: at least one entry required, except `DEEMED_SUPPLY`.
 
 **Invoice type codes**
@@ -23,7 +23,7 @@ metadata:
 - `480` Out-of-Scope Invoice: items + doc-level A/Cs restricted to E/O/Z; buyer must have `company_id`; forbidden with `SUMMARY_INVOICE`/`DEEMED_SUPPLY`/`PROFIT_MARGIN_SCHEME`.
 - `389` — see **Self-Billed Invoices** below.
 
-**Transaction types** (combinable) — `FREE_TRADE_ZONE`, `AGENT_BILLING`, `SUMMARY_INVOICE`, `CONTINUOUS_SUPPLY`, `EXPORTS` (forbidden with `PROFIT_MARGIN_SCHEME`), `SUPPLY_THROUGH_ECOMMERCE`, `PROFIT_MARGIN_SCHEME` (forbidden with `EXPORTS`/type 480), `DEEMED_SUPPLY` (forbidden with type 480) - each with its own required fields (see prior message for the full per-type table).
+**Transaction types** (combinable) — `FREE_TRADE_ZONE`, `AGENT_BILLING`, `SUMMARY_INVOICE`, `CONTINUOUS_SUPPLY`, `EXPORTS` (forbidden with `PROFIT_MARGIN_SCHEME`), `SUPPLY_THROUGH_ECOMMERCE`, `PROFIT_MARGIN_SCHEME` (forbidden with `EXPORTS`/type 480), `DEEMED_SUPPLY` (forbidden with type 480) - each with its own required fields (see the [Invoice attributes](doc:invoice-attributes) page for the full per-type required-field table).
 
 **Document-level allowances/charges**
 

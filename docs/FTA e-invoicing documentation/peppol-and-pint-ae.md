@@ -57,10 +57,10 @@ flowchart LR
     C1["C1: Supplier's System"] -- "e-Invoice" --> C2["C2: Supplier's AP (DigiTax)"]
     C2 -- "Peppol Network" --> C3["C3: Buyer's AP"]
     C3 -- "e-Invoice" --> C4["C4: Buyer's System"]
-    C4 -- "e-Invoice Copy" --> C5["C5: FTA"]
+    C2 -- "FTA Reporting" --> C5["C5: FTA"]
 ```
 
-The [DigiTax API](ref:digitax-api) acts as your certified Peppol Access Point (C2), managing the connection, validation, and secure transmission of your e-invoices to the network, ensuring compliance with all FTA requirements.
+The [DigiTax API](ref:digitax-api) acts as your certified Peppol Access Point (C2), managing the connection, validation, and secure transmission of your e-invoices to the buyer's network and directly to the Federal Tax Authority (C5) for compliance reporting — both are handled by DigiTax on your behalf.
 
 You don't need to worry about the 4-corner model or the 5-corner model. You just need to worry about the [DigiTax API](ref:digitax-api).
 

@@ -30,26 +30,28 @@ To create an FTA e-invoice party, you need the following details:
 
 > Review party attributes <Anchor label="here" target="_blank" href="doc:party-attributes">here</Anchor>
 
-1. **Tax Registration Number (`tax_registration_number`)**: 15-digit UAE TRN
-2. **Registration Name (`registration_name`)**: Legal entity name
-3. **Company ID (`company_id`)**: Registration/identifier number (e.g. Trade License number, Emirates ID)
-4. **Company ID Scheme ID (`company_id_scheme_id`)**: ISO 6523 ICD code (e.g. `0235` for UAE FTA scheme)
-5. **Company ID Scheme Agency ID (`company_id_scheme_agency_id`)**: Legal registration type (`TL`, `CL`, `EID`, `PAS`, `CD`)
-6. **Company ID Scheme Agency Name (`company_id_scheme_agency_name`)**: Issuing authority name (e.g. "Department of Economic Development" for `TL`, or 2-letter ISO country code for `PAS`)
-7. **Address (`address`)**:
+1. **Tax Identification Number (`tax_identification_number`)**: Required for every party. For UAE parties, this is the 10-digit TIN — the first 10 digits of the 15-digit TRN.
+2. **Legal Entity (`legal_entity`)**: Required object containing registration details:
+   1. **Registration Name (`registration_name`)**: Legal entity name
+   2. **Registration Number (`registration_number`)**: Registration/identifier number (e.g. Trade License number, Emirates ID). Required for UAE-addressed parties.
+   3. **Registration Scheme (`registration_scheme`)**: ISO 6523 ICD code (e.g. `0235` for UAE FTA scheme). Required for UAE-addressed parties.
+   4. **Issuing Authority Code (`issuing_authority_code`)**: Legal registration type (`TL`, `CL`, `EID`, `PAS`, `CD`). Required for UAE-addressed parties.
+   5. **Issuing Authority Name (`issuing_authority_name`)**: Issuing authority name (e.g. "Department of Economic Development" for `TL`, or 2-letter ISO country code for `PAS`).
+3. **Tax Registration Number (`tax_registration_number`)**: 15-digit UAE TRN. Only applicable to UAE VAT-registered parties — optional.
+4. **Address (`address`)**:
    1. Country Code (`country_code`, e.g. `AE`)
    2. Country Subentity (`country_subentity`, e.g. `DXB`)
    3. City Name (`city_name`)
    4. Street Name (`street_name`)
    5. Address Line (optional)
    6. Postal Zone (optional)
-8. **Contact (optional)**:
+5. **Contact (optional)**:
    1. Contact Name (`contact_name`)
    2. Contact Phone (`contact_phone`)
    3. Contact Email (`contact_email`)
-9. **Peppol Identification (optional)**:
+6. **Peppol Identification (optional)**:
    1. Peppol ID (`peppol_id`)
-   2. Peppol Scheme ID (`peppol_id_scheme_id`, e.g. `9922`)
+   2. Peppol Scheme (`peppol_id_scheme`, e.g. `0235`)
 
 The screenshot below from the dashboard succinctly shows the details required when creating a party.
 
@@ -63,12 +65,15 @@ On the API, once the required fields are submitted in `POST /parties`, the respo
   "created_at": "2026-04-23T06:21:41Z",
   "updated_at": "2026-04-23T06:21:41Z",
   "active": true,
-  "tax_registration_number": "112334455667703",
-  "registration_name": "CKW Trading LLC",
-  "company_id": "CN-1123344556",
-  "company_id_scheme_id": "0235",
-  "company_id_scheme_agency_id": "TL",
-  "company_id_scheme_agency_name": "Department of Economic Development",
+  "tax_identification_number": "1222333444",
+  "tax_registration_number": "122233344455503",
+  "legal_entity": {
+    "registration_name": "CKW Trading LLC",
+    "registration_number": "CN-1123344556",
+    "registration_scheme": "0235",
+    "issuing_authority_code": "TL",
+    "issuing_authority_name": "Department of Economic Development"
+  },
   "address": {
     "street_name": "Park Terrace Drive Way",
     "city_name": "Dubai Silicon Oasis",
@@ -80,9 +85,9 @@ On the API, once the required fields are submitted in `POST /parties`, the respo
 
 ## Party details
 
-### Tax Registration Number and Registration Name
+### Tax Identification Number and Registration Name
 
-The `tax_registration_number` is the 15-digit TRN assigned to the entity by the Federal Tax Authority (FTA). The `registration_name` must match the official registered legal name of the entity.
+The `tax_identification_number` is the 10-digit TIN assigned by the Federal Tax Authority (FTA) — required for every party. For UAE parties, the TIN is the first 10 digits of the 15-digit TRN. The `tax_registration_number` (the full 15-digit TRN) is optional and only applicable to UAE VAT-registered parties. The `legal_entity.registration_name` must match the official registered legal name of the entity.
 
 ### Company and Scheme Details
 
@@ -94,7 +99,7 @@ When creating a party in the UAE PINT-AE framework, the identifier scheme define
    * **Scheme ID:** **`0235`**
    * **Value:** The party's 10-digit **TIN** (the first 10 digits of the 15-digit TRN).
 
-2. **Legal Registration Types (`company_id_scheme_agency_id`)**
+2. **Legal Registration Types (`legal_entity.issuing_authority_code`)**
 
    | **Code** | **Registration Type** | **When to use it** |
    | :--- | :--- | :--- |
@@ -108,12 +113,13 @@ In our example, we used:
 
 | Field | Value |
 | :--- | :--- |
-| Tax Registration Number | `112334455667703` |
-| Registration Name | `CKW Trading LLC` |
-| Company ID | `CN-1123344556` |
-| Company ID Scheme ID | `0235` |
-| Company ID Scheme Agency ID | `TL` |
-| Company ID Scheme Agency Name | `Department of Economic Development` |
+| Tax Identification Number | `1222333444` |
+| Tax Registration Number | `122233344455503` |
+| `legal_entity.registration_name` | `CKW Trading LLC` |
+| `legal_entity.registration_number` | `CN-1123344556` |
+| `legal_entity.registration_scheme` | `0235` |
+| `legal_entity.issuing_authority_code` | `TL` |
+| `legal_entity.issuing_authority_name` | `Department of Economic Development` |
 
 ### Address
 
@@ -145,12 +151,15 @@ When fetching all parties via `GET /parties`, the response includes all active r
       "created_at": "2026-04-23T06:21:41Z",
       "updated_at": "2026-04-23T06:21:41Z",
       "active": true,
-      "tax_registration_number": "112334455667703",
-      "registration_name": "CKW Trading LLC",
-      "company_id": "CN-1123344556",
-      "company_id_scheme_id": "0235",
-      "company_id_scheme_agency_id": "TL",
-      "company_id_scheme_agency_name": "Department of Economic Development",
+      "tax_identification_number": "1222333444",
+      "tax_registration_number": "122233344455503",
+      "legal_entity": {
+        "registration_name": "CKW Trading LLC",
+        "registration_number": "CN-1123344556",
+        "registration_scheme": "0235",
+        "issuing_authority_code": "TL",
+        "issuing_authority_name": "Department of Economic Development"
+      },
       "address": {
         "street_name": "Park Terrace Drive Way",
         "city_name": "Dubai Silicon Oasis",
