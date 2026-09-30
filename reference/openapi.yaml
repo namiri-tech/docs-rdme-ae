@@ -3567,7 +3567,9 @@ paths:
 
         Omit `peppol_id` for a buyer who isn't on Peppol — the right predefined
         endpoint is substituted at submission and the document is reported to
-        the FTA instead of delivered.
+        the FTA instead of delivered (`9900000099` for an export, `9900000098`
+        for any other buyer outside the UAE or not yet onboarded to UAE
+        e-invoicing). The invoice then reports `submission_skipped: true`.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -7642,6 +7644,7 @@ components:
         - withdrawal_queued_at
         - withdrawal_accepted_at
         - withdrawal_rejected_at
+        - submission_skipped
       properties:
         id:
           type: string
@@ -7977,6 +7980,28 @@ components:
           type: string
           description: The reason C5(FTA) gave for rejecting the withdrawal
           example: Document rejected due to 1 validation error(s)
+        submission_skipped:
+          type: boolean
+          description: >
+            True when the invoice is reported to C5(FTA) only and is never
+            submitted to C3(the buyer's Access Point), or C2(the supplier's
+            Access Point) in the case of self-billing, so `submitted_at` and
+            `accepted_at` stay empty by design and that is not a failure. The
+            receiver is the buyer, or the supplier when self-billing. This
+            happens for deemed supplies, for exports to a receiver with no
+            Peppol address, and for a receiver that is not subject to UAE
+            e-invoicing, which includes a buyer outside the UAE with no
+            `peppol_id`. Where a conventional invoice is still needed, the
+            issuer is responsible for sending it to the receiver.
+        predefined_endpoint:
+          type: string
+          example: '9900000098'
+          description: >
+            The `0235` endpoint ID substituted for the receiver's address (the
+            buyer, or the supplier when self-billing) when `submission_skipped`
+            is true. `9900000097` for a deemed supply, `9900000098` for a
+            receiver not subject to UAE e-invoicing, `9900000099` for an export
+            to a receiver not on Peppol.
         submitted_at:
           type: string
           format: date-time
