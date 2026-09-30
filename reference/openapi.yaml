@@ -136,6 +136,51 @@ paths:
                   $ref: '#/components/schemas/CommonCode'
         default:
           $ref: '#/components/responses/Error'
+  /resources/hs-codes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE HS Codes
+      description: >-
+        Returns the HS codes of the GCC Integrated Customs Tariff (12 digits, HS
+        2022 based) as published by UAE customs. Use a `code` as the item
+        `hs_code`.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of HS codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
+  /resources/service-codes:
+    get:
+      tags:
+        - Resources
+      summary: Get UAE Service Codes
+      description: >-
+        Returns suggested service accounting codes, taken from the services
+        divisions (5-9) of the UN Central Product Classification (CPC) Version
+        2.1, because the Ministry of Finance has not published a service code
+        list. Use a `code` as the item `service_accounting_code`.
+      security:
+        - apiKeyAuth: []
+      responses:
+        '200':
+          description: List of service accounting codes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CommonCode'
+        default:
+          $ref: '#/components/responses/Error'
   /resources/item-classification-list:
     get:
       tags:
@@ -623,15 +668,20 @@ paths:
                   type: string
                   description: >-
                     The Harmonized System (HS) code for the item. Required when
-                    commodity_code is G (goods) or B (both goods and services)
-                  example: '84137000'
+                    commodity_code is G (goods) or B (both goods and services).
+                    See `GET /resources/hs-codes` for the GCC Integrated Customs
+                    Tariff codes (12 digits, no separators); the value is not
+                    validated against that list yet.
+                  example: '841370000001'
                 service_accounting_code:
                   type: string
                   description: >-
                     The Service Accounting Code for the item. Required when
                     commodity_code is S (services) or B (both goods and
-                    services)
-                  example: SAC-0001
+                    services). See `GET /resources/service-codes` for suggested
+                    values (UN CPC Version 2.1 service codes); the value is not
+                    validated against that list yet.
+                  example: '83111'
                 tax_category_code:
                   type: string
                   description: >-
@@ -3565,7 +3615,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 151
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 150
@@ -3628,7 +3678,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 500
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -3642,7 +3692,7 @@ paths:
                     - commodity_code: G
                       description: Stainless steel gate valve for high-pressure pipelines
                       gross_price: 0.5
-                      hs_code: '84818099'
+                      hs_code: '848180100000'
                       item_code: VALVE-V200-SS
                       name: Stainless Steel Gate Valve V-200
                       price_amount: 0.5
@@ -3708,7 +3758,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 150
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 140
@@ -3773,7 +3823,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 20
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: Inspect the goods
@@ -3836,7 +3886,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       item_nature_code: DL8.48.3.1
                       name: Industrial Pump Model X-500
@@ -3897,7 +3947,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 100
@@ -3955,7 +4005,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 100
@@ -4012,7 +4062,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 100
@@ -4072,7 +4122,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       item_nature_code: DL8.48.3.1
                       name: Industrial Pump Model X-500
@@ -4133,7 +4183,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 100
@@ -4191,7 +4241,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 100
@@ -4248,7 +4298,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 100
@@ -4346,7 +4396,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 101
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: Please check the invoice
@@ -4478,7 +4528,7 @@ paths:
                         Oil-injected rotary screw air compressor for plant
                         service air
                       gross_price: 1000
-                      hs_code: '84144000'
+                      hs_code: '841440000000'
                       invoice_period:
                         end_date: '2026-08-27'
                         start_date: '2026-08-20'
@@ -4514,7 +4564,7 @@ paths:
                       commodity_code: G
                       description: Totally enclosed fan-cooled three-phase induction motor
                       gross_price: 400
-                      hs_code: '85015290'
+                      hs_code: '850152900000'
                       item_code: MOTOR-M75-3PH
                       item_properties:
                         - name: Rated power
@@ -4547,7 +4597,7 @@ paths:
                       commodity_code: G
                       description: Cylindrical roller bearing for high radial loads
                       gross_price: 300
-                      hs_code: '84821000'
+                      hs_code: '848210000000'
                       item_code: BEARING-B220
                       item_properties:
                         - name: Material
@@ -4578,7 +4628,7 @@ paths:
                         Elastomeric jaw coupling for pump and motor shaft
                         alignment
                       gross_price: 158.4
-                      hs_code: '84836000'
+                      hs_code: '848360000000'
                       item_code: COUPLING-CP40
                       item_nature_code: DL8.48.3.1
                       item_properties:
@@ -4612,7 +4662,7 @@ paths:
                       commodity_code: G
                       description: Spiral wound gasket set for flanged pipe joints
                       gross_price: 100
-                      hs_code: '84842000'
+                      hs_code: '848420000000'
                       item_code: GASKET-SET-12
                       item_properties:
                         - name: Thickness
@@ -4720,7 +4770,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 150
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: Invoice line note
@@ -4772,7 +4822,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -4827,7 +4877,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 50
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 49.75
@@ -4886,7 +4936,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 50
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 49.75
@@ -4937,7 +4987,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -4981,7 +5031,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 1000
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: Margin scheme goods
@@ -5033,7 +5083,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 1000
@@ -5045,7 +5095,7 @@ paths:
                       unit_of_measure_code: EA
                     - commodity_code: G
                       description: Stainless steel gate valve for high-pressure pipelines
-                      hs_code: '84818099'
+                      hs_code: '848180100000'
                       item_code: VALVE-V200-SS
                       name: Stainless Steel Gate Valve V-200
                       price_amount: 800
@@ -5057,7 +5107,7 @@ paths:
                       unit_of_measure_code: EA
                     - commodity_code: G
                       description: Replacement mechanical seal kit for centrifugal pumps
-                      hs_code: '84842000'
+                      hs_code: '848420000000'
                       item_code: SEAL-KIT-9F
                       name: Mechanical Seal Kit 9F
                       price_amount: 600
@@ -5073,7 +5123,7 @@ paths:
                       description: >-
                         Forged carbon steel weld-neck flange, nominal diameter
                         100mm
-                      hs_code: '73072100'
+                      hs_code: '730721000000'
                       item_code: FLANGE-DN100
                       item_nature_code: DL8.48.8.1
                       name: Forged Steel Flange DN100
@@ -5123,7 +5173,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 100
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       item_nature_code: DL8.48.3.1
                       name: Industrial Pump Model X-500
@@ -5173,7 +5223,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 10
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 10
@@ -5266,7 +5316,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 5
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: All items
@@ -5341,7 +5391,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 15
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 14.25
@@ -5355,7 +5405,7 @@ paths:
                     - commodity_code: G
                       description: Stainless steel gate valve for high-pressure pipelines
                       gross_price: 25
-                      hs_code: '84818099'
+                      hs_code: '848180100000'
                       item_code: VALVE-V200-SS
                       name: Stainless Steel Gate Valve V-200
                       price_amount: 23.75
@@ -5369,7 +5419,7 @@ paths:
                     - commodity_code: G
                       description: Replacement mechanical seal kit for centrifugal pumps
                       gross_price: 30
-                      hs_code: '84842000'
+                      hs_code: '848420000000'
                       item_code: SEAL-KIT-9F
                       name: Mechanical Seal Kit 9F
                       price_amount: 28.5
@@ -5385,7 +5435,7 @@ paths:
                         Forged carbon steel weld-neck flange, nominal diameter
                         100mm
                       gross_price: 100
-                      hs_code: '73072100'
+                      hs_code: '730721000000'
                       item_code: FLANGE-DN100
                       item_nature_code: DL8.48.3.1
                       name: Forged Steel Flange DN100
@@ -5439,7 +5489,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 50
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 49.75
@@ -5530,7 +5580,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -5617,7 +5667,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 5
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: All items
@@ -5674,7 +5724,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -5763,7 +5813,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 5
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: All items
@@ -5818,7 +5868,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 25
@@ -5884,7 +5934,7 @@ paths:
                       name: Inland Haulage Service
                       price_amount: 1200
                       quantity: 4
-                      service_accounting_code: SAC-0001
+                      service_accounting_code: '83111'
                       standard_item_id: '09501101530004'
                       standard_item_scheme: '0160'
                       tax_category_code: S
@@ -5927,7 +5977,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -5969,7 +6019,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -6056,7 +6106,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -6101,7 +6151,7 @@ paths:
                       name: Inland Haulage Service
                       price_amount: 60
                       quantity: 4
-                      service_accounting_code: SAC-0001
+                      service_accounting_code: '83111'
                       standard_item_id: '09501101530004'
                       standard_item_scheme: '0160'
                       tax_category_code: S
@@ -6181,7 +6231,7 @@ paths:
                         High-pressure centrifugal pump for industrial fluid
                         transfer
                       gross_price: 5
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       note: All items
@@ -6235,7 +6285,7 @@ paths:
                       description: >-
                         High-pressure centrifugal pump for industrial fluid
                         transfer
-                      hs_code: '84137000'
+                      hs_code: '841370000001'
                       item_code: PUMP-X500-BLK
                       name: Industrial Pump Model X-500
                       price_amount: 500
@@ -7087,13 +7137,13 @@ components:
           description: >-
             The Harmonized System (HS) code for the item. Present when
             commodity_code is G (goods) or B (both goods and services).
-          example: '84137000'
+          example: '841370000001'
         service_accounting_code:
           type: string
           description: >-
             The Service Accounting Code for the item. Present when
             commodity_code is S (services) or B (both goods and services).
-          example: SAC-0001
+          example: '83111'
         tax_category_code:
           type: string
           description: >-
@@ -8075,16 +8125,23 @@ components:
           example: DE
         hs_code:
           type: string
-          description: The Harmonized System (HS) code for the item
-          example: '84137000'
+          description: >-
+            The Harmonized System (HS) code for the item. See `GET
+            /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
+            digits, no separators); the value is not validated against that list
+            yet.
+          example: '841370000001'
         commodity_code:
           type: string
           description: The commodity type code (G for goods, S for services, B for both)
           example: G
         service_accounting_code:
           type: string
-          description: The Service Accounting Code for the item
-          example: SAC-0001
+          description: >-
+            The Service Accounting Code for the item. See `GET
+            /resources/service-codes` for suggested values (UN CPC Version 2.1
+            service codes); the value is not validated against that list yet.
+          example: '83111'
         item_properties:
           type: array
           description: Additional item attributes
@@ -8727,14 +8784,20 @@ components:
           type: string
           description: >-
             The Harmonized System (HS) code for the item. Required when
-            commodity_code is G (goods) or B (both goods and services)
-          example: '84137000'
+            commodity_code is G (goods) or B (both goods and services). See `GET
+            /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
+            digits, no separators); the value is not validated against that list
+            yet.
+          example: '841370000001'
         service_accounting_code:
           type: string
           description: >-
             The Service Accounting Code for the item. Required when
-            commodity_code is S (services) or B (both goods and services)
-          example: SAC-0001
+            commodity_code is S (services) or B (both goods and services). See
+            `GET /resources/service-codes` for suggested values (UN CPC Version
+            2.1 service codes); the value is not validated against that list
+            yet.
+          example: '83111'
         standard_item_id:
           type: string
           description: A standardised item identifier

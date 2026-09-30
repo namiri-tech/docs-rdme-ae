@@ -17,3 +17,5 @@
 - get_resources-delivery-location-schemes
 - get_resources-ae-country-subentities
 - get_resources-legal-registration-types
+- get_resources-hs-codes
+- get_resources-service-codes
