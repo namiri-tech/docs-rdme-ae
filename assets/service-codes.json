@@ -1,0 +1,5082 @@
+[
+  {
+    "code": "53111",
+    "name": "One- and two-dwelling residential buildings"
+  },
+  {
+    "code": "53112",
+    "name": "Multi-dwelling residential buildings"
+  },
+  {
+    "code": "53121",
+    "name": "Industrial buildings"
+  },
+  {
+    "code": "53122",
+    "name": "Commercial buildings"
+  },
+  {
+    "code": "53129",
+    "name": "Other non-residential buildings"
+  },
+  {
+    "code": "53211",
+    "name": "Highways (except elevated highways), streets and roads"
+  },
+  {
+    "code": "53212",
+    "name": "Railways"
+  },
+  {
+    "code": "53213",
+    "name": "Airfield runways"
+  },
+  {
+    "code": "53221",
+    "name": "Bridges and elevated highways"
+  },
+  {
+    "code": "53222",
+    "name": "Tunnels"
+  },
+  {
+    "code": "53231",
+    "name": "Aqueducts and other water supply conduits, except pipelines"
+  },
+  {
+    "code": "53232",
+    "name": "Harbours, waterways and related facilities"
+  },
+  {
+    "code": "53233",
+    "name": "Dams"
+  },
+  {
+    "code": "53234",
+    "name": "Irrigation and flood control waterworks"
+  },
+  {
+    "code": "53241",
+    "name": "Long-distance pipelines"
+  },
+  {
+    "code": "53242",
+    "name": "Long-distance communication and power lines (cables)"
+  },
+  {
+    "code": "53251",
+    "name": "Local pipelines"
+  },
+  {
+    "code": "53252",
+    "name": "Local cables and related works"
+  },
+  {
+    "code": "53253",
+    "name": "Sewage and water treatment plants"
+  },
+  {
+    "code": "53261",
+    "name": "Mining constructions"
+  },
+  {
+    "code": "53262",
+    "name": "Power plants"
+  },
+  {
+    "code": "53269",
+    "name": "Other constructions for manufacturing"
+  },
+  {
+    "code": "53270",
+    "name": "Outdoor sport and recreation facilities"
+  },
+  {
+    "code": "53290",
+    "name": "Other civil engineering works"
+  },
+  {
+    "code": "54111",
+    "name": "General construction services of one- and two-dwelling residential buildings"
+  },
+  {
+    "code": "54112",
+    "name": "General construction services of multi-dwelling residential buildings"
+  },
+  {
+    "code": "54121",
+    "name": "General construction services of industrial buildings"
+  },
+  {
+    "code": "54122",
+    "name": "General construction services of commercial buildings"
+  },
+  {
+    "code": "54129",
+    "name": "General construction services of other non-residential buildings"
+  },
+  {
+    "code": "54211",
+    "name": "General construction services of highways (except elevated highways), streets and roads"
+  },
+  {
+    "code": "54212",
+    "name": "General construction services of railways"
+  },
+  {
+    "code": "54213",
+    "name": "General construction services of airfield runways"
+  },
+  {
+    "code": "54221",
+    "name": "General construction services of bridges and elevated highways"
+  },
+  {
+    "code": "54222",
+    "name": "General construction services of tunnels"
+  },
+  {
+    "code": "54231",
+    "name": "General construction services of aqueducts and other water supply conduits, except pipelines"
+  },
+  {
+    "code": "54232",
+    "name": "General construction services of harbours and similar waterworks"
+  },
+  {
+    "code": "54233",
+    "name": "General construction services of dams"
+  },
+  {
+    "code": "54234",
+    "name": "General construction services of irrigation and flood control waterworks"
+  },
+  {
+    "code": "54241",
+    "name": "General construction services of long-distance pipelines"
+  },
+  {
+    "code": "54242",
+    "name": "General construction services of long-distance communication and power lines (cables)"
+  },
+  {
+    "code": "54251",
+    "name": "General construction services of local pipelines"
+  },
+  {
+    "code": "54252",
+    "name": "General construction services of local cables and related works"
+  },
+  {
+    "code": "54253",
+    "name": "General construction services of sewage and water treatment plants"
+  },
+  {
+    "code": "54261",
+    "name": "General construction services of mines"
+  },
+  {
+    "code": "54262",
+    "name": "General construction services of power plants"
+  },
+  {
+    "code": "54269",
+    "name": "General construction services of other industrial plants"
+  },
+  {
+    "code": "54270",
+    "name": "General construction services of outdoor sport and recreation facilities"
+  },
+  {
+    "code": "54290",
+    "name": "General construction services of other civil engineering works"
+  },
+  {
+    "code": "54310",
+    "name": "Demolition services"
+  },
+  {
+    "code": "54320",
+    "name": "Site formation and clearance services"
+  },
+  {
+    "code": "54330",
+    "name": "Excavating and earthmoving services"
+  },
+  {
+    "code": "54341",
+    "name": "Water well drilling services"
+  },
+  {
+    "code": "54342",
+    "name": "Septic system installation services"
+  },
+  {
+    "code": "54400",
+    "name": "Assembly and erection of prefabricated constructions"
+  },
+  {
+    "code": "54511",
+    "name": "Pile driving services"
+  },
+  {
+    "code": "54512",
+    "name": "Foundation services"
+  },
+  {
+    "code": "54521",
+    "name": "Building framing services"
+  },
+  {
+    "code": "54522",
+    "name": "Roof framing services"
+  },
+  {
+    "code": "54530",
+    "name": "Roofing and waterproofing services"
+  },
+  {
+    "code": "54540",
+    "name": "Concrete services"
+  },
+  {
+    "code": "54550",
+    "name": "Structural steel erection services"
+  },
+  {
+    "code": "54560",
+    "name": "Masonry services"
+  },
+  {
+    "code": "54570",
+    "name": "Scaffolding services"
+  },
+  {
+    "code": "54590",
+    "name": "Other special trade construction services"
+  },
+  {
+    "code": "54611",
+    "name": "Electrical wiring and fitting services"
+  },
+  {
+    "code": "54612",
+    "name": "Fire alarm installation services"
+  },
+  {
+    "code": "54613",
+    "name": "Burglar alarm system installation services"
+  },
+  {
+    "code": "54614",
+    "name": "Residential antenna installation services"
+  },
+  {
+    "code": "54619",
+    "name": "Other electrical installation services"
+  },
+  {
+    "code": "54621",
+    "name": "Water plumbing services"
+  },
+  {
+    "code": "54622",
+    "name": "Drain laying services"
+  },
+  {
+    "code": "54631",
+    "name": "Heating equipment installation services"
+  },
+  {
+    "code": "54632",
+    "name": "Ventilation and air-conditioning equipment installation services"
+  },
+  {
+    "code": "54640",
+    "name": "Gas fitting installation services"
+  },
+  {
+    "code": "54650",
+    "name": "Insulation services"
+  },
+  {
+    "code": "54691",
+    "name": "Lift and escalator installation services"
+  },
+  {
+    "code": "54699",
+    "name": "Other installation services n.e.c."
+  },
+  {
+    "code": "54710",
+    "name": "Glazing services"
+  },
+  {
+    "code": "54720",
+    "name": "Plastering services"
+  },
+  {
+    "code": "54730",
+    "name": "Painting services"
+  },
+  {
+    "code": "54740",
+    "name": "Floor and wall tiling services"
+  },
+  {
+    "code": "54750",
+    "name": "Other floor laying, wall covering and wall papering services"
+  },
+  {
+    "code": "54760",
+    "name": "Joinery and carpentry services"
+  },
+  {
+    "code": "54770",
+    "name": "Fencing and railing services"
+  },
+  {
+    "code": "54790",
+    "name": "Other building completion and finishing services"
+  },
+  {
+    "code": "61111",
+    "name": "Wholesale trade services, except on a fee or contract basis, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "61112",
+    "name": "Wholesale trade services, except on a fee or contract basis, of flowers and plants"
+  },
+  {
+    "code": "61113",
+    "name": "Wholesale trade services, except on a fee or contract basis, of unmanufactured tobacco"
+  },
+  {
+    "code": "61114",
+    "name": "Wholesale trade services, except on a fee or contract basis, of live animals, including pet animals"
+  },
+  {
+    "code": "61115",
+    "name": "Wholesale trade services, except on a fee or contract basis, of hides, skins and leather"
+  },
+  {
+    "code": "61119",
+    "name": "Wholesale trade services, except on a fee or contract basis, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "61121",
+    "name": "Wholesale trade services, except on a fee or contract basis, of fruits and vegetables"
+  },
+  {
+    "code": "61122",
+    "name": "Wholesale trade services, except on a fee or contract basis, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "61123",
+    "name": "Wholesale trade services, except on a fee or contract basis, of meat, poultry and game"
+  },
+  {
+    "code": "61124",
+    "name": "Wholesale trade services, except on a fee or contract basis, of fish and other seafood"
+  },
+  {
+    "code": "61125",
+    "name": "Wholesale trade services, except on a fee or contract basis, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "61126",
+    "name": "Wholesale trade services, except on a fee or contract basis, of beverages"
+  },
+  {
+    "code": "61127",
+    "name": "Wholesale trade services, except on a fee or contract basis, of coffee, tea and spices"
+  },
+  {
+    "code": "61128",
+    "name": "Wholesale trade services, except on a fee or contract basis, of tobacco products"
+  },
+  {
+    "code": "61129",
+    "name": "Wholesale trade services, except on a fee or contract basis, of food products n.e.c."
+  },
+  {
+    "code": "61131",
+    "name": "Wholesale trade services, except on a fee or contract basis, of yarn and fabrics"
+  },
+  {
+    "code": "61132",
+    "name": "Wholesale trade services, except on a fee or contract basis, of household linens, curtains, net curtains and diverse household articles of textile materials"
+  },
+  {
+    "code": "61133",
+    "name": "Wholesale trade services, except on a fee or contract basis, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "61134",
+    "name": "Wholesale trade services, except on a fee or contract basis, of footwear"
+  },
+  {
+    "code": "61141",
+    "name": "Wholesale trade services, except on a fee or contract basis, of household furniture"
+  },
+  {
+    "code": "61142",
+    "name": "Wholesale trade services, except on a fee or contract basis, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "61143",
+    "name": "Wholesale trade services, except on a fee or contract basis, of articles for lighting"
+  },
+  {
+    "code": "61144",
+    "name": "Wholesale trade services, except on a fee or contract basis, of household appliances"
+  },
+  {
+    "code": "61145",
+    "name": "Wholesale trade services, except on a fee or contract basis, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "61146",
+    "name": "Wholesale trade services, except on a fee or contract basis, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "61151",
+    "name": "Wholesale trade services, except on a fee or contract basis, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "61152",
+    "name": "Wholesale trade services, except on a fee or contract basis, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "61153",
+    "name": "Wholesale trade services, except on a fee or contract basis, of games and toys"
+  },
+  {
+    "code": "61154",
+    "name": "Wholesale trade services, except on a fee or contract basis, of watches, clocks and jewellery"
+  },
+  {
+    "code": "61155",
+    "name": "Wholesale trade services, except on a fee or contract basis, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "61156",
+    "name": "Wholesale trade services, except on a fee or contract basis, of leather goods and travel accessories"
+  },
+  {
+    "code": "61159",
+    "name": "Wholesale trade services, except on a fee or contract basis, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "61161",
+    "name": "Wholesale trade services, except on a fee or contract basis, of construction materials and flat glass"
+  },
+  {
+    "code": "61162",
+    "name": "Wholesale trade services, except on a fee or contract basis, of fittings, fixtures and ceramic sanitary fixtures"
+  },
+  {
+    "code": "61163",
+    "name": "Wholesale trade services, except on a fee or contract basis, of wallpaper and floor coverings"
+  },
+  {
+    "code": "61164",
+    "name": "Wholesale trade services, except on a fee or contract basis, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "61165",
+    "name": "Wholesale trade services, except on a fee or contract basis, of hardware and hand tools"
+  },
+  {
+    "code": "61171",
+    "name": "Wholesale trade services, except on a fee or contract basis, of basic industrial chemicals and synthetic resins"
+  },
+  {
+    "code": "61172",
+    "name": "Wholesale trade services, except on a fee or contract basis, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "61173",
+    "name": "Wholesale trade services, except on a fee or contract basis, of pharmaceutical products"
+  },
+  {
+    "code": "61174",
+    "name": "Wholesale trade services, except on a fee or contract basis, of medical and orthopaedic goods"
+  },
+  {
+    "code": "61175",
+    "name": "Wholesale trade services, except on a fee or contract basis, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "61176",
+    "name": "Wholesale trade services, except on a fee or contract basis, of cleaning materials"
+  },
+  {
+    "code": "61181",
+    "name": "Wholesale trade services, except on a fee or contract basis, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "61182",
+    "name": "Wholesale trade services, except on a fee or contract basis, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "61183",
+    "name": "Wholesale trade services, except on a fee or contract basis, of office machinery and equipment including office furniture"
+  },
+  {
+    "code": "61184",
+    "name": "Wholesale trade services, except on a fee or contract basis, of computers and packaged software"
+  },
+  {
+    "code": "61185",
+    "name": "Wholesale trade services, except on a fee or contract basis, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "61186",
+    "name": "Wholesale trade services, except on a fee or contract basis, of agricultural lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "61187",
+    "name": "Wholesale trade services, except on a fee or contract basis, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "61188",
+    "name": "Wholesale trade services, except on a fee or contract basis, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "61189",
+    "name": "Wholesale trade services, except on a fee or contract basis, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "61191",
+    "name": "Wholesale trade services, except on a fee or contract basis, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "61192",
+    "name": "Wholesale trade services, except on a fee or contract basis, of metal ores and metal in primary forms"
+  },
+  {
+    "code": "61193",
+    "name": "Wholesale trade services, except on a fee or contract basis, of wood in the rough"
+  },
+  {
+    "code": "61194",
+    "name": "Wholesale trade services, except on a fee or contract basis, of paper and paperboard"
+  },
+  {
+    "code": "61195",
+    "name": "Wholesale trade services, except on a fee or contract basis, of waste and scrap and materials for recycling"
+  },
+  {
+    "code": "61197",
+    "name": "Wholesale trade services, except on a fee or contract basis, of electricity"
+  },
+  {
+    "code": "61198",
+    "name": "Wholesale trade services, except on a fee or contract basis, of water"
+  },
+  {
+    "code": "61199",
+    "name": "Wholesale trade services, except on a fee or contract basis, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "61211",
+    "name": "Wholesale trade services on a fee or contract basis, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "61212",
+    "name": "Wholesale trade services on a fee or contract basis, of flowers and plants"
+  },
+  {
+    "code": "61213",
+    "name": "Wholesale trade services on a fee or contract basis, of unmanufactured tobacco"
+  },
+  {
+    "code": "61214",
+    "name": "Wholesale trade services on a fee or contract basis, of live animals, including pet animals"
+  },
+  {
+    "code": "61215",
+    "name": "Wholesale trade services on a fee or contract basis, of hides, skins and leather"
+  },
+  {
+    "code": "61219",
+    "name": "Wholesale trade services on a fee or contract basis, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "61221",
+    "name": "Wholesale trade services on a fee or contract basis, of fruits and vegetables"
+  },
+  {
+    "code": "61222",
+    "name": "Wholesale trade services on a fee or contract basis, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "61223",
+    "name": "Wholesale trade services on a fee or contract basis, of meat, poultry and game"
+  },
+  {
+    "code": "61224",
+    "name": "Wholesale trade services on a fee or contract basis, of fish and other seafood"
+  },
+  {
+    "code": "61225",
+    "name": "Wholesale trade services on a fee or contract basis, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "61226",
+    "name": "Wholesale trade services on a fee or contract basis, of beverages"
+  },
+  {
+    "code": "61227",
+    "name": "Wholesale trade services on a fee or contract basis, of coffee, tea and spices"
+  },
+  {
+    "code": "61228",
+    "name": "Wholesale trade services on a fee or contract basis, of tobacco products"
+  },
+  {
+    "code": "61229",
+    "name": "Wholesale trade services on a fee or contract basis, of food products n.e.c."
+  },
+  {
+    "code": "61231",
+    "name": "Wholesale trade services on a fee or contract basis, of yarn and fabrics"
+  },
+  {
+    "code": "61232",
+    "name": "Wholesale trade services on a fee or contract basis, of household linens, curtains, net curtains and diverse household articles"
+  },
+  {
+    "code": "61233",
+    "name": "Wholesale trade services on a fee or contract basis, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "61234",
+    "name": "Wholesale trade services on a fee or contract basis, of footwear"
+  },
+  {
+    "code": "61241",
+    "name": "Wholesale trade services on a fee or contract basis, of household furniture"
+  },
+  {
+    "code": "61242",
+    "name": "Wholesale trade services on a fee or contract basis, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "61243",
+    "name": "Wholesale trade services on a fee or contract basis, of articles for lighting"
+  },
+  {
+    "code": "61244",
+    "name": "Wholesale trade services on a fee or contract basis, of household appliances"
+  },
+  {
+    "code": "61245",
+    "name": "Wholesale trade services on a fee or contract basis, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "61246",
+    "name": "Wholesale trade services on a fee or contract basis, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "61251",
+    "name": "Wholesale trade services on a fee or contract basis, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "61252",
+    "name": "Wholesale trade services on a fee or contract basis, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "61253",
+    "name": "Wholesale trade services on a fee or contract basis, of games and toys"
+  },
+  {
+    "code": "61254",
+    "name": "Wholesale trade services on a fee or contract basis, of watches, clocks and jewellery"
+  },
+  {
+    "code": "61255",
+    "name": "Wholesale trade services on a fee or contract basis, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "61256",
+    "name": "Wholesale trade services on a fee or contract basis, of leather goods and travel accessories"
+  },
+  {
+    "code": "61259",
+    "name": "Wholesale trade services on a fee or contract basis, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "61261",
+    "name": "Wholesale trade services on a fee or contract basis, of construction materials and flat glass"
+  },
+  {
+    "code": "61262",
+    "name": "Wholesale trade services on a fee or contract basis, of fittings, fixtures and ceramic sanitary fixtures"
+  },
+  {
+    "code": "61263",
+    "name": "Wholesale trade services on a fee or contract basis, of wallpaper and floor coverings"
+  },
+  {
+    "code": "61264",
+    "name": "Wholesale trade services on a fee or contract basis, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "61265",
+    "name": "Wholesale trade services on a fee or contract basis, of hardware and hand tools"
+  },
+  {
+    "code": "61271",
+    "name": "Wholesale trade services on a fee or contract basis, of basic industrial chemicals and synthetic resins"
+  },
+  {
+    "code": "61272",
+    "name": "Wholesale trade services on a fee or contract basis, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "61273",
+    "name": "Wholesale trade services on a fee or contract basis, of pharmaceutical products"
+  },
+  {
+    "code": "61274",
+    "name": "Wholesale trade services on a fee or contract basis, of medical and orthopaedic goods"
+  },
+  {
+    "code": "61275",
+    "name": "Wholesale trade services on a fee or contract basis, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "61276",
+    "name": "Wholesale trade services on a fee or contract basis, of cleaning materials"
+  },
+  {
+    "code": "61281",
+    "name": "Wholesale trade services on a fee or contract basis, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "61282",
+    "name": "Wholesale trade services on a fee or contract basis, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "61283",
+    "name": "Wholesale trade services on a fee or contract basis, of office machinery and equipment including office furniture"
+  },
+  {
+    "code": "61284",
+    "name": "Wholesale trade services on a fee or contract basis, of computers and packaged software"
+  },
+  {
+    "code": "61285",
+    "name": "Wholesale trade services on a fee or contract basis, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "61286",
+    "name": "Wholesale trade services on a fee or contract basis, of agricultural, lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "61287",
+    "name": "Wholesale trade services on a fee or contract basis, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "61288",
+    "name": "Wholesale trade services on a fee or contract basis, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "61289",
+    "name": "Wholesale trade services on a fee or contract basis, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "61291",
+    "name": "Wholesale trade services on a fee or contract basis, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "61292",
+    "name": "Wholesale trade services on a fee or contract basis, of metal ores and metal in primary forms"
+  },
+  {
+    "code": "61293",
+    "name": "Wholesale trade services on a fee or contract basis, of wood in the rough"
+  },
+  {
+    "code": "61294",
+    "name": "Wholesale trade services on a fee or contract basis, of paper and paperboard"
+  },
+  {
+    "code": "61295",
+    "name": "Wholesale trade services on a fee or contract basis, of waste and scrap and materials for recycling"
+  },
+  {
+    "code": "61297",
+    "name": "Wholesale trade services on a fee or contract basis, of electricity"
+  },
+  {
+    "code": "61298",
+    "name": "Wholesale trade services on a fee or contract basis, of water"
+  },
+  {
+    "code": "61299",
+    "name": "Wholesale trade services on a fee or contract basis, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "62111",
+    "name": "Non-specialized store retail trade services, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "62112",
+    "name": "Non-specialized store retail trade services, of flowers and plants"
+  },
+  {
+    "code": "62114",
+    "name": "Non-specialized store retail trade services, of live animals, including pet animals"
+  },
+  {
+    "code": "62115",
+    "name": "Non-specialized store retail trade services, of hides, skins and leather"
+  },
+  {
+    "code": "62119",
+    "name": "Non-specialized store retail trade services, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "62121",
+    "name": "Non-specialized store retail trade services, of fruits and vegetables"
+  },
+  {
+    "code": "62122",
+    "name": "Non-specialized store retail trade services, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "62123",
+    "name": "Non-specialized store retail trade services, of meat, poultry and game"
+  },
+  {
+    "code": "62124",
+    "name": "Non-specialized store retail trade services, of fish and other seafood"
+  },
+  {
+    "code": "62125",
+    "name": "Non-specialized store retail trade services, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "62126",
+    "name": "Non-specialized store retail trade services, of beverages"
+  },
+  {
+    "code": "62127",
+    "name": "Non-specialized store retail trade services, of coffee, tea and spices"
+  },
+  {
+    "code": "62128",
+    "name": "Non-specialized store retail trade services, of tobacco products"
+  },
+  {
+    "code": "62129",
+    "name": "Non-specialized store retail trade services, of food products n.e.c."
+  },
+  {
+    "code": "62131",
+    "name": "Non-specialized store retail trade services, of yarn and fabrics"
+  },
+  {
+    "code": "62132",
+    "name": "Non-specialized store retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+  },
+  {
+    "code": "62133",
+    "name": "Non-specialized store retail trade services, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "62134",
+    "name": "Non-specialized store retail trade services, of footwear"
+  },
+  {
+    "code": "62141",
+    "name": "Non-specialized store retail trade services, of household furniture"
+  },
+  {
+    "code": "62142",
+    "name": "Non-specialized store retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "62143",
+    "name": "Non-specialized store retail trade services, of articles for lighting"
+  },
+  {
+    "code": "62144",
+    "name": "Non-specialized store retail trade services, of household appliances"
+  },
+  {
+    "code": "62145",
+    "name": "Non-specialized store retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "62146",
+    "name": "Non-specialized store retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "62151",
+    "name": "Non-specialized store retail trade services, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "62152",
+    "name": "Non-specialized store retail trade services, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "62153",
+    "name": "Non-specialized store retail trade services, of games and toys"
+  },
+  {
+    "code": "62154",
+    "name": "Non-specialized store retail trade services, of watches, clocks and jewellery"
+  },
+  {
+    "code": "62155",
+    "name": "Non-specialized store retail trade services, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "62156",
+    "name": "Non-specialized store retail trade services, of leather goods and travel accessories"
+  },
+  {
+    "code": "62159",
+    "name": "Non-specialized store retail trade services, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "62161",
+    "name": "Non-specialized store retail trade services, of construction materials and flat glass"
+  },
+  {
+    "code": "62162",
+    "name": "Non-specialized store retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+  },
+  {
+    "code": "62163",
+    "name": "Non-specialized store retail trade services, of wallpaper and floor coverings"
+  },
+  {
+    "code": "62164",
+    "name": "Non-specialized store retail trade services, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "62165",
+    "name": "Non-specialized store retail trade services, of hardware and hand tools"
+  },
+  {
+    "code": "62172",
+    "name": "Non-specialized store retail trade services, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "62173",
+    "name": "Non-specialized store retail trade services, of pharmaceutical products"
+  },
+  {
+    "code": "62174",
+    "name": "Non-specialized store retail trade services, of medical and orthopaedic goods"
+  },
+  {
+    "code": "62175",
+    "name": "Non-specialized store retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "62176",
+    "name": "Non-specialized store retail trade services, of cleaning materials"
+  },
+  {
+    "code": "62181",
+    "name": "Non-specialized store retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "62182",
+    "name": "Non-specialized store retail trade services, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "62183",
+    "name": "Non-specialized store retail trade services, of office machinery and equipment including office furniture"
+  },
+  {
+    "code": "62184",
+    "name": "Non-specialized store retail trade services, of computers and packaged software"
+  },
+  {
+    "code": "62185",
+    "name": "Non-specialized store retail trade services, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "62186",
+    "name": "Non-specialized store retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "62187",
+    "name": "Non-specialized store retail trade services, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "62188",
+    "name": "Non-specialized store retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "62189",
+    "name": "Non-specialized store retail trade services, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "62191",
+    "name": "Non-specialized store retail trade services, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "62194",
+    "name": "Non-specialized store retail trade services, of paper and paperboard"
+  },
+  {
+    "code": "62199",
+    "name": "Non-specialized store retail trade services, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "62211",
+    "name": "Specialized store retail trade services, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "62212",
+    "name": "Specialized store retail trade services, of flowers and plants"
+  },
+  {
+    "code": "62214",
+    "name": "Specialized store retail trade services, of live animals, including pet animals"
+  },
+  {
+    "code": "62215",
+    "name": "Specialized store retail trade services, of hides, skins and leather"
+  },
+  {
+    "code": "62219",
+    "name": "Specialized store retail trade services, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "62221",
+    "name": "Specialized store retail trade services, of fruits and vegetables"
+  },
+  {
+    "code": "62222",
+    "name": "Specialized store retail trade services, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "62223",
+    "name": "Specialized store retail trade services, of meat, poultry and game"
+  },
+  {
+    "code": "62224",
+    "name": "Specialized store retail trade services, of fish and other seafood"
+  },
+  {
+    "code": "62225",
+    "name": "Specialized store retail trade services, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "62226",
+    "name": "Specialized store retail trade services, of beverages"
+  },
+  {
+    "code": "62227",
+    "name": "Specialized store retail trade services, of coffee, tea and spices"
+  },
+  {
+    "code": "62228",
+    "name": "Specialized store retail trade services, of tobacco products"
+  },
+  {
+    "code": "62229",
+    "name": "Specialized store retail trade services, of food products n.e.c."
+  },
+  {
+    "code": "62231",
+    "name": "Specialized store retail trade services, of yarn and fabrics"
+  },
+  {
+    "code": "62232",
+    "name": "Specialized store retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+  },
+  {
+    "code": "62233",
+    "name": "Specialized store retail trade services, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "62234",
+    "name": "Specialized store retail trade services, of footwear"
+  },
+  {
+    "code": "62241",
+    "name": "Specialized store retail trade services, of household furniture"
+  },
+  {
+    "code": "62242",
+    "name": "Specialized store retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "62243",
+    "name": "Specialized store retail trade services, of articles for lighting"
+  },
+  {
+    "code": "62244",
+    "name": "Specialized store retail trade services, of household appliances"
+  },
+  {
+    "code": "62245",
+    "name": "Specialized store retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "62246",
+    "name": "Specialized store retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "62251",
+    "name": "Specialized store retail trade services, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "62252",
+    "name": "Specialized store retail trade services, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "62253",
+    "name": "Specialized store retail trade services, of games and toys"
+  },
+  {
+    "code": "62254",
+    "name": "Specialized store retail trade services, of watches, clocks and jewellery"
+  },
+  {
+    "code": "62255",
+    "name": "Specialized store retail trade services, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "62256",
+    "name": "Specialized store retail trade services, of leather goods and travel accessories"
+  },
+  {
+    "code": "62259",
+    "name": "Specialized store retail trade services, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "62261",
+    "name": "Specialized store retail trade services, of construction materials and flat glass"
+  },
+  {
+    "code": "62262",
+    "name": "Specialized store retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+  },
+  {
+    "code": "62263",
+    "name": "Specialized store retail trade services, of wallpaper and floor coverings"
+  },
+  {
+    "code": "62264",
+    "name": "Specialized store retail trade services, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "62265",
+    "name": "Specialized store retail trade services, of hardware and hand tools"
+  },
+  {
+    "code": "62272",
+    "name": "Specialized store retail trade services, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "62273",
+    "name": "Specialized store retail trade services, of pharmaceutical products"
+  },
+  {
+    "code": "62274",
+    "name": "Specialized store retail trade services, of medical and orthopaedic goods"
+  },
+  {
+    "code": "62275",
+    "name": "Specialized store retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "62276",
+    "name": "Specialized store retail trade services, of cleaning materials"
+  },
+  {
+    "code": "62281",
+    "name": "Specialized store retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "62282",
+    "name": "Specialized store retail trade services, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "62283",
+    "name": "Specialized store retail trade services, of office machinery and equipment, including office furniture"
+  },
+  {
+    "code": "62284",
+    "name": "Specialized store retail trade services, of computers and packaged software"
+  },
+  {
+    "code": "62285",
+    "name": "Specialized store retail trade services, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "62286",
+    "name": "Specialized store retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "62287",
+    "name": "Specialized store retail trade services, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "62288",
+    "name": "Specialized store retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "62289",
+    "name": "Specialized store retail trade services, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "62291",
+    "name": "Specialized store retail trade services, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "62294",
+    "name": "Specialized store retail trade services, of paper and paperboard"
+  },
+  {
+    "code": "62299",
+    "name": "Specialized store retail trade services, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "62311",
+    "name": "Mail order or Internet retail trade services, of grain and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "62312",
+    "name": "Mail order or Internet retail trade services, of flowers and plants"
+  },
+  {
+    "code": "62314",
+    "name": "Mail order or Internet retail trade services, of live animals, including pet animals"
+  },
+  {
+    "code": "62315",
+    "name": "Mail order or Internet retail trade services, of hides, skins and leather"
+  },
+  {
+    "code": "62319",
+    "name": "Mail order or Internet retail trade services, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "62321",
+    "name": "Mail order or Internet retail trade services, of fruits and vegetables"
+  },
+  {
+    "code": "62322",
+    "name": "Mail order or Internet retail trade services, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "62323",
+    "name": "Mail order or Internet retail trade services, of meat, poultry and game"
+  },
+  {
+    "code": "62324",
+    "name": "Mail order or Internet retail trade services, of fish and other seafood"
+  },
+  {
+    "code": "62325",
+    "name": "Mail order or Internet retail trade services, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "62326",
+    "name": "Mail order or Internet retail trade services, of beverages"
+  },
+  {
+    "code": "62327",
+    "name": "Mail order or Internet retail trade services, of coffee, tea and spices"
+  },
+  {
+    "code": "62328",
+    "name": "Mail order or Internet retail trade services, of tobacco products"
+  },
+  {
+    "code": "62329",
+    "name": "Mail order or Internet retail trade services, of food products n.e.c."
+  },
+  {
+    "code": "62331",
+    "name": "Mail order or Internet retail trade services, of yarn and fabrics"
+  },
+  {
+    "code": "62332",
+    "name": "Mail order or Internet retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+  },
+  {
+    "code": "62333",
+    "name": "Mail order or Internet retail trade services, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "62334",
+    "name": "Mail order or Internet retail trade services, of footwear"
+  },
+  {
+    "code": "62341",
+    "name": "Mail order or Internet retail trade services, of household furniture"
+  },
+  {
+    "code": "62342",
+    "name": "Mail order or Internet retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "62343",
+    "name": "Mail order or Internet retail trade services, of articles for lighting"
+  },
+  {
+    "code": "62344",
+    "name": "Mail order or Internet retail trade services, of household appliances"
+  },
+  {
+    "code": "62345",
+    "name": "Mail order or Internet retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "62346",
+    "name": "Mail order or Internet retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "62351",
+    "name": "Mail order or Internet retail trade services, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "62352",
+    "name": "Mail order or Internet retail trade services, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "62353",
+    "name": "Mail order or Internet retail trade services, of games and toys"
+  },
+  {
+    "code": "62354",
+    "name": "Mail order or Internet retail trade services, of watches, clocks and jewellery"
+  },
+  {
+    "code": "62355",
+    "name": "Mail order or Internet retail trade services, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "62356",
+    "name": "Mail order or Internet retail trade services, of leather goods and travel accessories"
+  },
+  {
+    "code": "62359",
+    "name": "Mail order or Internet retail trade services, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "62361",
+    "name": "Mail order or Internet retail trade services, of construction materials and flat glass"
+  },
+  {
+    "code": "62362",
+    "name": "Mail order or Internet retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+  },
+  {
+    "code": "62363",
+    "name": "Mail order or Internet retail trade services, of wallpaper and floor coverings"
+  },
+  {
+    "code": "62364",
+    "name": "Mail order or Internet retail trade services, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "62365",
+    "name": "Mail order or Internet retail trade services, of hardware and hand tools"
+  },
+  {
+    "code": "62372",
+    "name": "Mail order or Internet retail trade services, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "62373",
+    "name": "Mail order or Internet retail trade services, of pharmaceutical products"
+  },
+  {
+    "code": "62374",
+    "name": "Mail order or Internet retail trade services, of medical and orthopaedic goods"
+  },
+  {
+    "code": "62375",
+    "name": "Mail order or Internet retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "62376",
+    "name": "Mail order or Internet retail trade services, of cleaning materials"
+  },
+  {
+    "code": "62381",
+    "name": "Mail order or Internet retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "62382",
+    "name": "Mail order or Internet retail trade services, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "62383",
+    "name": "Mail order or Internet retail trade services, of office machinery and equipment including office furniture"
+  },
+  {
+    "code": "62384",
+    "name": "Mail order or Internet retail trade services, of computers and packaged software"
+  },
+  {
+    "code": "62385",
+    "name": "Mail order or Internet retail trade services, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "62386",
+    "name": "Mail order or Internet retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "62387",
+    "name": "Mail order or Internet retail trade services, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "62388",
+    "name": "Mail order or Internet retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "62389",
+    "name": "Mail order or Internet retail trade services, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "62391",
+    "name": "Mail order or Internet retail trade services, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "62394",
+    "name": "Mail order or Internet retail trade services, of paper and paperboard"
+  },
+  {
+    "code": "62399",
+    "name": "Mail order or Internet retail trade services, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "62411",
+    "name": "Other non-store retail trade services, of grain and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "62412",
+    "name": "Other non-store retail trade services, of flowers and plants"
+  },
+  {
+    "code": "62414",
+    "name": "Other non-store retail trade services, of live animals, including pet animals"
+  },
+  {
+    "code": "62415",
+    "name": "Other non-store retail trade services, of hides, skins and leather"
+  },
+  {
+    "code": "62419",
+    "name": "Other non-store retail trade services, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "62421",
+    "name": "Other non-store retail trade services, of fruits and vegetables"
+  },
+  {
+    "code": "62422",
+    "name": "Other non-store retail trade services, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "62423",
+    "name": "Other non-store retail trade services, of meat, poultry and game"
+  },
+  {
+    "code": "62424",
+    "name": "Other non-store retail trade services, of fish and other seafood"
+  },
+  {
+    "code": "62425",
+    "name": "Other non-store retail trade services, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "62426",
+    "name": "Other non-store retail trade services, of beverages"
+  },
+  {
+    "code": "62427",
+    "name": "Other non-store retail trade services, of coffee, tea and spices"
+  },
+  {
+    "code": "62428",
+    "name": "Other non-store retail trade services, of tobacco products"
+  },
+  {
+    "code": "62429",
+    "name": "Other non-store retail trade services, of food products n.e.c."
+  },
+  {
+    "code": "62431",
+    "name": "Other non-store retail trade services, of yarn and fabrics"
+  },
+  {
+    "code": "62432",
+    "name": "Other non-store retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+  },
+  {
+    "code": "62433",
+    "name": "Other non-store retail trade services, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "62434",
+    "name": "Other non-store retail trade services, of footwear"
+  },
+  {
+    "code": "62441",
+    "name": "Other non-store retail trade services, of household furniture"
+  },
+  {
+    "code": "62442",
+    "name": "Other non-store retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "62443",
+    "name": "Other non-store retail trade services, of articles for lighting"
+  },
+  {
+    "code": "62444",
+    "name": "Other non-store retail trade services, of household appliances"
+  },
+  {
+    "code": "62445",
+    "name": "Other non-store retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "62446",
+    "name": "Other non-store retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "62451",
+    "name": "Other non-store retail trade services, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "62452",
+    "name": "Other non-store retail trade services, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "62453",
+    "name": "Other non-store retail trade services, of games and toys"
+  },
+  {
+    "code": "62454",
+    "name": "Other non-store retail trade services, of watches, clocks and jewellery"
+  },
+  {
+    "code": "62455",
+    "name": "Other non-store retail trade services, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "62456",
+    "name": "Other non-store retail trade services, of leather goods and travel accessories"
+  },
+  {
+    "code": "62459",
+    "name": "Other non-store retail trade services, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "62461",
+    "name": "Other non-store retail trade services, of construction materials and flat glass"
+  },
+  {
+    "code": "62462",
+    "name": "Other non-store retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+  },
+  {
+    "code": "62463",
+    "name": "Other non-store retail trade services, of wallpaper and floor coverings"
+  },
+  {
+    "code": "62464",
+    "name": "Other non-store retail trade services, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "62465",
+    "name": "Other non-store retail trade services, of hardware and hand tools"
+  },
+  {
+    "code": "62472",
+    "name": "Other non-store retail trade services, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "62473",
+    "name": "Other non-store retail trade services, of pharmaceutical products"
+  },
+  {
+    "code": "62474",
+    "name": "Other non-store retail trade services, of medical and orthopaedic goods"
+  },
+  {
+    "code": "62475",
+    "name": "Other non-store retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "62476",
+    "name": "Other non-store retail trade services, of cleaning materials"
+  },
+  {
+    "code": "62481",
+    "name": "Other non-store retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "62482",
+    "name": "Other non-store retail trade services, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "62483",
+    "name": "Other non-store retail trade services, of office machinery and equipment including office furniture"
+  },
+  {
+    "code": "62484",
+    "name": "Other non-store retail trade services, of computers and packaged software"
+  },
+  {
+    "code": "62485",
+    "name": "Other non-store retail trade services, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "62486",
+    "name": "Other non-store retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "62487",
+    "name": "Other non-store retail trade services, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "62488",
+    "name": "Other non-store retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "62489",
+    "name": "Other non-store retail trade services, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "62491",
+    "name": "Other non-store retail trade services, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "62494",
+    "name": "Other non-store retail trade services, of paper and paperboard"
+  },
+  {
+    "code": "62497",
+    "name": "Other non-store retail trade services, of electricity"
+  },
+  {
+    "code": "62498",
+    "name": "Other non-store retail trade services, of water"
+  },
+  {
+    "code": "62499",
+    "name": "Other non-store retail trade services, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "62511",
+    "name": "Retail trade services on a fee or contract basis, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+  },
+  {
+    "code": "62512",
+    "name": "Retail trade services on a fee or contract basis, of flowers and plants"
+  },
+  {
+    "code": "62514",
+    "name": "Retail trade services on a fee or contract basis, of live animals, including pet animals"
+  },
+  {
+    "code": "62515",
+    "name": "Retail trade services on a fee or contract basis, of hides, skins and leather"
+  },
+  {
+    "code": "62519",
+    "name": "Retail trade services on a fee or contract basis, of agricultural raw materials n.e.c."
+  },
+  {
+    "code": "62521",
+    "name": "Retail trade services on a fee or contract basis, of fruits and vegetables"
+  },
+  {
+    "code": "62522",
+    "name": "Retail trade services on a fee or contract basis, of dairy products, eggs and edible oils and fats"
+  },
+  {
+    "code": "62523",
+    "name": "Retail trade services on a fee or contract basis, of meat, poultry and game"
+  },
+  {
+    "code": "62524",
+    "name": "Retail trade services on a fee or contract basis, of fish and other seafood"
+  },
+  {
+    "code": "62525",
+    "name": "Retail trade services on a fee or contract basis, of sugar confectionery and bakery products"
+  },
+  {
+    "code": "62526",
+    "name": "Retail trade services on a fee or contract basis, of beverages"
+  },
+  {
+    "code": "62527",
+    "name": "Retail trade services on a fee or contract basis, of coffee, tea and spices"
+  },
+  {
+    "code": "62528",
+    "name": "Retail trade services on a fee or contract basis, of tobacco products"
+  },
+  {
+    "code": "62529",
+    "name": "Retail trade services on a fee or contract basis, of food products n.e.c."
+  },
+  {
+    "code": "62531",
+    "name": "Retail trade services on a fee or contract basis, of yarn and fabrics"
+  },
+  {
+    "code": "62532",
+    "name": "Retail trade services on a fee or contract basis, of household linens, curtains, net curtains and diverse household articles of textile materials"
+  },
+  {
+    "code": "62533",
+    "name": "Retail trade services on a fee or contract basis, of articles of clothing, articles of fur and clothing accessories"
+  },
+  {
+    "code": "62534",
+    "name": "Retail trade services on a fee or contract basis, of footwear"
+  },
+  {
+    "code": "62541",
+    "name": "Retail trade services on a fee or contract basis, of household furniture"
+  },
+  {
+    "code": "62542",
+    "name": "Retail trade services on a fee or contract basis, of radio and television equipment and recorded audio and video disks and tapes"
+  },
+  {
+    "code": "62543",
+    "name": "Retail trade services on a fee or contract basis, of articles for lighting"
+  },
+  {
+    "code": "62544",
+    "name": "Retail trade services on a fee or contract basis, of household appliances"
+  },
+  {
+    "code": "62545",
+    "name": "Retail trade services on a fee or contract basis, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+  },
+  {
+    "code": "62546",
+    "name": "Retail trade services on a fee or contract basis, of wickerwork, cork goods, cooper's ware and other wooden ware"
+  },
+  {
+    "code": "62551",
+    "name": "Retail trade services on a fee or contract basis, of books, newspapers, magazines and stationery"
+  },
+  {
+    "code": "62552",
+    "name": "Retail trade services on a fee or contract basis, of photographic, optical and precision equipment"
+  },
+  {
+    "code": "62553",
+    "name": "Retail trade services on a fee or contract basis, of games and toys"
+  },
+  {
+    "code": "62554",
+    "name": "Retail trade services on a fee or contract basis, of watches, clocks and jewellery"
+  },
+  {
+    "code": "62555",
+    "name": "Retail trade services on a fee or contract basis, of sports goods (incl. bicycles)"
+  },
+  {
+    "code": "62556",
+    "name": "Retail trade services on a fee or contract basis, of leather goods and travel accessories"
+  },
+  {
+    "code": "62559",
+    "name": "Retail trade services on a fee or contract basis, of miscellaneous consumer goods n.e.c."
+  },
+  {
+    "code": "62561",
+    "name": "Retail trade services on a fee or contract basis, of construction materials and flat glass"
+  },
+  {
+    "code": "62562",
+    "name": "Retail trade services on a fee or contract basis, of fittings, fixtures, and ceramic sanitary fixtures"
+  },
+  {
+    "code": "62563",
+    "name": "Retail trade services on a fee or contract basis, of wallpaper and floor coverings"
+  },
+  {
+    "code": "62564",
+    "name": "Retail trade services on a fee or contract basis, of paints, varnishes and lacquers"
+  },
+  {
+    "code": "62565",
+    "name": "Retail trade services on a fee or contract basis, of hardware and hand tools"
+  },
+  {
+    "code": "62572",
+    "name": "Retail trade services on a fee or contract basis, of fertilizers and agrochemical products"
+  },
+  {
+    "code": "62573",
+    "name": "Retail trade services on a fee or contract basis, of pharmaceutical products"
+  },
+  {
+    "code": "62574",
+    "name": "Retail trade services on a fee or contract basis, of medical and orthopaedic goods"
+  },
+  {
+    "code": "62575",
+    "name": "Retail trade services on a fee or contract basis, of perfumery articles, cosmetic articles and toilet soaps"
+  },
+  {
+    "code": "62576",
+    "name": "Retail trade services on a fee or contract basis, of cleaning materials"
+  },
+  {
+    "code": "62581",
+    "name": "Retail trade services on a fee or contract basis, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+  },
+  {
+    "code": "62582",
+    "name": "Retail trade services on a fee or contract basis, of other transport equipment, except bicycles"
+  },
+  {
+    "code": "62583",
+    "name": "Retail trade services on a fee or contract basis, of office machinery and equipment including office furniture"
+  },
+  {
+    "code": "62584",
+    "name": "Retail trade services on a fee or contract basis, of computers and packaged software"
+  },
+  {
+    "code": "62585",
+    "name": "Retail trade services on a fee or contract basis, of electronic and telecommunications equipment and parts"
+  },
+  {
+    "code": "62586",
+    "name": "Retail trade services on a fee or contract basis, of agricultural, lawn and garden machinery and equipment, including tractors"
+  },
+  {
+    "code": "62587",
+    "name": "Retail trade services on a fee or contract basis, of mining, construction and civil engineering machinery and equipment"
+  },
+  {
+    "code": "62588",
+    "name": "Retail trade services on a fee or contract basis, of other industry-specific machinery and equipment and related operating supplies"
+  },
+  {
+    "code": "62589",
+    "name": "Retail trade services on a fee or contract basis, of other machinery and equipment n.e.c."
+  },
+  {
+    "code": "62591",
+    "name": "Retail trade services on a fee or contract basis, of solid, liquid and gaseous fuels and related products"
+  },
+  {
+    "code": "62594",
+    "name": "Retail trade services on a fee or contract basis, of paper and paperboard"
+  },
+  {
+    "code": "62597",
+    "name": "Retail trade services on a fee or contract basis, of electricity"
+  },
+  {
+    "code": "62598",
+    "name": "Retail trade services on a fee or contract basis, of water"
+  },
+  {
+    "code": "62599",
+    "name": "Retail trade services on a fee or contract basis, of non-metallic minerals and other products n.e.c."
+  },
+  {
+    "code": "63111",
+    "name": "Room or unit accommodation services for visitors, with daily housekeeping services"
+  },
+  {
+    "code": "63112",
+    "name": "Room or unit accommodation services for visitors, without daily housekeeping services"
+  },
+  {
+    "code": "63113",
+    "name": "Room or unit accommodation services for visitors, in time-share properties"
+  },
+  {
+    "code": "63114",
+    "name": "Accommodation services for visitors, in rooms for multiple occupancy"
+  },
+  {
+    "code": "63120",
+    "name": "Camp site services"
+  },
+  {
+    "code": "63130",
+    "name": "Recreational and vacation camp services"
+  },
+  {
+    "code": "63210",
+    "name": "Room or unit accommodation services for students in student residences"
+  },
+  {
+    "code": "63220",
+    "name": "Room or unit accommodation services for workers in workers hostels or camps"
+  },
+  {
+    "code": "63290",
+    "name": "Other room or unit accommodation services n.e.c."
+  },
+  {
+    "code": "63310",
+    "name": "Meal serving services with full restaurant services"
+  },
+  {
+    "code": "63320",
+    "name": "Meal serving services with limited services"
+  },
+  {
+    "code": "63391",
+    "name": "Event catering services"
+  },
+  {
+    "code": "63392",
+    "name": "Contract food services for transportation operators"
+  },
+  {
+    "code": "63393",
+    "name": "Other contract food services"
+  },
+  {
+    "code": "63399",
+    "name": "Other food serving services"
+  },
+  {
+    "code": "63400",
+    "name": "Beverage serving services"
+  },
+  {
+    "code": "64111",
+    "name": "Urban and suburban railway transport services of passengers"
+  },
+  {
+    "code": "64112",
+    "name": "Urban and suburban scheduled road transport services of passengers"
+  },
+  {
+    "code": "64113",
+    "name": "Mixed mode urban and suburban transportation services of passengers"
+  },
+  {
+    "code": "64114",
+    "name": "Local special-purpose scheduled road transport services of passengers"
+  },
+  {
+    "code": "64115",
+    "name": "Taxi services"
+  },
+  {
+    "code": "64116",
+    "name": "Rental services of passenger cars with operator"
+  },
+  {
+    "code": "64117",
+    "name": "Road transport services of passengers by man- or animal-drawn vehicles"
+  },
+  {
+    "code": "64118",
+    "name": "Local bus and coach charter services"
+  },
+  {
+    "code": "64119",
+    "name": "Other land transportation services of passengers, n.e.c."
+  },
+  {
+    "code": "64121",
+    "name": "Inland water transport services of passengers by ferries"
+  },
+  {
+    "code": "64122",
+    "name": "Inland water transport services of passengers on cruises"
+  },
+  {
+    "code": "64129",
+    "name": "Other inland water transport services of passengers"
+  },
+  {
+    "code": "64131",
+    "name": "Sightseeing services by rail"
+  },
+  {
+    "code": "64132",
+    "name": "Sightseeing services by land, except rail"
+  },
+  {
+    "code": "64133",
+    "name": "Sightseeing services by water"
+  },
+  {
+    "code": "64134",
+    "name": "Sightseeing services by air"
+  },
+  {
+    "code": "64210",
+    "name": "Interurban railway transport services of passengers"
+  },
+  {
+    "code": "64221",
+    "name": "Interurban scheduled road transport services of passengers"
+  },
+  {
+    "code": "64222",
+    "name": "Interurban special-purpose scheduled road transport services of passengers"
+  },
+  {
+    "code": "64223",
+    "name": "Long-distance bus and coach charter services"
+  },
+  {
+    "code": "64231",
+    "name": "Coastal and transoceanic water transport services of passengers by ferries"
+  },
+  {
+    "code": "64232",
+    "name": "Coastal and transoceanic water transport services of passengers on cruise ships"
+  },
+  {
+    "code": "64239",
+    "name": "Other coastal and transoceanic water transport services of passengers"
+  },
+  {
+    "code": "64241",
+    "name": "Domestic scheduled air transport services of passengers"
+  },
+  {
+    "code": "64242",
+    "name": "Domestic non-scheduled air transport services of passengers"
+  },
+  {
+    "code": "64243",
+    "name": "International scheduled air transport services of passengers"
+  },
+  {
+    "code": "64244",
+    "name": "International non-scheduled air transport services of passengers"
+  },
+  {
+    "code": "64250",
+    "name": "Space transport services of passengers"
+  },
+  {
+    "code": "65111",
+    "name": "Road transport services of freight by refrigerator vehicles"
+  },
+  {
+    "code": "65112",
+    "name": "Road transport services of freight by tank trucks or semi-trailers"
+  },
+  {
+    "code": "65113",
+    "name": "Road transport services of intermodal containers"
+  },
+  {
+    "code": "65114",
+    "name": "Road transport services of freight by man- or animal-drawn vehicles"
+  },
+  {
+    "code": "65115",
+    "name": "Moving services of household furniture and household goods"
+  },
+  {
+    "code": "65116",
+    "name": "Road transport services of letters and parcels"
+  },
+  {
+    "code": "65117",
+    "name": "Road transport services of dry bulk"
+  },
+  {
+    "code": "65118",
+    "name": "Road transport services of live animals"
+  },
+  {
+    "code": "65119",
+    "name": "Other road transport services of freight"
+  },
+  {
+    "code": "65121",
+    "name": "Railway transport services of freight by refrigerator cars"
+  },
+  {
+    "code": "65122",
+    "name": "Railway transport services of freight by tanker cars"
+  },
+  {
+    "code": "65123",
+    "name": "Railway transport services of intermodal containers"
+  },
+  {
+    "code": "65124",
+    "name": "Railway transport services of letters and parcels"
+  },
+  {
+    "code": "65125",
+    "name": "Railway transport services of dry bulk goods"
+  },
+  {
+    "code": "65126",
+    "name": "Railway transport services of live animals"
+  },
+  {
+    "code": "65129",
+    "name": "Other railway transport services of freight"
+  },
+  {
+    "code": "65131",
+    "name": "Transport services via pipeline of petroleum and natural gas"
+  },
+  {
+    "code": "65139",
+    "name": "Transport services via pipeline of other goods"
+  },
+  {
+    "code": "65211",
+    "name": "Coastal and transoceanic water transport services of freight by refrigerator vessels"
+  },
+  {
+    "code": "65212",
+    "name": "Coastal and transoceanic water transport services of freight by tankers"
+  },
+  {
+    "code": "65213",
+    "name": "Coastal and transoceanic water transport services of intermodal containers by container ships"
+  },
+  {
+    "code": "65219",
+    "name": "Other coastal and transoceanic water transport services of other freight"
+  },
+  {
+    "code": "65221",
+    "name": "Inland water transport services of freight by refrigerator vessels"
+  },
+  {
+    "code": "65222",
+    "name": "Inland water transport services of freight by tankers"
+  },
+  {
+    "code": "65229",
+    "name": "Other inland water transport services of freight"
+  },
+  {
+    "code": "65311",
+    "name": "Air transport services of letters and parcels"
+  },
+  {
+    "code": "65319",
+    "name": "Air transport services of other freight"
+  },
+  {
+    "code": "65320",
+    "name": "Space transport services of freight"
+  },
+  {
+    "code": "66011",
+    "name": "Rental services of buses and coaches with operator"
+  },
+  {
+    "code": "66012",
+    "name": "Rental services of trucks with operator"
+  },
+  {
+    "code": "66021",
+    "name": "Rental services of passenger vessels for coastal and transoceanic water transport with operator"
+  },
+  {
+    "code": "66022",
+    "name": "Rental services of freight vessels for coastal and transoceanic water transport with operator"
+  },
+  {
+    "code": "66023",
+    "name": "Rental services of passenger vessels for inland water transport with operator"
+  },
+  {
+    "code": "66024",
+    "name": "Rental services of freight vessels for inland water transport with operator"
+  },
+  {
+    "code": "66031",
+    "name": "Rental services of passenger aircraft with operator"
+  },
+  {
+    "code": "66032",
+    "name": "Rental services of freight aircraft with operator"
+  },
+  {
+    "code": "67110",
+    "name": "Container handling services"
+  },
+  {
+    "code": "67190",
+    "name": "Other cargo and baggage handling services"
+  },
+  {
+    "code": "67210",
+    "name": "Refrigerated storage services"
+  },
+  {
+    "code": "67220",
+    "name": "Bulk liquid or gas storage services"
+  },
+  {
+    "code": "67290",
+    "name": "Other storage and warehousing services"
+  },
+  {
+    "code": "67310",
+    "name": "Railway pushing or towing services"
+  },
+  {
+    "code": "67390",
+    "name": "Other supporting services for railway transport"
+  },
+  {
+    "code": "67410",
+    "name": "Bus station services"
+  },
+  {
+    "code": "67420",
+    "name": "Highway, bridge and tunnel operation services"
+  },
+  {
+    "code": "67430",
+    "name": "Parking lot services"
+  },
+  {
+    "code": "67440",
+    "name": "Towing services for commercial and private vehicles"
+  },
+  {
+    "code": "67490",
+    "name": "Other supporting services for road transport"
+  },
+  {
+    "code": "67511",
+    "name": "Port and waterway operation services (excl. cargo handling), on coastal and transoceanic waters"
+  },
+  {
+    "code": "67512",
+    "name": "Inland waterway operation services (excl. cargo handling)"
+  },
+  {
+    "code": "67521",
+    "name": "Pilotage and berthing services on coastal and transoceanic waters"
+  },
+  {
+    "code": "67522",
+    "name": "Pilotage and berthing services in inland waters"
+  },
+  {
+    "code": "67531",
+    "name": "Vessel salvage and refloating services on coastal and transoceanic waters"
+  },
+  {
+    "code": "67532",
+    "name": "Vessel salvage and refloating services in inland waters"
+  },
+  {
+    "code": "67590",
+    "name": "Other supporting services for water transport"
+  },
+  {
+    "code": "67610",
+    "name": "Airport operation services (excl. cargo handling)"
+  },
+  {
+    "code": "67620",
+    "name": "Air traffic control services"
+  },
+  {
+    "code": "67630",
+    "name": "Other supporting services for air transport"
+  },
+  {
+    "code": "67640",
+    "name": "Supporting services for space transport"
+  },
+  {
+    "code": "67910",
+    "name": "Freight transport agency services and other freight transport services"
+  },
+  {
+    "code": "67990",
+    "name": "Other supporting transport services n.e.c."
+  },
+  {
+    "code": "68011",
+    "name": "Postal services related to letters"
+  },
+  {
+    "code": "68012",
+    "name": "Postal services related to parcels"
+  },
+  {
+    "code": "68013",
+    "name": "Post office counter services"
+  },
+  {
+    "code": "68019",
+    "name": "Other postal services"
+  },
+  {
+    "code": "68021",
+    "name": "Domestic courier services"
+  },
+  {
+    "code": "68022",
+    "name": "International courier services"
+  },
+  {
+    "code": "68030",
+    "name": "Local delivery services"
+  },
+  {
+    "code": "69111",
+    "name": "Transmission of electricity (on own account)"
+  },
+  {
+    "code": "69112",
+    "name": "Distribution of electricity (on own account)"
+  },
+  {
+    "code": "69120",
+    "name": "Gas distribution through mains (on own account)"
+  },
+  {
+    "code": "69210",
+    "name": "Water distribution through mains, except steam and hot water (on own account)"
+  },
+  {
+    "code": "69220",
+    "name": "Distribution of steam, hot water and air-conditioning supply through mains (on own account)"
+  },
+  {
+    "code": "69230",
+    "name": "Water distribution, except through mains (on own account)"
+  },
+  {
+    "code": "71110",
+    "name": "Central banking services"
+  },
+  {
+    "code": "71121",
+    "name": "Deposit services to corporate and institutional depositors"
+  },
+  {
+    "code": "71122",
+    "name": "Deposit services to other depositors"
+  },
+  {
+    "code": "71131",
+    "name": "Residential mortgage loan services"
+  },
+  {
+    "code": "71132",
+    "name": "Non-residential mortgage loan services"
+  },
+  {
+    "code": "71133",
+    "name": "Personal non-mortgage loan services for non-business purposes"
+  },
+  {
+    "code": "71134",
+    "name": "Credit card loan services"
+  },
+  {
+    "code": "71135",
+    "name": "Non-mortgage loan services for business purposes"
+  },
+  {
+    "code": "71139",
+    "name": "Other credit-granting services"
+  },
+  {
+    "code": "71140",
+    "name": "Financial leasing services"
+  },
+  {
+    "code": "71190",
+    "name": "Other financial services, except investment banking, insurance services and pension services"
+  },
+  {
+    "code": "71200",
+    "name": "Investment banking services"
+  },
+  {
+    "code": "71311",
+    "name": "Life insurance services"
+  },
+  {
+    "code": "71312",
+    "name": "Individual pension services"
+  },
+  {
+    "code": "71313",
+    "name": "Group pension services"
+  },
+  {
+    "code": "71321",
+    "name": "Accidental death and dismemberment insurance services"
+  },
+  {
+    "code": "71322",
+    "name": "Health insurance services"
+  },
+  {
+    "code": "71331",
+    "name": "Motor vehicle insurance services"
+  },
+  {
+    "code": "71332",
+    "name": "Marine, aviation, and other transport insurance services"
+  },
+  {
+    "code": "71333",
+    "name": "Freight insurance services"
+  },
+  {
+    "code": "71334",
+    "name": "Other property insurance services"
+  },
+  {
+    "code": "71335",
+    "name": "General liability insurance services"
+  },
+  {
+    "code": "71336",
+    "name": "Credit and surety insurance services"
+  },
+  {
+    "code": "71337",
+    "name": "Travel insurance services"
+  },
+  {
+    "code": "71339",
+    "name": "Other non-life insurance services"
+  },
+  {
+    "code": "71410",
+    "name": "Life reinsurance services"
+  },
+  {
+    "code": "71420",
+    "name": "Accident and health reinsurance services"
+  },
+  {
+    "code": "71431",
+    "name": "Motor vehicle reinsurance services"
+  },
+  {
+    "code": "71432",
+    "name": "Marine, aviation and other transport reinsurance services"
+  },
+  {
+    "code": "71433",
+    "name": "Freight reinsurance services"
+  },
+  {
+    "code": "71434",
+    "name": "Other property reinsurance services"
+  },
+  {
+    "code": "71435",
+    "name": "General liability reinsurance services"
+  },
+  {
+    "code": "71436",
+    "name": "Credit and surety reinsurance services"
+  },
+  {
+    "code": "71439",
+    "name": "Other non-life reinsurance services, n.e.c."
+  },
+  {
+    "code": "71511",
+    "name": "Mergers and acquisition services"
+  },
+  {
+    "code": "71512",
+    "name": "Corporate finance and venture capital services"
+  },
+  {
+    "code": "71519",
+    "name": "Other services related to investment banking"
+  },
+  {
+    "code": "71521",
+    "name": "Securities brokerage services"
+  },
+  {
+    "code": "71522",
+    "name": "Commodity brokerage services"
+  },
+  {
+    "code": "71523",
+    "name": "Processing and clearing services of securities transactions"
+  },
+  {
+    "code": "71530",
+    "name": "Portfolio management services except pension funds"
+  },
+  {
+    "code": "71541",
+    "name": "Trust services"
+  },
+  {
+    "code": "71542",
+    "name": "Custody services"
+  },
+  {
+    "code": "71551",
+    "name": "Financial market operational services"
+  },
+  {
+    "code": "71552",
+    "name": "Financial market regulatory services"
+  },
+  {
+    "code": "71559",
+    "name": "Other financial market administration services"
+  },
+  {
+    "code": "71591",
+    "name": "Financial consultancy services"
+  },
+  {
+    "code": "71592",
+    "name": "Foreign exchange services"
+  },
+  {
+    "code": "71593",
+    "name": "Financial transactions processing and clearinghouse services"
+  },
+  {
+    "code": "71599",
+    "name": "Other services auxiliary to financial services n.e.c."
+  },
+  {
+    "code": "71610",
+    "name": "Insurance brokerage and agency services"
+  },
+  {
+    "code": "71620",
+    "name": "Insurance claims adjustment services"
+  },
+  {
+    "code": "71630",
+    "name": "Actuarial services"
+  },
+  {
+    "code": "71640",
+    "name": "Pension fund management services"
+  },
+  {
+    "code": "71690",
+    "name": "Other services auxiliary to insurance and pensions"
+  },
+  {
+    "code": "71701",
+    "name": "Services of holding equity of subsidiary companies"
+  },
+  {
+    "code": "71702",
+    "name": "Services of holding securities and other assets of trusts and funds and similar financial entities"
+  },
+  {
+    "code": "72111",
+    "name": "Rental or leasing services involving own or leased residential property"
+  },
+  {
+    "code": "72112",
+    "name": "Rental or leasing services involving own or leased non-residential property"
+  },
+  {
+    "code": "72121",
+    "name": "Trade services of residential buildings"
+  },
+  {
+    "code": "72122",
+    "name": "Trade services of non-residential buildings"
+  },
+  {
+    "code": "72123",
+    "name": "Trade services of time-share properties"
+  },
+  {
+    "code": "72130",
+    "name": "Trade services of vacant and subdivided land"
+  },
+  {
+    "code": "72211",
+    "name": "Residential property management services on a fee or contract basis except of time-share ownership properties"
+  },
+  {
+    "code": "72212",
+    "name": "Non-residential property management services on a fee or contract basis"
+  },
+  {
+    "code": "72213",
+    "name": "Time-share property management services on a fee or contract basis"
+  },
+  {
+    "code": "72221",
+    "name": "Residential building sales on a fee or contract basis, except of time-share ownership properties"
+  },
+  {
+    "code": "72222",
+    "name": "Non-residential building sales on a fee or contract basis"
+  },
+  {
+    "code": "72223",
+    "name": "Sale of time-share properties on a fee or contract basis"
+  },
+  {
+    "code": "72230",
+    "name": "Land sales on a fee or contract basis"
+  },
+  {
+    "code": "72240",
+    "name": "Real estate appraisal services on a fee or contract basis"
+  },
+  {
+    "code": "73111",
+    "name": "Leasing or rental services concerning cars and light vans without operator"
+  },
+  {
+    "code": "73112",
+    "name": "Leasing or rental services concerning goods transport motor vehicles without operator"
+  },
+  {
+    "code": "73113",
+    "name": "Leasing or rental services concerning railroad vehicles without operator"
+  },
+  {
+    "code": "73114",
+    "name": "Leasing or rental services concerning other land transport equipment without operator"
+  },
+  {
+    "code": "73115",
+    "name": "Leasing or rental services concerning vessels without operator"
+  },
+  {
+    "code": "73116",
+    "name": "Leasing or rental services concerning aircraft without operator"
+  },
+  {
+    "code": "73117",
+    "name": "Leasing or rental services concerning containers"
+  },
+  {
+    "code": "73121",
+    "name": "Leasing or rental services concerning agricultural machinery and equipment without operator"
+  },
+  {
+    "code": "73122",
+    "name": "Leasing or rental services concerning construction machinery and equipment without operator"
+  },
+  {
+    "code": "73123",
+    "name": "Leasing or rental services concerning office machinery and equipment (except computers) without operator"
+  },
+  {
+    "code": "73124",
+    "name": "Leasing or rental services concerning computers without operator"
+  },
+  {
+    "code": "73125",
+    "name": "Leasing or rental services concerning telecommunications equipment without operator"
+  },
+  {
+    "code": "73129",
+    "name": "Leasing or rental services concerning other machinery and equipment without operator n.e.c."
+  },
+  {
+    "code": "73210",
+    "name": "Leasing or rental services concerning televisions, radios, video cassette recorders and related equipment and accessories"
+  },
+  {
+    "code": "73220",
+    "name": "Leasing or rental services concerning videotapes and disks"
+  },
+  {
+    "code": "73230",
+    "name": "Leasing or rental services concerning furniture and other household appliances"
+  },
+  {
+    "code": "73240",
+    "name": "Leasing or rental services concerning pleasure and leisure equipment"
+  },
+  {
+    "code": "73250",
+    "name": "Leasing or rental services concerning household linen"
+  },
+  {
+    "code": "73260",
+    "name": "Leasing or rental services concerning textiles, clothing and footwear"
+  },
+  {
+    "code": "73270",
+    "name": "Leasing or rental services concerning do-it-yourself machinery and equipment"
+  },
+  {
+    "code": "73290",
+    "name": "Leasing or rental services concerning other goods n.e.c."
+  },
+  {
+    "code": "73311",
+    "name": "Licensing services for the right to use computer software"
+  },
+  {
+    "code": "73312",
+    "name": "Licensing services for the right to use databases"
+  },
+  {
+    "code": "73320",
+    "name": "Licensing services for the right to use entertainment, literary or artistic originals"
+  },
+  {
+    "code": "73330",
+    "name": "Licensing services for the right to use R&D products"
+  },
+  {
+    "code": "73340",
+    "name": "Licensing services for the right to use trademarks and franchises"
+  },
+  {
+    "code": "73350",
+    "name": "Licensing services for the right to use mineral exploration and evaluation"
+  },
+  {
+    "code": "73390",
+    "name": "Licensing services for the right to use other intellectual property products"
+  },
+  {
+    "code": "81111",
+    "name": "Basic research services in physical sciences"
+  },
+  {
+    "code": "81112",
+    "name": "Basic research services in chemistry and biology"
+  },
+  {
+    "code": "81113",
+    "name": "Basic research services in biotechnology"
+  },
+  {
+    "code": "81114",
+    "name": "Basic research services in engineering and technology"
+  },
+  {
+    "code": "81115",
+    "name": "Basic research services in medical sciences and pharmacy"
+  },
+  {
+    "code": "81116",
+    "name": "Basic research services in agricultural sciences"
+  },
+  {
+    "code": "81119",
+    "name": "Basic research services in other natural sciences"
+  },
+  {
+    "code": "81121",
+    "name": "Applied research services in physical sciences"
+  },
+  {
+    "code": "81122",
+    "name": "Applied research services in chemistry and biology"
+  },
+  {
+    "code": "81123",
+    "name": "Applied research services in biotechnology"
+  },
+  {
+    "code": "81124",
+    "name": "Applied research services in engineering and technology"
+  },
+  {
+    "code": "81125",
+    "name": "Applied research services in medical sciences and pharmacy"
+  },
+  {
+    "code": "81126",
+    "name": "Applied research services in agricultural sciences"
+  },
+  {
+    "code": "81129",
+    "name": "Applied research services in other natural sciences"
+  },
+  {
+    "code": "81131",
+    "name": "Experimental development services in physical sciences"
+  },
+  {
+    "code": "81132",
+    "name": "Experimental development services in chemistry and biology"
+  },
+  {
+    "code": "81133",
+    "name": "Experimental development services in biotechnology"
+  },
+  {
+    "code": "81134",
+    "name": "Experimental development services in engineering and technology"
+  },
+  {
+    "code": "81135",
+    "name": "Experimental development services in medical sciences and pharmacy"
+  },
+  {
+    "code": "81136",
+    "name": "Experimental development services in agricultural sciences"
+  },
+  {
+    "code": "81139",
+    "name": "Experimental development services in other natural sciences"
+  },
+  {
+    "code": "81211",
+    "name": "Basic research services in psychology"
+  },
+  {
+    "code": "81212",
+    "name": "Basic research services in economics"
+  },
+  {
+    "code": "81213",
+    "name": "Basic research services in law"
+  },
+  {
+    "code": "81214",
+    "name": "Basic research services in languages and literature"
+  },
+  {
+    "code": "81219",
+    "name": "Basic research services in other social sciences and humanities"
+  },
+  {
+    "code": "81221",
+    "name": "Applied research services in psychology"
+  },
+  {
+    "code": "81222",
+    "name": "Applied research services in economics"
+  },
+  {
+    "code": "81223",
+    "name": "Applied research services in law"
+  },
+  {
+    "code": "81224",
+    "name": "Applied research services in language and literature"
+  },
+  {
+    "code": "81229",
+    "name": "Applied research services on other social sciences and humanities"
+  },
+  {
+    "code": "81231",
+    "name": "Experimental development services in psychology"
+  },
+  {
+    "code": "81232",
+    "name": "Experimental development services in economics"
+  },
+  {
+    "code": "81233",
+    "name": "Experimental development services in law"
+  },
+  {
+    "code": "81234",
+    "name": "Experimental development services in languages and literature"
+  },
+  {
+    "code": "81239",
+    "name": "Experimental development services in other social sciences and humanities"
+  },
+  {
+    "code": "81301",
+    "name": "Interdisciplinary basic research services"
+  },
+  {
+    "code": "81302",
+    "name": "Interdisciplinary applied research services"
+  },
+  {
+    "code": "81303",
+    "name": "Interdisciplinary experimental development services"
+  },
+  {
+    "code": "81400",
+    "name": "Research and development originals"
+  },
+  {
+    "code": "82110",
+    "name": "Legal advisory and representation services concerning criminal law"
+  },
+  {
+    "code": "82120",
+    "name": "Legal advisory and representation services concerning other fields of law"
+  },
+  {
+    "code": "82130",
+    "name": "Legal documentation and certification services"
+  },
+  {
+    "code": "82191",
+    "name": "Arbitration and conciliation services"
+  },
+  {
+    "code": "82199",
+    "name": "Other legal services n.e.c."
+  },
+  {
+    "code": "82210",
+    "name": "Financial auditing services"
+  },
+  {
+    "code": "82221",
+    "name": "Accounting services"
+  },
+  {
+    "code": "82222",
+    "name": "Bookkeeping services"
+  },
+  {
+    "code": "82223",
+    "name": "Payroll services"
+  },
+  {
+    "code": "82310",
+    "name": "Corporate tax consulting and preparation services"
+  },
+  {
+    "code": "82320",
+    "name": "Individual tax preparation and planning services"
+  },
+  {
+    "code": "82400",
+    "name": "Insolvency and receivership services"
+  },
+  {
+    "code": "83111",
+    "name": "Strategic management consulting services"
+  },
+  {
+    "code": "83112",
+    "name": "Financial management consulting services"
+  },
+  {
+    "code": "83113",
+    "name": "Human resources management consulting services"
+  },
+  {
+    "code": "83114",
+    "name": "Marketing management consulting services"
+  },
+  {
+    "code": "83115",
+    "name": "Operations management consulting services"
+  },
+  {
+    "code": "83116",
+    "name": "Supply chain and other management consulting services"
+  },
+  {
+    "code": "83117",
+    "name": "Business process management services"
+  },
+  {
+    "code": "83118",
+    "name": "Head office services"
+  },
+  {
+    "code": "83121",
+    "name": "Public relations services"
+  },
+  {
+    "code": "83129",
+    "name": "Other business consulting services"
+  },
+  {
+    "code": "83131",
+    "name": "IT consulting services"
+  },
+  {
+    "code": "83132",
+    "name": "IT support services"
+  },
+  {
+    "code": "83141",
+    "name": "IT design and development services for applications"
+  },
+  {
+    "code": "83142",
+    "name": "IT design and development services for networks and systems"
+  },
+  {
+    "code": "83143",
+    "name": "Software originals"
+  },
+  {
+    "code": "83151",
+    "name": "Website hosting services"
+  },
+  {
+    "code": "83152",
+    "name": "Application service provisioning"
+  },
+  {
+    "code": "83159",
+    "name": "Other hosting and IT infrastructure provisioning services"
+  },
+  {
+    "code": "83161",
+    "name": "Network management services"
+  },
+  {
+    "code": "83162",
+    "name": "Computer systems management services"
+  },
+  {
+    "code": "83190",
+    "name": "Other management services, except construction project management services"
+  },
+  {
+    "code": "83211",
+    "name": "Architectural advisory services"
+  },
+  {
+    "code": "83212",
+    "name": "Architectural services for residential building projects"
+  },
+  {
+    "code": "83213",
+    "name": "Architectural services for non-residential building projects"
+  },
+  {
+    "code": "83214",
+    "name": "Historical restoration architectural services"
+  },
+  {
+    "code": "83221",
+    "name": "Urban planning services"
+  },
+  {
+    "code": "83222",
+    "name": "Rural land planning services"
+  },
+  {
+    "code": "83223",
+    "name": "Project site master planning services"
+  },
+  {
+    "code": "83231",
+    "name": "Landscape architectural advisory services"
+  },
+  {
+    "code": "83232",
+    "name": "Landscape architectural services"
+  },
+  {
+    "code": "83310",
+    "name": "Engineering advisory services"
+  },
+  {
+    "code": "83321",
+    "name": "Engineering services for building projects"
+  },
+  {
+    "code": "83322",
+    "name": "Engineering services for industrial and manufacturing projects"
+  },
+  {
+    "code": "83323",
+    "name": "Engineering services for transportation projects"
+  },
+  {
+    "code": "83324",
+    "name": "Engineering services for power projects"
+  },
+  {
+    "code": "83325",
+    "name": "Engineering services for telecommunications and broadcasting projects"
+  },
+  {
+    "code": "83326",
+    "name": "Engineering services for waste management projects (hazardous and non-hazardous)"
+  },
+  {
+    "code": "83327",
+    "name": "Engineering services for water, sewerage and drainage projects"
+  },
+  {
+    "code": "83329",
+    "name": "Engineering services for other projects"
+  },
+  {
+    "code": "83330",
+    "name": "Project management services for construction projects"
+  },
+  {
+    "code": "83411",
+    "name": "Geological and geophysical consulting services"
+  },
+  {
+    "code": "83412",
+    "name": "Geophysical services"
+  },
+  {
+    "code": "83413",
+    "name": "Mineral exploration and evaluation"
+  },
+  {
+    "code": "83421",
+    "name": "Surface surveying services"
+  },
+  {
+    "code": "83422",
+    "name": "Map-making services"
+  },
+  {
+    "code": "83430",
+    "name": "Weather forecasting and meteorological services"
+  },
+  {
+    "code": "83441",
+    "name": "Composition and purity testing and analysis services"
+  },
+  {
+    "code": "83442",
+    "name": "Testing and analysis services of physical properties"
+  },
+  {
+    "code": "83443",
+    "name": "Testing and analysis services of integrated mechanical and electrical systems"
+  },
+  {
+    "code": "83444",
+    "name": "Technical inspection services of road transport vehicles"
+  },
+  {
+    "code": "83449",
+    "name": "Other technical testing and analysis services"
+  },
+  {
+    "code": "83510",
+    "name": "Veterinary services for pet animals"
+  },
+  {
+    "code": "83520",
+    "name": "Veterinary services for livestock"
+  },
+  {
+    "code": "83590",
+    "name": "Other veterinary services"
+  },
+  {
+    "code": "83611",
+    "name": "Full service advertising"
+  },
+  {
+    "code": "83612",
+    "name": "Direct marketing and direct mail services"
+  },
+  {
+    "code": "83619",
+    "name": "Other advertising services"
+  },
+  {
+    "code": "83620",
+    "name": "Purchase or sale of advertising space or time, on commission"
+  },
+  {
+    "code": "83631",
+    "name": "Sale of advertising space in print media (except on commission)"
+  },
+  {
+    "code": "83632",
+    "name": "Sale of TV/radio advertising time (except on commission)"
+  },
+  {
+    "code": "83633",
+    "name": "Sale of Internet advertising space (except on commission)"
+  },
+  {
+    "code": "83639",
+    "name": "Sale of other advertising space or time (except on commission)"
+  },
+  {
+    "code": "83700",
+    "name": "Market research and public opinion polling services"
+  },
+  {
+    "code": "83811",
+    "name": "Portrait photography services"
+  },
+  {
+    "code": "83812",
+    "name": "Advertising and related photography services"
+  },
+  {
+    "code": "83813",
+    "name": "Event photography and event videography services"
+  },
+  {
+    "code": "83814",
+    "name": "Specialty photography services"
+  },
+  {
+    "code": "83815",
+    "name": "Restoration and retouching services of photography"
+  },
+  {
+    "code": "83819",
+    "name": "Other photography services"
+  },
+  {
+    "code": "83820",
+    "name": "Photographic processing services"
+  },
+  {
+    "code": "83911",
+    "name": "Interior design services"
+  },
+  {
+    "code": "83912",
+    "name": "Industrial design services"
+  },
+  {
+    "code": "83919",
+    "name": "Other specialty design services"
+  },
+  {
+    "code": "83920",
+    "name": "Design originals"
+  },
+  {
+    "code": "83931",
+    "name": "Environmental consulting services"
+  },
+  {
+    "code": "83939",
+    "name": "Other scientific and technical consulting services n.e.c."
+  },
+  {
+    "code": "83940",
+    "name": "Original compilations of facts/information"
+  },
+  {
+    "code": "83950",
+    "name": "Translation and interpretation services"
+  },
+  {
+    "code": "83960",
+    "name": "Trademarks and franchises"
+  },
+  {
+    "code": "83990",
+    "name": "Other professional, technical and business services, n.e.c."
+  },
+  {
+    "code": "84110",
+    "name": "Carrier services"
+  },
+  {
+    "code": "84120",
+    "name": "Fixed telephony services"
+  },
+  {
+    "code": "84131",
+    "name": "Mobile voice services"
+  },
+  {
+    "code": "84132",
+    "name": "Mobile text services"
+  },
+  {
+    "code": "84133",
+    "name": "Mobile data services, except text services"
+  },
+  {
+    "code": "84140",
+    "name": "Private network services"
+  },
+  {
+    "code": "84150",
+    "name": "Data transmission services"
+  },
+  {
+    "code": "84190",
+    "name": "Other telecommunications services"
+  },
+  {
+    "code": "84210",
+    "name": "Internet backbone services"
+  },
+  {
+    "code": "84221",
+    "name": "Narrowband Internet access services"
+  },
+  {
+    "code": "84222",
+    "name": "Broadband Internet access services"
+  },
+  {
+    "code": "84290",
+    "name": "Other Internet telecommunications services"
+  },
+  {
+    "code": "84311",
+    "name": "On-line books"
+  },
+  {
+    "code": "84312",
+    "name": "On-line newspapers and periodicals"
+  },
+  {
+    "code": "84313",
+    "name": "On-line directories and mailing lists"
+  },
+  {
+    "code": "84321",
+    "name": "Musical audio downloads"
+  },
+  {
+    "code": "84322",
+    "name": "Streamed audio content"
+  },
+  {
+    "code": "84331",
+    "name": "Films and other video downloads"
+  },
+  {
+    "code": "84332",
+    "name": "Streamed video content"
+  },
+  {
+    "code": "84341",
+    "name": "System software downloads"
+  },
+  {
+    "code": "84342",
+    "name": "Application software downloads"
+  },
+  {
+    "code": "84391",
+    "name": "On-line games"
+  },
+  {
+    "code": "84392",
+    "name": "On-line software"
+  },
+  {
+    "code": "84393",
+    "name": "On-line adult content"
+  },
+  {
+    "code": "84394",
+    "name": "Web search portal content"
+  },
+  {
+    "code": "84399",
+    "name": "Other on-line content n.e.c."
+  },
+  {
+    "code": "84410",
+    "name": "News agency services to newspapers and periodicals"
+  },
+  {
+    "code": "84420",
+    "name": "News agency services to audiovisual media"
+  },
+  {
+    "code": "84510",
+    "name": "Library services"
+  },
+  {
+    "code": "84520",
+    "name": "Archive services"
+  },
+  {
+    "code": "84611",
+    "name": "Radio broadcast originals"
+  },
+  {
+    "code": "84612",
+    "name": "Television broadcast originals"
+  },
+  {
+    "code": "84621",
+    "name": "Radio channel programmes"
+  },
+  {
+    "code": "84622",
+    "name": "Television channel programmes"
+  },
+  {
+    "code": "84631",
+    "name": "Broadcasting services"
+  },
+  {
+    "code": "84632",
+    "name": "Home programme distribution services, basic programming package"
+  },
+  {
+    "code": "84633",
+    "name": "Home programme distribution services, discretionary programming package"
+  },
+  {
+    "code": "84634",
+    "name": "Home programme distribution services, pay-per-view"
+  },
+  {
+    "code": "85111",
+    "name": "Executive/retained search services"
+  },
+  {
+    "code": "85112",
+    "name": "Permanent placement services, other than executive search services"
+  },
+  {
+    "code": "85121",
+    "name": "Contract staffing services"
+  },
+  {
+    "code": "85122",
+    "name": "Temporary staffing services"
+  },
+  {
+    "code": "85123",
+    "name": "Long-term staffing (payrolling) services"
+  },
+  {
+    "code": "85124",
+    "name": "Temporary staffing-to-permanent placement services"
+  },
+  {
+    "code": "85125",
+    "name": "Co-employment staffing services"
+  },
+  {
+    "code": "85210",
+    "name": "Investigation services"
+  },
+  {
+    "code": "85220",
+    "name": "Security consulting services"
+  },
+  {
+    "code": "85230",
+    "name": "Security systems services"
+  },
+  {
+    "code": "85240",
+    "name": "Armoured car services"
+  },
+  {
+    "code": "85250",
+    "name": "Guard services"
+  },
+  {
+    "code": "85290",
+    "name": "Other security services"
+  },
+  {
+    "code": "85310",
+    "name": "Disinfecting and exterminating services"
+  },
+  {
+    "code": "85320",
+    "name": "Window cleaning services"
+  },
+  {
+    "code": "85330",
+    "name": "General cleaning services"
+  },
+  {
+    "code": "85340",
+    "name": "Specialized cleaning services"
+  },
+  {
+    "code": "85400",
+    "name": "Packaging services"
+  },
+  {
+    "code": "85511",
+    "name": "Reservation services for air transportation"
+  },
+  {
+    "code": "85512",
+    "name": "Reservation services for rail transportation"
+  },
+  {
+    "code": "85513",
+    "name": "Reservation services for bus transportation"
+  },
+  {
+    "code": "85514",
+    "name": "Reservation services for vehicle rental"
+  },
+  {
+    "code": "85519",
+    "name": "Other transportation arrangement and reservation services n.e.c."
+  },
+  {
+    "code": "85521",
+    "name": "Reservation services for accommodation"
+  },
+  {
+    "code": "85522",
+    "name": "Time-share exchange services"
+  },
+  {
+    "code": "85523",
+    "name": "Reservation services for cruises"
+  },
+  {
+    "code": "85524",
+    "name": "Reservation services for package tours"
+  },
+  {
+    "code": "85531",
+    "name": "Reservation services for convention centres, congress centres and exhibition halls"
+  },
+  {
+    "code": "85539",
+    "name": "Reservation services for event tickets, entertainment and recreational services and other reservation services"
+  },
+  {
+    "code": "85540",
+    "name": "Tour operator services"
+  },
+  {
+    "code": "85550",
+    "name": "Tourist guide services"
+  },
+  {
+    "code": "85561",
+    "name": "Tourism promotion services"
+  },
+  {
+    "code": "85562",
+    "name": "Visitor information services"
+  },
+  {
+    "code": "85910",
+    "name": "Credit reporting services"
+  },
+  {
+    "code": "85920",
+    "name": "Collection agency services"
+  },
+  {
+    "code": "85931",
+    "name": "Telephone call centre services"
+  },
+  {
+    "code": "85939",
+    "name": "Other telephone-based support services"
+  },
+  {
+    "code": "85940",
+    "name": "Combined office administrative services"
+  },
+  {
+    "code": "85951",
+    "name": "Duplicating services"
+  },
+  {
+    "code": "85952",
+    "name": "Mailing list compilation services"
+  },
+  {
+    "code": "85953",
+    "name": "Mailing services"
+  },
+  {
+    "code": "85954",
+    "name": "Document preparation and other specialized office support services"
+  },
+  {
+    "code": "85961",
+    "name": "Convention assistance and organization services"
+  },
+  {
+    "code": "85962",
+    "name": "Trade show assistance and organization services"
+  },
+  {
+    "code": "85970",
+    "name": "Landscape care and maintenance services"
+  },
+  {
+    "code": "85991",
+    "name": "Other information services"
+  },
+  {
+    "code": "85999",
+    "name": "Other support services n.e.c."
+  },
+  {
+    "code": "86111",
+    "name": "Post-harvest crop services"
+  },
+  {
+    "code": "86112",
+    "name": "Seed processing services"
+  },
+  {
+    "code": "86113",
+    "name": "Crop production services on inputs owned by others"
+  },
+  {
+    "code": "86119",
+    "name": "Other support services to crop production"
+  },
+  {
+    "code": "86121",
+    "name": "Farm animal husbandry services on inputs owned by others"
+  },
+  {
+    "code": "86122",
+    "name": "Support services to farm animal husbandry"
+  },
+  {
+    "code": "86129",
+    "name": "Other animal husbandry services"
+  },
+  {
+    "code": "86131",
+    "name": "Hunting services on resources owned by others"
+  },
+  {
+    "code": "86132",
+    "name": "Support services to hunting"
+  },
+  {
+    "code": "86141",
+    "name": "Forestry and logging services on inputs owned by others"
+  },
+  {
+    "code": "86142",
+    "name": "Support services to forestry and logging"
+  },
+  {
+    "code": "86151",
+    "name": "Fishing services on resources owned by others"
+  },
+  {
+    "code": "86152",
+    "name": "Aquaculture services on inputs owned by others"
+  },
+  {
+    "code": "86153",
+    "name": "Support services to fishing"
+  },
+  {
+    "code": "86154",
+    "name": "Support services to aquaculture"
+  },
+  {
+    "code": "86211",
+    "name": "Support services to oil and gas extraction"
+  },
+  {
+    "code": "86219",
+    "name": "Support services to other mining"
+  },
+  {
+    "code": "86221",
+    "name": "Oil and gas extraction services on resources owned by others"
+  },
+  {
+    "code": "86229",
+    "name": "Other mining services on resources owned by others"
+  },
+  {
+    "code": "86311",
+    "name": "Electricity transmission services (on a fee or contract basis)"
+  },
+  {
+    "code": "86312",
+    "name": "Electricity distribution services (on a fee or contract basis)"
+  },
+  {
+    "code": "86320",
+    "name": "Gas distribution services through mains (on a fee or contract basis)"
+  },
+  {
+    "code": "86330",
+    "name": "Water distribution services through mains (on a fee or contract basis)"
+  },
+  {
+    "code": "86340",
+    "name": "Distribution services of steam, hot water and air-conditioning supply through mains (on a fee or contract basis)"
+  },
+  {
+    "code": "86350",
+    "name": "Water distribution services, except through mains (on a fee or contract basis)"
+  },
+  {
+    "code": "87110",
+    "name": "Maintenance and repair services of fabricated metal products, except machinery and equipment"
+  },
+  {
+    "code": "87120",
+    "name": "Maintenance and repair services of office and accounting machinery"
+  },
+  {
+    "code": "87130",
+    "name": "Maintenance and repair services of computers and peripheral equipment"
+  },
+  {
+    "code": "87141",
+    "name": "Maintenance and repair services of motor vehicles"
+  },
+  {
+    "code": "87142",
+    "name": "Maintenance and repair services of motorcycles"
+  },
+  {
+    "code": "87143",
+    "name": "Maintenance and repair services of trailers, semi-trailers and other motor vehicles n.e.c."
+  },
+  {
+    "code": "87149",
+    "name": "Maintenance and repair services of other transport equipment"
+  },
+  {
+    "code": "87151",
+    "name": "Maintenance and repair services of electrical household appliances"
+  },
+  {
+    "code": "87152",
+    "name": "Maintenance and repair services of electrical machinery and apparatus n.e.c."
+  },
+  {
+    "code": "87153",
+    "name": "Maintenance and repair services of telecommunication equipment and apparatus"
+  },
+  {
+    "code": "87154",
+    "name": "Maintenance and repair services of medical, precision and optical instruments"
+  },
+  {
+    "code": "87155",
+    "name": "Maintenance and repair services of consumer electronics"
+  },
+  {
+    "code": "87156",
+    "name": "Maintenance and repair services of commercial and industrial machinery"
+  },
+  {
+    "code": "87157",
+    "name": "Maintenance and repair services of elevators and escalators"
+  },
+  {
+    "code": "87159",
+    "name": "Maintenance and repair services of other equipment"
+  },
+  {
+    "code": "87210",
+    "name": "Repair services of footwear and leather goods"
+  },
+  {
+    "code": "87220",
+    "name": "Repair services of watches, clocks and jewellery"
+  },
+  {
+    "code": "87230",
+    "name": "Repair services of garments and household textiles"
+  },
+  {
+    "code": "87240",
+    "name": "Repair services of furniture"
+  },
+  {
+    "code": "87290",
+    "name": "Maintenance and repair services of other goods n.e.c."
+  },
+  {
+    "code": "87310",
+    "name": "Installation services of fabricated metal products, except machinery and equipment"
+  },
+  {
+    "code": "87320",
+    "name": "Installation services of industrial, manufacturing and service industry machinery and equipment"
+  },
+  {
+    "code": "87331",
+    "name": "Installation services of mainframe computers"
+  },
+  {
+    "code": "87332",
+    "name": "Installation services of personal computers and peripheral equipment"
+  },
+  {
+    "code": "87333",
+    "name": "Installation services of office and accounting machinery"
+  },
+  {
+    "code": "87340",
+    "name": "Installation services of radio, television and communications equipment and apparatus"
+  },
+  {
+    "code": "87350",
+    "name": "Installation services of professional medical machinery and equipment, and precision and optical instruments"
+  },
+  {
+    "code": "87360",
+    "name": "Installation services of electrical machinery and apparatus n.e.c."
+  },
+  {
+    "code": "87390",
+    "name": "Installation services of other goods n.e.c."
+  },
+  {
+    "code": "88110",
+    "name": "Meat processing services"
+  },
+  {
+    "code": "88120",
+    "name": "Fish processing services"
+  },
+  {
+    "code": "88130",
+    "name": "Fruit and vegetables processing services"
+  },
+  {
+    "code": "88140",
+    "name": "Vegetable and animal oil and fat manufacturing services"
+  },
+  {
+    "code": "88150",
+    "name": "Dairy product manufacturing services"
+  },
+  {
+    "code": "88161",
+    "name": "Grain mill product manufacturing services"
+  },
+  {
+    "code": "88162",
+    "name": "Starch and starch product manufacturing services"
+  },
+  {
+    "code": "88163",
+    "name": "Bakery product manufacturing services"
+  },
+  {
+    "code": "88164",
+    "name": "Sugar manufacturing services"
+  },
+  {
+    "code": "88165",
+    "name": "Cocoa, chocolate and sugar confectionery manufacturing services"
+  },
+  {
+    "code": "88166",
+    "name": "Macaroni, noodles, couscous and similar farinaceous products manufacturing services"
+  },
+  {
+    "code": "88167",
+    "name": "Prepared meals and dishes manufacturing services"
+  },
+  {
+    "code": "88169",
+    "name": "Other food product manufacturing services n.e.c."
+  },
+  {
+    "code": "88170",
+    "name": "Prepared animal feeds manufacturing services"
+  },
+  {
+    "code": "88181",
+    "name": "Distilled alcoholic beverage manufacturing services"
+  },
+  {
+    "code": "88182",
+    "name": "Wine manufacturing services"
+  },
+  {
+    "code": "88183",
+    "name": "Malt and malt liquor manufacturing services"
+  },
+  {
+    "code": "88184",
+    "name": "Soft drink manufacturing services"
+  },
+  {
+    "code": "88190",
+    "name": "Tobacco manufacturing services"
+  },
+  {
+    "code": "88211",
+    "name": "Textile fibre manufacturing services"
+  },
+  {
+    "code": "88212",
+    "name": "Textile weaving services"
+  },
+  {
+    "code": "88213",
+    "name": "Textile finishing services"
+  },
+  {
+    "code": "88214",
+    "name": "Knitted and crocheted fabric manufacturing services"
+  },
+  {
+    "code": "88215",
+    "name": "Made-up textile article manufacturing services"
+  },
+  {
+    "code": "88216",
+    "name": "Carpet and rug manufacturing services"
+  },
+  {
+    "code": "88217",
+    "name": "Cordage, rope, twine and netting manufacturing services"
+  },
+  {
+    "code": "88219",
+    "name": "Other textile manufacturing services n.e.c."
+  },
+  {
+    "code": "88221",
+    "name": "Wearing apparel manufacturing services, except fur apparel"
+  },
+  {
+    "code": "88222",
+    "name": "Fur apparel manufacturing services"
+  },
+  {
+    "code": "88223",
+    "name": "Knitted and crocheted apparel manufacturing services"
+  },
+  {
+    "code": "88231",
+    "name": "Leather tanning and dressing services; fur dressing and dyeing services"
+  },
+  {
+    "code": "88232",
+    "name": "Luggage manufacturing services"
+  },
+  {
+    "code": "88233",
+    "name": "Footwear manufacturing services"
+  },
+  {
+    "code": "88311",
+    "name": "Wood manufacturing services"
+  },
+  {
+    "code": "88312",
+    "name": "Veneer sheet and wood panel manufacturing services"
+  },
+  {
+    "code": "88313",
+    "name": "Carpentry manufacturing services"
+  },
+  {
+    "code": "88314",
+    "name": "Wooden containers manufacturing services"
+  },
+  {
+    "code": "88319",
+    "name": "Other wood product manufacturing services"
+  },
+  {
+    "code": "88321",
+    "name": "Pulp, paper and paperboard manufacturing services"
+  },
+  {
+    "code": "88322",
+    "name": "Corrugated paper and paperboard manufacturing services"
+  },
+  {
+    "code": "88329",
+    "name": "Other paper article manufacturing services"
+  },
+  {
+    "code": "88411",
+    "name": "Coke oven products manufacturing services"
+  },
+  {
+    "code": "88412",
+    "name": "Refined petroleum products manufacturing services"
+  },
+  {
+    "code": "88421",
+    "name": "Basic chemicals manufacturing services"
+  },
+  {
+    "code": "88422",
+    "name": "Fertilizer manufacturing services"
+  },
+  {
+    "code": "88423",
+    "name": "Plastics and rubber manufacturing services"
+  },
+  {
+    "code": "88424",
+    "name": "Agrochemical product manufacturing services"
+  },
+  {
+    "code": "88425",
+    "name": "Paint manufacturing services"
+  },
+  {
+    "code": "88426",
+    "name": "Soap, detergents, cleaning preparation and perfume manufacturing services"
+  },
+  {
+    "code": "88427",
+    "name": "Other chemical products manufacturing services n.e.c."
+  },
+  {
+    "code": "88429",
+    "name": "Man-made fibre manufacturing services"
+  },
+  {
+    "code": "88430",
+    "name": "Pharmaceutical product manufacturing services"
+  },
+  {
+    "code": "88511",
+    "name": "Tyre manufacturing services"
+  },
+  {
+    "code": "88512",
+    "name": "Other rubber product manufacturing services"
+  },
+  {
+    "code": "88520",
+    "name": "Plastic product manufacturing services"
+  },
+  {
+    "code": "88531",
+    "name": "Glass manufacturing services"
+  },
+  {
+    "code": "88532",
+    "name": "Refractory product manufacturing services"
+  },
+  {
+    "code": "88533",
+    "name": "Clay building material manufacturing services"
+  },
+  {
+    "code": "88534",
+    "name": "Other porcelain and ceramic product manufacturing services"
+  },
+  {
+    "code": "88535",
+    "name": "Cement, lime and plaster manufacturing services"
+  },
+  {
+    "code": "88536",
+    "name": "Concrete, cement and plaster article manufacturing services"
+  },
+  {
+    "code": "88537",
+    "name": "Stone cutting, shaping and finishing services"
+  },
+  {
+    "code": "88539",
+    "name": "Other non-metallic mineral product manufacturing services n.e.c."
+  },
+  {
+    "code": "88601",
+    "name": "Basic iron and steel manufacturing services"
+  },
+  {
+    "code": "88602",
+    "name": "Basic precious and other non-ferrous metal manufacturing services"
+  },
+  {
+    "code": "88711",
+    "name": "Structural metal product manufacturing services"
+  },
+  {
+    "code": "88712",
+    "name": "Tank, reservoir and metal container manufacturing services"
+  },
+  {
+    "code": "88713",
+    "name": "Steam generator manufacturing services"
+  },
+  {
+    "code": "88720",
+    "name": "Weapon and ammunition manufacturing services"
+  },
+  {
+    "code": "88731",
+    "name": "Metal treatment and coating services"
+  },
+  {
+    "code": "88732",
+    "name": "General machining services"
+  },
+  {
+    "code": "88733",
+    "name": "Cutlery, hand tool and general hardware manufacturing services"
+  },
+  {
+    "code": "88739",
+    "name": "Other fabricated metal product manufacturing services n.e.c."
+  },
+  {
+    "code": "88741",
+    "name": "Electronic component and board manufacturing services"
+  },
+  {
+    "code": "88742",
+    "name": "Computer and peripheral equipment manufacturing services"
+  },
+  {
+    "code": "88743",
+    "name": "Communication equipment manufacturing services"
+  },
+  {
+    "code": "88744",
+    "name": "Consumer electronics manufacturing services"
+  },
+  {
+    "code": "88745",
+    "name": "Measuring, testing, navigating and control equipment manufacturing services"
+  },
+  {
+    "code": "88746",
+    "name": "Watch and clock manufacturing services"
+  },
+  {
+    "code": "88747",
+    "name": "Irradiation, electromedical and electrotherapeutic equipment manufacturing services"
+  },
+  {
+    "code": "88748",
+    "name": "Optical instrument and photographic equipment manufacturing services"
+  },
+  {
+    "code": "88749",
+    "name": "Magnetic and optical media manufacturing services"
+  },
+  {
+    "code": "88751",
+    "name": "Electric motor, generator, transformer and electricity distribution and control apparatus manufacturing services"
+  },
+  {
+    "code": "88752",
+    "name": "Battery and accumulator manufacturing services"
+  },
+  {
+    "code": "88753",
+    "name": "Fibre optic cable manufacturing services"
+  },
+  {
+    "code": "88754",
+    "name": "Other electronic and electric wire and cable manufacturing services"
+  },
+  {
+    "code": "88755",
+    "name": "Wiring device manufacturing services"
+  },
+  {
+    "code": "88756",
+    "name": "Electric lighting equipment manufacturing services"
+  },
+  {
+    "code": "88757",
+    "name": "Domestic appliance manufacturing services"
+  },
+  {
+    "code": "88759",
+    "name": "Other electrical equipment manufacturing services"
+  },
+  {
+    "code": "88761",
+    "name": "Engines and turbine manufacturing services"
+  },
+  {
+    "code": "88762",
+    "name": "Fluid power equipment manufacturing services"
+  },
+  {
+    "code": "88763",
+    "name": "Other pump, compressor, tap and valve manufacturing services"
+  },
+  {
+    "code": "88764",
+    "name": "Bearing, gear, gearing and driving element manufacturing services"
+  },
+  {
+    "code": "88765",
+    "name": "Oven, furnace and furnace burner manufacturing services"
+  },
+  {
+    "code": "88766",
+    "name": "Lifting and handling equipment manufacturing services"
+  },
+  {
+    "code": "88767",
+    "name": "Office machinery and equipment (except computers and peripheral equipment) manufacturing services"
+  },
+  {
+    "code": "88768",
+    "name": "Power-driven hand tool manufacturing services"
+  },
+  {
+    "code": "88769",
+    "name": "Other general-purpose machinery manufacturing services"
+  },
+  {
+    "code": "88771",
+    "name": "Agricultural and forestry machinery manufacturing services"
+  },
+  {
+    "code": "88772",
+    "name": "Metal-forming machinery and machine tools manufacturing services"
+  },
+  {
+    "code": "88773",
+    "name": "Metallurgy machinery manufacturing services"
+  },
+  {
+    "code": "88774",
+    "name": "Mining, quarrying and construction machinery manufacturing services"
+  },
+  {
+    "code": "88775",
+    "name": "Food, beverage and tobacco processing machinery manufacturing services"
+  },
+  {
+    "code": "88776",
+    "name": "Textile, apparel and leather production machinery manufacturing services"
+  },
+  {
+    "code": "88779",
+    "name": "Other special-purpose machinery manufacturing services"
+  },
+  {
+    "code": "88811",
+    "name": "Motor vehicle manufacturing services"
+  },
+  {
+    "code": "88812",
+    "name": "Trailers and semi-trailer manufacturing services"
+  },
+  {
+    "code": "88813",
+    "name": "Motor vehicle part and accessory manufacturing services"
+  },
+  {
+    "code": "88821",
+    "name": "Ship building services"
+  },
+  {
+    "code": "88822",
+    "name": "Pleasure and sporting boat manufacturing services"
+  },
+  {
+    "code": "88823",
+    "name": "Railway locomotive and rolling stock manufacturing services"
+  },
+  {
+    "code": "88824",
+    "name": "Air and spacecraft manufacturing services"
+  },
+  {
+    "code": "88825",
+    "name": "Military fighting vehicle manufacturing services"
+  },
+  {
+    "code": "88826",
+    "name": "Motorcycle manufacturing services"
+  },
+  {
+    "code": "88827",
+    "name": "Bicycles and invalid carriage manufacturing services"
+  },
+  {
+    "code": "88829",
+    "name": "Other transport equipment manufacturing services n.e.c."
+  },
+  {
+    "code": "88901",
+    "name": "Furniture manufacturing services"
+  },
+  {
+    "code": "88902",
+    "name": "Jewellery manufacturing services"
+  },
+  {
+    "code": "88903",
+    "name": "Imitation jewellery manufacturing services"
+  },
+  {
+    "code": "88904",
+    "name": "Musical instrument manufacturing services"
+  },
+  {
+    "code": "88905",
+    "name": "Sports good manufacturing services"
+  },
+  {
+    "code": "88906",
+    "name": "Game and toy manufacturing services"
+  },
+  {
+    "code": "88907",
+    "name": "Medical and dental instrument and supply manufacturing services"
+  },
+  {
+    "code": "88909",
+    "name": "Other manufacturing services n.e.c."
+  },
+  {
+    "code": "89110",
+    "name": "Publishing, on a fee or contract basis"
+  },
+  {
+    "code": "89121",
+    "name": "Printing services"
+  },
+  {
+    "code": "89122",
+    "name": "Services related to printing"
+  },
+  {
+    "code": "89123",
+    "name": "Reproduction services of recorded media, on a fee or contract basis"
+  },
+  {
+    "code": "89200",
+    "name": "Moulding, pressing, stamping, extruding and similar plastic manufacturing services"
+  },
+  {
+    "code": "89310",
+    "name": "Iron and steel casting services"
+  },
+  {
+    "code": "89320",
+    "name": "Non-ferrous metal casting services"
+  },
+  {
+    "code": "89330",
+    "name": "Metal forging, pressing, stamping, roll forming and powder metallurgy services"
+  },
+  {
+    "code": "89410",
+    "name": "Metal waste and scrap recovery (recycling) services, on a fee or contract basis"
+  },
+  {
+    "code": "89420",
+    "name": "Non-metal waste and scrap recovery (recycling) services, on a fee or contract basis"
+  },
+  {
+    "code": "91111",
+    "name": "Executive and legislative services"
+  },
+  {
+    "code": "91112",
+    "name": "Financial and fiscal services"
+  },
+  {
+    "code": "91113",
+    "name": "Overall economic and social planning and statistical services"
+  },
+  {
+    "code": "91114",
+    "name": "Government services to research and development"
+  },
+  {
+    "code": "91119",
+    "name": "Other overall government public services"
+  },
+  {
+    "code": "91121",
+    "name": "Public administrative services related to education"
+  },
+  {
+    "code": "91122",
+    "name": "Public administrative services related to health care"
+  },
+  {
+    "code": "91123",
+    "name": "Public administrative services related to housing and community amenities"
+  },
+  {
+    "code": "91124",
+    "name": "Public administrative services related to recreation, culture and religion"
+  },
+  {
+    "code": "91131",
+    "name": "Public administrative services related to agriculture, forestry, fishing and hunting"
+  },
+  {
+    "code": "91132",
+    "name": "Public administrative services related to fuel and energy"
+  },
+  {
+    "code": "91133",
+    "name": "Public administrative services related to mining and mineral resources, manufacturing and construction"
+  },
+  {
+    "code": "91134",
+    "name": "Public administrative services related to transport and communications"
+  },
+  {
+    "code": "91135",
+    "name": "Public administrative services related to the distributive and catering trades, hotels and restaurants"
+  },
+  {
+    "code": "91136",
+    "name": "Public administrative services related to tourism affairs"
+  },
+  {
+    "code": "91137",
+    "name": "Public administrative services related to multipurpose development projects"
+  },
+  {
+    "code": "91138",
+    "name": "Public administrative services related to general economic, commercial and labour affairs"
+  },
+  {
+    "code": "91191",
+    "name": "Administrative services related to government personnel"
+  },
+  {
+    "code": "91199",
+    "name": "Other administrative services of the government n.e.c."
+  },
+  {
+    "code": "91210",
+    "name": "Public administrative services related to external affairs, diplomatic and consular services abroad"
+  },
+  {
+    "code": "91220",
+    "name": "Services related to foreign economic aid"
+  },
+  {
+    "code": "91230",
+    "name": "Services related to foreign military aid"
+  },
+  {
+    "code": "91240",
+    "name": "Military defence services"
+  },
+  {
+    "code": "91250",
+    "name": "Civil defence services"
+  },
+  {
+    "code": "91260",
+    "name": "Police and fire protection services"
+  },
+  {
+    "code": "91270",
+    "name": "Public administrative services related to law courts"
+  },
+  {
+    "code": "91280",
+    "name": "Administrative services related to the detention or rehabilitation of criminals"
+  },
+  {
+    "code": "91290",
+    "name": "Public administrative services related to other public order and safety affairs"
+  },
+  {
+    "code": "91310",
+    "name": "Administrative services related to sickness, maternity or temporary disablement benefit schemes"
+  },
+  {
+    "code": "91320",
+    "name": "Administrative services related to government employee pension schemes; old-age disability or survivors' benefit schemes, other than for government employees"
+  },
+  {
+    "code": "91330",
+    "name": "Administrative services related to unemployment compensation benefit schemes"
+  },
+  {
+    "code": "91340",
+    "name": "Administrative services related to family and child allowance programmes"
+  },
+  {
+    "code": "92100",
+    "name": "Pre-primary education services"
+  },
+  {
+    "code": "92200",
+    "name": "Primary education services"
+  },
+  {
+    "code": "92310",
+    "name": "Lower secondary education services, general"
+  },
+  {
+    "code": "92320",
+    "name": "Lower secondary education services, technical and vocational"
+  },
+  {
+    "code": "92330",
+    "name": "Upper secondary education services, general"
+  },
+  {
+    "code": "92340",
+    "name": "Upper secondary education services, technical and vocational"
+  },
+  {
+    "code": "92410",
+    "name": "Post-secondary non-tertiary education services, general"
+  },
+  {
+    "code": "92420",
+    "name": "Post-secondary non-tertiary education services, technical and vocational"
+  },
+  {
+    "code": "92510",
+    "name": "First stage tertiary education services"
+  },
+  {
+    "code": "92520",
+    "name": "Second stage tertiary education services"
+  },
+  {
+    "code": "92911",
+    "name": "Cultural education services"
+  },
+  {
+    "code": "92912",
+    "name": "Sports and recreation education services"
+  },
+  {
+    "code": "92919",
+    "name": "Other education and training services, n.e.c."
+  },
+  {
+    "code": "92920",
+    "name": "Educational support services"
+  },
+  {
+    "code": "93111",
+    "name": "Surgical services for inpatients"
+  },
+  {
+    "code": "93112",
+    "name": "Gynaecological and obstetrical services for inpatients"
+  },
+  {
+    "code": "93113",
+    "name": "Psychiatric services for inpatients"
+  },
+  {
+    "code": "93119",
+    "name": "Other services for inpatients"
+  },
+  {
+    "code": "93121",
+    "name": "General medical services"
+  },
+  {
+    "code": "93122",
+    "name": "Specialized medical services"
+  },
+  {
+    "code": "93123",
+    "name": "Dental services"
+  },
+  {
+    "code": "93191",
+    "name": "Childbirth and related services"
+  },
+  {
+    "code": "93192",
+    "name": "Nursing services"
+  },
+  {
+    "code": "93193",
+    "name": "Physiotherapeutic services"
+  },
+  {
+    "code": "93194",
+    "name": "Ambulance services"
+  },
+  {
+    "code": "93195",
+    "name": "Medical laboratory services"
+  },
+  {
+    "code": "93196",
+    "name": "Diagnostic-imaging services"
+  },
+  {
+    "code": "93197",
+    "name": "Blood, sperm and organ bank services"
+  },
+  {
+    "code": "93199",
+    "name": "Other human health services n.e.c."
+  },
+  {
+    "code": "93210",
+    "name": "Residential health-care services other than by hospitals"
+  },
+  {
+    "code": "93221",
+    "name": "Residential care services for the elderly"
+  },
+  {
+    "code": "93222",
+    "name": "Residential care services for young disabled persons"
+  },
+  {
+    "code": "93223",
+    "name": "Residential care services for disabled adults"
+  },
+  {
+    "code": "93301",
+    "name": "Residential care services for children suffering from mental retardation, mental health illnesses or substance abuse"
+  },
+  {
+    "code": "93302",
+    "name": "Other social services with accommodation for children"
+  },
+  {
+    "code": "93303",
+    "name": "Residential care services for adults suffering from mental retardation, mental health illnesses or substance abuse"
+  },
+  {
+    "code": "93304",
+    "name": "Other social services with accommodation for adults"
+  },
+  {
+    "code": "93411",
+    "name": "Vocational rehabilitation services for persons with disabilities"
+  },
+  {
+    "code": "93412",
+    "name": "Vocational rehabilitation services for unemployed persons"
+  },
+  {
+    "code": "93491",
+    "name": "Other social services without accommodation for the elderly"
+  },
+  {
+    "code": "93492",
+    "name": "Other social services without accommodation for disabled children"
+  },
+  {
+    "code": "93493",
+    "name": "Other social services without accommodation for disabled adults"
+  },
+  {
+    "code": "93510",
+    "name": "Child day-care services"
+  },
+  {
+    "code": "93520",
+    "name": "Guidance and counselling services n.e.c. related to children"
+  },
+  {
+    "code": "93530",
+    "name": "Welfare services without accommodation"
+  },
+  {
+    "code": "93590",
+    "name": "Other social services without accommodation, n.e.c."
+  },
+  {
+    "code": "94110",
+    "name": "Sewerage and sewage treatment services"
+  },
+  {
+    "code": "94120",
+    "name": "Septic tank emptying and cleaning services"
+  },
+  {
+    "code": "94211",
+    "name": "Collection services of hazardous medical and other biohazardous waste"
+  },
+  {
+    "code": "94212",
+    "name": "Collection services of industrial hazardous waste (except medical and other biohazardous waste)"
+  },
+  {
+    "code": "94219",
+    "name": "Collection services of other hazardous waste"
+  },
+  {
+    "code": "94221",
+    "name": "Collection services of non-hazardous recyclable materials, residential"
+  },
+  {
+    "code": "94229",
+    "name": "Collection services of non-hazardous recyclable materials, other"
+  },
+  {
+    "code": "94231",
+    "name": "General waste collection services, residential"
+  },
+  {
+    "code": "94239",
+    "name": "General waste collection services, other"
+  },
+  {
+    "code": "94311",
+    "name": "Hazardous waste preparation, consolidation and storage services"
+  },
+  {
+    "code": "94312",
+    "name": "Ship-breaking and other dismantling of wrecks services"
+  },
+  {
+    "code": "94313",
+    "name": "Non-hazardous recyclable materials preparation, consolidation and storage services"
+  },
+  {
+    "code": "94319",
+    "name": "Other non-hazardous waste preparation, consolidation and storage services"
+  },
+  {
+    "code": "94321",
+    "name": "Hazardous waste treatment services"
+  },
+  {
+    "code": "94322",
+    "name": "Hazardous waste disposal services"
+  },
+  {
+    "code": "94331",
+    "name": "Sanitary landfill services, non-hazardous waste"
+  },
+  {
+    "code": "94332",
+    "name": "Other landfill services, non-hazardous waste"
+  },
+  {
+    "code": "94333",
+    "name": "Incineration of non-hazardous waste"
+  },
+  {
+    "code": "94339",
+    "name": "Other non-hazardous waste treatment and disposal services"
+  },
+  {
+    "code": "94411",
+    "name": "Site remediation and clean-up services, air"
+  },
+  {
+    "code": "94412",
+    "name": "Site remediation and clean-up services, surface water"
+  },
+  {
+    "code": "94413",
+    "name": "Site remediation and clean-up services, soil and groundwater"
+  },
+  {
+    "code": "94420",
+    "name": "Containment, control and monitoring services and other site remediation services n.e.c."
+  },
+  {
+    "code": "94430",
+    "name": "Building remediation services"
+  },
+  {
+    "code": "94490",
+    "name": "Other remediation services n.e.c."
+  },
+  {
+    "code": "94510",
+    "name": "Sweeping and snow removal services"
+  },
+  {
+    "code": "94590",
+    "name": "Other sanitation services"
+  },
+  {
+    "code": "94900",
+    "name": "Other environmental protection services n.e.c."
+  },
+  {
+    "code": "95110",
+    "name": "Services furnished by business and employers organizations"
+  },
+  {
+    "code": "95120",
+    "name": "Services furnished by professional organizations"
+  },
+  {
+    "code": "95200",
+    "name": "Services furnished by trade unions"
+  },
+  {
+    "code": "95910",
+    "name": "Religious services"
+  },
+  {
+    "code": "95920",
+    "name": "Services furnished by political organizations"
+  },
+  {
+    "code": "95991",
+    "name": "Services furnished by human rights organizations"
+  },
+  {
+    "code": "95992",
+    "name": "Services furnished by environmental advocacy groups"
+  },
+  {
+    "code": "95993",
+    "name": "Other special group advocacy services"
+  },
+  {
+    "code": "95994",
+    "name": "Other civic betterment and community facility support services"
+  },
+  {
+    "code": "95995",
+    "name": "Services provided by youth associations"
+  },
+  {
+    "code": "95996",
+    "name": "Grant-giving services"
+  },
+  {
+    "code": "95997",
+    "name": "Cultural and recreational associations (other than sports or games)"
+  },
+  {
+    "code": "95998",
+    "name": "Other civic and social organizations"
+  },
+  {
+    "code": "95999",
+    "name": "Other services provided by membership organizations n.e.c."
+  },
+  {
+    "code": "96111",
+    "name": "Sound recording services, except live recording services"
+  },
+  {
+    "code": "96112",
+    "name": "Live recording services"
+  },
+  {
+    "code": "96113",
+    "name": "Sound recording originals"
+  },
+  {
+    "code": "96121",
+    "name": "Motion picture, videotape and television programme production services"
+  },
+  {
+    "code": "96122",
+    "name": "Radio programme production services"
+  },
+  {
+    "code": "96123",
+    "name": "Motion picture, videotape, television and radio programme originals"
+  },
+  {
+    "code": "96131",
+    "name": "Audiovisual editing services"
+  },
+  {
+    "code": "96132",
+    "name": "Transfers and duplication of masters services"
+  },
+  {
+    "code": "96133",
+    "name": "Colour correction and digital restoration services"
+  },
+  {
+    "code": "96134",
+    "name": "Visual effects services"
+  },
+  {
+    "code": "96135",
+    "name": "Animation services"
+  },
+  {
+    "code": "96136",
+    "name": "Captioning, titling and subtitling services"
+  },
+  {
+    "code": "96137",
+    "name": "Sound editing and design services"
+  },
+  {
+    "code": "96139",
+    "name": "Other post-production services"
+  },
+  {
+    "code": "96140",
+    "name": "Motion picture, videotape and television programme distribution services"
+  },
+  {
+    "code": "96150",
+    "name": "Motion picture projection services"
+  },
+  {
+    "code": "96210",
+    "name": "Performing arts event promotion and organization services"
+  },
+  {
+    "code": "96220",
+    "name": "Performing arts event production and presentation services"
+  },
+  {
+    "code": "96230",
+    "name": "Performing arts facility operation services"
+  },
+  {
+    "code": "96290",
+    "name": "Other performing arts and live entertainment services"
+  },
+  {
+    "code": "96310",
+    "name": "Services of performing artists"
+  },
+  {
+    "code": "96320",
+    "name": "Services of authors, composers, sculptors and other artists, except performing artists"
+  },
+  {
+    "code": "96330",
+    "name": "Original works of authors, composers and other artists except performing artists, painters and sculptors"
+  },
+  {
+    "code": "96411",
+    "name": "Museum services except for historical sites and buildings"
+  },
+  {
+    "code": "96412",
+    "name": "Preservation services of historical sites and buildings"
+  },
+  {
+    "code": "96421",
+    "name": "Botanical and zoological garden services"
+  },
+  {
+    "code": "96422",
+    "name": "Nature reserve services including wildlife preservation services"
+  },
+  {
+    "code": "96511",
+    "name": "Sports and recreational sports event promotion services"
+  },
+  {
+    "code": "96512",
+    "name": "Services of sports clubs"
+  },
+  {
+    "code": "96520",
+    "name": "Sports and recreational sports facility operation services"
+  },
+  {
+    "code": "96590",
+    "name": "Other sports and recreational sports services"
+  },
+  {
+    "code": "96610",
+    "name": "Services of athletes"
+  },
+  {
+    "code": "96620",
+    "name": "Support services related to sports and recreation"
+  },
+  {
+    "code": "96910",
+    "name": "Amusement park and similar attraction services"
+  },
+  {
+    "code": "96921",
+    "name": "On-line gambling services"
+  },
+  {
+    "code": "96929",
+    "name": "Other gambling and betting services"
+  },
+  {
+    "code": "96930",
+    "name": "Coin-operated amusement machine services"
+  },
+  {
+    "code": "96990",
+    "name": "Other recreation and amusement services n.e.c."
+  },
+  {
+    "code": "97110",
+    "name": "Coin-operated laundry services"
+  },
+  {
+    "code": "97120",
+    "name": "Dry-cleaning services (including fur product cleaning services)"
+  },
+  {
+    "code": "97130",
+    "name": "Other textile cleaning services"
+  },
+  {
+    "code": "97140",
+    "name": "Pressing services"
+  },
+  {
+    "code": "97150",
+    "name": "Dyeing and colouring services"
+  },
+  {
+    "code": "97210",
+    "name": "Hairdressing and barbers' services"
+  },
+  {
+    "code": "97220",
+    "name": "Cosmetic treatment, manicuring and pedicuring services"
+  },
+  {
+    "code": "97230",
+    "name": "Physical well-being services"
+  },
+  {
+    "code": "97290",
+    "name": "Other beauty treatment services n.e.c."
+  },
+  {
+    "code": "97310",
+    "name": "Cemeteries and cremation services"
+  },
+  {
+    "code": "97320",
+    "name": "Undertaking services"
+  },
+  {
+    "code": "97910",
+    "name": "Escort services"
+  },
+  {
+    "code": "97990",
+    "name": "Other miscellaneous services n.e.c."
+  },
+  {
+    "code": "98000",
+    "name": "Domestic services"
+  },
+  {
+    "code": "99000",
+    "name": "Services provided by extraterritorial organizations and bodies"
+  }
+]

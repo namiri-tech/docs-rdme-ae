@@ -1,0 +1,1271 @@
+code,name
+53111,One- and two-dwelling residential buildings
+53112,Multi-dwelling residential buildings
+53121,Industrial buildings
+53122,Commercial buildings
+53129,Other non-residential buildings
+53211,"Highways (except elevated highways), streets and roads"
+53212,Railways
+53213,Airfield runways
+53221,Bridges and elevated highways
+53222,Tunnels
+53231,"Aqueducts and other water supply conduits, except pipelines"
+53232,"Harbours, waterways and related facilities"
+53233,Dams
+53234,Irrigation and flood control waterworks
+53241,Long-distance pipelines
+53242,Long-distance communication and power lines (cables)
+53251,Local pipelines
+53252,Local cables and related works
+53253,Sewage and water treatment plants
+53261,Mining constructions
+53262,Power plants
+53269,Other constructions for manufacturing
+53270,Outdoor sport and recreation facilities
+53290,Other civil engineering works
+54111,General construction services of one- and two-dwelling residential buildings
+54112,General construction services of multi-dwelling residential buildings
+54121,General construction services of industrial buildings
+54122,General construction services of commercial buildings
+54129,General construction services of other non-residential buildings
+54211,"General construction services of highways (except elevated highways), streets and roads"
+54212,General construction services of railways
+54213,General construction services of airfield runways
+54221,General construction services of bridges and elevated highways
+54222,General construction services of tunnels
+54231,"General construction services of aqueducts and other water supply conduits, except pipelines"
+54232,General construction services of harbours and similar waterworks
+54233,General construction services of dams
+54234,General construction services of irrigation and flood control waterworks
+54241,General construction services of long-distance pipelines
+54242,General construction services of long-distance communication and power lines (cables)
+54251,General construction services of local pipelines
+54252,General construction services of local cables and related works
+54253,General construction services of sewage and water treatment plants
+54261,General construction services of mines
+54262,General construction services of power plants
+54269,General construction services of other industrial plants
+54270,General construction services of outdoor sport and recreation facilities
+54290,General construction services of other civil engineering works
+54310,Demolition services
+54320,Site formation and clearance services
+54330,Excavating and earthmoving services
+54341,Water well drilling services
+54342,Septic system installation services
+54400,Assembly and erection of prefabricated constructions
+54511,Pile driving services
+54512,Foundation services
+54521,Building framing services
+54522,Roof framing services
+54530,Roofing and waterproofing services
+54540,Concrete services
+54550,Structural steel erection services
+54560,Masonry services
+54570,Scaffolding services
+54590,Other special trade construction services
+54611,Electrical wiring and fitting services
+54612,Fire alarm installation services
+54613,Burglar alarm system installation services
+54614,Residential antenna installation services
+54619,Other electrical installation services
+54621,Water plumbing services
+54622,Drain laying services
+54631,Heating equipment installation services
+54632,Ventilation and air-conditioning equipment installation services
+54640,Gas fitting installation services
+54650,Insulation services
+54691,Lift and escalator installation services
+54699,Other installation services n.e.c.
+54710,Glazing services
+54720,Plastering services
+54730,Painting services
+54740,Floor and wall tiling services
+54750,"Other floor laying, wall covering and wall papering services"
+54760,Joinery and carpentry services
+54770,Fencing and railing services
+54790,Other building completion and finishing services
+61111,"Wholesale trade services, except on a fee or contract basis, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+61112,"Wholesale trade services, except on a fee or contract basis, of flowers and plants"
+61113,"Wholesale trade services, except on a fee or contract basis, of unmanufactured tobacco"
+61114,"Wholesale trade services, except on a fee or contract basis, of live animals, including pet animals"
+61115,"Wholesale trade services, except on a fee or contract basis, of hides, skins and leather"
+61119,"Wholesale trade services, except on a fee or contract basis, of agricultural raw materials n.e.c."
+61121,"Wholesale trade services, except on a fee or contract basis, of fruits and vegetables"
+61122,"Wholesale trade services, except on a fee or contract basis, of dairy products, eggs and edible oils and fats"
+61123,"Wholesale trade services, except on a fee or contract basis, of meat, poultry and game"
+61124,"Wholesale trade services, except on a fee or contract basis, of fish and other seafood"
+61125,"Wholesale trade services, except on a fee or contract basis, of sugar confectionery and bakery products"
+61126,"Wholesale trade services, except on a fee or contract basis, of beverages"
+61127,"Wholesale trade services, except on a fee or contract basis, of coffee, tea and spices"
+61128,"Wholesale trade services, except on a fee or contract basis, of tobacco products"
+61129,"Wholesale trade services, except on a fee or contract basis, of food products n.e.c."
+61131,"Wholesale trade services, except on a fee or contract basis, of yarn and fabrics"
+61132,"Wholesale trade services, except on a fee or contract basis, of household linens, curtains, net curtains and diverse household articles of textile materials"
+61133,"Wholesale trade services, except on a fee or contract basis, of articles of clothing, articles of fur and clothing accessories"
+61134,"Wholesale trade services, except on a fee or contract basis, of footwear"
+61141,"Wholesale trade services, except on a fee or contract basis, of household furniture"
+61142,"Wholesale trade services, except on a fee or contract basis, of radio and television equipment and recorded audio and video disks and tapes"
+61143,"Wholesale trade services, except on a fee or contract basis, of articles for lighting"
+61144,"Wholesale trade services, except on a fee or contract basis, of household appliances"
+61145,"Wholesale trade services, except on a fee or contract basis, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+61146,"Wholesale trade services, except on a fee or contract basis, of wickerwork, cork goods, cooper's ware and other wooden ware"
+61151,"Wholesale trade services, except on a fee or contract basis, of books, newspapers, magazines and stationery"
+61152,"Wholesale trade services, except on a fee or contract basis, of photographic, optical and precision equipment"
+61153,"Wholesale trade services, except on a fee or contract basis, of games and toys"
+61154,"Wholesale trade services, except on a fee or contract basis, of watches, clocks and jewellery"
+61155,"Wholesale trade services, except on a fee or contract basis, of sports goods (incl. bicycles)"
+61156,"Wholesale trade services, except on a fee or contract basis, of leather goods and travel accessories"
+61159,"Wholesale trade services, except on a fee or contract basis, of miscellaneous consumer goods n.e.c."
+61161,"Wholesale trade services, except on a fee or contract basis, of construction materials and flat glass"
+61162,"Wholesale trade services, except on a fee or contract basis, of fittings, fixtures and ceramic sanitary fixtures"
+61163,"Wholesale trade services, except on a fee or contract basis, of wallpaper and floor coverings"
+61164,"Wholesale trade services, except on a fee or contract basis, of paints, varnishes and lacquers"
+61165,"Wholesale trade services, except on a fee or contract basis, of hardware and hand tools"
+61171,"Wholesale trade services, except on a fee or contract basis, of basic industrial chemicals and synthetic resins"
+61172,"Wholesale trade services, except on a fee or contract basis, of fertilizers and agrochemical products"
+61173,"Wholesale trade services, except on a fee or contract basis, of pharmaceutical products"
+61174,"Wholesale trade services, except on a fee or contract basis, of medical and orthopaedic goods"
+61175,"Wholesale trade services, except on a fee or contract basis, of perfumery articles, cosmetic articles and toilet soaps"
+61176,"Wholesale trade services, except on a fee or contract basis, of cleaning materials"
+61181,"Wholesale trade services, except on a fee or contract basis, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+61182,"Wholesale trade services, except on a fee or contract basis, of other transport equipment, except bicycles"
+61183,"Wholesale trade services, except on a fee or contract basis, of office machinery and equipment including office furniture"
+61184,"Wholesale trade services, except on a fee or contract basis, of computers and packaged software"
+61185,"Wholesale trade services, except on a fee or contract basis, of electronic and telecommunications equipment and parts"
+61186,"Wholesale trade services, except on a fee or contract basis, of agricultural lawn and garden machinery and equipment, including tractors"
+61187,"Wholesale trade services, except on a fee or contract basis, of mining, construction and civil engineering machinery and equipment"
+61188,"Wholesale trade services, except on a fee or contract basis, of other industry-specific machinery and equipment and related operating supplies"
+61189,"Wholesale trade services, except on a fee or contract basis, of other machinery and equipment n.e.c."
+61191,"Wholesale trade services, except on a fee or contract basis, of solid, liquid and gaseous fuels and related products"
+61192,"Wholesale trade services, except on a fee or contract basis, of metal ores and metal in primary forms"
+61193,"Wholesale trade services, except on a fee or contract basis, of wood in the rough"
+61194,"Wholesale trade services, except on a fee or contract basis, of paper and paperboard"
+61195,"Wholesale trade services, except on a fee or contract basis, of waste and scrap and materials for recycling"
+61197,"Wholesale trade services, except on a fee or contract basis, of electricity"
+61198,"Wholesale trade services, except on a fee or contract basis, of water"
+61199,"Wholesale trade services, except on a fee or contract basis, of non-metallic minerals and other products n.e.c."
+61211,"Wholesale trade services on a fee or contract basis, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+61212,"Wholesale trade services on a fee or contract basis, of flowers and plants"
+61213,"Wholesale trade services on a fee or contract basis, of unmanufactured tobacco"
+61214,"Wholesale trade services on a fee or contract basis, of live animals, including pet animals"
+61215,"Wholesale trade services on a fee or contract basis, of hides, skins and leather"
+61219,"Wholesale trade services on a fee or contract basis, of agricultural raw materials n.e.c."
+61221,"Wholesale trade services on a fee or contract basis, of fruits and vegetables"
+61222,"Wholesale trade services on a fee or contract basis, of dairy products, eggs and edible oils and fats"
+61223,"Wholesale trade services on a fee or contract basis, of meat, poultry and game"
+61224,"Wholesale trade services on a fee or contract basis, of fish and other seafood"
+61225,"Wholesale trade services on a fee or contract basis, of sugar confectionery and bakery products"
+61226,"Wholesale trade services on a fee or contract basis, of beverages"
+61227,"Wholesale trade services on a fee or contract basis, of coffee, tea and spices"
+61228,"Wholesale trade services on a fee or contract basis, of tobacco products"
+61229,"Wholesale trade services on a fee or contract basis, of food products n.e.c."
+61231,"Wholesale trade services on a fee or contract basis, of yarn and fabrics"
+61232,"Wholesale trade services on a fee or contract basis, of household linens, curtains, net curtains and diverse household articles"
+61233,"Wholesale trade services on a fee or contract basis, of articles of clothing, articles of fur and clothing accessories"
+61234,"Wholesale trade services on a fee or contract basis, of footwear"
+61241,"Wholesale trade services on a fee or contract basis, of household furniture"
+61242,"Wholesale trade services on a fee or contract basis, of radio and television equipment and recorded audio and video disks and tapes"
+61243,"Wholesale trade services on a fee or contract basis, of articles for lighting"
+61244,"Wholesale trade services on a fee or contract basis, of household appliances"
+61245,"Wholesale trade services on a fee or contract basis, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+61246,"Wholesale trade services on a fee or contract basis, of wickerwork, cork goods, cooper's ware and other wooden ware"
+61251,"Wholesale trade services on a fee or contract basis, of books, newspapers, magazines and stationery"
+61252,"Wholesale trade services on a fee or contract basis, of photographic, optical and precision equipment"
+61253,"Wholesale trade services on a fee or contract basis, of games and toys"
+61254,"Wholesale trade services on a fee or contract basis, of watches, clocks and jewellery"
+61255,"Wholesale trade services on a fee or contract basis, of sports goods (incl. bicycles)"
+61256,"Wholesale trade services on a fee or contract basis, of leather goods and travel accessories"
+61259,"Wholesale trade services on a fee or contract basis, of miscellaneous consumer goods n.e.c."
+61261,"Wholesale trade services on a fee or contract basis, of construction materials and flat glass"
+61262,"Wholesale trade services on a fee or contract basis, of fittings, fixtures and ceramic sanitary fixtures"
+61263,"Wholesale trade services on a fee or contract basis, of wallpaper and floor coverings"
+61264,"Wholesale trade services on a fee or contract basis, of paints, varnishes and lacquers"
+61265,"Wholesale trade services on a fee or contract basis, of hardware and hand tools"
+61271,"Wholesale trade services on a fee or contract basis, of basic industrial chemicals and synthetic resins"
+61272,"Wholesale trade services on a fee or contract basis, of fertilizers and agrochemical products"
+61273,"Wholesale trade services on a fee or contract basis, of pharmaceutical products"
+61274,"Wholesale trade services on a fee or contract basis, of medical and orthopaedic goods"
+61275,"Wholesale trade services on a fee or contract basis, of perfumery articles, cosmetic articles and toilet soaps"
+61276,"Wholesale trade services on a fee or contract basis, of cleaning materials"
+61281,"Wholesale trade services on a fee or contract basis, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+61282,"Wholesale trade services on a fee or contract basis, of other transport equipment, except bicycles"
+61283,"Wholesale trade services on a fee or contract basis, of office machinery and equipment including office furniture"
+61284,"Wholesale trade services on a fee or contract basis, of computers and packaged software"
+61285,"Wholesale trade services on a fee or contract basis, of electronic and telecommunications equipment and parts"
+61286,"Wholesale trade services on a fee or contract basis, of agricultural, lawn and garden machinery and equipment, including tractors"
+61287,"Wholesale trade services on a fee or contract basis, of mining, construction and civil engineering machinery and equipment"
+61288,"Wholesale trade services on a fee or contract basis, of other industry-specific machinery and equipment and related operating supplies"
+61289,"Wholesale trade services on a fee or contract basis, of other machinery and equipment n.e.c."
+61291,"Wholesale trade services on a fee or contract basis, of solid, liquid and gaseous fuels and related products"
+61292,"Wholesale trade services on a fee or contract basis, of metal ores and metal in primary forms"
+61293,"Wholesale trade services on a fee or contract basis, of wood in the rough"
+61294,"Wholesale trade services on a fee or contract basis, of paper and paperboard"
+61295,"Wholesale trade services on a fee or contract basis, of waste and scrap and materials for recycling"
+61297,"Wholesale trade services on a fee or contract basis, of electricity"
+61298,"Wholesale trade services on a fee or contract basis, of water"
+61299,"Wholesale trade services on a fee or contract basis, of non-metallic minerals and other products n.e.c."
+62111,"Non-specialized store retail trade services, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+62112,"Non-specialized store retail trade services, of flowers and plants"
+62114,"Non-specialized store retail trade services, of live animals, including pet animals"
+62115,"Non-specialized store retail trade services, of hides, skins and leather"
+62119,"Non-specialized store retail trade services, of agricultural raw materials n.e.c."
+62121,"Non-specialized store retail trade services, of fruits and vegetables"
+62122,"Non-specialized store retail trade services, of dairy products, eggs and edible oils and fats"
+62123,"Non-specialized store retail trade services, of meat, poultry and game"
+62124,"Non-specialized store retail trade services, of fish and other seafood"
+62125,"Non-specialized store retail trade services, of sugar confectionery and bakery products"
+62126,"Non-specialized store retail trade services, of beverages"
+62127,"Non-specialized store retail trade services, of coffee, tea and spices"
+62128,"Non-specialized store retail trade services, of tobacco products"
+62129,"Non-specialized store retail trade services, of food products n.e.c."
+62131,"Non-specialized store retail trade services, of yarn and fabrics"
+62132,"Non-specialized store retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+62133,"Non-specialized store retail trade services, of articles of clothing, articles of fur and clothing accessories"
+62134,"Non-specialized store retail trade services, of footwear"
+62141,"Non-specialized store retail trade services, of household furniture"
+62142,"Non-specialized store retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+62143,"Non-specialized store retail trade services, of articles for lighting"
+62144,"Non-specialized store retail trade services, of household appliances"
+62145,"Non-specialized store retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+62146,"Non-specialized store retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+62151,"Non-specialized store retail trade services, of books, newspapers, magazines and stationery"
+62152,"Non-specialized store retail trade services, of photographic, optical and precision equipment"
+62153,"Non-specialized store retail trade services, of games and toys"
+62154,"Non-specialized store retail trade services, of watches, clocks and jewellery"
+62155,"Non-specialized store retail trade services, of sports goods (incl. bicycles)"
+62156,"Non-specialized store retail trade services, of leather goods and travel accessories"
+62159,"Non-specialized store retail trade services, of miscellaneous consumer goods n.e.c."
+62161,"Non-specialized store retail trade services, of construction materials and flat glass"
+62162,"Non-specialized store retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+62163,"Non-specialized store retail trade services, of wallpaper and floor coverings"
+62164,"Non-specialized store retail trade services, of paints, varnishes and lacquers"
+62165,"Non-specialized store retail trade services, of hardware and hand tools"
+62172,"Non-specialized store retail trade services, of fertilizers and agrochemical products"
+62173,"Non-specialized store retail trade services, of pharmaceutical products"
+62174,"Non-specialized store retail trade services, of medical and orthopaedic goods"
+62175,"Non-specialized store retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+62176,"Non-specialized store retail trade services, of cleaning materials"
+62181,"Non-specialized store retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+62182,"Non-specialized store retail trade services, of other transport equipment, except bicycles"
+62183,"Non-specialized store retail trade services, of office machinery and equipment including office furniture"
+62184,"Non-specialized store retail trade services, of computers and packaged software"
+62185,"Non-specialized store retail trade services, of electronic and telecommunications equipment and parts"
+62186,"Non-specialized store retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+62187,"Non-specialized store retail trade services, of mining, construction and civil engineering machinery and equipment"
+62188,"Non-specialized store retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+62189,"Non-specialized store retail trade services, of other machinery and equipment n.e.c."
+62191,"Non-specialized store retail trade services, of solid, liquid and gaseous fuels and related products"
+62194,"Non-specialized store retail trade services, of paper and paperboard"
+62199,"Non-specialized store retail trade services, of non-metallic minerals and other products n.e.c."
+62211,"Specialized store retail trade services, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+62212,"Specialized store retail trade services, of flowers and plants"
+62214,"Specialized store retail trade services, of live animals, including pet animals"
+62215,"Specialized store retail trade services, of hides, skins and leather"
+62219,"Specialized store retail trade services, of agricultural raw materials n.e.c."
+62221,"Specialized store retail trade services, of fruits and vegetables"
+62222,"Specialized store retail trade services, of dairy products, eggs and edible oils and fats"
+62223,"Specialized store retail trade services, of meat, poultry and game"
+62224,"Specialized store retail trade services, of fish and other seafood"
+62225,"Specialized store retail trade services, of sugar confectionery and bakery products"
+62226,"Specialized store retail trade services, of beverages"
+62227,"Specialized store retail trade services, of coffee, tea and spices"
+62228,"Specialized store retail trade services, of tobacco products"
+62229,"Specialized store retail trade services, of food products n.e.c."
+62231,"Specialized store retail trade services, of yarn and fabrics"
+62232,"Specialized store retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+62233,"Specialized store retail trade services, of articles of clothing, articles of fur and clothing accessories"
+62234,"Specialized store retail trade services, of footwear"
+62241,"Specialized store retail trade services, of household furniture"
+62242,"Specialized store retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+62243,"Specialized store retail trade services, of articles for lighting"
+62244,"Specialized store retail trade services, of household appliances"
+62245,"Specialized store retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+62246,"Specialized store retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+62251,"Specialized store retail trade services, of books, newspapers, magazines and stationery"
+62252,"Specialized store retail trade services, of photographic, optical and precision equipment"
+62253,"Specialized store retail trade services, of games and toys"
+62254,"Specialized store retail trade services, of watches, clocks and jewellery"
+62255,"Specialized store retail trade services, of sports goods (incl. bicycles)"
+62256,"Specialized store retail trade services, of leather goods and travel accessories"
+62259,"Specialized store retail trade services, of miscellaneous consumer goods n.e.c."
+62261,"Specialized store retail trade services, of construction materials and flat glass"
+62262,"Specialized store retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+62263,"Specialized store retail trade services, of wallpaper and floor coverings"
+62264,"Specialized store retail trade services, of paints, varnishes and lacquers"
+62265,"Specialized store retail trade services, of hardware and hand tools"
+62272,"Specialized store retail trade services, of fertilizers and agrochemical products"
+62273,"Specialized store retail trade services, of pharmaceutical products"
+62274,"Specialized store retail trade services, of medical and orthopaedic goods"
+62275,"Specialized store retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+62276,"Specialized store retail trade services, of cleaning materials"
+62281,"Specialized store retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+62282,"Specialized store retail trade services, of other transport equipment, except bicycles"
+62283,"Specialized store retail trade services, of office machinery and equipment, including office furniture"
+62284,"Specialized store retail trade services, of computers and packaged software"
+62285,"Specialized store retail trade services, of electronic and telecommunications equipment and parts"
+62286,"Specialized store retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+62287,"Specialized store retail trade services, of mining, construction and civil engineering machinery and equipment"
+62288,"Specialized store retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+62289,"Specialized store retail trade services, of other machinery and equipment n.e.c."
+62291,"Specialized store retail trade services, of solid, liquid and gaseous fuels and related products"
+62294,"Specialized store retail trade services, of paper and paperboard"
+62299,"Specialized store retail trade services, of non-metallic minerals and other products n.e.c."
+62311,"Mail order or Internet retail trade services, of grain and oilseeds and oleaginous fruits, seeds and animal feed"
+62312,"Mail order or Internet retail trade services, of flowers and plants"
+62314,"Mail order or Internet retail trade services, of live animals, including pet animals"
+62315,"Mail order or Internet retail trade services, of hides, skins and leather"
+62319,"Mail order or Internet retail trade services, of agricultural raw materials n.e.c."
+62321,"Mail order or Internet retail trade services, of fruits and vegetables"
+62322,"Mail order or Internet retail trade services, of dairy products, eggs and edible oils and fats"
+62323,"Mail order or Internet retail trade services, of meat, poultry and game"
+62324,"Mail order or Internet retail trade services, of fish and other seafood"
+62325,"Mail order or Internet retail trade services, of sugar confectionery and bakery products"
+62326,"Mail order or Internet retail trade services, of beverages"
+62327,"Mail order or Internet retail trade services, of coffee, tea and spices"
+62328,"Mail order or Internet retail trade services, of tobacco products"
+62329,"Mail order or Internet retail trade services, of food products n.e.c."
+62331,"Mail order or Internet retail trade services, of yarn and fabrics"
+62332,"Mail order or Internet retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+62333,"Mail order or Internet retail trade services, of articles of clothing, articles of fur and clothing accessories"
+62334,"Mail order or Internet retail trade services, of footwear"
+62341,"Mail order or Internet retail trade services, of household furniture"
+62342,"Mail order or Internet retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+62343,"Mail order or Internet retail trade services, of articles for lighting"
+62344,"Mail order or Internet retail trade services, of household appliances"
+62345,"Mail order or Internet retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+62346,"Mail order or Internet retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+62351,"Mail order or Internet retail trade services, of books, newspapers, magazines and stationery"
+62352,"Mail order or Internet retail trade services, of photographic, optical and precision equipment"
+62353,"Mail order or Internet retail trade services, of games and toys"
+62354,"Mail order or Internet retail trade services, of watches, clocks and jewellery"
+62355,"Mail order or Internet retail trade services, of sports goods (incl. bicycles)"
+62356,"Mail order or Internet retail trade services, of leather goods and travel accessories"
+62359,"Mail order or Internet retail trade services, of miscellaneous consumer goods n.e.c."
+62361,"Mail order or Internet retail trade services, of construction materials and flat glass"
+62362,"Mail order or Internet retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+62363,"Mail order or Internet retail trade services, of wallpaper and floor coverings"
+62364,"Mail order or Internet retail trade services, of paints, varnishes and lacquers"
+62365,"Mail order or Internet retail trade services, of hardware and hand tools"
+62372,"Mail order or Internet retail trade services, of fertilizers and agrochemical products"
+62373,"Mail order or Internet retail trade services, of pharmaceutical products"
+62374,"Mail order or Internet retail trade services, of medical and orthopaedic goods"
+62375,"Mail order or Internet retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+62376,"Mail order or Internet retail trade services, of cleaning materials"
+62381,"Mail order or Internet retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+62382,"Mail order or Internet retail trade services, of other transport equipment, except bicycles"
+62383,"Mail order or Internet retail trade services, of office machinery and equipment including office furniture"
+62384,"Mail order or Internet retail trade services, of computers and packaged software"
+62385,"Mail order or Internet retail trade services, of electronic and telecommunications equipment and parts"
+62386,"Mail order or Internet retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+62387,"Mail order or Internet retail trade services, of mining, construction and civil engineering machinery and equipment"
+62388,"Mail order or Internet retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+62389,"Mail order or Internet retail trade services, of other machinery and equipment n.e.c."
+62391,"Mail order or Internet retail trade services, of solid, liquid and gaseous fuels and related products"
+62394,"Mail order or Internet retail trade services, of paper and paperboard"
+62399,"Mail order or Internet retail trade services, of non-metallic minerals and other products n.e.c."
+62411,"Other non-store retail trade services, of grain and oilseeds and oleaginous fruits, seeds and animal feed"
+62412,"Other non-store retail trade services, of flowers and plants"
+62414,"Other non-store retail trade services, of live animals, including pet animals"
+62415,"Other non-store retail trade services, of hides, skins and leather"
+62419,"Other non-store retail trade services, of agricultural raw materials n.e.c."
+62421,"Other non-store retail trade services, of fruits and vegetables"
+62422,"Other non-store retail trade services, of dairy products, eggs and edible oils and fats"
+62423,"Other non-store retail trade services, of meat, poultry and game"
+62424,"Other non-store retail trade services, of fish and other seafood"
+62425,"Other non-store retail trade services, of sugar confectionery and bakery products"
+62426,"Other non-store retail trade services, of beverages"
+62427,"Other non-store retail trade services, of coffee, tea and spices"
+62428,"Other non-store retail trade services, of tobacco products"
+62429,"Other non-store retail trade services, of food products n.e.c."
+62431,"Other non-store retail trade services, of yarn and fabrics"
+62432,"Other non-store retail trade services, of household linens, curtains, net curtains and diverse household articles of textile materials"
+62433,"Other non-store retail trade services, of articles of clothing, articles of fur and clothing accessories"
+62434,"Other non-store retail trade services, of footwear"
+62441,"Other non-store retail trade services, of household furniture"
+62442,"Other non-store retail trade services, of radio and television equipment and recorded audio and video disks and tapes"
+62443,"Other non-store retail trade services, of articles for lighting"
+62444,"Other non-store retail trade services, of household appliances"
+62445,"Other non-store retail trade services, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+62446,"Other non-store retail trade services, of wickerwork, cork goods, cooper's ware and other wooden ware"
+62451,"Other non-store retail trade services, of books, newspapers, magazines and stationery"
+62452,"Other non-store retail trade services, of photographic, optical and precision equipment"
+62453,"Other non-store retail trade services, of games and toys"
+62454,"Other non-store retail trade services, of watches, clocks and jewellery"
+62455,"Other non-store retail trade services, of sports goods (incl. bicycles)"
+62456,"Other non-store retail trade services, of leather goods and travel accessories"
+62459,"Other non-store retail trade services, of miscellaneous consumer goods n.e.c."
+62461,"Other non-store retail trade services, of construction materials and flat glass"
+62462,"Other non-store retail trade services, of fittings, fixtures and ceramic sanitary fixtures"
+62463,"Other non-store retail trade services, of wallpaper and floor coverings"
+62464,"Other non-store retail trade services, of paints, varnishes and lacquers"
+62465,"Other non-store retail trade services, of hardware and hand tools"
+62472,"Other non-store retail trade services, of fertilizers and agrochemical products"
+62473,"Other non-store retail trade services, of pharmaceutical products"
+62474,"Other non-store retail trade services, of medical and orthopaedic goods"
+62475,"Other non-store retail trade services, of perfumery articles, cosmetic articles and toilet soaps"
+62476,"Other non-store retail trade services, of cleaning materials"
+62481,"Other non-store retail trade services, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+62482,"Other non-store retail trade services, of other transport equipment, except bicycles"
+62483,"Other non-store retail trade services, of office machinery and equipment including office furniture"
+62484,"Other non-store retail trade services, of computers and packaged software"
+62485,"Other non-store retail trade services, of electronic and telecommunications equipment and parts"
+62486,"Other non-store retail trade services, of agricultural, lawn and garden machinery and equipment, including tractors"
+62487,"Other non-store retail trade services, of mining, construction and civil engineering machinery and equipment"
+62488,"Other non-store retail trade services, of other industry-specific machinery and equipment and related operating supplies"
+62489,"Other non-store retail trade services, of other machinery and equipment n.e.c."
+62491,"Other non-store retail trade services, of solid, liquid and gaseous fuels and related products"
+62494,"Other non-store retail trade services, of paper and paperboard"
+62497,"Other non-store retail trade services, of electricity"
+62498,"Other non-store retail trade services, of water"
+62499,"Other non-store retail trade services, of non-metallic minerals and other products n.e.c."
+62511,"Retail trade services on a fee or contract basis, of grains and oilseeds and oleaginous fruits, seeds and animal feed"
+62512,"Retail trade services on a fee or contract basis, of flowers and plants"
+62514,"Retail trade services on a fee or contract basis, of live animals, including pet animals"
+62515,"Retail trade services on a fee or contract basis, of hides, skins and leather"
+62519,"Retail trade services on a fee or contract basis, of agricultural raw materials n.e.c."
+62521,"Retail trade services on a fee or contract basis, of fruits and vegetables"
+62522,"Retail trade services on a fee or contract basis, of dairy products, eggs and edible oils and fats"
+62523,"Retail trade services on a fee or contract basis, of meat, poultry and game"
+62524,"Retail trade services on a fee or contract basis, of fish and other seafood"
+62525,"Retail trade services on a fee or contract basis, of sugar confectionery and bakery products"
+62526,"Retail trade services on a fee or contract basis, of beverages"
+62527,"Retail trade services on a fee or contract basis, of coffee, tea and spices"
+62528,"Retail trade services on a fee or contract basis, of tobacco products"
+62529,"Retail trade services on a fee or contract basis, of food products n.e.c."
+62531,"Retail trade services on a fee or contract basis, of yarn and fabrics"
+62532,"Retail trade services on a fee or contract basis, of household linens, curtains, net curtains and diverse household articles of textile materials"
+62533,"Retail trade services on a fee or contract basis, of articles of clothing, articles of fur and clothing accessories"
+62534,"Retail trade services on a fee or contract basis, of footwear"
+62541,"Retail trade services on a fee or contract basis, of household furniture"
+62542,"Retail trade services on a fee or contract basis, of radio and television equipment and recorded audio and video disks and tapes"
+62543,"Retail trade services on a fee or contract basis, of articles for lighting"
+62544,"Retail trade services on a fee or contract basis, of household appliances"
+62545,"Retail trade services on a fee or contract basis, of miscellaneous household utensils, cutlery, crockery, glassware, china and pottery"
+62546,"Retail trade services on a fee or contract basis, of wickerwork, cork goods, cooper's ware and other wooden ware"
+62551,"Retail trade services on a fee or contract basis, of books, newspapers, magazines and stationery"
+62552,"Retail trade services on a fee or contract basis, of photographic, optical and precision equipment"
+62553,"Retail trade services on a fee or contract basis, of games and toys"
+62554,"Retail trade services on a fee or contract basis, of watches, clocks and jewellery"
+62555,"Retail trade services on a fee or contract basis, of sports goods (incl. bicycles)"
+62556,"Retail trade services on a fee or contract basis, of leather goods and travel accessories"
+62559,"Retail trade services on a fee or contract basis, of miscellaneous consumer goods n.e.c."
+62561,"Retail trade services on a fee or contract basis, of construction materials and flat glass"
+62562,"Retail trade services on a fee or contract basis, of fittings, fixtures, and ceramic sanitary fixtures"
+62563,"Retail trade services on a fee or contract basis, of wallpaper and floor coverings"
+62564,"Retail trade services on a fee or contract basis, of paints, varnishes and lacquers"
+62565,"Retail trade services on a fee or contract basis, of hardware and hand tools"
+62572,"Retail trade services on a fee or contract basis, of fertilizers and agrochemical products"
+62573,"Retail trade services on a fee or contract basis, of pharmaceutical products"
+62574,"Retail trade services on a fee or contract basis, of medical and orthopaedic goods"
+62575,"Retail trade services on a fee or contract basis, of perfumery articles, cosmetic articles and toilet soaps"
+62576,"Retail trade services on a fee or contract basis, of cleaning materials"
+62581,"Retail trade services on a fee or contract basis, of motor vehicles, motorcycles, snowmobiles and related parts and accessories"
+62582,"Retail trade services on a fee or contract basis, of other transport equipment, except bicycles"
+62583,"Retail trade services on a fee or contract basis, of office machinery and equipment including office furniture"
+62584,"Retail trade services on a fee or contract basis, of computers and packaged software"
+62585,"Retail trade services on a fee or contract basis, of electronic and telecommunications equipment and parts"
+62586,"Retail trade services on a fee or contract basis, of agricultural, lawn and garden machinery and equipment, including tractors"
+62587,"Retail trade services on a fee or contract basis, of mining, construction and civil engineering machinery and equipment"
+62588,"Retail trade services on a fee or contract basis, of other industry-specific machinery and equipment and related operating supplies"
+62589,"Retail trade services on a fee or contract basis, of other machinery and equipment n.e.c."
+62591,"Retail trade services on a fee or contract basis, of solid, liquid and gaseous fuels and related products"
+62594,"Retail trade services on a fee or contract basis, of paper and paperboard"
+62597,"Retail trade services on a fee or contract basis, of electricity"
+62598,"Retail trade services on a fee or contract basis, of water"
+62599,"Retail trade services on a fee or contract basis, of non-metallic minerals and other products n.e.c."
+63111,"Room or unit accommodation services for visitors, with daily housekeeping services"
+63112,"Room or unit accommodation services for visitors, without daily housekeeping services"
+63113,"Room or unit accommodation services for visitors, in time-share properties"
+63114,"Accommodation services for visitors, in rooms for multiple occupancy"
+63120,Camp site services
+63130,Recreational and vacation camp services
+63210,Room or unit accommodation services for students in student residences
+63220,Room or unit accommodation services for workers in workers hostels or camps
+63290,Other room or unit accommodation services n.e.c.
+63310,Meal serving services with full restaurant services
+63320,Meal serving services with limited services
+63391,Event catering services
+63392,Contract food services for transportation operators
+63393,Other contract food services
+63399,Other food serving services
+63400,Beverage serving services
+64111,Urban and suburban railway transport services of passengers
+64112,Urban and suburban scheduled road transport services of passengers
+64113,Mixed mode urban and suburban transportation services of passengers
+64114,Local special-purpose scheduled road transport services of passengers
+64115,Taxi services
+64116,Rental services of passenger cars with operator
+64117,Road transport services of passengers by man- or animal-drawn vehicles
+64118,Local bus and coach charter services
+64119,"Other land transportation services of passengers, n.e.c."
+64121,Inland water transport services of passengers by ferries
+64122,Inland water transport services of passengers on cruises
+64129,Other inland water transport services of passengers
+64131,Sightseeing services by rail
+64132,"Sightseeing services by land, except rail"
+64133,Sightseeing services by water
+64134,Sightseeing services by air
+64210,Interurban railway transport services of passengers
+64221,Interurban scheduled road transport services of passengers
+64222,Interurban special-purpose scheduled road transport services of passengers
+64223,Long-distance bus and coach charter services
+64231,Coastal and transoceanic water transport services of passengers by ferries
+64232,Coastal and transoceanic water transport services of passengers on cruise ships
+64239,Other coastal and transoceanic water transport services of passengers
+64241,Domestic scheduled air transport services of passengers
+64242,Domestic non-scheduled air transport services of passengers
+64243,International scheduled air transport services of passengers
+64244,International non-scheduled air transport services of passengers
+64250,Space transport services of passengers
+65111,Road transport services of freight by refrigerator vehicles
+65112,Road transport services of freight by tank trucks or semi-trailers
+65113,Road transport services of intermodal containers
+65114,Road transport services of freight by man- or animal-drawn vehicles
+65115,Moving services of household furniture and household goods
+65116,Road transport services of letters and parcels
+65117,Road transport services of dry bulk
+65118,Road transport services of live animals
+65119,Other road transport services of freight
+65121,Railway transport services of freight by refrigerator cars
+65122,Railway transport services of freight by tanker cars
+65123,Railway transport services of intermodal containers
+65124,Railway transport services of letters and parcels
+65125,Railway transport services of dry bulk goods
+65126,Railway transport services of live animals
+65129,Other railway transport services of freight
+65131,Transport services via pipeline of petroleum and natural gas
+65139,Transport services via pipeline of other goods
+65211,Coastal and transoceanic water transport services of freight by refrigerator vessels
+65212,Coastal and transoceanic water transport services of freight by tankers
+65213,Coastal and transoceanic water transport services of intermodal containers by container ships
+65219,Other coastal and transoceanic water transport services of other freight
+65221,Inland water transport services of freight by refrigerator vessels
+65222,Inland water transport services of freight by tankers
+65229,Other inland water transport services of freight
+65311,Air transport services of letters and parcels
+65319,Air transport services of other freight
+65320,Space transport services of freight
+66011,Rental services of buses and coaches with operator
+66012,Rental services of trucks with operator
+66021,Rental services of passenger vessels for coastal and transoceanic water transport with operator
+66022,Rental services of freight vessels for coastal and transoceanic water transport with operator
+66023,Rental services of passenger vessels for inland water transport with operator
+66024,Rental services of freight vessels for inland water transport with operator
+66031,Rental services of passenger aircraft with operator
+66032,Rental services of freight aircraft with operator
+67110,Container handling services
+67190,Other cargo and baggage handling services
+67210,Refrigerated storage services
+67220,Bulk liquid or gas storage services
+67290,Other storage and warehousing services
+67310,Railway pushing or towing services
+67390,Other supporting services for railway transport
+67410,Bus station services
+67420,"Highway, bridge and tunnel operation services"
+67430,Parking lot services
+67440,Towing services for commercial and private vehicles
+67490,Other supporting services for road transport
+67511,"Port and waterway operation services (excl. cargo handling), on coastal and transoceanic waters"
+67512,Inland waterway operation services (excl. cargo handling)
+67521,Pilotage and berthing services on coastal and transoceanic waters
+67522,Pilotage and berthing services in inland waters
+67531,Vessel salvage and refloating services on coastal and transoceanic waters
+67532,Vessel salvage and refloating services in inland waters
+67590,Other supporting services for water transport
+67610,Airport operation services (excl. cargo handling)
+67620,Air traffic control services
+67630,Other supporting services for air transport
+67640,Supporting services for space transport
+67910,Freight transport agency services and other freight transport services
+67990,Other supporting transport services n.e.c.
+68011,Postal services related to letters
+68012,Postal services related to parcels
+68013,Post office counter services
+68019,Other postal services
+68021,Domestic courier services
+68022,International courier services
+68030,Local delivery services
+69111,Transmission of electricity (on own account)
+69112,Distribution of electricity (on own account)
+69120,Gas distribution through mains (on own account)
+69210,"Water distribution through mains, except steam and hot water (on own account)"
+69220,"Distribution of steam, hot water and air-conditioning supply through mains (on own account)"
+69230,"Water distribution, except through mains (on own account)"
+71110,Central banking services
+71121,Deposit services to corporate and institutional depositors
+71122,Deposit services to other depositors
+71131,Residential mortgage loan services
+71132,Non-residential mortgage loan services
+71133,Personal non-mortgage loan services for non-business purposes
+71134,Credit card loan services
+71135,Non-mortgage loan services for business purposes
+71139,Other credit-granting services
+71140,Financial leasing services
+71190,"Other financial services, except investment banking, insurance services and pension services"
+71200,Investment banking services
+71311,Life insurance services
+71312,Individual pension services
+71313,Group pension services
+71321,Accidental death and dismemberment insurance services
+71322,Health insurance services
+71331,Motor vehicle insurance services
+71332,"Marine, aviation, and other transport insurance services"
+71333,Freight insurance services
+71334,Other property insurance services
+71335,General liability insurance services
+71336,Credit and surety insurance services
+71337,Travel insurance services
+71339,Other non-life insurance services
+71410,Life reinsurance services
+71420,Accident and health reinsurance services
+71431,Motor vehicle reinsurance services
+71432,"Marine, aviation and other transport reinsurance services"
+71433,Freight reinsurance services
+71434,Other property reinsurance services
+71435,General liability reinsurance services
+71436,Credit and surety reinsurance services
+71439,"Other non-life reinsurance services, n.e.c."
+71511,Mergers and acquisition services
+71512,Corporate finance and venture capital services
+71519,Other services related to investment banking
+71521,Securities brokerage services
+71522,Commodity brokerage services
+71523,Processing and clearing services of securities transactions
+71530,Portfolio management services except pension funds
+71541,Trust services
+71542,Custody services
+71551,Financial market operational services
+71552,Financial market regulatory services
+71559,Other financial market administration services
+71591,Financial consultancy services
+71592,Foreign exchange services
+71593,Financial transactions processing and clearinghouse services
+71599,Other services auxiliary to financial services n.e.c.
+71610,Insurance brokerage and agency services
+71620,Insurance claims adjustment services
+71630,Actuarial services
+71640,Pension fund management services
+71690,Other services auxiliary to insurance and pensions
+71701,Services of holding equity of subsidiary companies
+71702,Services of holding securities and other assets of trusts and funds and similar financial entities
+72111,Rental or leasing services involving own or leased residential property
+72112,Rental or leasing services involving own or leased non-residential property
+72121,Trade services of residential buildings
+72122,Trade services of non-residential buildings
+72123,Trade services of time-share properties
+72130,Trade services of vacant and subdivided land
+72211,Residential property management services on a fee or contract basis except of time-share ownership properties
+72212,Non-residential property management services on a fee or contract basis
+72213,Time-share property management services on a fee or contract basis
+72221,"Residential building sales on a fee or contract basis, except of time-share ownership properties"
+72222,Non-residential building sales on a fee or contract basis
+72223,Sale of time-share properties on a fee or contract basis
+72230,Land sales on a fee or contract basis
+72240,Real estate appraisal services on a fee or contract basis
+73111,Leasing or rental services concerning cars and light vans without operator
+73112,Leasing or rental services concerning goods transport motor vehicles without operator
+73113,Leasing or rental services concerning railroad vehicles without operator
+73114,Leasing or rental services concerning other land transport equipment without operator
+73115,Leasing or rental services concerning vessels without operator
+73116,Leasing or rental services concerning aircraft without operator
+73117,Leasing or rental services concerning containers
+73121,Leasing or rental services concerning agricultural machinery and equipment without operator
+73122,Leasing or rental services concerning construction machinery and equipment without operator
+73123,Leasing or rental services concerning office machinery and equipment (except computers) without operator
+73124,Leasing or rental services concerning computers without operator
+73125,Leasing or rental services concerning telecommunications equipment without operator
+73129,Leasing or rental services concerning other machinery and equipment without operator n.e.c.
+73210,"Leasing or rental services concerning televisions, radios, video cassette recorders and related equipment and accessories"
+73220,Leasing or rental services concerning videotapes and disks
+73230,Leasing or rental services concerning furniture and other household appliances
+73240,Leasing or rental services concerning pleasure and leisure equipment
+73250,Leasing or rental services concerning household linen
+73260,"Leasing or rental services concerning textiles, clothing and footwear"
+73270,Leasing or rental services concerning do-it-yourself machinery and equipment
+73290,Leasing or rental services concerning other goods n.e.c.
+73311,Licensing services for the right to use computer software
+73312,Licensing services for the right to use databases
+73320,"Licensing services for the right to use entertainment, literary or artistic originals"
+73330,Licensing services for the right to use R&D products
+73340,Licensing services for the right to use trademarks and franchises
+73350,Licensing services for the right to use mineral exploration and evaluation
+73390,Licensing services for the right to use other intellectual property products
+81111,Basic research services in physical sciences
+81112,Basic research services in chemistry and biology
+81113,Basic research services in biotechnology
+81114,Basic research services in engineering and technology
+81115,Basic research services in medical sciences and pharmacy
+81116,Basic research services in agricultural sciences
+81119,Basic research services in other natural sciences
+81121,Applied research services in physical sciences
+81122,Applied research services in chemistry and biology
+81123,Applied research services in biotechnology
+81124,Applied research services in engineering and technology
+81125,Applied research services in medical sciences and pharmacy
+81126,Applied research services in agricultural sciences
+81129,Applied research services in other natural sciences
+81131,Experimental development services in physical sciences
+81132,Experimental development services in chemistry and biology
+81133,Experimental development services in biotechnology
+81134,Experimental development services in engineering and technology
+81135,Experimental development services in medical sciences and pharmacy
+81136,Experimental development services in agricultural sciences
+81139,Experimental development services in other natural sciences
+81211,Basic research services in psychology
+81212,Basic research services in economics
+81213,Basic research services in law
+81214,Basic research services in languages and literature
+81219,Basic research services in other social sciences and humanities
+81221,Applied research services in psychology
+81222,Applied research services in economics
+81223,Applied research services in law
+81224,Applied research services in language and literature
+81229,Applied research services on other social sciences and humanities
+81231,Experimental development services in psychology
+81232,Experimental development services in economics
+81233,Experimental development services in law
+81234,Experimental development services in languages and literature
+81239,Experimental development services in other social sciences and humanities
+81301,Interdisciplinary basic research services
+81302,Interdisciplinary applied research services
+81303,Interdisciplinary experimental development services
+81400,Research and development originals
+82110,Legal advisory and representation services concerning criminal law
+82120,Legal advisory and representation services concerning other fields of law
+82130,Legal documentation and certification services
+82191,Arbitration and conciliation services
+82199,Other legal services n.e.c.
+82210,Financial auditing services
+82221,Accounting services
+82222,Bookkeeping services
+82223,Payroll services
+82310,Corporate tax consulting and preparation services
+82320,Individual tax preparation and planning services
+82400,Insolvency and receivership services
+83111,Strategic management consulting services
+83112,Financial management consulting services
+83113,Human resources management consulting services
+83114,Marketing management consulting services
+83115,Operations management consulting services
+83116,Supply chain and other management consulting services
+83117,Business process management services
+83118,Head office services
+83121,Public relations services
+83129,Other business consulting services
+83131,IT consulting services
+83132,IT support services
+83141,IT design and development services for applications
+83142,IT design and development services for networks and systems
+83143,Software originals
+83151,Website hosting services
+83152,Application service provisioning
+83159,Other hosting and IT infrastructure provisioning services
+83161,Network management services
+83162,Computer systems management services
+83190,"Other management services, except construction project management services"
+83211,Architectural advisory services
+83212,Architectural services for residential building projects
+83213,Architectural services for non-residential building projects
+83214,Historical restoration architectural services
+83221,Urban planning services
+83222,Rural land planning services
+83223,Project site master planning services
+83231,Landscape architectural advisory services
+83232,Landscape architectural services
+83310,Engineering advisory services
+83321,Engineering services for building projects
+83322,Engineering services for industrial and manufacturing projects
+83323,Engineering services for transportation projects
+83324,Engineering services for power projects
+83325,Engineering services for telecommunications and broadcasting projects
+83326,Engineering services for waste management projects (hazardous and non-hazardous)
+83327,"Engineering services for water, sewerage and drainage projects"
+83329,Engineering services for other projects
+83330,Project management services for construction projects
+83411,Geological and geophysical consulting services
+83412,Geophysical services
+83413,Mineral exploration and evaluation
+83421,Surface surveying services
+83422,Map-making services
+83430,Weather forecasting and meteorological services
+83441,Composition and purity testing and analysis services
+83442,Testing and analysis services of physical properties
+83443,Testing and analysis services of integrated mechanical and electrical systems
+83444,Technical inspection services of road transport vehicles
+83449,Other technical testing and analysis services
+83510,Veterinary services for pet animals
+83520,Veterinary services for livestock
+83590,Other veterinary services
+83611,Full service advertising
+83612,Direct marketing and direct mail services
+83619,Other advertising services
+83620,"Purchase or sale of advertising space or time, on commission"
+83631,Sale of advertising space in print media (except on commission)
+83632,Sale of TV/radio advertising time (except on commission)
+83633,Sale of Internet advertising space (except on commission)
+83639,Sale of other advertising space or time (except on commission)
+83700,Market research and public opinion polling services
+83811,Portrait photography services
+83812,Advertising and related photography services
+83813,Event photography and event videography services
+83814,Specialty photography services
+83815,Restoration and retouching services of photography
+83819,Other photography services
+83820,Photographic processing services
+83911,Interior design services
+83912,Industrial design services
+83919,Other specialty design services
+83920,Design originals
+83931,Environmental consulting services
+83939,Other scientific and technical consulting services n.e.c.
+83940,Original compilations of facts/information
+83950,Translation and interpretation services
+83960,Trademarks and franchises
+83990,"Other professional, technical and business services, n.e.c."
+84110,Carrier services
+84120,Fixed telephony services
+84131,Mobile voice services
+84132,Mobile text services
+84133,"Mobile data services, except text services"
+84140,Private network services
+84150,Data transmission services
+84190,Other telecommunications services
+84210,Internet backbone services
+84221,Narrowband Internet access services
+84222,Broadband Internet access services
+84290,Other Internet telecommunications services
+84311,On-line books
+84312,On-line newspapers and periodicals
+84313,On-line directories and mailing lists
+84321,Musical audio downloads
+84322,Streamed audio content
+84331,Films and other video downloads
+84332,Streamed video content
+84341,System software downloads
+84342,Application software downloads
+84391,On-line games
+84392,On-line software
+84393,On-line adult content
+84394,Web search portal content
+84399,Other on-line content n.e.c.
+84410,News agency services to newspapers and periodicals
+84420,News agency services to audiovisual media
+84510,Library services
+84520,Archive services
+84611,Radio broadcast originals
+84612,Television broadcast originals
+84621,Radio channel programmes
+84622,Television channel programmes
+84631,Broadcasting services
+84632,"Home programme distribution services, basic programming package"
+84633,"Home programme distribution services, discretionary programming package"
+84634,"Home programme distribution services, pay-per-view"
+85111,Executive/retained search services
+85112,"Permanent placement services, other than executive search services"
+85121,Contract staffing services
+85122,Temporary staffing services
+85123,Long-term staffing (payrolling) services
+85124,Temporary staffing-to-permanent placement services
+85125,Co-employment staffing services
+85210,Investigation services
+85220,Security consulting services
+85230,Security systems services
+85240,Armoured car services
+85250,Guard services
+85290,Other security services
+85310,Disinfecting and exterminating services
+85320,Window cleaning services
+85330,General cleaning services
+85340,Specialized cleaning services
+85400,Packaging services
+85511,Reservation services for air transportation
+85512,Reservation services for rail transportation
+85513,Reservation services for bus transportation
+85514,Reservation services for vehicle rental
+85519,Other transportation arrangement and reservation services n.e.c.
+85521,Reservation services for accommodation
+85522,Time-share exchange services
+85523,Reservation services for cruises
+85524,Reservation services for package tours
+85531,"Reservation services for convention centres, congress centres and exhibition halls"
+85539,"Reservation services for event tickets, entertainment and recreational services and other reservation services"
+85540,Tour operator services
+85550,Tourist guide services
+85561,Tourism promotion services
+85562,Visitor information services
+85910,Credit reporting services
+85920,Collection agency services
+85931,Telephone call centre services
+85939,Other telephone-based support services
+85940,Combined office administrative services
+85951,Duplicating services
+85952,Mailing list compilation services
+85953,Mailing services
+85954,Document preparation and other specialized office support services
+85961,Convention assistance and organization services
+85962,Trade show assistance and organization services
+85970,Landscape care and maintenance services
+85991,Other information services
+85999,Other support services n.e.c.
+86111,Post-harvest crop services
+86112,Seed processing services
+86113,Crop production services on inputs owned by others
+86119,Other support services to crop production
+86121,Farm animal husbandry services on inputs owned by others
+86122,Support services to farm animal husbandry
+86129,Other animal husbandry services
+86131,Hunting services on resources owned by others
+86132,Support services to hunting
+86141,Forestry and logging services on inputs owned by others
+86142,Support services to forestry and logging
+86151,Fishing services on resources owned by others
+86152,Aquaculture services on inputs owned by others
+86153,Support services to fishing
+86154,Support services to aquaculture
+86211,Support services to oil and gas extraction
+86219,Support services to other mining
+86221,Oil and gas extraction services on resources owned by others
+86229,Other mining services on resources owned by others
+86311,Electricity transmission services (on a fee or contract basis)
+86312,Electricity distribution services (on a fee or contract basis)
+86320,Gas distribution services through mains (on a fee or contract basis)
+86330,Water distribution services through mains (on a fee or contract basis)
+86340,"Distribution services of steam, hot water and air-conditioning supply through mains (on a fee or contract basis)"
+86350,"Water distribution services, except through mains (on a fee or contract basis)"
+87110,"Maintenance and repair services of fabricated metal products, except machinery and equipment"
+87120,Maintenance and repair services of office and accounting machinery
+87130,Maintenance and repair services of computers and peripheral equipment
+87141,Maintenance and repair services of motor vehicles
+87142,Maintenance and repair services of motorcycles
+87143,"Maintenance and repair services of trailers, semi-trailers and other motor vehicles n.e.c."
+87149,Maintenance and repair services of other transport equipment
+87151,Maintenance and repair services of electrical household appliances
+87152,Maintenance and repair services of electrical machinery and apparatus n.e.c.
+87153,Maintenance and repair services of telecommunication equipment and apparatus
+87154,"Maintenance and repair services of medical, precision and optical instruments"
+87155,Maintenance and repair services of consumer electronics
+87156,Maintenance and repair services of commercial and industrial machinery
+87157,Maintenance and repair services of elevators and escalators
+87159,Maintenance and repair services of other equipment
+87210,Repair services of footwear and leather goods
+87220,"Repair services of watches, clocks and jewellery"
+87230,Repair services of garments and household textiles
+87240,Repair services of furniture
+87290,Maintenance and repair services of other goods n.e.c.
+87310,"Installation services of fabricated metal products, except machinery and equipment"
+87320,"Installation services of industrial, manufacturing and service industry machinery and equipment"
+87331,Installation services of mainframe computers
+87332,Installation services of personal computers and peripheral equipment
+87333,Installation services of office and accounting machinery
+87340,"Installation services of radio, television and communications equipment and apparatus"
+87350,"Installation services of professional medical machinery and equipment, and precision and optical instruments"
+87360,Installation services of electrical machinery and apparatus n.e.c.
+87390,Installation services of other goods n.e.c.
+88110,Meat processing services
+88120,Fish processing services
+88130,Fruit and vegetables processing services
+88140,Vegetable and animal oil and fat manufacturing services
+88150,Dairy product manufacturing services
+88161,Grain mill product manufacturing services
+88162,Starch and starch product manufacturing services
+88163,Bakery product manufacturing services
+88164,Sugar manufacturing services
+88165,"Cocoa, chocolate and sugar confectionery manufacturing services"
+88166,"Macaroni, noodles, couscous and similar farinaceous products manufacturing services"
+88167,Prepared meals and dishes manufacturing services
+88169,Other food product manufacturing services n.e.c.
+88170,Prepared animal feeds manufacturing services
+88181,Distilled alcoholic beverage manufacturing services
+88182,Wine manufacturing services
+88183,Malt and malt liquor manufacturing services
+88184,Soft drink manufacturing services
+88190,Tobacco manufacturing services
+88211,Textile fibre manufacturing services
+88212,Textile weaving services
+88213,Textile finishing services
+88214,Knitted and crocheted fabric manufacturing services
+88215,Made-up textile article manufacturing services
+88216,Carpet and rug manufacturing services
+88217,"Cordage, rope, twine and netting manufacturing services"
+88219,Other textile manufacturing services n.e.c.
+88221,"Wearing apparel manufacturing services, except fur apparel"
+88222,Fur apparel manufacturing services
+88223,Knitted and crocheted apparel manufacturing services
+88231,Leather tanning and dressing services; fur dressing and dyeing services
+88232,Luggage manufacturing services
+88233,Footwear manufacturing services
+88311,Wood manufacturing services
+88312,Veneer sheet and wood panel manufacturing services
+88313,Carpentry manufacturing services
+88314,Wooden containers manufacturing services
+88319,Other wood product manufacturing services
+88321,"Pulp, paper and paperboard manufacturing services"
+88322,Corrugated paper and paperboard manufacturing services
+88329,Other paper article manufacturing services
+88411,Coke oven products manufacturing services
+88412,Refined petroleum products manufacturing services
+88421,Basic chemicals manufacturing services
+88422,Fertilizer manufacturing services
+88423,Plastics and rubber manufacturing services
+88424,Agrochemical product manufacturing services
+88425,Paint manufacturing services
+88426,"Soap, detergents, cleaning preparation and perfume manufacturing services"
+88427,Other chemical products manufacturing services n.e.c.
+88429,Man-made fibre manufacturing services
+88430,Pharmaceutical product manufacturing services
+88511,Tyre manufacturing services
+88512,Other rubber product manufacturing services
+88520,Plastic product manufacturing services
+88531,Glass manufacturing services
+88532,Refractory product manufacturing services
+88533,Clay building material manufacturing services
+88534,Other porcelain and ceramic product manufacturing services
+88535,"Cement, lime and plaster manufacturing services"
+88536,"Concrete, cement and plaster article manufacturing services"
+88537,"Stone cutting, shaping and finishing services"
+88539,Other non-metallic mineral product manufacturing services n.e.c.
+88601,Basic iron and steel manufacturing services
+88602,Basic precious and other non-ferrous metal manufacturing services
+88711,Structural metal product manufacturing services
+88712,"Tank, reservoir and metal container manufacturing services"
+88713,Steam generator manufacturing services
+88720,Weapon and ammunition manufacturing services
+88731,Metal treatment and coating services
+88732,General machining services
+88733,"Cutlery, hand tool and general hardware manufacturing services"
+88739,Other fabricated metal product manufacturing services n.e.c.
+88741,Electronic component and board manufacturing services
+88742,Computer and peripheral equipment manufacturing services
+88743,Communication equipment manufacturing services
+88744,Consumer electronics manufacturing services
+88745,"Measuring, testing, navigating and control equipment manufacturing services"
+88746,Watch and clock manufacturing services
+88747,"Irradiation, electromedical and electrotherapeutic equipment manufacturing services"
+88748,Optical instrument and photographic equipment manufacturing services
+88749,Magnetic and optical media manufacturing services
+88751,"Electric motor, generator, transformer and electricity distribution and control apparatus manufacturing services"
+88752,Battery and accumulator manufacturing services
+88753,Fibre optic cable manufacturing services
+88754,Other electronic and electric wire and cable manufacturing services
+88755,Wiring device manufacturing services
+88756,Electric lighting equipment manufacturing services
+88757,Domestic appliance manufacturing services
+88759,Other electrical equipment manufacturing services
+88761,Engines and turbine manufacturing services
+88762,Fluid power equipment manufacturing services
+88763,"Other pump, compressor, tap and valve manufacturing services"
+88764,"Bearing, gear, gearing and driving element manufacturing services"
+88765,"Oven, furnace and furnace burner manufacturing services"
+88766,Lifting and handling equipment manufacturing services
+88767,Office machinery and equipment (except computers and peripheral equipment) manufacturing services
+88768,Power-driven hand tool manufacturing services
+88769,Other general-purpose machinery manufacturing services
+88771,Agricultural and forestry machinery manufacturing services
+88772,Metal-forming machinery and machine tools manufacturing services
+88773,Metallurgy machinery manufacturing services
+88774,"Mining, quarrying and construction machinery manufacturing services"
+88775,"Food, beverage and tobacco processing machinery manufacturing services"
+88776,"Textile, apparel and leather production machinery manufacturing services"
+88779,Other special-purpose machinery manufacturing services
+88811,Motor vehicle manufacturing services
+88812,Trailers and semi-trailer manufacturing services
+88813,Motor vehicle part and accessory manufacturing services
+88821,Ship building services
+88822,Pleasure and sporting boat manufacturing services
+88823,Railway locomotive and rolling stock manufacturing services
+88824,Air and spacecraft manufacturing services
+88825,Military fighting vehicle manufacturing services
+88826,Motorcycle manufacturing services
+88827,Bicycles and invalid carriage manufacturing services
+88829,Other transport equipment manufacturing services n.e.c.
+88901,Furniture manufacturing services
+88902,Jewellery manufacturing services
+88903,Imitation jewellery manufacturing services
+88904,Musical instrument manufacturing services
+88905,Sports good manufacturing services
+88906,Game and toy manufacturing services
+88907,Medical and dental instrument and supply manufacturing services
+88909,Other manufacturing services n.e.c.
+89110,"Publishing, on a fee or contract basis"
+89121,Printing services
+89122,Services related to printing
+89123,"Reproduction services of recorded media, on a fee or contract basis"
+89200,"Moulding, pressing, stamping, extruding and similar plastic manufacturing services"
+89310,Iron and steel casting services
+89320,Non-ferrous metal casting services
+89330,"Metal forging, pressing, stamping, roll forming and powder metallurgy services"
+89410,"Metal waste and scrap recovery (recycling) services, on a fee or contract basis"
+89420,"Non-metal waste and scrap recovery (recycling) services, on a fee or contract basis"
+91111,Executive and legislative services
+91112,Financial and fiscal services
+91113,Overall economic and social planning and statistical services
+91114,Government services to research and development
+91119,Other overall government public services
+91121,Public administrative services related to education
+91122,Public administrative services related to health care
+91123,Public administrative services related to housing and community amenities
+91124,"Public administrative services related to recreation, culture and religion"
+91131,"Public administrative services related to agriculture, forestry, fishing and hunting"
+91132,Public administrative services related to fuel and energy
+91133,"Public administrative services related to mining and mineral resources, manufacturing and construction"
+91134,Public administrative services related to transport and communications
+91135,"Public administrative services related to the distributive and catering trades, hotels and restaurants"
+91136,Public administrative services related to tourism affairs
+91137,Public administrative services related to multipurpose development projects
+91138,"Public administrative services related to general economic, commercial and labour affairs"
+91191,Administrative services related to government personnel
+91199,Other administrative services of the government n.e.c.
+91210,"Public administrative services related to external affairs, diplomatic and consular services abroad"
+91220,Services related to foreign economic aid
+91230,Services related to foreign military aid
+91240,Military defence services
+91250,Civil defence services
+91260,Police and fire protection services
+91270,Public administrative services related to law courts
+91280,Administrative services related to the detention or rehabilitation of criminals
+91290,Public administrative services related to other public order and safety affairs
+91310,"Administrative services related to sickness, maternity or temporary disablement benefit schemes"
+91320,"Administrative services related to government employee pension schemes; old-age disability or survivors' benefit schemes, other than for government employees"
+91330,Administrative services related to unemployment compensation benefit schemes
+91340,Administrative services related to family and child allowance programmes
+92100,Pre-primary education services
+92200,Primary education services
+92310,"Lower secondary education services, general"
+92320,"Lower secondary education services, technical and vocational"
+92330,"Upper secondary education services, general"
+92340,"Upper secondary education services, technical and vocational"
+92410,"Post-secondary non-tertiary education services, general"
+92420,"Post-secondary non-tertiary education services, technical and vocational"
+92510,First stage tertiary education services
+92520,Second stage tertiary education services
+92911,Cultural education services
+92912,Sports and recreation education services
+92919,"Other education and training services, n.e.c."
+92920,Educational support services
+93111,Surgical services for inpatients
+93112,Gynaecological and obstetrical services for inpatients
+93113,Psychiatric services for inpatients
+93119,Other services for inpatients
+93121,General medical services
+93122,Specialized medical services
+93123,Dental services
+93191,Childbirth and related services
+93192,Nursing services
+93193,Physiotherapeutic services
+93194,Ambulance services
+93195,Medical laboratory services
+93196,Diagnostic-imaging services
+93197,"Blood, sperm and organ bank services"
+93199,Other human health services n.e.c.
+93210,Residential health-care services other than by hospitals
+93221,Residential care services for the elderly
+93222,Residential care services for young disabled persons
+93223,Residential care services for disabled adults
+93301,"Residential care services for children suffering from mental retardation, mental health illnesses or substance abuse"
+93302,Other social services with accommodation for children
+93303,"Residential care services for adults suffering from mental retardation, mental health illnesses or substance abuse"
+93304,Other social services with accommodation for adults
+93411,Vocational rehabilitation services for persons with disabilities
+93412,Vocational rehabilitation services for unemployed persons
+93491,Other social services without accommodation for the elderly
+93492,Other social services without accommodation for disabled children
+93493,Other social services without accommodation for disabled adults
+93510,Child day-care services
+93520,Guidance and counselling services n.e.c. related to children
+93530,Welfare services without accommodation
+93590,"Other social services without accommodation, n.e.c."
+94110,Sewerage and sewage treatment services
+94120,Septic tank emptying and cleaning services
+94211,Collection services of hazardous medical and other biohazardous waste
+94212,Collection services of industrial hazardous waste (except medical and other biohazardous waste)
+94219,Collection services of other hazardous waste
+94221,"Collection services of non-hazardous recyclable materials, residential"
+94229,"Collection services of non-hazardous recyclable materials, other"
+94231,"General waste collection services, residential"
+94239,"General waste collection services, other"
+94311,"Hazardous waste preparation, consolidation and storage services"
+94312,Ship-breaking and other dismantling of wrecks services
+94313,"Non-hazardous recyclable materials preparation, consolidation and storage services"
+94319,"Other non-hazardous waste preparation, consolidation and storage services"
+94321,Hazardous waste treatment services
+94322,Hazardous waste disposal services
+94331,"Sanitary landfill services, non-hazardous waste"
+94332,"Other landfill services, non-hazardous waste"
+94333,Incineration of non-hazardous waste
+94339,Other non-hazardous waste treatment and disposal services
+94411,"Site remediation and clean-up services, air"
+94412,"Site remediation and clean-up services, surface water"
+94413,"Site remediation and clean-up services, soil and groundwater"
+94420,"Containment, control and monitoring services and other site remediation services n.e.c."
+94430,Building remediation services
+94490,Other remediation services n.e.c.
+94510,Sweeping and snow removal services
+94590,Other sanitation services
+94900,Other environmental protection services n.e.c.
+95110,Services furnished by business and employers organizations
+95120,Services furnished by professional organizations
+95200,Services furnished by trade unions
+95910,Religious services
+95920,Services furnished by political organizations
+95991,Services furnished by human rights organizations
+95992,Services furnished by environmental advocacy groups
+95993,Other special group advocacy services
+95994,Other civic betterment and community facility support services
+95995,Services provided by youth associations
+95996,Grant-giving services
+95997,Cultural and recreational associations (other than sports or games)
+95998,Other civic and social organizations
+95999,Other services provided by membership organizations n.e.c.
+96111,"Sound recording services, except live recording services"
+96112,Live recording services
+96113,Sound recording originals
+96121,"Motion picture, videotape and television programme production services"
+96122,Radio programme production services
+96123,"Motion picture, videotape, television and radio programme originals"
+96131,Audiovisual editing services
+96132,Transfers and duplication of masters services
+96133,Colour correction and digital restoration services
+96134,Visual effects services
+96135,Animation services
+96136,"Captioning, titling and subtitling services"
+96137,Sound editing and design services
+96139,Other post-production services
+96140,"Motion picture, videotape and television programme distribution services"
+96150,Motion picture projection services
+96210,Performing arts event promotion and organization services
+96220,Performing arts event production and presentation services
+96230,Performing arts facility operation services
+96290,Other performing arts and live entertainment services
+96310,Services of performing artists
+96320,"Services of authors, composers, sculptors and other artists, except performing artists"
+96330,"Original works of authors, composers and other artists except performing artists, painters and sculptors"
+96411,Museum services except for historical sites and buildings
+96412,Preservation services of historical sites and buildings
+96421,Botanical and zoological garden services
+96422,Nature reserve services including wildlife preservation services
+96511,Sports and recreational sports event promotion services
+96512,Services of sports clubs
+96520,Sports and recreational sports facility operation services
+96590,Other sports and recreational sports services
+96610,Services of athletes
+96620,Support services related to sports and recreation
+96910,Amusement park and similar attraction services
+96921,On-line gambling services
+96929,Other gambling and betting services
+96930,Coin-operated amusement machine services
+96990,Other recreation and amusement services n.e.c.
+97110,Coin-operated laundry services
+97120,Dry-cleaning services (including fur product cleaning services)
+97130,Other textile cleaning services
+97140,Pressing services
+97150,Dyeing and colouring services
+97210,Hairdressing and barbers' services
+97220,"Cosmetic treatment, manicuring and pedicuring services"
+97230,Physical well-being services
+97290,Other beauty treatment services n.e.c.
+97310,Cemeteries and cremation services
+97320,Undertaking services
+97910,Escort services
+97990,Other miscellaneous services n.e.c.
+98000,Domestic services
+99000,Services provided by extraterritorial organizations and bodies
