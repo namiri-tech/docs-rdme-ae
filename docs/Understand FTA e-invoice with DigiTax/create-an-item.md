@@ -26,8 +26,8 @@ To create an FTA e-invoice item, you need the following details:
 1. **Item name (`name`)**: Product or service title
 2. **Tax category (`tax_category_code`)**: e.g., `S` (Standard rate), `Z` (Zero-rated), `E` (Exempt), `O` (Out of scope), `AE` (Reverse charge), or `N` (Standard rate additional VAT / Margin Scheme)
 3. **Commodity code (`commodity_code`)**: `G` (Goods), `S` (Services), or `B` (Both)
-4. **HS code (`hs_code`)**: Applicable if the item's commodity code is for a good (`G` or `B`)
-5. **Service accounting code (`service_accounting_code`)**: Applicable if the item's commodity code is for a service (`S` or `B`)
+4. **HS code (`hs_code`)**: Applicable if the item's commodity code is for a good (`G` or `B`) — download the full list <Anchor label="here" target="_blank" href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files">here</Anchor>
+5. **Service accounting code (`service_accounting_code`)**: Applicable if the item's commodity code is for a service (`S` or `B`) — download the full list <Anchor label="here" target="_blank" href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files">here</Anchor>
 6. **Item code (`sellers_item_id` / `buyers_item_id`)** (optional)
 7. **Origin country (`origin_country_code`)** (optional)
 8. **Standard item scheme (`standard_item_id` / `standard_item_scheme_id`)** (optional)
