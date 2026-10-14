@@ -6764,8 +6764,9 @@ components:
       type: object
       description: >-
         A party's legal entity — only `registration_name` is required. The rest
-        are only meaningful (and only format-checked) for a UAE-addressed party;
-        a foreign party isn't expected to hold a UAE trade license.
+        are only meaningful (and only format-checked) for a UAE-registered party
+        (see `uae_registered`); a foreign party isn't expected to hold a UAE
+        trade license.
       required:
         - registration_name
       properties:
@@ -6779,20 +6780,20 @@ components:
           type: string
           description: >-
             The legal registration number, such as a trade licence or commercial
-            registration number. Required for a UAE-addressed party.
+            registration number. Required for a UAE-registered party.
           example: TL-12345678
         registration_scheme:
           type: string
           description: >-
             The ISO 6523 ICD code identifying the registration number scheme.
-            Required for a UAE-addressed party. See `GET
+            Required for a UAE-registered party. See `GET
             /resources/international-code-designator-schemes` for available
             values.
           example: '0235'
         issuing_authority_code:
           type: string
           description: >-
-            The registration type code. Required for a UAE-addressed party, and
+            The registration type code. Required for a UAE-registered party, and
             restricted to one of `TL`, `CL`, `EID`, `PAS`, `CD` for one — see
             `GET /resources/legal-registration-types`. Free text for a non-UAE
             party.
@@ -6800,9 +6801,9 @@ components:
         issuing_authority_name:
           type: string
           description: >-
-            The issuing authority name. For a UAE-addressed party, required when
-            `issuing_authority_code` is `TL`; when `issuing_authority_code` is
-            `PAS`, this must be a valid ISO 3166-1 alpha-2 country code.
+            The issuing authority name. For a UAE-registered party, required
+            when `issuing_authority_code` is `TL`; when `issuing_authority_code`
+            is `PAS`, this must be a valid ISO 3166-1 alpha-2 country code.
           example: Department of Economic Development
     PartyTaxpayer:
       type: object
@@ -6814,17 +6815,35 @@ components:
         tax_identification_number:
           type: string
           description: >-
-            The party's Tax Identification Number (TIN) — required for every
-            party, but only checked against the UAE 10-digit format when
-            `address.country_code` is `AE`
+            The party's Tax Identification Number (TIN). Required for every
+            party, and checked against the UAE 10-digit format when the party is
+            UAE-registered (see `uae_registered`)
           example: '1009876543'
         tax_registration_number:
           type: string
           description: >-
-            The UAE Tax Registration Number (TRN). Only a UAE-addressed party
-            may have one — it specifically marks UAE VAT registration, which
-            doesn't apply abroad
+            The UAE Tax Registration Number (TRN), which marks UAE VAT
+            registration. Only a UAE-registered party may have one (see
+            `uae_registered`)
           example: '100987654300003'
+        uae_registered:
+          type: boolean
+          nullable: true
+          description: >
+            Whether the party holds a UAE Tax Identification Number with the
+            FTA, whatever its address. Send `true` for a registered party,
+            including a non-resident with a UAE TIN, and `false` only when you
+            know it is not. Omit it, or send `null`, when unsure: the party's
+            `peppol_id_scheme` decides when it has one, otherwise
+            `address.country_code` (`AE` is registered). `false` is not the same
+            as omitting it: it holds nothing to the UAE TIN format, rejects a
+            TRN, and never looks the party up on Peppol, so the document is
+            reported to the FTA only. `true` holds the TIN to the UAE format,
+            allows a TRN, and, with no `peppol_id`, addresses the party at
+            `0235:<TIN>` after checking it is live on Peppol. On an inline buyer
+            that already exists, an explicit value replaces the stored one; omit
+            it to leave the party as it is.
+          example: true
         legal_entity:
           $ref: '#/components/schemas/PartyLegalEntity'
         address:
@@ -6954,14 +6973,15 @@ components:
           type: string
           description: >-
             The party's Tax Identification Number (TIN) — required for every
-            party, but only in the UAE 10-digit format when
-            `address.country_code` is `AE`
+            party, and in the UAE 10-digit format when the party is
+            UAE-registered (see `uae_registered`)
           example: '1009876543'
         tax_registration_number:
           type: string
           description: >-
-            The UAE Tax Registration Number (TRN). Only a UAE-addressed party
-            may have one — it specifically marks UAE VAT registration
+            The UAE Tax Registration Number (TRN), which marks UAE VAT
+            registration. Only a UAE-registered party may have one (see
+            `uae_registered`)
           example: '100987654300003'
         party_name:
           type: string
@@ -6994,6 +7014,14 @@ components:
             The Peppol EAS code for `peppol_id` (e.g. `0088` for GLN). See `GET
             /resources/electronic-address-schemes` for available values.
           example: '0088'
+        uae_registered:
+          type: boolean
+          nullable: true
+          description: >-
+            Whether the party holds a UAE Tax Identification Number with the
+            FTA. Absent or `null` when it was never set, in which case the
+            party's `peppol_id_scheme` and then `address.country_code` decide
+          example: true
     Supplier:
       type: object
       description: A supplier in a UAE self-billed e-invoice
