@@ -1451,7 +1451,7 @@ paths:
               ecommerce:
                 description: >-
                   B2C sale via online platform; delivery address with
-                  subdivision required; Incoterms required
+                  subdivision required
                 summary: E-Commerce Supply
                 value:
                   additional_documents:
@@ -4324,7 +4324,7 @@ paths:
               detailed_ecommerce:
                 description: >-
                   B2C sale via online platform; delivery address with
-                  subdivision required; Incoterms required
+                  subdivision required
                 summary: E-Commerce Supply
                 value:
                   additional_documents:
@@ -7263,7 +7263,8 @@ components:
       description: >-
         Delivery information for the items in the invoice. When
         `transaction_types` includes `EXPORTS`, `delivery` is required and
-        `delivery_address.country_code` must not be `AE`.
+        `delivery_address.country_code` must not be `AE`. Incoterms are
+        optional.
       properties:
         actual_delivery_date:
           type: string
@@ -7288,9 +7289,8 @@ components:
         delivery_terms_id:
           type: string
           description: >-
-            The Incoterms delivery terms identifier. Required when
-            `transaction_types` includes `EXPORTS` or
-            `SUPPLY_THROUGH_ECOMMERCE`.
+            The Incoterms delivery terms identifier (optional), sent with
+            `schemeID="Incoterms"`.
           example: DAP
     InvoiceAllowanceCharge:
       type: object
