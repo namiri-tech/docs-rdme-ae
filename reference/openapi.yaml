@@ -3569,7 +3569,8 @@ paths:
         endpoint is substituted at submission and the document is reported to
         the FTA instead of delivered (`9900000099` for an export, `9900000098`
         for any other buyer outside the UAE or not yet onboarded to UAE
-        e-invoicing). The invoice then reports `submission_skipped: true`.
+        e-invoicing). The invoice then reports `submission.status` as
+        `NOT_REQUIRED`.
       security:
         - apiKeyAuth: []
       requestBody:
@@ -7660,7 +7661,11 @@ components:
         - tax_inclusive_amount
         - payable_amount
         - tax_amount
-        - status
+        - overall_status
+        - validation
+        - submission
+        - reporting
+        - references
         - validated_at
         - submitted_at
         - reported_at
@@ -7882,10 +7887,29 @@ components:
           format: double
           description: The VAT amount expressed in the tax currency
           example: 475
-        status:
+        overall_status:
           type: string
-          description: The current processing status of the invoice on DigiTax
+          enum:
+            - PROCESSING
+            - COMPLETED
+            - FAILED
+            - DIGITAX_ACTION_REQUIRED
+          description: >
+            The overall state of the document across validation, submission and
+            reporting. `PROCESSING` means DigiTax is still working on it.
+            `COMPLETED` means it settled successfully. `FAILED` means it settled
+            unsuccessfully, so you need to fix the document and issue it again.
+            `DIGITAX_ACTION_REQUIRED` means a message DigiTax generates failed
+            and the DigiTax operations team is handling it.
           example: COMPLETED
+        validation:
+          $ref: '#/components/schemas/ValidationResult'
+        submission:
+          $ref: '#/components/schemas/InvoiceSubmission'
+        reporting:
+          $ref: '#/components/schemas/InvoiceReporting'
+        references:
+          $ref: '#/components/schemas/TransmissionReferences'
         allowance_charges:
           type: array
           description: Document-level allowances and charges
@@ -7930,88 +7954,113 @@ components:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:05:00Z'
-          description: The date and time when the invoice was sent to C5(FTA)
+          description: >-
+            Deprecated, use `reporting.sent_at`. The date and time when the
+            invoice was sent to C5(FTA)
         accepted_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:06:00Z'
           description: >-
-            The date and time C3 acknowledged the invoice with a positive
-            Message Level Status
+            Deprecated, use `submission.accepted_at`. The date and time C3
+            acknowledged the invoice with a positive Message Level Status
         rejected_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:06:00Z'
           description: >-
-            The date and time C3 rejected the invoice with a negative Message
-            Level Status
+            Deprecated, use `submission.rejected_at`. The date and time C3
+            rejected the invoice with a negative Message Level Status
         rejection_reason:
           type: string
-          description: The reason C3 gave for rejecting the invoice
+          deprecated: true
+          description: >-
+            Deprecated, use `submission.rejection_reason`. The reason C3 gave
+            for rejecting the invoice
           example: Document rejected due to 2 validation error(s)
         report_accepted_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:07:00Z'
           description: >-
-            The date and time C5(FTA) acknowledged the tax report with a
-            positive Message Level Status
+            Deprecated, use `reporting.accepted_at`. The date and time C5(FTA)
+            acknowledged the tax report with a positive Message Level Status
         report_rejected_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:07:00Z'
           description: >-
-            The date and time C5(FTA) rejected the tax report with a negative
-            Message Level Status
+            Deprecated, use `reporting.rejected_at`. The date and time C5(FTA)
+            rejected the tax report with a negative Message Level Status
         report_rejection_reason:
           type: string
-          description: The reason C5(FTA) gave for rejecting the tax report
+          deprecated: true
+          description: >-
+            Deprecated, use `reporting.rejection_reason`. The reason C5(FTA)
+            gave for rejecting the tax report
           example: Document rejected due to 1 validation error(s)
         withdrawn_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:08:00Z'
           description: >-
-            The date and time the withdrawal of the tax report was delivered to
-            C5(FTA)
+            Deprecated, use `reporting.withdrawal.sent_at`. The date and time
+            the withdrawal of the tax report was delivered to C5(FTA)
         withdrawal_queued_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:08:00Z'
           description: >-
-            The date and time the withdrawal of the tax report was raised,
-            because C3 rejected the invoice or never acknowledged receiving it
+            Deprecated, use `reporting.withdrawal.raised_at`. The date and time
+            the withdrawal of the tax report was raised, because C3 rejected the
+            invoice or never acknowledged receiving it
         withdrawal_accepted_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:09:00Z'
           description: >-
-            The date and time C5(FTA) acknowledged the withdrawal with a
-            positive Message Level Status
+            Deprecated, use `reporting.withdrawal.accepted_at`. The date and
+            time C5(FTA) acknowledged the withdrawal with a positive Message
+            Level Status
         withdrawal_rejected_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:09:00Z'
           description: >-
-            The date and time C5(FTA) rejected the withdrawal with a negative
-            Message Level Status
+            Deprecated, use `reporting.withdrawal.rejected_at`. The date and
+            time C5(FTA) rejected the withdrawal with a negative Message Level
+            Status
         withdrawal_rejection_reason:
           type: string
-          description: The reason C5(FTA) gave for rejecting the withdrawal
+          deprecated: true
+          description: >-
+            Deprecated, use `reporting.withdrawal.rejection_reason`. The reason
+            C5(FTA) gave for rejecting the withdrawal
           example: Document rejected due to 1 validation error(s)
         submission_skipped:
           type: boolean
+          deprecated: true
           description: >
-            True when the invoice is reported to C5(FTA) only and is never
+            Deprecated, use `submission.status`, which is `NOT_REQUIRED` in this
+            case. True when the invoice is reported to C5(FTA) only and is never
             submitted to C3(the buyer's Access Point), or C2(the supplier's
             Access Point) in the case of self-billing, so `submitted_at` and
             `accepted_at` stay empty by design and that is not a failure. The
@@ -8023,30 +8072,34 @@ components:
             issuer is responsible for sending it to the receiver.
         predefined_endpoint:
           type: string
+          deprecated: true
           example: '9900000098'
           description: >
-            The `0235` endpoint ID substituted for the receiver's address (the
-            buyer, or the supplier when self-billing) when `submission_skipped`
-            is true. `9900000097` for a deemed supply, `9900000098` for a
-            receiver not subject to UAE e-invoicing, `9900000099` for an export
-            to a receiver not on Peppol.
+            Deprecated, use `submission.predefined_endpoint`. The `0235`
+            endpoint ID substituted for the receiver's address (the buyer, or
+            the supplier when self-billing) when `submission_skipped` is true.
+            `9900000097` for a deemed supply, `9900000098` for a receiver not
+            subject to UAE e-invoicing, `9900000099` for an export to a receiver
+            not on Peppol.
         submitted_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:04:00Z'
           description: >-
-            The date and time when the invoice was sent to C3(buyer's Access
-            Point) in the case of billing or C2(supplier's Access Point) in the
-            case of self-billing
+            Deprecated, use `submission.sent_at`. The date and time when the
+            invoice was sent to C3(buyer's Access Point) in the case of billing
+            or C2(supplier's Access Point) in the case of self-billing
         validated_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           example: '2026-07-14T10:03:00Z'
           description: >-
-            The date and time when the invoice was validated against the PINT-AE
-            rules
+            Deprecated, use `validation.validated_at`. The date and time when
+            the invoice was validated against the PINT-AE rules
         supplier_id:
           type: string
           description: >-
@@ -8315,7 +8368,12 @@ components:
         - accepted_at
         - rejected_at
         - reported_at
-        - status
+        - overall_status
+        - validation
+        - response
+        - reporting
+        - acknowledgement
+        - references
       properties:
         id:
           type: string
@@ -8539,15 +8597,32 @@ components:
           type: string
           description: The TRN of the principal in case of Disclosed Agent billing
           example: '100333444500003'
-        status:
+        overall_status:
           type: string
-          description: The AP workflow status of the received invoice
           enum:
-            - RECEIVED
-            - ACCEPTED
+            - PROCESSING
+            - COMPLETED
             - REJECTED
-            - REPORTED
-          example: RECEIVED
+            - DIGITAX_ACTION_REQUIRED
+          description: >
+            The overall state of the received document across validation, our
+            response to the sender and reporting. `PROCESSING` means DigiTax is
+            still replying to the sender or reporting the document. `COMPLETED`
+            means it settled successfully. `REJECTED` means DigiTax rejected the
+            document on your behalf. `DIGITAX_ACTION_REQUIRED` means a message
+            DigiTax generates failed and the DigiTax operations team is handling
+            it.
+          example: COMPLETED
+        validation:
+          $ref: '#/components/schemas/ValidationResult'
+        response:
+          $ref: '#/components/schemas/ReceivedInvoiceResponse'
+        reporting:
+          $ref: '#/components/schemas/ReceivedInvoiceReporting'
+        acknowledgement:
+          $ref: '#/components/schemas/ReceivedInvoiceAcknowledgement'
+        references:
+          $ref: '#/components/schemas/TransmissionReferences'
         document_type:
           type: string
           description: >-
@@ -8585,34 +8660,430 @@ components:
           type: string
           format: date-time
           nullable: true
-          description: The timestamp when the AP approved this invoice
+          deprecated: true
+          description: >-
+            Deprecated, use `response.sent_at` with `response.response_code`.
+            The timestamp when the AP approved this invoice
           example: '2026-07-14T10:00:00Z'
         rejected_at:
           type: string
           format: date-time
           nullable: true
-          description: The timestamp when the AP rejected this invoice
+          deprecated: true
+          description: >-
+            Deprecated, use `response.sent_at` with `response.response_code`.
+            The timestamp when the AP rejected this invoice
           example: null
         reported_at:
           type: string
           format: date-time
           nullable: true
-          description: The timestamp when this invoice was forwarded to the FTA
+          deprecated: true
+          description: >-
+            Deprecated, use `reporting.sent_at`. The timestamp when this invoice
+            was forwarded to the FTA
           example: '2026-07-14T10:00:00Z'
         acknowledged_at:
           type: string
           format: date-time
           nullable: true
+          deprecated: true
           description: >-
-            The timestamp when a human at the business confirmed they've seen
-            this invoice. Business-level only — separate from the automated
-            Peppol MLS.
+            Deprecated, use `acknowledgement.acknowledged_at`. The timestamp
+            when a human at the business confirmed they've seen this invoice.
+            Business-level only — separate from the automated Peppol MLS.
           example: null
         acknowledged_by:
           type: string
           nullable: true
-          description: The actor ID that acknowledged this invoice
+          deprecated: true
+          description: >-
+            Deprecated, use `acknowledgement.acknowledged_by`. The actor ID that
+            acknowledged this invoice
           example: null
+    ValidationResult:
+      type: object
+      description: The result of validating the document against the PINT-AE rules
+      required:
+        - status
+        - validated_at
+        - errors
+      properties:
+        status:
+          type: string
+          nullable: true
+          enum:
+            - PROCESSING
+            - PASSED
+            - FAILED
+            - null
+          example: PASSED
+        validated_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:03:00Z'
+        errors:
+          type: array
+          description: >
+            The rules the document broke. A sent invoice fails on any of them. A
+            received invoice can pass with warnings listed here.
+          items:
+            $ref: '#/components/schemas/ValidationError'
+    ValidationError:
+      type: object
+      description: One PINT-AE rule the document broke
+      required:
+        - rule_id
+        - severity
+        - location
+        - message
+      properties:
+        rule_id:
+          type: string
+          example: ibr-001-ae
+        severity:
+          type: string
+          example: fatal
+        location:
+          type: string
+          description: The XPath of the element that broke the rule
+          example: /Invoice
+        message:
+          type: string
+          example: '[IBR-001-AE]-An invoice must have a specification identifier.'
+    InvoiceSubmission:
+      type: object
+      description: >
+        Delivery of the document to C3, the buyer's Access Point, or to C2, the
+        supplier's Access Point, when self-billed. `status` is null until
+        validation passes.
+      required:
+        - status
+        - predefined_endpoint
+        - sent_at
+        - accepted_at
+        - rejected_at
+        - rejection_reason
+        - as4_message_id
+      properties:
+        status:
+          type: string
+          nullable: true
+          enum:
+            - NOT_REQUIRED
+            - PROCESSING
+            - SENT
+            - ACCEPTED
+            - REJECTED
+            - FAILED
+            - UNACKNOWLEDGED
+            - null
+          description: >
+            `NOT_REQUIRED` means the document is only reported to C5(FTA) and is
+            never sent to the receiver. `UNACKNOWLEDGED` means the receiver
+            never acknowledged receiving the document in time.
+          example: ACCEPTED
+        predefined_endpoint:
+          type: string
+          nullable: true
+          description: >
+            The `0235` endpoint ID substituted for the receiver's address when
+            `status` is `NOT_REQUIRED`. `9900000097` for a deemed supply,
+            `9900000098` for a receiver not subject to UAE e-invoicing,
+            `9900000099` for an export to a receiver not on Peppol.
+          example: null
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:04:00Z'
+        accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When the receiver acknowledged the document with a positive Message
+            Level Status
+          example: '2026-07-14T10:06:00Z'
+        rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When the receiver rejected the document with a negative Message
+            Level Status
+          example: null
+        rejection_reason:
+          type: string
+          nullable: true
+          example: null
+        as4_message_id:
+          type: string
+          nullable: true
+          example: b7c1e2a4-5d3f-4e8a-9c21-0f6d7a8b9c10@digitax.tech
+    InvoiceReporting:
+      type: object
+      description: >
+        The tax report of the document to C5, the FTA, including any withdrawal
+        of that report. `status` is null until validation passes.
+      required:
+        - status
+        - sent_at
+        - accepted_at
+        - rejected_at
+        - rejection_reason
+        - as4_message_id
+        - withdrawal
+      properties:
+        status:
+          type: string
+          nullable: true
+          enum:
+            - NOT_REQUIRED
+            - PROCESSING
+            - SENT
+            - ACCEPTED
+            - REJECTED
+            - FAILED
+            - WITHDRAWING
+            - WITHDRAWAL_ACCEPTED
+            - WITHDRAWAL_REJECTED
+            - WITHDRAWAL_FAILED
+            - null
+          example: ACCEPTED
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:05:00Z'
+        accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When C5(FTA) acknowledged the tax report with a positive Message
+            Level Status
+          example: '2026-07-14T10:07:00Z'
+        rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When C5(FTA) rejected the tax report with a negative Message Level
+            Status
+          example: null
+        rejection_reason:
+          type: string
+          nullable: true
+          example: null
+        as4_message_id:
+          type: string
+          nullable: true
+          example: 3f9a0c2e-1b7d-4a6e-8f45-2c9d0e1a7b33@digitax.tech
+        withdrawal:
+          description: >
+            The withdrawal of the tax report, raised when the receiver rejected
+            the document or never acknowledged receiving it. Null when no
+            withdrawal was raised.
+          nullable: true
+          allOf:
+            - $ref: '#/components/schemas/InvoiceWithdrawal'
+    InvoiceWithdrawal:
+      type: object
+      required:
+        - raised_at
+        - sent_at
+        - accepted_at
+        - rejected_at
+        - rejection_reason
+        - as4_message_id
+      properties:
+        raised_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:08:00Z'
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:08:30Z'
+        accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When C5(FTA) acknowledged the withdrawal with a positive Message
+            Level Status
+          example: '2026-07-14T10:09:00Z'
+        rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When C5(FTA) rejected the withdrawal with a negative Message Level
+            Status
+          example: null
+        rejection_reason:
+          type: string
+          nullable: true
+          example: null
+        as4_message_id:
+          type: string
+          nullable: true
+          example: 9e2d4b61-7a0c-4f3e-b8d2-5c1a6f0e3d47@digitax.tech
+    ReceivedInvoiceResponse:
+      type: object
+      description: >-
+        The Message Level Status reply DigiTax sends back to the sender on your
+        behalf
+      required:
+        - status
+        - response_code
+        - sent_at
+        - as4_message_id
+      properties:
+        status:
+          type: string
+          nullable: true
+          enum:
+            - NOT_REQUIRED
+            - PROCESSING
+            - SENT
+            - FAILED
+            - null
+          example: SENT
+        response_code:
+          type: string
+          nullable: true
+          enum:
+            - AP
+            - AB
+            - RE
+            - null
+          description: >
+            `AP` means accepted, `AB` means acknowledged and `RE` means
+            rejected.
+          example: AP
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:01:00Z'
+        as4_message_id:
+          type: string
+          nullable: true
+          example: 5a8c3e1f-2d4b-4c7a-9e60-7b1f0d2c8a95@digitax.tech
+    ReceivedInvoiceReporting:
+      type: object
+      description: The report of the received document to C5, the FTA
+      required:
+        - status
+        - document_type
+        - sent_at
+        - accepted_at
+        - rejected_at
+        - rejection_reason
+        - as4_message_id
+      properties:
+        status:
+          type: string
+          nullable: true
+          enum:
+            - NOT_REQUIRED
+            - PROCESSING
+            - SENT
+            - ACCEPTED
+            - REJECTED
+            - FAILED
+            - null
+          example: ACCEPTED
+        document_type:
+          type: string
+          nullable: true
+          enum:
+            - TDD
+            - TDS
+            - null
+          description: >
+            `TDD` is the report sent when DigiTax accepted the document. `TDS`
+            is the report sent when DigiTax rejected it.
+          example: TDD
+        sent_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: '2026-07-14T10:02:00Z'
+        accepted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When C5(FTA) acknowledged the report with a positive Message Level
+            Status
+          example: '2026-07-14T10:03:00Z'
+        rejected_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When C5(FTA) rejected the report with a negative Message Level
+            Status
+          example: null
+        rejection_reason:
+          type: string
+          nullable: true
+          example: null
+        as4_message_id:
+          type: string
+          nullable: true
+          example: c4e7a1b2-8f3d-4d6c-a0e9-1b5f2c7d3e84@digitax.tech
+    ReceivedInvoiceAcknowledgement:
+      type: object
+      description: >-
+        Whether someone at your business has confirmed they have seen the
+        document. This is separate from the Peppol Message Level Status.
+      required:
+        - status
+        - acknowledged_at
+        - acknowledged_by
+      properties:
+        status:
+          type: string
+          enum:
+            - ACKNOWLEDGED
+            - UNACKNOWLEDGED
+          example: UNACKNOWLEDGED
+        acknowledged_at:
+          type: string
+          format: date-time
+          nullable: true
+          example: null
+        acknowledged_by:
+          type: string
+          nullable: true
+          description: The actor ID that acknowledged the document
+          example: null
+    TransmissionReferences:
+      type: object
+      description: The identifiers the Peppol network uses to track the document
+      required:
+        - uuid
+        - transport_id
+      properties:
+        uuid:
+          type: string
+          nullable: true
+          description: The UUID carried in the document itself
+          example: 550e8400-e29b-41d4-a716-446655440000
+        transport_id:
+          type: string
+          nullable: true
+          description: >-
+            The instance identifier of the document's envelope, which the tax
+            report repeats as its TransportID
+          example: 7d2f0b9e-3c41-4a8e-b6d5-0e9a1c2f4b76
     Pagination:
       type: object
       properties:
