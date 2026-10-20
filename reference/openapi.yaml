@@ -672,6 +672,8 @@ paths:
                     See `GET /resources/hs-codes` for the GCC Integrated Customs
                     Tariff codes (12 digits, no separators); the value is not
                     validated against that list yet.
+                    Download the full list as CSV or JSON from the <a
+                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**HS Code Reference**</a>.
                   example: '841370000001'
                 service_accounting_code:
                   type: string
@@ -681,6 +683,8 @@ paths:
                     services). See `GET /resources/service-codes` for suggested
                     values (UN CPC Version 2.1 service codes); the value is not
                     validated against that list yet.
+                    Download the full list as CSV or JSON from the <a
+                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**Service Code Reference**</a>.
                   example: '83111'
                 tax_category_code:
                   type: string
@@ -8236,6 +8240,8 @@ components:
             /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
             digits, no separators); the value is not validated against that list
             yet.
+            Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**HS Code Reference**</a>.
           example: '841370000001'
         commodity_code:
           type: string
@@ -8247,6 +8253,8 @@ components:
             The Service Accounting Code for the item. See `GET
             /resources/service-codes` for suggested values (UN CPC Version 2.1
             service codes); the value is not validated against that list yet.
+            Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**Service Code Reference**</a>.
           example: '83111'
         item_properties:
           type: array
@@ -9312,6 +9320,8 @@ components:
             /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
             digits, no separators); the value is not validated against that list
             yet.
+            Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**HS Code Reference**</a>.
           example: '841370000001'
         service_accounting_code:
           type: string
@@ -9321,6 +9331,8 @@ components:
             `GET /resources/service-codes` for suggested values (UN CPC Version
             2.1 service codes); the value is not validated against that list
             yet.
+            Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**Service Code Reference**</a>.
           example: '83111'
         standard_item_id:
           type: string

@@ -4,3 +4,4 @@ Fintech
 Namiri
 Peppol
 subentities
+HMAC
