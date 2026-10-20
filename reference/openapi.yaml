@@ -671,9 +671,10 @@ paths:
                     commodity_code is G (goods) or B (both goods and services).
                     See `GET /resources/hs-codes` for the GCC Integrated Customs
                     Tariff codes (12 digits, no separators); the value is not
-                    validated against that list yet.
-                    Download the full list as CSV or JSON from the <a
-                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**HS Code Reference**</a>.
+                    validated against that list yet. Download the full list as
+                    CSV or JSON from the <a
+                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
+                    target="_blank">**HS Code Reference**</a>.
                   example: '841370000001'
                 service_accounting_code:
                   type: string
@@ -682,9 +683,10 @@ paths:
                     commodity_code is S (services) or B (both goods and
                     services). See `GET /resources/service-codes` for suggested
                     values (UN CPC Version 2.1 service codes); the value is not
-                    validated against that list yet.
-                    Download the full list as CSV or JSON from the <a
-                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**Service Code Reference**</a>.
+                    validated against that list yet. Download the full list as
+                    CSV or JSON from the <a
+                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
+                    target="_blank">**Service Code Reference**</a>.
                   example: '83111'
                 tax_category_code:
                   type: string
@@ -8239,9 +8241,9 @@ components:
             The Harmonized System (HS) code for the item. See `GET
             /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
             digits, no separators); the value is not validated against that list
-            yet.
-            Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**HS Code Reference**</a>.
+            yet. Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
+            target="_blank">**HS Code Reference**</a>.
           example: '841370000001'
         commodity_code:
           type: string
@@ -8254,7 +8256,8 @@ components:
             /resources/service-codes` for suggested values (UN CPC Version 2.1
             service codes); the value is not validated against that list yet.
             Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**Service Code Reference**</a>.
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
+            target="_blank">**Service Code Reference**</a>.
           example: '83111'
         item_properties:
           type: array
@@ -9319,9 +9322,9 @@ components:
             commodity_code is G (goods) or B (both goods and services). See `GET
             /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
             digits, no separators); the value is not validated against that list
-            yet.
-            Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**HS Code Reference**</a>.
+            yet. Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
+            target="_blank">**HS Code Reference**</a>.
           example: '841370000001'
         service_accounting_code:
           type: string
@@ -9330,9 +9333,9 @@ components:
             commodity_code is S (services) or B (both goods and services). See
             `GET /resources/service-codes` for suggested values (UN CPC Version
             2.1 service codes); the value is not validated against that list
-            yet.
-            Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files" target="_blank">**Service Code Reference**</a>.
+            yet. Download the full list as CSV or JSON from the <a
+            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
+            target="_blank">**Service Code Reference**</a>.
           example: '83111'
         standard_item_id:
           type: string
