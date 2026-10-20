@@ -53,11 +53,9 @@ Notice the other key-value pairs with status: `validation.status` reads "PROCESS
 
 These values will be populated as soon as the invoice is both submitted and reported.
 
-More on the different transaction statuses and what they mean can be found [in the transaction status page](ref:transaction-status).
-
 DigiTax saves the invoice into our queuing system to be **validated**, **submitted** and **reported**. This step changes the status property from `PROCESSING` to `COMPLETED`. This is apparent via the DigiTax Dashboard or when you make a **GET** request.
 
-_Below is a snippet of the response of a GET invoice request. The status property reads "COMPLETED"._
+_Below is a snippet of the response of a GET invoice request. The overall_status property reads "COMPLETED"._
 
 ```json
   "overall_status": "COMPLETED",
