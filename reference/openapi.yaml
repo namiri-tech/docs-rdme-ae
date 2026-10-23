@@ -8813,6 +8813,7 @@ components:
       required:
         - status
         - predefined_endpoint
+        - skip_reason
         - sent_at
         - accepted_at
         - rejected_at
@@ -8844,6 +8845,27 @@ components:
             `status` is `NOT_REQUIRED`. `9900000097` for a deemed supply,
             `9900000098` for a receiver not subject to UAE e-invoicing,
             `9900000099` for an export to a receiver not on Peppol.
+          example: null
+        skip_reason:
+          type: string
+          nullable: true
+          enum:
+            - DEEMED_SUPPLY
+            - RECEIVER_NOT_SUBJECT_TO_UAE_EINVOICING_REGULATIONS
+            - EXPORT_RECEIVER_NOT_REGISTERED_ON_PEPPOL
+            - null
+          description: >
+            Why the document was not sent to the receiver, set when `status` is
+            `NOT_REQUIRED`. The receiver is the buyer, or the supplier when
+            self-billed. Each reason goes with one `predefined_endpoint`.
+            `DEEMED_SUPPLY` (`9900000097`) means the transaction is a deemed
+            supply, which has no receiver to deliver to.
+            `RECEIVER_NOT_SUBJECT_TO_UAE_EINVOICING_REGULATIONS` (`9900000098`)
+            means the document is not an export and the receiver can't be
+            reached on Peppol, such as a buyer outside the UAE with no
+            `peppol_id`. `EXPORT_RECEIVER_NOT_REGISTERED_ON_PEPPOL`
+            (`9900000099`) means the document is an export and the receiver
+            can't be reached on Peppol.
           example: null
         sent_at:
           type: string
@@ -8936,8 +8958,9 @@ components:
         withdrawal:
           description: >
             The withdrawal of the tax report, raised when the receiver rejected
-            the document or never acknowledged receiving it. Null when no
-            withdrawal was raised.
+            the document, never acknowledged receiving it, or could not be sent
+            the document. `reason` says which. Null when no withdrawal was
+            raised.
           nullable: true
           allOf:
             - $ref: '#/components/schemas/InvoiceWithdrawal'
@@ -8945,6 +8968,8 @@ components:
       type: object
       required:
         - raised_at
+        - reason
+        - reason_detail
         - sent_at
         - accepted_at
         - rejected_at
@@ -8956,6 +8981,30 @@ components:
           format: date-time
           nullable: true
           example: '2026-07-14T10:08:00Z'
+        reason:
+          type: string
+          nullable: true
+          enum:
+            - SUBMISSION_REJECTED
+            - SUBMISSION_UNACKNOWLEDGED
+            - SUBMISSION_FAILED
+            - null
+          description: >
+            Why the withdrawal was raised. `SUBMISSION_REJECTED` means the
+            receiver rejected the document. `SUBMISSION_UNACKNOWLEDGED` means
+            the receiver did not acknowledge the document in time.
+            `SUBMISSION_FAILED` means DigiTax could not deliver the document to
+            the receiver's Access Point after retrying. The first reason stays,
+            even if the receiver responds later.
+          example: SUBMISSION_REJECTED
+        reason_detail:
+          type: string
+          nullable: true
+          description: >
+            The receiver's rejection message for `SUBMISSION_REJECTED`, or the
+            AS4 gateway's failure text for `SUBMISSION_FAILED`. Null when
+            neither gave one, including every `SUBMISSION_UNACKNOWLEDGED`.
+          example: Buyer TRN does not match our records
         sent_at:
           type: string
           format: date-time
