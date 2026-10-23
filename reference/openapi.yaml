@@ -671,10 +671,7 @@ paths:
                     commodity_code is G (goods) or B (both goods and services).
                     See `GET /resources/hs-codes` for the GCC Integrated Customs
                     Tariff codes (12 digits, no separators); the value is not
-                    validated against that list yet. Download the full list as
-                    CSV or JSON from the <a
-                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
-                    target="_blank">**HS Code Reference**</a>.
+                    validated against that list yet.
                   example: '841370000001'
                 service_accounting_code:
                   type: string
@@ -683,10 +680,7 @@ paths:
                     commodity_code is S (services) or B (both goods and
                     services). See `GET /resources/service-codes` for suggested
                     values (UN CPC Version 2.1 service codes); the value is not
-                    validated against that list yet. Download the full list as
-                    CSV or JSON from the <a
-                    href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
-                    target="_blank">**Service Code Reference**</a>.
+                    validated against that list yet.
                   example: '83111'
                 tax_category_code:
                   type: string
@@ -7672,18 +7666,6 @@ components:
         - submission
         - reporting
         - references
-        - validated_at
-        - submitted_at
-        - reported_at
-        - accepted_at
-        - rejected_at
-        - report_accepted_at
-        - report_rejected_at
-        - withdrawn_at
-        - withdrawal_queued_at
-        - withdrawal_accepted_at
-        - withdrawal_rejected_at
-        - submission_skipped
       properties:
         id:
           type: string
@@ -7956,156 +7938,6 @@ components:
           type: string
           description: The TRN of the principal in case of Disclosed Agent billing
           example: '100333444500003'
-        reported_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:05:00Z'
-          description: >-
-            Deprecated, use `reporting.sent_at`. The date and time when the
-            invoice was sent to C5(FTA)
-        accepted_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:06:00Z'
-          description: >-
-            Deprecated, use `submission.accepted_at`. The date and time C3
-            acknowledged the invoice with a positive Message Level Status
-        rejected_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:06:00Z'
-          description: >-
-            Deprecated, use `submission.rejected_at`. The date and time C3
-            rejected the invoice with a negative Message Level Status
-        rejection_reason:
-          type: string
-          deprecated: true
-          description: >-
-            Deprecated, use `submission.rejection_reason`. The reason C3 gave
-            for rejecting the invoice
-          example: Document rejected due to 2 validation error(s)
-        report_accepted_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:07:00Z'
-          description: >-
-            Deprecated, use `reporting.accepted_at`. The date and time C5(FTA)
-            acknowledged the tax report with a positive Message Level Status
-        report_rejected_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:07:00Z'
-          description: >-
-            Deprecated, use `reporting.rejected_at`. The date and time C5(FTA)
-            rejected the tax report with a negative Message Level Status
-        report_rejection_reason:
-          type: string
-          deprecated: true
-          description: >-
-            Deprecated, use `reporting.rejection_reason`. The reason C5(FTA)
-            gave for rejecting the tax report
-          example: Document rejected due to 1 validation error(s)
-        withdrawn_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:08:00Z'
-          description: >-
-            Deprecated, use `reporting.withdrawal.sent_at`. The date and time
-            the withdrawal of the tax report was delivered to C5(FTA)
-        withdrawal_queued_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:08:00Z'
-          description: >-
-            Deprecated, use `reporting.withdrawal.raised_at`. The date and time
-            the withdrawal of the tax report was raised, because C3 rejected the
-            invoice or never acknowledged receiving it
-        withdrawal_accepted_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:09:00Z'
-          description: >-
-            Deprecated, use `reporting.withdrawal.accepted_at`. The date and
-            time C5(FTA) acknowledged the withdrawal with a positive Message
-            Level Status
-        withdrawal_rejected_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:09:00Z'
-          description: >-
-            Deprecated, use `reporting.withdrawal.rejected_at`. The date and
-            time C5(FTA) rejected the withdrawal with a negative Message Level
-            Status
-        withdrawal_rejection_reason:
-          type: string
-          deprecated: true
-          description: >-
-            Deprecated, use `reporting.withdrawal.rejection_reason`. The reason
-            C5(FTA) gave for rejecting the withdrawal
-          example: Document rejected due to 1 validation error(s)
-        submission_skipped:
-          type: boolean
-          deprecated: true
-          description: >
-            Deprecated, use `submission.status`, which is `NOT_REQUIRED` in this
-            case. True when the invoice is reported to C5(FTA) only and is never
-            submitted to C3(the buyer's Access Point), or C2(the supplier's
-            Access Point) in the case of self-billing, so `submitted_at` and
-            `accepted_at` stay empty by design and that is not a failure. The
-            receiver is the buyer, or the supplier when self-billing. This
-            happens for deemed supplies, for exports to a receiver with no
-            Peppol address, and for a receiver that is not subject to UAE
-            e-invoicing, which includes a buyer outside the UAE with no
-            `peppol_id`. Where a conventional invoice is still needed, the
-            issuer is responsible for sending it to the receiver.
-        predefined_endpoint:
-          type: string
-          deprecated: true
-          example: '9900000098'
-          description: >
-            Deprecated, use `submission.predefined_endpoint`. The `0235`
-            endpoint ID substituted for the receiver's address (the buyer, or
-            the supplier when self-billing) when `submission_skipped` is true.
-            `9900000097` for a deemed supply, `9900000098` for a receiver not
-            subject to UAE e-invoicing, `9900000099` for an export to a receiver
-            not on Peppol.
-        submitted_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:04:00Z'
-          description: >-
-            Deprecated, use `submission.sent_at`. The date and time when the
-            invoice was sent to C3(buyer's Access Point) in the case of billing
-            or C2(supplier's Access Point) in the case of self-billing
-        validated_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          example: '2026-07-14T10:03:00Z'
-          description: >-
-            Deprecated, use `validation.validated_at`. The date and time when
-            the invoice was validated against the PINT-AE rules
         supplier_id:
           type: string
           description: >-
@@ -8241,9 +8073,7 @@ components:
             The Harmonized System (HS) code for the item. See `GET
             /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
             digits, no separators); the value is not validated against that list
-            yet. Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
-            target="_blank">**HS Code Reference**</a>.
+            yet.
           example: '841370000001'
         commodity_code:
           type: string
@@ -8255,9 +8085,6 @@ components:
             The Service Accounting Code for the item. See `GET
             /resources/service-codes` for suggested values (UN CPC Version 2.1
             service codes); the value is not validated against that list yet.
-            Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
-            target="_blank">**Service Code Reference**</a>.
           example: '83111'
         item_properties:
           type: array
@@ -8376,9 +8203,6 @@ components:
         - active
         - is_self_billed
         - received_at
-        - accepted_at
-        - rejected_at
-        - reported_at
         - overall_status
         - validation
         - response
@@ -8667,51 +8491,6 @@ components:
             The timestamp when the document first arrived from the Peppol
             network
           example: '2026-07-14T10:00:00Z'
-        accepted_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          description: >-
-            Deprecated, use `response.sent_at` with `response.response_code`.
-            The timestamp when the AP approved this invoice
-          example: '2026-07-14T10:00:00Z'
-        rejected_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          description: >-
-            Deprecated, use `response.sent_at` with `response.response_code`.
-            The timestamp when the AP rejected this invoice
-          example: null
-        reported_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          description: >-
-            Deprecated, use `reporting.sent_at`. The timestamp when this invoice
-            was forwarded to the FTA
-          example: '2026-07-14T10:00:00Z'
-        acknowledged_at:
-          type: string
-          format: date-time
-          nullable: true
-          deprecated: true
-          description: >-
-            Deprecated, use `acknowledgement.acknowledged_at`. The timestamp
-            when a human at the business confirmed they've seen this invoice.
-            Business-level only — separate from the automated Peppol MLS.
-          example: null
-        acknowledged_by:
-          type: string
-          nullable: true
-          deprecated: true
-          description: >-
-            Deprecated, use `acknowledgement.acknowledged_by`. The actor ID that
-            acknowledged this invoice
-          example: null
     ValidationResult:
       type: object
       description: The result of validating the document against the PINT-AE rules
@@ -9322,9 +9101,7 @@ components:
             commodity_code is G (goods) or B (both goods and services). See `GET
             /resources/hs-codes` for the GCC Integrated Customs Tariff codes (12
             digits, no separators); the value is not validated against that list
-            yet. Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
-            target="_blank">**HS Code Reference**</a>.
+            yet.
           example: '841370000001'
         service_accounting_code:
           type: string
@@ -9333,9 +9110,7 @@ components:
             commodity_code is S (services) or B (both goods and services). See
             `GET /resources/service-codes` for suggested values (UN CPC Version
             2.1 service codes); the value is not validated against that list
-            yet. Download the full list as CSV or JSON from the <a
-            href="https://ae.docs.digitax.tech/reference/reference-hs-service-code-files"
-            target="_blank">**Service Code Reference**</a>.
+            yet.
           example: '83111'
         standard_item_id:
           type: string
