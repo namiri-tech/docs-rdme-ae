@@ -1,3 +1,5 @@
 - get_received-invoices
 - get_received-invoices-received-invoice-id
 - post_received-invoices-received-invoice-id-acknowledge
+- get_received-invoices-received-invoice-id-documents
+- get_received-invoices-received-invoice-id-documents-document-id

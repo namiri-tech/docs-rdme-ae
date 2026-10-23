@@ -2212,6 +2212,58 @@ paths:
                 $ref: '#/components/schemas/Invoice'
         default:
           $ref: '#/components/responses/Error'
+  /invoices/{invoice_id}/documents:
+    get:
+      tags:
+        - Invoices
+      summary: List the XML documents exchanged for an invoice
+      description: >-
+        Lists every XML document exchanged for an invoice, oldest first. That is
+        the document itself, the tax data documents we reported to the FTA (C5)
+        including any withdrawal, and the MLS that the buyer's access point (C3)
+        and C5 sent back. The list stays empty until the document passes
+        validation, because before that it has not been issued.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+            description: Invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocuments'
+        default:
+          $ref: '#/components/responses/Error'
+  /invoices/{invoice_id}/documents/{document_id}:
+    get:
+      tags:
+        - Invoices
+      summary: Download an XML document exchanged for an invoice
+      description: >-
+        Returns one document from the list as XML. By default this is the
+        document on its own. With `envelope=sbd` it is the Standard Business
+        Document it was transmitted in, exactly as it went over Peppol.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+            description: Invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+        - $ref: '#/components/parameters/ExchangedDocumentID'
+        - $ref: '#/components/parameters/ExchangedDocumentEnvelope'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocumentXML'
+        default:
+          $ref: '#/components/responses/Error'
   /credit-notes:
     get:
       tags:
@@ -2723,6 +2775,58 @@ paths:
                 $ref: '#/components/schemas/Invoice'
         default:
           $ref: '#/components/responses/Error'
+  /credit-notes/{credit_note_id}/documents:
+    get:
+      tags:
+        - Credit Notes
+      summary: List the XML documents exchanged for a credit note
+      description: >-
+        Lists every XML document exchanged for a credit note, oldest first. That
+        is the document itself, the tax data documents we reported to the FTA
+        (C5) including any withdrawal, and the MLS that the buyer's access point
+        (C3) and C5 sent back. The list stays empty until the document passes
+        validation, because before that it has not been issued.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: credit_note_id
+          required: true
+          schema:
+            type: string
+            description: Credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocuments'
+        default:
+          $ref: '#/components/responses/Error'
+  /credit-notes/{credit_note_id}/documents/{document_id}:
+    get:
+      tags:
+        - Credit Notes
+      summary: Download an XML document exchanged for a credit note
+      description: >-
+        Returns one document from the list as XML. By default this is the
+        document on its own. With `envelope=sbd` it is the Standard Business
+        Document it was transmitted in, exactly as it went over Peppol.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: credit_note_id
+          required: true
+          schema:
+            type: string
+            description: Credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+        - $ref: '#/components/parameters/ExchangedDocumentID'
+        - $ref: '#/components/parameters/ExchangedDocumentEnvelope'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocumentXML'
+        default:
+          $ref: '#/components/responses/Error'
   /suppliers:
     get:
       tags:
@@ -3188,6 +3292,59 @@ paths:
                 $ref: '#/components/schemas/Invoice'
         default:
           $ref: '#/components/responses/Error'
+  /self-billed-invoices/{invoice_id}/documents:
+    get:
+      tags:
+        - Self-Billed Invoices
+      summary: List the XML documents exchanged for a self-billed invoice
+      description: >-
+        Lists every XML document exchanged for a self-billed invoice, oldest
+        first. That is the document itself, the tax data documents we reported
+        to the FTA (C5) including any withdrawal, and the MLS that the
+        supplier's access point (C2) and C5 sent back. The list stays empty
+        until the document passes validation, because before that it has not
+        been issued.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+            description: Self-billed invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocuments'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-invoices/{invoice_id}/documents/{document_id}:
+    get:
+      tags:
+        - Self-Billed Invoices
+      summary: Download an XML document exchanged for a self-billed invoice
+      description: >-
+        Returns one document from the list as XML. By default this is the
+        document on its own. With `envelope=sbd` it is the Standard Business
+        Document it was transmitted in, exactly as it went over Peppol.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: invoice_id
+          required: true
+          schema:
+            type: string
+            description: Self-billed invoice ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+        - $ref: '#/components/parameters/ExchangedDocumentID'
+        - $ref: '#/components/parameters/ExchangedDocumentEnvelope'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocumentXML'
+        default:
+          $ref: '#/components/responses/Error'
   /self-billed-credit-notes:
     get:
       tags:
@@ -3547,6 +3704,59 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Invoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-credit-notes/{credit_note_id}/documents:
+    get:
+      tags:
+        - Self-Billed Credit Notes
+      summary: List the XML documents exchanged for a self-billed credit note
+      description: >-
+        Lists every XML document exchanged for a self-billed credit note, oldest
+        first. That is the document itself, the tax data documents we reported
+        to the FTA (C5) including any withdrawal, and the MLS that the
+        supplier's access point (C2) and C5 sent back. The list stays empty
+        until the document passes validation, because before that it has not
+        been issued.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: credit_note_id
+          required: true
+          schema:
+            type: string
+            description: Self-billed credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocuments'
+        default:
+          $ref: '#/components/responses/Error'
+  /self-billed-credit-notes/{credit_note_id}/documents/{document_id}:
+    get:
+      tags:
+        - Self-Billed Credit Notes
+      summary: Download an XML document exchanged for a self-billed credit note
+      description: >-
+        Returns one document from the list as XML. By default this is the
+        document on its own. With `envelope=sbd` it is the Standard Business
+        Document it was transmitted in, exactly as it went over Peppol.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: credit_note_id
+          required: true
+          schema:
+            type: string
+            description: Self-billed credit note ID on DigiTax
+            example: invoice_01KMFSMEYVCDV0150T6P4WECVR
+        - $ref: '#/components/parameters/ExchangedDocumentID'
+        - $ref: '#/components/parameters/ExchangedDocumentEnvelope'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocumentXML'
         default:
           $ref: '#/components/responses/Error'
   /detailed-invoices:
@@ -6394,6 +6604,58 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ReceivedInvoice'
+        default:
+          $ref: '#/components/responses/Error'
+  /received-invoices/{received_invoice_id}/documents:
+    get:
+      tags:
+        - Received Invoices
+      summary: List the XML documents exchanged for a received invoice
+      description: >-
+        Lists every XML document exchanged for a received invoice, oldest first.
+        That is the document the supplier's access point (C2) delivered, or the
+        buyer's (C3) for a self-billed document, the MLS we replied with, the
+        tax data document we reported to the FTA (C5), and the MLS that C5 sent
+        back.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: received_invoice_id
+          required: true
+          schema:
+            type: string
+            description: Received invoice ID on DigiTax
+            example: receivedinvoice_01KMFSMEYVCDV0150T6P4WECVR
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocuments'
+        default:
+          $ref: '#/components/responses/Error'
+  /received-invoices/{received_invoice_id}/documents/{document_id}:
+    get:
+      tags:
+        - Received Invoices
+      summary: Download an XML document exchanged for a received invoice
+      description: >-
+        Returns one document from the list as XML. By default this is the
+        document on its own. With `envelope=sbd` it is the Standard Business
+        Document it was transmitted in, exactly as it went over Peppol.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: received_invoice_id
+          required: true
+          schema:
+            type: string
+            description: Received invoice ID on DigiTax
+            example: receivedinvoice_01KMFSMEYVCDV0150T6P4WECVR
+        - $ref: '#/components/parameters/ExchangedDocumentID'
+        - $ref: '#/components/parameters/ExchangedDocumentEnvelope'
+      responses:
+        '200':
+          $ref: '#/components/responses/ExchangedDocumentXML'
         default:
           $ref: '#/components/responses/Error'
   /received-invoices/{received_invoice_id}/acknowledge:
@@ -9564,6 +9826,144 @@ components:
             `transaction_types` includes `AGENT_BILLING`. Must differ from the
             business's own TRN.
           example: '123456789098703'
+    ExchangedDocument:
+      type: object
+      description: >-
+        An XML document DigiTax sent or received over Peppol for an invoice,
+        credit note or received invoice.
+      required:
+        - id
+        - type
+        - direction
+        - counterparty
+        - transport_id
+        - as4_message_id
+        - mls_response_code
+        - references_document_id
+        - created_at
+        - transmitted_at
+        - envelope_available
+        - sha256
+        - envelope_sha256
+      properties:
+        id:
+          type: string
+          description: ID to download the document with
+          example: msg_01KMFSMEYVCDV0150T6P4WECVR
+        type:
+          type: string
+          enum:
+            - INVOICE
+            - CREDIT_NOTE
+            - SELF_BILLED_INVOICE
+            - SELF_BILLED_CREDIT_NOTE
+            - MLS
+            - TDD
+            - TDD_WITHDRAWAL
+            - TDS
+          description: >
+            The kind of document.
+
+            - `INVOICE`, `CREDIT_NOTE`, `SELF_BILLED_INVOICE`,
+            `SELF_BILLED_CREDIT_NOTE`: the PINT AE business document
+
+            - `MLS`: a Message Level Status, the response to another document in
+            the list
+
+            - `TDD`: the tax data document reported to the FTA
+
+            - `TDD_WITHDRAWAL`: a tax data document withdrawing an earlier
+            report
+
+            - `TDS`: the tax data status reported to the FTA for a received
+            document that failed validation
+          example: INVOICE
+        direction:
+          type: string
+          enum:
+            - INBOUND
+            - OUTBOUND
+          description: Whether DigiTax received or sent the document
+          example: OUTBOUND
+        counterparty:
+          type: string
+          nullable: true
+          enum:
+            - C2
+            - C3
+            - C5
+            - null
+          description: >
+            Who DigiTax exchanged the document with.
+
+            - `C2`: the supplier's access point
+
+            - `C3`: the buyer's access point
+
+            - `C5`: the FTA
+
+
+            Null for the business document of an invoice sent to a predefined
+            endpoint. That document is only reported to the FTA, inside the TDD.
+          example: C3
+        transport_id:
+          type: string
+          nullable: true
+          description: >-
+            The instance identifier of the document's Standard Business Document
+            Header
+          example: 7d2f0b9e-3c41-4a8e-b6d5-0e9a1c2f4b76
+        as4_message_id:
+          type: string
+          nullable: true
+          description: The AS4 message ID the document was exchanged under
+          example: f7a1c2d4-5e6f-4a8b-9c0d-1e2f3a4b5c6d@as4.digitax.tech
+        mls_response_code:
+          type: string
+          nullable: true
+          enum:
+            - AP
+            - AB
+            - RE
+            - null
+          description: >-
+            For an MLS, its response code. AP is accepted, AB is acknowledged,
+            RE is rejected.
+          example: AP
+        references_document_id:
+          type: string
+          nullable: true
+          description: >-
+            The document in this list that an MLS responds to, or that a report
+            covers
+          example: msg_01KMFSMEYVCDV0150T6P4WECVQ
+        created_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: When DigiTax built or received the document
+          example: '2026-10-19T09:15:30Z'
+        transmitted_at:
+          type: string
+          format: date-time
+          nullable: true
+          description: >-
+            When DigiTax's access point accepted an outbound document for
+            delivery
+          example: '2026-10-19T09:15:32Z'
+        envelope_available:
+          type: boolean
+          description: Whether the document can be downloaded with `envelope=sbd`
+          example: true
+        sha256:
+          type: string
+          description: Hex SHA-256 digest of the document as the download returns it
+          example: 9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08
+        envelope_sha256:
+          type: string
+          nullable: true
+          description: Hex SHA-256 digest of the Standard Business Document
+          example: 60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752
   parameters:
     After:
       in: query
@@ -9595,9 +9995,63 @@ components:
         maximum: 20
         minimum: 1
         example: 20
+    ExchangedDocumentID:
+      in: path
+      name: document_id
+      required: true
+      schema:
+        type: string
+        description: ID of the document, from the list of exchanged documents
+        example: msg_01KMFSMEYVCDV0150T6P4WECVR
+    ExchangedDocumentEnvelope:
+      in: query
+      name: envelope
+      required: false
+      schema:
+        type: string
+        enum:
+          - none
+          - sbd
+        default: none
+        description: >-
+          `sbd` returns the Standard Business Document the document was
+          transmitted in. Documents without one, such as a report that has not
+          been sent yet, return 412.
   responses:
     default:
       $ref: '#/components/responses/Error'
+    ExchangedDocuments:
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExchangedDocument'
+    ExchangedDocumentXML:
+      description: The document as XML
+      headers:
+        Content-Disposition:
+          schema:
+            type: string
+            example: attachment; filename="invoice-msg_01KMFSMEYVCDV0150T6P4WECVR.xml"
+        ETag:
+          description: >-
+            The SHA-256 digest of the body, as listed in `sha256` or
+            `envelope_sha256`
+          schema:
+            type: string
+            example: '"9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"'
+      content:
+        application/xml:
+          schema:
+            type: string
+            format: binary
     Error:
       description: Error response
       content:

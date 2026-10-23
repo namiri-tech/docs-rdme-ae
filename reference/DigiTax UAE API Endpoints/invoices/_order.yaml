@@ -2,3 +2,5 @@
 - post_invoices
 - get_invoices-invoice-id
 - post_detailed-invoices
+- get_invoices-invoice-id-documents
+- get_invoices-invoice-id-documents-document-id

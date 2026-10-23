@@ -2,3 +2,5 @@
 - post_credit-notes
 - get_credit-notes-credit-note-id
 - post_detailed-credit-notes
+- get_credit-notes-credit-note-id-documents
+- get_credit-notes-credit-note-id-documents-document-id

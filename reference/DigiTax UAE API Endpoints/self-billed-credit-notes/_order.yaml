@@ -2,3 +2,5 @@
 - post_self-billed-credit-notes
 - get_self-billed-credit-notes-credit-note-id
 - post_detailed-self-billed-credit-notes
+- get_self-billed-credit-notes-credit-note-id-documents
+- get_self-billed-credit-notes-credit-note-id-documents-document-id
