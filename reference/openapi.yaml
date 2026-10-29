@@ -808,8 +808,11 @@ paths:
                 trader_invoice_number:
                   type: string
                   description: >-
-                    An invoice number assigned by the supplier to uniquely
-                    identify the invoice in their system
+                    An issuer-assigned invoice number, unique within the
+                    business. When given, this is the document number sent over
+                    Peppol; otherwise, the DigiTax-generated number is used.
+                    Must contain valid Unicode and XML characters, with no
+                    leading or trailing whitespace, tabs, or line breaks
                   example: ACME-INV-2024-0042
                 transaction_types:
                   type: array
@@ -2321,8 +2324,11 @@ paths:
                 trader_invoice_number:
                   type: string
                   description: >-
-                    An invoice number assigned by the supplier to uniquely
-                    identify the invoice in their system
+                    An issuer-assigned invoice number, unique within the
+                    business. When given, this is the document number sent over
+                    Peppol; otherwise, the DigiTax-generated number is used.
+                    Must contain valid Unicode and XML characters, with no
+                    leading or trailing whitespace, tabs, or line breaks
                   example: ACME-CN-2024-0003
                 credit_note_reason_code:
                   type: string
@@ -2983,8 +2989,11 @@ paths:
                 trader_invoice_number:
                   type: string
                   description: >-
-                    An invoice number assigned by the buyer to uniquely identify
-                    the self-billed invoice in their system
+                    An issuer-assigned invoice number, unique within the
+                    business. When given, this is the document number sent over
+                    Peppol; otherwise, the DigiTax-generated number is used.
+                    Must contain valid Unicode and XML characters, with no
+                    leading or trailing whitespace, tabs, or line breaks
                   example: ACME-SBI-2024-0042
                 transaction_types:
                   type: array
@@ -3404,8 +3413,11 @@ paths:
                 trader_invoice_number:
                   type: string
                   description: >-
-                    An invoice number assigned by the buyer to uniquely identify
-                    the self-billed credit note in their system
+                    An issuer-assigned invoice number, unique within the
+                    business. When given, this is the document number sent over
+                    Peppol; otherwise, the DigiTax-generated number is used.
+                    Must contain valid Unicode and XML characters, with no
+                    leading or trailing whitespace, tabs, or line breaks
                   example: ACME-SBCN-2024-0003
                 credit_note_reason_code:
                   type: string
@@ -7949,7 +7961,10 @@ components:
           example: true
         invoice_number:
           type: string
-          description: The sequential invoice number assigned by DigiTax
+          description: >-
+            The sequential invoice number assigned by DigiTax. This remains
+            unchanged when trader_invoice_number is used as the document number
+            over Peppol.
           example: INV-2024-00001
         uuid:
           type: string
@@ -7958,8 +7973,11 @@ components:
         trader_invoice_number:
           type: string
           description: >-
-            An invoice number assigned by the supplier to uniquely identify the
-            invoice in their system
+            An issuer-assigned invoice number, unique within the business. When
+            given, this is the document number sent over Peppol; otherwise, the
+            DigiTax-generated number is used. Must contain valid Unicode and XML
+            characters, with no leading or trailing whitespace, tabs, or line
+            breaks
           example: ACME-INV-2024-0042
         transaction_type_code:
           type: string
@@ -9546,8 +9564,11 @@ components:
         trader_invoice_number:
           type: string
           description: >-
-            An invoice number assigned by the supplier to uniquely identify the
-            invoice in their system
+            An issuer-assigned invoice number, unique within the business. When
+            given, this is the document number sent over Peppol; otherwise, the
+            DigiTax-generated number is used. Must contain valid Unicode and XML
+            characters, with no leading or trailing whitespace, tabs, or line
+            breaks
           example: ACME-INV-2024-0042
         transaction_types:
           type: array
@@ -9720,8 +9741,11 @@ components:
         trader_invoice_number:
           type: string
           description: >-
-            An invoice number assigned by the supplier to uniquely identify the
-            invoice in their system
+            An issuer-assigned invoice number, unique within the business. When
+            given, this is the document number sent over Peppol; otherwise, the
+            DigiTax-generated number is used. Must contain valid Unicode and XML
+            characters, with no leading or trailing whitespace, tabs, or line
+            breaks
           example: ACME-CN-2024-0003
         credit_note_reason_code:
           type: string
