@@ -555,7 +555,13 @@ paths:
       tags:
         - Parties
       summary: Update a UAE business party
-      description: Updates party information given their ID on DigiTax
+      description: >
+        Updates party information given their ID on DigiTax.
+
+
+        When `legal_entity` is sent, it replaces the party's legal entity in
+        full: send every field you want to keep, as any field left out is
+        cleared. Leave `legal_entity` out to keep it unchanged.
       security:
         - apiKeyAuth: []
       parameters:
@@ -590,6 +596,19 @@ paths:
                   format: email
                   description: The updated contact email address
                   example: sara.ahmed@global-imports.ae
+                uae_registered:
+                  type: boolean
+                  nullable: true
+                  description: >
+                    Whether the party holds a UAE Tax Identification Number with
+                    the FTA, with the same meaning as on create. Omit it, or
+                    send `null`, to keep the current value. `true` needs a
+                    UAE-format TIN, and a complete `legal_entity` unless the
+                    party has a `peppol_id_scheme` other than `0235` (send
+                    `legal_entity` in the same request when needed). `false` is
+                    rejected for a party with a TRN or addressed under
+                    `peppol_id_scheme` `0235`.
+                  example: true
       responses:
         '200':
           description: Party updated
