@@ -7587,12 +7587,12 @@ components:
           example: DAP
     InvoiceAllowanceCharge:
       type: object
-      description: An allowance or charge at document level
+      description: >-
+        An allowance or charge at document level. Meaningful reason text or a
+        valid reason_code is required.
       required:
         - charge_indicator
         - amount
-        - reason_code
-        - reason
         - tax_category_code
         - tax_rate
       properties:
@@ -7661,12 +7661,12 @@ components:
           example: Certain financial services
     InvoiceItemAllowanceCharge:
       type: object
-      description: An allowance or charge at invoice item level
+      description: >-
+        An allowance or charge at invoice item level. Meaningful reason text or
+        a valid reason_code is required.
       required:
         - charge_indicator
         - amount
-        - reason_code
-        - reason
       properties:
         charge_indicator:
           type: boolean
