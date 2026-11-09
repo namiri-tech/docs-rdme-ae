@@ -514,10 +514,14 @@ paths:
                 - $ref: '#/components/schemas/PartyTaxpayer'
                 - type: object
                   properties:
-                    metadata:
-                      type: object
-                      additionalProperties:
-                        type: string
+                    public_metadata:
+                      type: string
+                      maxLength: 100
+                      description: >-
+                        Free-form text to attach to this resource, such as your
+                        own reference or a JSON string, up to 100 characters.
+                        Digitax stores it as given and returns it as
+                        `public_metadata` on the resource. Set at creation only.
       responses:
         '201':
           description: Created party
@@ -668,6 +672,14 @@ paths:
                 - commodity_code
                 - tax_category_code
               properties:
+                public_metadata:
+                  type: string
+                  maxLength: 100
+                  description: >-
+                    Free-form text to attach to this resource, such as your own
+                    reference or a JSON string, up to 100 characters. Digitax
+                    stores it as given and returns it as `public_metadata` on
+                    the resource. Set at creation only.
                 name:
                   type: string
                   description: The name of the item
@@ -942,6 +954,14 @@ paths:
                 - items
                 - payments
               properties:
+                public_metadata:
+                  type: string
+                  maxLength: 100
+                  description: >-
+                    Free-form text to attach to this resource, such as your own
+                    reference or a JSON string, up to 100 characters. Digitax
+                    stores it as given and returns it as `public_metadata` on
+                    the resource. Set at creation only.
                 trader_invoice_number:
                   type: string
                   description: >-
@@ -2458,6 +2478,14 @@ paths:
                 - invoice_type_code
                 - items
               properties:
+                public_metadata:
+                  type: string
+                  maxLength: 100
+                  description: >-
+                    Free-form text to attach to this resource, such as your own
+                    reference or a JSON string, up to 100 characters. Digitax
+                    stores it as given and returns it as `public_metadata` on
+                    the resource. Set at creation only.
                 trader_invoice_number:
                   type: string
                   description: >-
@@ -3028,10 +3056,14 @@ paths:
                         requires the supplier to be VAT-registered, so this is
                         always required.
                       example: '100987654300003'
-                    metadata:
-                      type: object
-                      additionalProperties:
-                        type: string
+                    public_metadata:
+                      type: string
+                      maxLength: 100
+                      description: >-
+                        Free-form text to attach to this resource, such as your
+                        own reference or a JSON string, up to 100 characters.
+                        Digitax stores it as given and returns it as
+                        `public_metadata` on the resource. Set at creation only.
       responses:
         '201':
           description: Created supplier
@@ -3123,6 +3155,14 @@ paths:
                 - items
                 - payments
               properties:
+                public_metadata:
+                  type: string
+                  maxLength: 100
+                  description: >-
+                    Free-form text to attach to this resource, such as your own
+                    reference or a JSON string, up to 100 characters. Digitax
+                    stores it as given and returns it as `public_metadata` on
+                    the resource. Set at creation only.
                 trader_invoice_number:
                   type: string
                   description: >-
@@ -3547,6 +3587,14 @@ paths:
                 - invoice_type_code
                 - items
               properties:
+                public_metadata:
+                  type: string
+                  maxLength: 100
+                  description: >-
+                    Free-form text to attach to this resource, such as your own
+                    reference or a JSON string, up to 100 characters. Digitax
+                    stores it as given and returns it as `public_metadata` on
+                    the resource. Set at creation only.
                 trader_invoice_number:
                   type: string
                   description: >-
@@ -7363,6 +7411,11 @@ components:
         - tax_identification_number
         - legal_entity
       properties:
+        public_metadata:
+          type: string
+          description: >-
+            The free-form text that was sent as `public_metadata` when this
+            resource was created. Omitted when none was set.
         id:
           type: string
           description: The unique DigiTax identifier for this party
@@ -7446,6 +7499,11 @@ components:
         - tax_registration_number
         - legal_entity
       properties:
+        public_metadata:
+          type: string
+          description: >-
+            The free-form text that was sent as `public_metadata` when this
+            resource was created. Omitted when none was set.
         id:
           type: string
           description: The unique DigiTax identifier for this supplier
@@ -7531,6 +7589,11 @@ components:
         - commodity_code
         - tax_category_code
       properties:
+        public_metadata:
+          type: string
+          description: >-
+            The free-form text that was sent as `public_metadata` when this
+            resource was created. Omitted when none was set.
         id:
           type: string
           description: The unique DigiTax identifier for this item
@@ -8078,6 +8141,11 @@ components:
         - reporting
         - references
       properties:
+        public_metadata:
+          type: string
+          description: >-
+            The free-form text that was sent as `public_metadata` when this
+            resource was created. Omitted when none was set.
         id:
           type: string
           description: The unique DigiTax identifier for this invoice
@@ -9698,6 +9766,14 @@ components:
         - items
         - payments
       properties:
+        public_metadata:
+          type: string
+          maxLength: 100
+          description: >-
+            Free-form text to attach to this resource, such as your own
+            reference or a JSON string, up to 100 characters. Digitax stores it
+            as given and returns it as `public_metadata` on the resource. Set at
+            creation only.
         trader_invoice_number:
           type: string
           description: >-
@@ -9875,6 +9951,14 @@ components:
         - document_currency_code
         - items
       properties:
+        public_metadata:
+          type: string
+          maxLength: 100
+          description: >-
+            Free-form text to attach to this resource, such as your own
+            reference or a JSON string, up to 100 characters. Digitax stores it
+            as given and returns it as `public_metadata` on the resource. Set at
+            creation only.
         trader_invoice_number:
           type: string
           description: >-
