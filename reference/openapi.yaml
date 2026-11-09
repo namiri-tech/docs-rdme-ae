@@ -769,6 +769,124 @@ paths:
                 $ref: '#/components/schemas/Item'
         default:
           $ref: '#/components/responses/Error'
+    put:
+      tags:
+        - Items
+      summary: Update a UAE Item
+      description: >
+        Updates an item given its ID on DigiTax. Only the fields you send
+        change; fields you leave out keep their current value.
+
+
+        For `hs_code`, `service_accounting_code`, `standard_item_id`,
+        `standard_item_scheme` and `origin_country_code`, send an empty string
+        to clear the value, as long as the item stays valid (for example, an
+        item with a commodity code of goods needs its `hs_code`, and
+        `standard_item_id` and `standard_item_scheme` are cleared together).
+        `name`, `description`, `commodity_code` and `item_code` cannot be
+        cleared. When sent, `item_properties` replaces the item's properties in
+        full.
+
+
+        The commodity, HS code and service accounting code rules are the same as
+        on create and are checked against the item as it will be after the
+        update, so changing `commodity_code` usually means sending the matching
+        codes in the same request.
+
+
+        `item_code` can only be set on an item that has none yet, and returns an
+        error if the code is already used by another item. It cannot be changed
+        afterwards.
+
+
+        Invoices already created keep the item details they were issued with.
+      security:
+        - apiKeyAuth: []
+      parameters:
+        - in: path
+          name: item_id
+          required: true
+          schema:
+            type: string
+            description: Item ID on DigiTax
+            example: item_01HC3J1VVVM05YCTS61G7V3KC6
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the item
+                  example: Industrial Pump Model X-500
+                description:
+                  type: string
+                  description: A description of the item
+                  example: High-pressure centrifugal pump for industrial fluid transfer
+                commodity_code:
+                  type: string
+                  description: >-
+                    The commodity type code (G for goods, S for services, B for
+                    both). See `GET /resources/commodity-codes` for available
+                    values.
+                  example: G
+                hs_code:
+                  type: string
+                  description: >-
+                    The Harmonized System (HS) code for the item. Required when
+                    commodity_code is G or B, and not allowed when it is S. See
+                    `GET /resources/hs-codes`.
+                  example: '841370000001'
+                service_accounting_code:
+                  type: string
+                  description: >-
+                    The Service Accounting Code for the item. Required when
+                    commodity_code is S or B, and not allowed when it is G. See
+                    `GET /resources/service-codes`.
+                  example: '83111'
+                item_code:
+                  type: string
+                  description: >-
+                    A unique code assigned to the item in your system. Can only
+                    be set when the item has no item code yet.
+                  example: PUMP-X500-BLK
+                standard_item_id:
+                  type: string
+                  description: >-
+                    A standardised item identifier. Needs
+                    `standard_item_scheme`.
+                  example: '09501101530003'
+                standard_item_scheme:
+                  type: string
+                  description: >-
+                    The scheme for the standard item identifier. See `GET
+                    /resources/international-code-designator-schemes` for
+                    available values.
+                  example: '0160'
+                origin_country_code:
+                  type: string
+                  description: >-
+                    The ISO 3166-1 alpha-2 code of the item's country of origin.
+                    See `GET /resources/countries` for available values.
+                  example: DE
+                item_properties:
+                  type: array
+                  description: >-
+                    Additional item attributes. Replaces the existing properties
+                    in full.
+                  items:
+                    $ref: '#/components/schemas/ItemProperty'
+      responses:
+        '200':
+          description: Item updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+        default:
+          $ref: '#/components/responses/Error'
   /invoices:
     get:
       tags:
