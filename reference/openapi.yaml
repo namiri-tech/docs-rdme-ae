@@ -600,6 +600,13 @@ paths:
                   format: email
                   description: The updated contact email address
                   example: sara.ahmed@global-imports.ae
+                tax_registration_number:
+                  type: string
+                  description: >
+                    The UAE Tax Registration Number (TRN). It can be set only
+                    once: it is applied while the party has no TRN, and ignored
+                    once the party has one. Only UAE parties may have a TRN.
+                  example: '100987654300003'
                 uae_registered:
                   type: boolean
                   nullable: true
