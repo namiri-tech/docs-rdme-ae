@@ -3062,7 +3062,7 @@ paths:
                         The UAE Tax Registration Number (TRN). Self-billing
                         requires the supplier to be VAT-registered, so this is
                         always required.
-                      example: '100987654300003'
+                      example: '105827364900003'
                     public_metadata:
                       type: string
                       maxLength: 100
@@ -4019,8 +4019,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-08-27'
                   invoice_type_code: '480'
@@ -4080,8 +4080,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-24'
                   invoice_period:
@@ -4164,8 +4164,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   invoice_type_code: '380'
                   issue_date: '2026-08-27'
@@ -4220,8 +4220,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-08-27'
                   invoice_type_code: '380'
@@ -4291,8 +4291,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
@@ -4352,8 +4352,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '480'
@@ -4410,8 +4410,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '480'
@@ -4467,8 +4467,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
@@ -4527,8 +4527,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
@@ -4588,8 +4588,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '480'
@@ -4646,8 +4646,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '480'
@@ -4703,8 +4703,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
@@ -4773,8 +4773,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   delivery:
                     actual_delivery_date: '2026-08-27'
                     delivery_address:
@@ -4899,8 +4899,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   delivery:
                     actual_delivery_date: '2026-08-20'
                     delivery_address:
@@ -5168,8 +5168,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-24'
                   invoice_type_code: '380'
@@ -5227,8 +5227,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-26'
                   invoice_type_code: '380'
@@ -5392,8 +5392,8 @@ paths:
                       registration_name: Rahul Menon Trading
                       registration_number: P1234567890
                       registration_scheme: '0235'
-                    tax_identification_number: '1023456789'
-                    tax_registration_number: '102345678900003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-26'
                   invoice_type_code: '380'
@@ -5436,8 +5436,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-08-27'
                   invoice_type_code: '380'
@@ -5489,8 +5489,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-26'
                   invoice_type_code: '380'
@@ -5578,8 +5578,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-10'
                   invoice_type_code: '380'
@@ -5628,8 +5628,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-03'
                   invoice_type_code: '380'
@@ -5701,8 +5701,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   despatch_document_reference:
                     id: Memo-1000
                   document_currency_code: AED
@@ -5793,8 +5793,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-10'
                   invoice_period:
@@ -5893,8 +5893,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-11'
                   invoice_type_code: '380'
@@ -5986,8 +5986,8 @@ paths:
                       registration_name: Rahul Menon Trading
                       registration_number: P1234567890
                       registration_scheme: '0235'
-                    tax_identification_number: '1023456789'
-                    tax_registration_number: '102345678900003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   invoice_type_code: '381'
                   issue_date: '2026-08-27'
@@ -6053,8 +6053,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   despatch_document_reference:
                     id: Memo-1000
                   document_currency_code: AED
@@ -6130,8 +6130,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   due_date: '2026-09-26'
                   invoice_type_code: '381'
@@ -6199,8 +6199,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   despatch_document_reference:
                     id: Memo-1000
                   document_currency_code: AED
@@ -6274,8 +6274,8 @@ paths:
                       registration_name: Global Imports LLC
                       registration_number: CN-1234567
                       registration_scheme: '0235'
-                    tax_identification_number: '1009876543'
-                    tax_registration_number: '100987654300003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   document_currency_code: AED
                   invoice_type_code: '381'
                   issue_date: '2026-08-27'
@@ -6371,8 +6371,8 @@ paths:
                       registration_name: Desert Logistics LLC
                       registration_number: CN-7654321
                       registration_scheme: '0235'
-                    tax_identification_number: '1004567890'
-                    tax_registration_number: '100456789000003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: AE-DSBI-001
               detailed_self_billed_invoice_passport_supplier:
                 description: >-
@@ -6418,8 +6418,8 @@ paths:
                       registration_name: Oliver Hastings Consulting
                       registration_number: P9876543210
                       registration_scheme: '0235'
-                    tax_identification_number: '1007654321'
-                    tax_registration_number: '100765432100003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: AE-DSBI-PAS-001
               detailed_standard_self_billed_invoice_minimal:
                 description: >-
@@ -6462,8 +6462,8 @@ paths:
                       registration_name: Desert Logistics LLC
                       registration_number: CN-7654321
                       registration_scheme: '0235'
-                    tax_identification_number: '1004567890'
-                    tax_registration_number: '100456789000003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: ACME-SBI-2026-0002-D
       responses:
         '201':
@@ -6546,8 +6546,8 @@ paths:
                       registration_name: Oliver Hastings Consulting
                       registration_number: P9876543210
                       registration_scheme: '0235'
-                    tax_identification_number: '1007654321'
-                    tax_registration_number: '100765432100003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: AE-DSBCN-PAS-001
               detailed_self_billed_volume_discount_credit_note:
                 description: >-
@@ -6586,8 +6586,8 @@ paths:
                       registration_name: Desert Logistics LLC
                       registration_number: CN-7654321
                       registration_scheme: '0235'
-                    tax_identification_number: '1004567890'
-                    tax_registration_number: '100456789000003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: AE-DSBCN-001
               detailed_standard_self_billed_credit_note:
                 description: >-
@@ -6682,8 +6682,8 @@ paths:
                       registration_name: Desert Logistics LLC
                       registration_number: CN-7654321
                       registration_scheme: '0235'
-                    tax_identification_number: '1004567890'
-                    tax_registration_number: '100456789000003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: AE001-CN-SB-TEST-D
               detailed_standard_self_billed_credit_note_minimal:
                 description: >-
@@ -6729,8 +6729,8 @@ paths:
                       registration_name: Desert Logistics LLC
                       registration_number: CN-7654321
                       registration_scheme: '0235'
-                    tax_identification_number: '1004567890'
-                    tax_registration_number: '100456789000003'
+                    tax_identification_number: '1058273649'
+                    tax_registration_number: '105827364900003'
                   trader_invoice_number: ACME-SBCN-2026-0002-D
       responses:
         '201':
@@ -6976,7 +6976,7 @@ components:
         tax_registration_number:
           type: string
           description: The tax representative's UAE Tax Registration Number (TRN)
-          example: '100987654300003'
+          example: '105827364900003'
         address:
           $ref: '#/components/schemas/Address'
     LegalRegistrationType:
@@ -7203,13 +7203,13 @@ components:
           description: >-
             The UAE Tax Identification Number (TIN) — the universal 10-digit FTA
             identity
-          example: '1009876543'
+          example: '1058273649'
         tax_registration_number:
           type: string
           description: >-
             The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
             have one
-          example: '100987654300003'
+          example: '105827364900003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
         address:
@@ -7285,14 +7285,14 @@ components:
             The party's Tax Identification Number (TIN). Required for every
             party, and checked against the UAE 10-digit format when the party is
             UAE-registered (see `uae_registered`)
-          example: '1009876543'
+          example: '1058273649'
         tax_registration_number:
           type: string
           description: >-
             The UAE Tax Registration Number (TRN), which marks UAE VAT
             registration. Only a UAE-registered party may have one (see
             `uae_registered`)
-          example: '100987654300003'
+          example: '105827364900003'
         uae_registered:
           type: boolean
           nullable: true
@@ -7375,13 +7375,13 @@ components:
           description: >-
             The UAE Tax Identification Number (TIN) of the business — the
             universal 10-digit FTA identity
-          example: '1001234567'
+          example: '1058273649'
         tax_registration_number:
           type: string
           description: >-
             The UAE Tax Registration Number (TRN). Only VAT-registered taxpayers
             have one of the business
-          example: '100123456700003'
+          example: '105827364900003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
         address:
@@ -7447,14 +7447,14 @@ components:
             The party's Tax Identification Number (TIN) — required for every
             party, and in the UAE 10-digit format when the party is
             UAE-registered (see `uae_registered`)
-          example: '1009876543'
+          example: '1058273649'
         tax_registration_number:
           type: string
           description: >-
             The UAE Tax Registration Number (TRN), which marks UAE VAT
             registration. Only a UAE-registered party may have one (see
             `uae_registered`)
-          example: '100987654300003'
+          example: '105827364900003'
         party_name:
           type: string
           description: The trading name of the party
@@ -7534,13 +7534,13 @@ components:
           description: >-
             The UAE Tax Identification Number (TIN) of the supplier — the
             universal 10-digit FTA identity
-          example: '1009876543'
+          example: '1058273649'
         tax_registration_number:
           type: string
           description: >-
             The UAE Tax Registration Number (TRN) of the supplier. Self-billing
             requires VAT registration, so every supplier has one.
-          example: '100987654300003'
+          example: '105827364900003'
         legal_entity:
           $ref: '#/components/schemas/LegalEntity'
         address:
@@ -8445,7 +8445,7 @@ components:
         tax_registration_number:
           type: string
           description: The UAE Tax Registration Number (TRN) of the party
-          example: '100987654300003'
+          example: '105827364900003'
         party_name:
           type: string
           description: The trading name of the party
@@ -9595,7 +9595,7 @@ components:
               description: >-
                 The UAE Tax Registration Number (TRN). Self-billing requires the
                 supplier to be VAT-registered, so this is always required.
-              example: '100987654300003'
+              example: '105827364900003'
     DetailedInvoiceItemRequest:
       type: object
       description: >-
