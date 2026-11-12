@@ -1077,20 +1077,24 @@ paths:
                   type: array
                   description: References to preceding invoices
                   items:
-                    $ref: '#/components/schemas/DocumentReference'
+                    $ref: '#/components/schemas/BillingReference'
                 despatch_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Despatch advice reference (BT-16)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 receipt_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Receiving advice reference (BT-15)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 originator_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Tender or lot reference (BT-17)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 contract_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Contract reference (BT-12)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 additional_documents:
                   type: array
                   description: Additional supporting document references
                   items:
-                    $ref: '#/components/schemas/DocumentReference'
+                    $ref: '#/components/schemas/AdditionalDocumentReference'
                 delivery:
                   $ref: '#/components/schemas/InvoiceDelivery'
                 payment_terms_note:
@@ -1183,7 +1187,6 @@ paths:
                       tax_category_code: S
                       tax_rate: 0.05
                   contract_document_reference:
-                    document_description: AED 1000000
                     id: ZXC-CS-03
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   document_currency_code: AED
@@ -1788,7 +1791,6 @@ paths:
                       issue_date: '2026-08-20'
                   buyer_reference: BR-001/23
                   contract_document_reference:
-                    document_description: AED200000
                     id: BR-001/23
                   customer_party_id: party_01HFXK2VV2M05YCTS61G7V3KC6
                   delivery:
@@ -2588,18 +2590,22 @@ paths:
                 order_reference:
                   $ref: '#/components/schemas/OrderReference'
                 despatch_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Despatch advice reference (BT-16)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 receipt_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Receiving advice reference (BT-15)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 originator_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Tender or lot reference (BT-17)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 contract_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Contract reference (BT-12)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 additional_documents:
                   type: array
                   description: Additional supporting document references
                   items:
-                    $ref: '#/components/schemas/DocumentReference'
+                    $ref: '#/components/schemas/AdditionalDocumentReference'
                 delivery:
                   $ref: '#/components/schemas/InvoiceDelivery'
                 payment_terms_note:
@@ -3279,20 +3285,24 @@ paths:
                   type: array
                   description: References to preceding invoices
                   items:
-                    $ref: '#/components/schemas/DocumentReference'
+                    $ref: '#/components/schemas/BillingReference'
                 despatch_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Despatch advice reference (BT-16)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 receipt_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Receiving advice reference (BT-15)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 originator_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Tender or lot reference (BT-17)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 contract_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Contract reference (BT-12)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 additional_documents:
                   type: array
                   description: Additional supporting document references
                   items:
-                    $ref: '#/components/schemas/DocumentReference'
+                    $ref: '#/components/schemas/AdditionalDocumentReference'
                 delivery:
                   $ref: '#/components/schemas/InvoiceDelivery'
                 payment_terms_note:
@@ -3699,18 +3709,22 @@ paths:
                 order_reference:
                   $ref: '#/components/schemas/OrderReference'
                 despatch_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Despatch advice reference (BT-16)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 receipt_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Receiving advice reference (BT-15)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 originator_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Tender or lot reference (BT-17)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 contract_document_reference:
-                  $ref: '#/components/schemas/DocumentReference'
+                  description: Contract reference (BT-12)
+                  $ref: '#/components/schemas/DocumentReferenceID'
                 additional_documents:
                   type: array
                   description: Additional supporting document references
                   items:
-                    $ref: '#/components/schemas/DocumentReference'
+                    $ref: '#/components/schemas/AdditionalDocumentReference'
                 delivery:
                   $ref: '#/components/schemas/InvoiceDelivery'
                 payment_terms_note:
@@ -4066,7 +4080,6 @@ paths:
                       tax_category_code: S
                       tax_rate: 0.05
                   contract_document_reference:
-                    document_description: AED 1000000
                     id: ZXC-CS-03
                   customer_party:
                     address:
@@ -4885,7 +4898,6 @@ paths:
                       issue_date: '2026-08-20'
                   buyer_reference: BR-001/23
                   contract_document_reference:
-                    document_description: AED200000
                     id: BR-001/23
                   customer_party:
                     address:
@@ -7697,11 +7709,12 @@ components:
           type: string
           description: An identifier of a referenced sales order, issued by the Seller
           example: SO-2024-00456
-    DocumentReference:
+    DocumentReferenceID:
       type: object
       description: >-
-        A reference to another document (e.g. despatch advice, receipt advice,
-        contract)
+        A reference to another document by its identifier only. Used for the
+        despatch advice (BT-16), receiving advice (BT-15), tender or lot (BT-17)
+        and contract (BT-12) references.
       required:
         - id
       properties:
@@ -7709,18 +7722,41 @@ components:
           type: string
           description: The identifier of the referenced document
           example: DA-2024-001
+    BillingReference:
+      type: object
+      description: A reference to a preceding invoice (BG-3)
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The number of the preceding invoice (BT-25)
+          example: INV-2026-0042
+        issue_date:
+          type: string
+          description: The issue date of the preceding invoice (BT-26, YYYY-MM-DD)
+          example: '2026-07-14'
+    AdditionalDocumentReference:
+      type: object
+      description: A supporting document that accompanies the invoice (BG-24)
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          description: The identifier of the supporting document (BT-122)
+          example: DOC-2024-001
         document_type_code:
           type: string
-          description: The UNCL1001 document type code of the referenced document
+          description: >-
+            The UNCL1001 document type code of the supporting document. `130`
+            marks the invoiced object identifier (BT-18), which can be given at
+            most once and cannot carry a description.
           example: '916'
         document_description:
           type: string
-          description: A human-readable description of the referenced document
+          description: A human-readable description of the supporting document (BT-123)
           example: Despatch Advice
-        issue_date:
-          type: string
-          description: The issue date of the referenced document (YYYY-MM-DD)
-          example: '2026-07-14'
     InvoicePeriod:
       type: object
       description: The period to which the invoice relates
@@ -8281,20 +8317,24 @@ components:
           type: array
           description: References to preceding invoices for credit notes
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/BillingReference'
         despatch_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Despatch advice reference (BT-16)
+          $ref: '#/components/schemas/DocumentReferenceID'
         receipt_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Receiving advice reference (BT-15)
+          $ref: '#/components/schemas/DocumentReferenceID'
         originator_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Tender or lot reference (BT-17)
+          $ref: '#/components/schemas/DocumentReferenceID'
         contract_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Contract reference (BT-12)
+          $ref: '#/components/schemas/DocumentReferenceID'
         additional_documents:
           type: array
           description: References to additional supporting documents
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/AdditionalDocumentReference'
         customer_party_id:
           type: string
           description: The DigiTax party ID of the buyer
@@ -8833,20 +8873,24 @@ components:
           type: array
           description: References to preceding invoices
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/BillingReference'
         despatch_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Despatch advice reference (BT-16)
+          $ref: '#/components/schemas/DocumentReferenceID'
         receipt_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Receiving advice reference (BT-15)
+          $ref: '#/components/schemas/DocumentReferenceID'
         originator_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Tender or lot reference (BT-17)
+          $ref: '#/components/schemas/DocumentReferenceID'
         contract_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Contract reference (BT-12)
+          $ref: '#/components/schemas/DocumentReferenceID'
         additional_documents:
           type: array
           description: References to additional supporting documents
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/AdditionalDocumentReference'
         delivery:
           $ref: '#/components/schemas/InvoiceDelivery'
         allowance_charges:
@@ -9883,20 +9927,24 @@ components:
           type: array
           description: References to preceding invoices
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/BillingReference'
         despatch_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Despatch advice reference (BT-16)
+          $ref: '#/components/schemas/DocumentReferenceID'
         receipt_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Receiving advice reference (BT-15)
+          $ref: '#/components/schemas/DocumentReferenceID'
         originator_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Tender or lot reference (BT-17)
+          $ref: '#/components/schemas/DocumentReferenceID'
         contract_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Contract reference (BT-12)
+          $ref: '#/components/schemas/DocumentReferenceID'
         additional_documents:
           type: array
           description: Additional supporting document references
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/AdditionalDocumentReference'
         delivery:
           $ref: '#/components/schemas/InvoiceDelivery'
         payment_terms_note:
@@ -10054,18 +10102,22 @@ components:
         order_reference:
           $ref: '#/components/schemas/OrderReference'
         despatch_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Despatch advice reference (BT-16)
+          $ref: '#/components/schemas/DocumentReferenceID'
         receipt_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Receiving advice reference (BT-15)
+          $ref: '#/components/schemas/DocumentReferenceID'
         originator_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Tender or lot reference (BT-17)
+          $ref: '#/components/schemas/DocumentReferenceID'
         contract_document_reference:
-          $ref: '#/components/schemas/DocumentReference'
+          description: Contract reference (BT-12)
+          $ref: '#/components/schemas/DocumentReferenceID'
         additional_documents:
           type: array
           description: Additional supporting document references
           items:
-            $ref: '#/components/schemas/DocumentReference'
+            $ref: '#/components/schemas/AdditionalDocumentReference'
         delivery:
           $ref: '#/components/schemas/InvoiceDelivery'
         payment_terms_note:
