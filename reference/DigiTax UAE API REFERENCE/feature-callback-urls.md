@@ -84,7 +84,7 @@ _Below is a snippet of the response of a GET invoice request. The overall_status
   },
 ```
 
-Status change make some time and it is not efficient to have you, as the API caller or consumer, to wait for a response. Callback URLs are useful since they inform you as soon as a particular event like a status change happens.
+Status changes may take some time, and it is not efficient for you, as the API caller or consumer, to wait for a response. Callback URLs are useful since they inform you as soon as a particular event like a status change happens.
 
 ## Configure callbacks in the DigiTax Dashboard
 
@@ -107,7 +107,7 @@ The Event Callbacks page lists the events you can subscribe to. Click **+ Add Ca
 | Invoice Status Changed | An invoice you issued is validated, submitted, reported or withdrawn |
 | Received Invoice Status Changed | An invoice you received is saved or reported to the tax authority |
 
-The document types that fire **Invoice Status Changed** are invoices, credit noets, self-billed invoices and self-billed credit notes.
+The document types that fire **Invoice Status Changed** are invoices, credit notes, self-billed invoices and self-billed credit notes.
 
 ### Step 3: Enter your URL and save
 

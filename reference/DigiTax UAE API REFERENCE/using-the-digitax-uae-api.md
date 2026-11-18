@@ -35,39 +35,39 @@ You send invoice (and other document) data to DigiTax. DigiTax validates, enrich
 
   <Card title="Explore core DigiTax UAE API endpoints" icon="fa-plug">
     * Business
-      * Retrieve context: GET [/info](https://ae.docs.digitax.tech/reference/get_info)
+      * Retrieve context: GET [/info](ref:get_info)
     * Parties
-      * Create a party: POST [/parties](https://ae.docs.digitax.tech/reference/post_parties)
-      * Retrieve multiple parties: GET [/parties](https://ae.docs.digitax.tech/reference/get_parties)
-      * Retrieve a single party: GET [/parties/\{id}](https://ae.docs.digitax.tech/reference/get_parties_party-id)
-      * Update a party: PUT [/parties/\{id}](https://ae.docs.digitax.tech/reference/put_parties_party-id)
+      * Create a party: POST [/parties](ref:post_parties)
+      * Retrieve multiple parties: GET [/parties](ref:get_parties)
+      * Retrieve a single party: GET [/parties/\{id}](ref:get_parties-party-id)
+      * Update a party: PUT [/parties/\{id}](ref:put_parties-party-id)
     * Suppliers
-      * Create a supplier: POST [/suppliers](https://ae.docs.digitax.tech/reference/post_suppliers)
-      * Retrieve multiple suppliers: GET [/suppliers](https://ae.docs.digitax.tech/reference/get_suppliers)
-      * Retrieve a single supplier: GET [/suppliers/\{id}](https://ae.docs.digitax.tech/reference/get_suppliers_supplier-id)
+      * Create a supplier: POST [/suppliers](ref:post_suppliers)
+      * Retrieve multiple suppliers: GET [/suppliers](ref:get_suppliers)
+      * Retrieve a single supplier: GET [/suppliers/\{id}](ref:get_suppliers-supplier-id)
     * Items
-      * Create an item: POST [/items](https://ae.docs.digitax.tech/reference/post_items)
-      * Retrieve multiple items: GET [/items](https://ae.docs.digitax.tech/reference/get_items)
-      * Retrieve a single item: GET [/items/\{id}](https://ae.docs.digitax.tech/reference/get_items_item-id)
+      * Create an item: POST [/items](ref:post_items)
+      * Retrieve multiple items: GET [/items](ref:get_items)
+      * Retrieve a single item: GET [/items/\{id}](ref:get_items-item-id)
     * Invoices
-      * Create an invoice: POST [/invoices](https://ae.docs.digitax.tech/reference/post_invoices)
-      * Retrieve multiple invoices: GET [/invoices](https://ae.docs.digitax.tech/reference/get_invoices)
-      * Retrieve a single invoice: GET [/invoices/\{id}](https://ae.docs.digitax.tech/reference/get_invoices_invoice-id)
+      * Create an invoice: POST [/invoices](ref:post_invoices)
+      * Retrieve multiple invoices: GET [/invoices](ref:get_invoices)
+      * Retrieve a single invoice: GET [/invoices/\{id}](ref:get_invoices-invoice-id)
     * Credit Notes
-      * Create a credit note: POST [/credit-notes](https://ae.docs.digitax.tech/reference/post_credit-notes)
-      * Retrieve multiple credit notes: GET [/credit-notes](https://ae.docs.digitax.tech/reference/get_credit-notes)
-      * Retrieve a single credit note: GET [/credit-notes/\{id}](https://ae.docs.digitax.tech/reference/get_credit-notes_credit-note-id)
+      * Create a credit note: POST [/credit-notes](ref:post_credit-notes)
+      * Retrieve multiple credit notes: GET [/credit-notes](ref:get_credit-notes)
+      * Retrieve a single credit note: GET [/credit-notes/\{id}](ref:get_credit-notes-credit-note-id)
     * Self-Billed Invoices
-      * Create a self-billed invoice: POST [/self-billed-invoices](https://ae.docs.digitax.tech/reference/post_self-billed-invoices)
-      * Retrieve multiple self-billed invoices: GET [/self-billed-invoices](https://ae.docs.digitax.tech/reference/get_self-billed-invoices)
-      * Retrieve a single self-billed invoice: GET [/self-billed-invoices/\{id}](https://ae.docs.digitax.tech/reference/get_self-billed-invoices_self-billed-invoice-id)
+      * Create a self-billed invoice: POST [/self-billed-invoices](ref:post_self-billed-invoices)
+      * Retrieve multiple self-billed invoices: GET [/self-billed-invoices](ref:get_self-billed-invoices)
+      * Retrieve a single self-billed invoice: GET [/self-billed-invoices/\{id}](ref:get_self-billed-invoices-invoice-id)
     * Self-Billed Credit Notes
-      * Create a self-billed credit note: POST [/self-billed-credit-notes](https://ae.docs.digitax.tech/reference/post_self-billed-credit-notes)
-      * Retrieve multiple self-billed credit notes: GET [/self-billed-credit-notes](https://ae.docs.digitax.tech/reference/get_self-billed-credit-notes)
-      * Retrieve a single self-billed credit note: GET [/self-billed-credit-notes/\{id}](https://ae.docs.digitax.tech/reference/get_self-billed-credit-notes_self-billed-credit-note-id)
+      * Create a self-billed credit note: POST [/self-billed-credit-notes](ref:post_self-billed-credit-notes)
+      * Retrieve multiple self-billed credit notes: GET [/self-billed-credit-notes](ref:get_self-billed-credit-notes)
+      * Retrieve a single self-billed credit note: GET [/self-billed-credit-notes/\{id}](ref:get_self-billed-credit-notes-credit-note-id)
     * Received Invoices
-      * Retrieve multiple received invoices: GET [/received-invoices](https://ae.docs.digitax.tech/reference/get_received-invoices)
-      * Retrieve a single received invoice: GET [/received-invoices/\{id}](https://ae.docs.digitax.tech/reference/get_received-invoices_received-invoice-id)
+      * Retrieve multiple received invoices: GET [/received-invoices](ref:get_received-invoices)
+      * Retrieve a single received invoice: GET [/received-invoices/\{id}](ref:get_received-invoices-received-invoice-id)
   </Card>
 </Cards>
 
