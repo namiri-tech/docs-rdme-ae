@@ -5,3 +5,16 @@ Namiri
 Peppol
 subentities
 HMAC
+invoicee
+subentity
+Schematron
+UNCL
+IBAN
+VATGPM
+Renminbi
+Tanzania
+Zimbabwe
+ZIMRA
+FDMS
+eTIMS
+TIMS
